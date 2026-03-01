@@ -6,6 +6,14 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="guardar">Guardar</string>
+    <string name="entrar">Entrar</string>
+    <string name="volver">Volver</string>
+    <string name="rc_pass_titulo">RECUPERAR CONTRASEÑA</string>
+    <string name="rc_pass_correo">Introduzca el correo:</string>
+    <string name="rc_pass_nuevacontraseña">Ingrese su nueva contraseña:</string>
+    <string name="rc_pass_repetircontraseña">Confirma su contraseña:</string>
+
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
