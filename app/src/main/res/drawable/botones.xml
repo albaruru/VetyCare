@@ -1,0 +1,15 @@
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Fondo transparente -->
+    <solid android:color="@android:color/transparent" />
+
+    <!-- Esquinas ligeramente redondeadas -->
+    <corners android:radius="20dp" />
+
+    <!-- Borde fino -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/botones" />
+</shape>

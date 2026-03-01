@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+
+    <!-- PRIMERA FILA BOTONES -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@color/menu_botones"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="-16dp">
+
+        <ImageButton
+            android:id="@+id/btnCita"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_weight="0.20"
+            android:layout_margin="5dp"
+            android:src="@drawable/btn_cita"
+            android:background="@drawable/botones_menu"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/btnTratamiento"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_weight="0.20"
+            android:layout_margin="5dp"
+            android:src="@drawable/btn_tratamiento"
+            android:background="@drawable/botones_menu"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/btnInforme"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_weight="0.20"
+            android:layout_margin="5dp"
+            android:src="@drawable/btn_informes"
+            android:background="@drawable/botones_menu"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/btnCalendarMas"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_weight="0.20"
+            android:layout_margin="5dp"
+            android:src="@drawable/btn_calendar"
+            android:background="@drawable/botones_menu"
+            android:textSize="20sp" />
+        <ImageButton
+            android:id="@+id/btnMascotas"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_weight="0.20"
+            android:layout_margin="5dp"
+            android:src="@drawable/btn_huella"
+            android:background="@drawable/botones_menu"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
