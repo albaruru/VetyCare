@@ -9,19 +9,21 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="24dp">
 
+        <!-- Título -->
         <TextView
             android:id="@+id/tv_titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
             android:text="@string/reg_usuario_titulo"
-            android:textSize="24sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/TextTitulo"/>
 
+        <!-- Imagen -->
         <ImageView
             android:id="@+id/iv_foto"
             android:layout_width="100dp"
@@ -34,7 +36,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_titulo" />
-
+        <!-- Texto Nombre -->
         <TextView
             android:id="@+id/tv_nombre"
             android:layout_width="wrap_content"
@@ -42,8 +44,9 @@
             android:layout_marginTop="20dp"
             android:text="@string/reg_nombre"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_foto" />
-
+            app:layout_constraintTop_toBottomOf="@+id/iv_foto"
+            style="@style/TextBaseNegrita"/>
+        <!-- Texto Nombre -->
         <EditText
             android:id="@+id/et_nombre"
             android:layout_width="0dp"
@@ -54,8 +57,9 @@
             android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_nombre" />
-
+            app:layout_constraintTop_toBottomOf="@+id/tv_nombre"
+            style="@style/TextBase"/>
+        <!-- Texto Apellido -->
         <TextView
             android:id="@+id/tv_apellido"
             android:layout_width="wrap_content"
@@ -63,8 +67,9 @@
             android:layout_marginTop="12dp"
             android:text="@string/reg_apellido"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_nombre" />
-
+            app:layout_constraintTop_toBottomOf="@+id/et_nombre"
+            style="@style/TextBaseNegrita"/>
+        <!-- Texto Apellido -->
         <EditText
             android:id="@+id/et_apellido"
             android:layout_width="0dp"
@@ -75,8 +80,9 @@
             android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_apellido" />
-
+            app:layout_constraintTop_toBottomOf="@+id/tv_apellido"
+            style="@style/TextBase"/>
+        <!-- Texto DNI -->
         <TextView
             android:id="@+id/tv_dni"
             android:layout_width="wrap_content"
@@ -84,8 +90,9 @@
             android:layout_marginTop="12dp"
             android:text="@string/reg_dni"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_apellido" />
-
+            app:layout_constraintTop_toBottomOf="@+id/et_apellido"
+            style="@style/TextBaseNegrita"/>
+        <!-- Texto DNI -->
         <EditText
             android:id="@+id/et_dni"
             android:layout_width="0dp"
@@ -95,8 +102,9 @@
             android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_dni" />
-
+            app:layout_constraintTop_toBottomOf="@+id/tv_dni"
+            style="@style/TextBase"/>
+        <!-- Texto Fecha -->
         <TextView
             android:id="@+id/tv_fecha"
             android:layout_width="wrap_content"
@@ -104,8 +112,9 @@
             android:layout_marginTop="12dp"
             android:text="@string/reg_fecha"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_dni" />
-
+            app:layout_constraintTop_toBottomOf="@+id/et_dni"
+            style="@style/TextBaseNegrita"/>
+        <!-- Texto Fecha -->
         <EditText
             android:id="@+id/et_fecha"
             android:layout_width="0dp"
@@ -116,8 +125,9 @@
             android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_fecha" />
-
+            app:layout_constraintTop_toBottomOf="@+id/tv_fecha"
+            style="@style/TextBase"/>
+        <!-- Texto Correo -->
         <TextView
             android:id="@+id/tv_correo"
             android:layout_width="wrap_content"
@@ -125,8 +135,9 @@
             android:layout_marginTop="12dp"
             android:text="@string/reg_correo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_fecha" />
-
+            app:layout_constraintTop_toBottomOf="@+id/et_fecha"
+            style="@style/TextBaseNegrita"/>
+        <!-- Texto Correo -->
         <EditText
             android:id="@+id/et_correo"
             android:layout_width="0dp"
@@ -137,8 +148,9 @@
             android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_correo" />
-
+            app:layout_constraintTop_toBottomOf="@+id/tv_correo"
+            style="@style/TextBase"/>
+        <!-- Texto Telefono -->
         <TextView
             android:id="@+id/tv_telefono"
             android:layout_width="wrap_content"
@@ -146,8 +158,9 @@
             android:layout_marginTop="12dp"
             android:text="@string/reg_telefono"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_correo" />
-
+            app:layout_constraintTop_toBottomOf="@+id/et_correo"
+            style="@style/TextBaseNegrita"/>
+        <!-- Texto Telefono -->
         <EditText
             android:id="@+id/et_telefono"
             android:layout_width="0dp"
@@ -158,8 +171,9 @@
             android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_telefono" />
-
+            app:layout_constraintTop_toBottomOf="@+id/tv_telefono"
+            style="@style/TextBase"/>
+        <!-- Texto Pass -->
         <TextView
             android:id="@+id/tv_pass"
             android:layout_width="wrap_content"
@@ -167,8 +181,9 @@
             android:layout_marginTop="12dp"
             android:text="@string/reg_contraseña"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_telefono" />
-
+            app:layout_constraintTop_toBottomOf="@+id/et_telefono"
+            style="@style/TextBaseNegrita"/>
+        <!-- Texto Pass -->
         <EditText
             android:id="@+id/et_pass"
             android:layout_width="0dp"
@@ -179,22 +194,25 @@
             android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_pass" />
-
-        <Button
+            app:layout_constraintTop_toBottomOf="@+id/tv_pass"
+            style="@style/TextBase"/>
+        <!-- Botón Volver -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_volver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="20dp"
             android:text="@string/volver"
-            android:background="@drawable/botones"
+            android:background="@drawable/boton_volver_cancelar"
+            app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guia_central"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_pass" />
-
-        <Button
+            app:layout_constraintTop_toBottomOf="@+id/et_pass"
+            style="@style/TextSubtitulo"/>
+        <!-- Botón Guardar -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_guardar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -202,10 +220,12 @@
             android:layout_marginBottom="20dp"
             android:text="@string/guardar"
             android:background="@drawable/botones"
+            app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guia_central"
-            app:layout_constraintTop_toBottomOf="@+id/et_pass" />
+            app:layout_constraintTop_toBottomOf="@+id/et_pass"
+            style="@style/TextSubtitulo"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guia_central"

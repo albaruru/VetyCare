@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Texto informativo -->
+    <style name="TextInformativo">
+        <item name="android:fontFamily">@font/tommy_soft_regular</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/Informativo</item>
+    </style>
+
+    <!-- Botones -->
+    <style name="TextBotones">
+        <item name="android:fontFamily">@font/tommy_soft_regular</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/Titulo</item>
+    </style>
+
+    <!-- Estilo base Negrita -->
+    <style name="TextBaseNegrita">
+        <item name="android:fontFamily">@font/tommy_soft_light</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/Base</item>
+    </style>
+
+    <!-- Estilo base -->
+    <style name="TextBase">
+        <item name="android:fontFamily">@font/tommy_soft_light</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/Base</item>
+    </style>
+
+    <!-- Subtitulo -->
+    <style name="TextSubtitulo">
+        <item name="android:fontFamily">@font/tommy_soft_regular</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/Subtitulo</item>
+    </style>
+
+    <!-- Título -->
+    <style name="TextTitulo">
+        <item name="android:fontFamily">@font/tommy_soft_medium</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/Titulo</item>
+    </style>
+
+</resources>

@@ -23,7 +23,7 @@
     <string name="inicio_olvido">"He olvidado mi contraseña"</string>
     <string name="reg_usuario_titulo">"REGISTRO DE USUARIO"</string>
     <string name="reg_animal_titulo">"REGISTRO DE MASCOTA"</string>
-    <string name="reg_nombre">"Nombre:*"</string>
+    <string name="reg_nombre">"Nombre:"</string>
     <string name="reg_apellido">"Apellido:"*</string>
     <string name="reg_dni">"NIE/NIF:"*</string>
     <string name="reg_fecha">"Fecha de nacimiento:"*</string>
@@ -32,7 +32,7 @@
     <string name="reg_sexo">"Sexo:"*</string>
     <string name="reg_contraseña">"Contraseña:"*</string>
     <string name="reg_microchip">"Microchip:"*</string>
-    <string name="reg_especie">"Especie:"*</string>
+    <string name="reg_especie">"Especie:"</string>
     <string name="reg_raza">"Raza:"*</string>
     <string name="reg_peso">"Peso:"*</string>
     <string name="reg_castracion">"Castración/Esterilización:"*</string>

@@ -10,89 +10,105 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:padding="24dp">
 
+        <!-- Título -->
         <TextView
             android:id="@+id/tv_titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
             android:text="@string/rc_pass_titulo"
-            android:textSize="24sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/TextTitulo"/>
 
+        <!-- Campo Introduce Correo -->
         <TextView
             android:id="@+id/tv_correo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:text="@string/rc_pass_correo"
             app:layout_constraintBottom_toTopOf="@+id/et_correo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_titulo" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_titulo"
+            style="@style/TextBaseNegrita"/>
 
+        <!-- Campo Introduce Correo -->
         <EditText
             android:id="@+id/et_correo"
-            android:layout_width="382dp"
+            android:layout_width="360dp"
             android:layout_height="46dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/background_cuadro_texto"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_correo"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_correo"
+            style="@style/TextBase"/>
 
+        <!-- Campo Nueva contraseña -->
         <TextView
             android:id="@+id/tv_contrasenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
             android:text="@string/rc_pass_nuevacontraseña"
             app:layout_constraintBottom_toTopOf="@+id/et_nuevacontrasenha"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_correo" />
+            app:layout_constraintTop_toBottomOf="@+id/et_correo"
+            style="@style/TextBaseNegrita"/>
 
+        <!-- Campo Nueva contraseña -->
         <EditText
             android:id="@+id/et_nuevacontrasenha"
-            android:layout_width="382dp"
+            android:layout_width="360dp"
             android:layout_height="46dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/background_cuadro_texto"
             app:layout_constraintEnd_toEndOf="@+id/et_correo"
             app:layout_constraintStart_toStartOf="@+id/et_correo"
-            app:layout_constraintTop_toBottomOf="@+id/tv_contrasenha" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_contrasenha"
+            style="@style/TextBase"/>
 
+        <!-- Campo Confirma contraseña -->
         <TextView
             android:id="@+id/tv_repetircontrasenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
             android:text="@string/rc_pass_repetircontraseña"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_nuevacontrasenha" />
+            app:layout_constraintTop_toBottomOf="@+id/et_nuevacontrasenha"
+            style="@style/TextBaseNegrita"/>
 
+        <!-- Campo Confirma contraseña -->
         <EditText
             android:id="@+id/et_repetircontrasenha"
-            android:layout_width="382dp"
+            android:layout_width="360dp"
             android:layout_height="46dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/background_cuadro_texto"
             app:layout_constraintEnd_toEndOf="@+id/et_correo"
             app:layout_constraintStart_toStartOf="@+id/et_correo"
-            app:layout_constraintTop_toBottomOf="@+id/tv_repetircontrasenha" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_repetircontrasenha"
+            style="@style/TextBase"/>
 
-        <Button
+        <!-- Botón Guarda -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_guardar"
-            android:layout_width="wrap_content"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="24dp"
             android:text="@string/guardar"
             android:background="@drawable/botones"
+            app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guia_horizontal"
-            app:layout_constraintTop_toBottomOf="@+id/et_repetircontrasenha" />
+            app:layout_constraintTop_toBottomOf="@+id/et_repetircontrasenha"
+            style="@style/TextSubtitulo"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guia_horizontal"
