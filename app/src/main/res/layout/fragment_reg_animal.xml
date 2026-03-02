@@ -168,7 +168,7 @@
             android:layout_height="46dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/background_cuadro_texto"
-            android:entries="@array/opciones_sexo"
+            android:entries="@array/opciones_sexo_animal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_sexo"
