@@ -21,6 +21,16 @@
     <string name="inicio_cuenta">"¿Aún no tienes cuenta con nosotros?"</string>
     <string name="inicio_registrate">"Regístrate"</string>
     <string name="inicio_olvido">"He olvidado mi contraseña"</string>
+    <string name="reg_titulo">"REGISTRO"</string>
+    <string name="reg_nombre">"Nombre:*"</string>
+    <string name="reg_apellido">"Apellido:"*</string>
+    <string name="reg_dni">"NIE/NIF:"*</string>
+    <string name="reg_fecha">"Fecha de nacimiento:"*</string>
+    <string name="reg_correo">"Correo:"*</string>
+    <string name="reg_telefono">"Teléfono:"*</string>
+    <string name="reg_sexo">"Sexo:"*</string>
+    <string name="reg_contraseña">"Contraseña:"*</string>
+
 
 
 
