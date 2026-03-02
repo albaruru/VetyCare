@@ -15,7 +15,7 @@
             android:id="@+id/tv_titulo_animal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/reg_titulo"
+            android:text="@string/reg_animal_titulo"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
