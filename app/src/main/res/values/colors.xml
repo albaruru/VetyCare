@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="content_main">#F6F6D8</color>
+    <color name="content_usuario">#E0E0B8</color>
+    <color name="content_mascotas">#E6E6B3</color>
+    <color name="botones_menu">#404040</color>
+    <color name="menu">#C1B6F2</color>
+    <color name="botones">#AB9EE2</color>
+    <color name="botones_bordes">"#6D5EAB</color>
+
 </resources>
