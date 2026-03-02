@@ -30,6 +30,15 @@
     <string name="reg_telefono">"Teléfono:"*</string>
     <string name="reg_sexo">"Sexo:"*</string>
     <string name="reg_contraseña">"Contraseña:"*</string>
+    <string name="reg_microchip">"Microchip:"*</string>
+    <string name="reg_especie">"Especie:"*</string>
+    <string name="reg_raza">"Raza:"*</string>
+    <string name="reg_peso">"Peso:"*</string>
+    <string name="reg_castracion">"Castración/Esterilización:"*</string>
+    <string-array name="opciones_sexo">
+        <item>Macho</item>
+        <item>Hembra</item>
+    </string-array>
 
 
 

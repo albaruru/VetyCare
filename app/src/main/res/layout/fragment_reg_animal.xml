@@ -1,6 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/content_main">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_titulo_animal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reg_titulo"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_foto_animal"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:contentDescription="Foto del animal"
+            android:padding="8dp"
+            android:src="@android:drawable/ic_menu_camera"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_titulo_animal" />
+
+        <TextView
+            android:id="@+id/tv_nombre_animal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/reg_nombre"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_foto_animal" />
+
+        <EditText
+            android:id="@+id/et_nombre_animal"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nombre_animal" />
+
+        <TextView
+            android:id="@+id/tv_microchip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/reg_microchip"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_nombre_animal" />
+
+        <EditText
+            android:id="@+id/et_microchip"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:inputType="number"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_microchip" />
+
+        <TextView
+            android:id="@+id/tv_especie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/reg_especie"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_microchip" />
+
+        <EditText
+            android:id="@+id/et_especie"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:inputType="text"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_especie" />
+
+        <TextView
+            android:id="@+id/tv_raza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/reg_raza"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_especie" />
+
+        <EditText
+            android:id="@+id/et_raza"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:inputType="text"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_raza" />
+
+        <TextView
+            android:id="@+id/tv_fecha_animal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/reg_fecha"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_raza" />
+
+        <EditText
+            android:id="@+id/et_fecha_animal"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:inputType="date"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_fecha_animal" />
+
+        <TextView
+            android:id="@+id/tv_sexo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/reg_sexo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_fecha_animal" />
+
+        <Spinner
+            android:id="@+id/sp_sexo"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:entries="@array/opciones_sexo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sexo" />
+
+        <TextView
+            android:id="@+id/tv_peso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/reg_peso"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sp_sexo" />
+
+        <EditText
+            android:id="@+id/et_peso"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:inputType="numberDecimal"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_peso" />
+
+        <TextView
+            android:id="@+id/tv_castracion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/reg_castracion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_peso" />
+
+        <EditText
+            android:id="@+id/et_castracion"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_castracion" />
+
+        <Button
+            android:id="@+id/btn_volver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/volver"
+            android:background="@drawable/botones"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guia_central_animal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_castracion" />
+
+        <Button
+            android:id="@+id/btn_guardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/guardar"
+            android:background="@drawable/botones"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guia_central_animal"
+            app:layout_constraintTop_toBottomOf="@+id/et_castracion" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guia_central_animal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
