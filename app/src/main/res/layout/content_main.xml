@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp"
@@ -11,32 +12,31 @@
     <!-- Imagen del logo de la aplicación -->
     <ImageView
         android:id="@+id/imgLogo"
-        android:layout_width="99dp"
-        android:layout_height="96dp"
-        android:layout_marginLeft="36dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="30dp"
         android:contentDescription="Logo"
         android:src="@drawable/icn_negro"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
     <!-- Nombre de la aplicación -->
     <TextView
         android:id="@+id/txtAppName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
-        android:textColor="#9E9E9E"
-        android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imgLogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgLogo"
-        app:layout_constraintTop_toTopOf="@+id/imgLogo" />
+        app:layout_constraintTop_toTopOf="@+id/imgLogo"
+        style="@style/AppName"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintGuide_begin="96dp" />
+        app:layout_constraintGuide_begin="80dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
