@@ -44,4 +44,11 @@
         <item name="android:textColor">@color/Titulo</item>
     </style>
 
+    <!-- App Name -->
+    <style name="AppName">
+        <item name="android:fontFamily">@font/tommy_soft_medium</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:textColor">@color/Titulo</item>
+    </style>
+
 </resources>

@@ -12,5 +12,5 @@
     <!-- Borde fino -->
     <stroke
         android:width="2dp"
-        android:color="#887CB6" />
+        android:color="@color/botones_menu" />
 </shape>

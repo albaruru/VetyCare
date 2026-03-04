@@ -5,12 +5,13 @@
     <color name="content_main">#F6F6D8</color>
     <color name="content_usuario">#E0E0B8</color>
     <color name="content_mascotas">#E6E6B3</color>
-    <color name="botones_menu">#404040</color>
-    <color name="menu">#C1B6F2</color>
+    <color name="botones_menu">#4C4A5B</color>
+    <color name="menu">#CBC2F4</color>
     <color name="botones">#AB9EE2</color>
     <color name="botones_bordes">#6D5EAB</color>
     <color name="botones_volver_cancelar">#C6B9F0</color>
     <color name="botones_bordes_volver_cancelar">#AB9EE2</color>
+    <color name="AppName">#9E9E9E</color>
     <color name="Titulo">#121212</color>
     <color name="Subtitulo">#161616</color>
     <color name="Base">#1B1A1A</color>
