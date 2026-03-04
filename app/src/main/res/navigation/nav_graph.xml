@@ -3,26 +3,105 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/InicioFragment">
 
-    <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.vetycare.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_inicio">
+    <!-- GRUPO NAVEGACIÓN INICIO -->
+    <navigation
+        android:id="@+id/NavLogin"
+        app:startDestination="@id/InicioFragment">
 
+        <!-- ACCIONES DE GRUPO NAVIGATION INICIO -->
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.vetycare.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_rec_pass">
+            android:id="@+id/action_NavLogin_NavUsuario"
+            app:destination="@id/NavUsuario" />
 
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
+        <!-- FRAGMENTS -->
+        <fragment
+            android:id="@+id/InicioFragment"
+            android:name="com.example.vetycare.ui.fragment.InicioFragment"
+            android:label="@string/fragment_inicio_label"
+            tools:layout="@layout/fragment_inicio"
+            >
+            <action
+                android:id="@+id/action_InicioFragment_to_RegUsuarioFragment"
+                app:destination="@id/RegUsuarioFragment" />
+            <action
+                android:id="@+id/action_InicioFragment_to_RecPassFragment"
+                app:destination="@id/RecPassFragment" />
+            <action
+                android:id="@+id/action_NavLogin_NavUsuario"
+                app:destination="@id/NavUsuario"
+                />
+        </fragment>
+        <fragment
+            android:id="@+id/RecPassFragment"
+            android:name="com.example.vetycare.ui.fragment.RecPassFragment"
+            android:label="@string/fragment_rec_pass_label"
+            tools:layout="@layout/fragment_rec_pass"
+            >
+            <action
+                android:id="@+id/action_RecPassFragment_to_InicioFragment"
+                app:destination="@id/InicioFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/RegUsuarioFragment"
+            android:name="com.example.vetycare.ui.fragment.RegUsuarioFragment"
+            android:label="@string/fragment_reg_usuario_label"
+            tools:layout="@layout/fragment_reg_usuario"
+            >
+            <action
+                android:id="@+id/action_RegUsuarioFragment_to_confirmacionDialog"
+                app:destination="@id/confirmacionDialog" />
+            <action
+                android:id="@+id/action_RegUsuarioFragment_to_cancelacionDialog"
+                app:destination="@id/cancelacionDialog" />
+        </fragment>
+
+        <!-- DIALOGS -->
+        <dialog
+            android:id="@+id/confirmacionDialog"
+            android:name="com.example.vetycare.ui.dialog.ConfirmacionDialog"
+            android:label="ConfirmacionDialog" >
+            <action
+                android:id="@+id/action_confirmacionDialog_to_InicioFragment"
+                app:destination="@id/InicioFragment" />
+        </dialog>
+        <dialog
+            android:id="@+id/cancelacionDialog"
+            android:name="com.example.vetycare.ui.dialog.CancelacionDialog"
+            android:label="CancelacionDialog" >
+            <action
+                android:id="@+id/action_cancelacionDialog_to_InicioFragment"
+                app:destination="@id/InicioFragment" />
+        </dialog>
+    </navigation>
+
+    <!-- GRUPO NAVEGACIÓN USUARIO -->
+    <navigation
+        android:id="@+id/NavUsuario"
+        app:startDestination="@id/RegAnimalFragment">
+
+        <!-- ACCIONES DE GRUPO NAVIGATION INICIO -->
+
+        <!-- FRAGMENTS -->
+        <fragment
+            />
+        <fragment
+            />
+        <fragment
+            />
+        <fragment
+            android:id="@+id/RegAnimalFragment"
+            android:name="com.example.vetycare.ui.fragment.RegAnimalFragment"
+            android:label="@string/fragment_reg_animal_label"
+            tools:layout="@layout/fragment_reg_animal"
+            />
+        <fragment
+            />
+        <fragment
+            />
+
+        <!-- DIALOGS -->
+
+    </navigation>
 </navigation>
