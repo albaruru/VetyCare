@@ -5,8 +5,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- HEADER: Foto dueño + Nombre + Logo -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="@color/menu"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <!-- Foto del dueño -->
+        <ImageView
+            android:id="@+id/iv_foto_dueno"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/botones_menu"
+            android:src="@android:drawable/ic_menu_camera"
+            android:scaleType="centerCrop"
+            android:padding="8dp"
+            android:contentDescription="Foto de perfil"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <!-- Nombre del dueño -->
+        <TextView
+            android:id="@+id/tv_nombre_dueno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Nombre_dueño"
+            app:layout_constraintTop_toTopOf="@id/iv_foto_dueno"
+            app:layout_constraintBottom_toBottomOf="@id/iv_foto_dueno"
+            app:layout_constraintStart_toEndOf="@id/iv_foto_dueno"
+            app:layout_constraintEnd_toStartOf="@id/iv_logo"
+            style="@style/Nombres" />
+        <!-- Logo empresa -->
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/botones_menu"
+            android:src="@android:drawable/ic_menu_gallery"
+            android:scaleType="centerCrop"
+            android:padding="4dp"
+            android:contentDescription="Logo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- PRIMERA FILA BOTONES -->
+    <!-- Divider -->
+    <View
+        android:id="@+id/divider_header"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/menu"
+        app:layout_constraintTop_toBottomOf="@id/layoutHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <!-- FILA BOTONES -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,51 +78,42 @@
         tools:layout_editor_absoluteX="-16dp">
 
         <ImageButton
-            android:id="@+id/btnCita"
+            android:id="@+id/btnIniMasc"
             android:layout_width="0dp"
             android:layout_height="65dp"
-            android:layout_weight="0.20"
+            android:layout_weight="0.25"
             android:layout_margin="5dp"
-            android:src="@drawable/btn_cita"
+            android:src="@drawable/btn_huella"
             android:background="@drawable/botones_menu"
             android:textSize="20sp" />
 
         <ImageButton
-            android:id="@+id/btnTratamiento"
+            android:id="@+id/btnCalendarUsu"
             android:layout_width="0dp"
             android:layout_height="65dp"
-            android:layout_weight="0.20"
-            android:layout_margin="5dp"
-            android:src="@drawable/btn_tratamiento"
-            android:background="@drawable/botones_menu"
-            android:textSize="20sp" />
-
-        <ImageButton
-            android:id="@+id/btnInforme"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
-            android:layout_weight="0.20"
-            android:layout_margin="5dp"
-            android:src="@drawable/btn_informes"
-            android:background="@drawable/botones_menu"
-            android:textSize="20sp" />
-
-        <ImageButton
-            android:id="@+id/btnCalendarMas"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
-            android:layout_weight="0.20"
+            android:layout_weight="0.25"
             android:layout_margin="5dp"
             android:src="@drawable/btn_calendar"
             android:background="@drawable/botones_menu"
             android:textSize="20sp" />
+
         <ImageButton
-            android:id="@+id/btnMascotas"
+            android:id="@+id/btnUsuario"
             android:layout_width="0dp"
             android:layout_height="65dp"
-            android:layout_weight="0.20"
+            android:layout_weight="0.25"
             android:layout_margin="5dp"
-            android:src="@drawable/btn_huella"
+            android:src="@drawable/btn_user"
+            android:background="@drawable/botones_menu"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/btnInicio"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_weight="0.25"
+            android:layout_margin="5dp"
+            android:src="@drawable/btn_inicio"
             android:background="@drawable/botones_menu"
             android:textSize="20sp" />
 

@@ -16,20 +16,19 @@
             android:id="@+id/tv_titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:text="@string/inicio_titulo"
-            android:textSize="24sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/TextTitulo"/>
 
         <!-- Campo Correo -->
         <EditText
             android:id="@+id/et_correo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:hint="@string/inicio_correo"
             android:gravity="center"
             android:background="@drawable/background_cuadro_texto"
@@ -37,14 +36,15 @@
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_titulo" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_titulo"
+            style="@style/TextBase"/>
 
         <!-- Campo Contraseña -->
         <EditText
             android:id="@+id/et_contrasenha"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:hint="@string/inicio_contraseña"
             android:gravity="center"
             android:background="@drawable/background_cuadro_texto"
@@ -52,30 +52,33 @@
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_correo" />
+            app:layout_constraintTop_toBottomOf="@+id/et_correo"
+            style="@style/TextBase"/>
 
         <!-- Checkbox Recordar usuario -->
         <CheckBox
             android:id="@+id/cb_recordar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:text="@string/inicio_recordar"
-            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_contrasenha" />
+            app:layout_constraintTop_toBottomOf="@+id/et_contrasenha"
+            style="@style/TextInformativo"/>
 
         <!-- Botón Entrar -->
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_entrar"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/entrar"
             android:background="@drawable/botones"
+            app:backgroundTint="@null"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cb_recordar" />
+            app:layout_constraintTop_toBottomOf="@+id/cb_recordar"
+            style="@style/TextSubtitulo"/>
 
         <!-- Texto ¿Aún no tienes cuenta? -->
         <TextView
@@ -84,10 +87,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/inicio_cuenta"
-            android:textSize="13sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_entrar" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_entrar"
+            style="@style/TextInformativo"/>
 
         <!-- Link Regístrate -->
         <TextView
@@ -97,10 +100,10 @@
             android:layout_marginTop="2dp"
             android:text="@string/inicio_registrate"
             android:textStyle="bold"
-            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_registrate" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_registrate"
+            style="@style/TextInformativo"/>
 
         <!-- Link Olvidé contraseña -->
         <TextView
@@ -109,10 +112,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/inicio_olvido"
-            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_link_registrate" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_link_registrate"
+            style="@style/TextInformativo"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

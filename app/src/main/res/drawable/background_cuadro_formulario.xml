@@ -4,7 +4,7 @@
     android:shape="rectangle">
 
     <!-- Fondo transparente -->
-    <solid android:color="@android:color/transparent" />
+    <solid android:color="@color/formulario" />
 
     <!-- Esquinas ligeramente redondeadas -->
     <corners android:radius="20dp" />
@@ -12,5 +12,5 @@
     <!-- Borde fino -->
     <stroke
         android:width="2dp"
-        android:color="@color/botones_menu" />
+        android:color="@color/formulario_borde" />
 </shape>

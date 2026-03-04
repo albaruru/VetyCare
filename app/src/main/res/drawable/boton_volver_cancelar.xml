@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
 
-    <!-- Fondo transparente -->
-    <solid android:color="@android:color/transparent" />
+    <!-- Fondo -->
+    <solid android:color="@color/botones_volver_cancelar" />
 
     <!-- Esquinas ligeramente redondeadas -->
     <corners android:radius="20dp" />
@@ -12,5 +12,5 @@
     <!-- Borde fino -->
     <stroke
         android:width="2dp"
-        android:color="@color/botones_menu" />
+        android:color="@color/botones_bordes_volver_cancelar" />
 </shape>
