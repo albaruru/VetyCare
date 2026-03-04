@@ -48,6 +48,14 @@
     <string name="usuario_inicio_eslogan">"Donde cada latido cuenta"</string>
     <string name="item_mascota">"Mascota"</string>
 
+    <string-array name="recordatorio_opciones">
+        <item>Sin recordatorio</item>
+        <item>1 día antes</item>
+        <item>2 días antes</item>
+        <item>1 semana antes</item>
+        <item>1 mes antes</item>
+    </string-array>
+
 
 
 

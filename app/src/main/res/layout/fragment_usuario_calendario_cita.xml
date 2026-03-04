@@ -6,50 +6,40 @@
     android:layout_height="match_parent"
     android:background="@color/content_main">
 
-    <!-- NestedScrollView solo admite UN hijo directo.
-         Todo va dentro de este ConstraintLayout. -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="80dp">
+
         <!-- TÍTULO -->
         <TextView
             android:id="@+id/tv_titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:text="CALENDARIO"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             style="@style/TextSubtitulo" />
 
-        <View
-            android:id="@+id/divider_titulo"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/menu"
-            app:layout_constraintTop_toBottomOf="@id/tv_titulo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <!-- TARJETA DETALLE DE LA CITA -->
+        <!-- TARJETA-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layoutDetalle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
+            android:layout_marginHorizontal="8dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/background_cuadro_texto"
+            android:background="@drawable/background_cuadro_formulario"
             android:padding="16dp"
-            app:layout_constraintTop_toBottomOf="@id/divider_titulo"
+            app:layout_constraintTop_toBottomOf="@id/tv_titulo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
             <!-- Mascota -->
             <TextView
                 android:id="@+id/tv_label_mascota"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="- Mascota:"
                 app:layout_constraintTop_toTopOf="parent"
@@ -57,184 +47,203 @@
                 style="@style/TextBaseNegrita" />
             <TextView
                 android:id="@+id/tv_mascota"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/background_cuadro_texto"
+                android:padding="8dp"
                 android:text=""
-                app:layout_constraintTop_toTopOf="@id/tv_label_mascota"
-                app:layout_constraintBottom_toBottomOf="@id/tv_label_mascota"
-                app:layout_constraintStart_toEndOf="@id/tv_label_mascota"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_label_mascota"
+                app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBase" />
 
             <!-- Clínica -->
             <TextView
                 android:id="@+id/tv_label_clinica"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="- Clínica:"
-                app:layout_constraintTop_toBottomOf="@id/tv_label_mascota"
+                app:layout_constraintTop_toBottomOf="@id/tv_mascota"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
             <TextView
                 android:id="@+id/tv_clinica"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/background_cuadro_texto"
+                android:padding="8dp"
                 android:text=""
-                app:layout_constraintTop_toTopOf="@id/tv_label_clinica"
-                app:layout_constraintBottom_toBottomOf="@id/tv_label_clinica"
-                app:layout_constraintStart_toEndOf="@id/tv_label_clinica"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_label_clinica"
+                app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBase" />
 
-            <!-- Tipo -->
+            <!-- Tipo: label y hint en la misma línea -->
             <TextView
                 android:id="@+id/tv_label_tipo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="- Tipo:"
-                app:layout_constraintTop_toBottomOf="@id/tv_label_clinica"
+                app:layout_constraintTop_toBottomOf="@id/tv_clinica"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
-
             <TextView
                 android:id="@+id/tv_tipo_hint"
-                style="@style/TextBase"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
-                android:layout_marginTop="4dp"
                 android:text="(Vacunación / Revisión / Consulta general / Pruebas)"
                 android:textSize="11sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toTopOf="@id/tv_label_tipo"
+                app:layout_constraintBottom_toBottomOf="@id/tv_label_tipo"
                 app:layout_constraintStart_toEndOf="@id/tv_label_tipo"
-                app:layout_constraintTop_toTopOf="@id/tv_label_tipo" />
-
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/TextBase" />
             <TextView
                 android:id="@+id/tv_tipo"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:background="@drawable/background_cuadro_texto"
+                android:padding="8dp"
                 android:text=""
                 app:layout_constraintTop_toBottomOf="@id/tv_tipo_hint"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 style="@style/TextBase" />
 
-            <!-- Motivo breve -->
+            <!-- Motivo breve — EditText multilinea scrollable -->
             <TextView
                 android:id="@+id/tv_label_motivo"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="- Motivo breve:"
                 app:layout_constraintTop_toBottomOf="@id/tv_tipo"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
-            <TextView
-                android:id="@+id/tv_motivo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:text=""
-                app:layout_constraintTop_toTopOf="@id/tv_label_motivo"
-                app:layout_constraintBottom_toBottomOf="@id/tv_label_motivo"
-                app:layout_constraintStart_toEndOf="@id/tv_label_motivo"
-                app:layout_constraintEnd_toEndOf="parent"
+            <EditText
+                android:id="@+id/et_motivo"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/background_cuadro_texto"
+                android:gravity="top|start"
+                android:inputType="textMultiLine"
+                android:maxLines="5"
+                android:overScrollMode="always"
+                android:padding="8dp"
+                android:scrollbars="vertical"
+                app:layout_constraintTop_toBottomOf="@id/tv_label_motivo"
+                app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBase" />
 
             <!-- Veterinario -->
             <TextView
                 android:id="@+id/tv_label_veterinario"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="- Veterinario:"
-                app:layout_constraintTop_toBottomOf="@id/tv_label_motivo"
+                app:layout_constraintTop_toBottomOf="@id/et_motivo"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
             <TextView
                 android:id="@+id/tv_veterinario"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/background_cuadro_texto"
+                android:padding="8dp"
                 android:text=""
-                app:layout_constraintTop_toTopOf="@id/tv_label_veterinario"
-                app:layout_constraintBottom_toBottomOf="@id/tv_label_veterinario"
-                app:layout_constraintStart_toEndOf="@id/tv_label_veterinario"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_label_veterinario"
+                app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBase" />
 
             <!-- Fecha -->
             <TextView
                 android:id="@+id/tv_label_fecha"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="- Fecha:"
-                app:layout_constraintTop_toBottomOf="@id/tv_label_veterinario"
+                android:text="- Fecha de la cita:"
+                app:layout_constraintTop_toBottomOf="@id/tv_veterinario"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
             <TextView
                 android:id="@+id/tv_fecha"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/background_cuadro_texto"
+                android:padding="8dp"
                 android:text=""
-                app:layout_constraintTop_toTopOf="@id/tv_label_fecha"
-                app:layout_constraintBottom_toBottomOf="@id/tv_label_fecha"
-                app:layout_constraintStart_toEndOf="@id/tv_label_fecha"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_label_fecha"
+                app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBase" />
 
-            <!-- Recordatorio -->
+            <!-- Recordatorio — Spinner -->
             <TextView
                 android:id="@+id/tv_label_recordatorio"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="- Recordatorio:"
-                app:layout_constraintTop_toBottomOf="@id/tv_label_fecha"
+                app:layout_constraintTop_toBottomOf="@id/tv_fecha"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
-            <TextView
-                android:id="@+id/tv_recordatorio"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:text="??"
-                app:layout_constraintTop_toTopOf="@id/tv_label_recordatorio"
-                app:layout_constraintBottom_toBottomOf="@id/tv_label_recordatorio"
-                app:layout_constraintStart_toEndOf="@id/tv_label_recordatorio"
-                app:layout_constraintEnd_toEndOf="parent"
+            <Spinner
+                android:id="@+id/sp_recordatorio"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/background_cuadro_texto"
+                android:entries="@array/recordatorio_opciones"
+                android:padding="8dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_label_recordatorio"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 style="@style/TextBase" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!--BOTÓN VOLVER-->
+        <!-- Botón Volver -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_volver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:text="@string/volver"
             android:background="@drawable/boton_volver_cancelar"
             app:backgroundTint="@null"
-            app:layout_constraintTop_toBottomOf="@id/layoutDetalle"
+            app:layout_constraintEnd_toStartOf="@+id/guia_central"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutDetalle"
+            style="@style/TextSubtitulo"/>
+
+        <!-- Botón Guardar -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_guardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/guardar"
+            android:background="@drawable/botones"
+            app:backgroundTint="@null"
             app:layout_constraintEnd_toEndOf="parent"
-            style="@style/TextSubtitulo" />
+            app:layout_constraintStart_toStartOf="@+id/guia_central"
+            app:layout_constraintTop_toBottomOf="@id/layoutDetalle"
+            style="@style/TextSubtitulo"/>
 
-
-
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guia_central"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>
-
-
-
-
