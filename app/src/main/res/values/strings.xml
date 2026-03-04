@@ -57,6 +57,11 @@
         <item>1 mes antes</item>
     </string-array>
 
+    <!-- NAVIGATION => fragments label -->
+    <string name="fragment_inicio_label">Inicio Fragment</string>
+    <string name="fragment_rec_pass_label">Rec Pass Fragment</string>
+    <string name="fragment_reg_animal_label">Reg Animal Fragment</string>
+    <string name="fragment_reg_usuario_label">Reg Usuario Fragment</string>
 
 
 

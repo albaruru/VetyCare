@@ -16,7 +16,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-        <!-- Foto de la mascota -->
+
+        <!-- FOTO DE LA MASCOTA -->
         <ImageView
             android:id="@+id/iv_foto_mascota"
             android:layout_width="72dp"
@@ -29,7 +30,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-        <!-- Nombre de la mascota -->
+
+        <!-- NOMBRE DE LA MASCOTA -->
         <TextView
             android:id="@+id/tv_nombre_mascota"
             android:layout_width="0dp"
@@ -42,7 +44,8 @@
             app:layout_constraintStart_toEndOf="@id/iv_foto_mascota"
             app:layout_constraintEnd_toStartOf="@id/iv_logo"
             style="@style/Nombres" />
-        <!-- Logo empresa -->
+
+        <!-- LOGO EMPRESA -->
         <ImageView
             android:id="@+id/iv_logo"
             android:layout_width="50dp"
@@ -57,7 +60,7 @@
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Divider -->
+    <!-- DIVIDER -->
     <View
         android:id="@+id/divider_header"
         android:layout_width="match_parent"

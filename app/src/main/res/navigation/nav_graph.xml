@@ -3,17 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/InicioFragment">
+    app:startDestination="@id/NavLogin">
 
     <!-- GRUPO NAVEGACIÓN INICIO -->
     <navigation
         android:id="@+id/NavLogin"
         app:startDestination="@id/InicioFragment">
-
-        <!-- ACCIONES DE GRUPO NAVIGATION INICIO -->
-        <action
-            android:id="@+id/action_NavLogin_NavUsuario"
-            app:destination="@id/NavUsuario" />
 
         <!-- FRAGMENTS -->
         <fragment
@@ -74,6 +69,11 @@
                 android:id="@+id/action_cancelacionDialog_to_InicioFragment"
                 app:destination="@id/InicioFragment" />
         </dialog>
+
+        <!-- ACCIONES DE GRUPO NAVIGATION INICIO -->
+        <action
+            android:id="@+id/action_NavLogin_NavUsuario"
+            app:destination="@id/NavUsuario" />
     </navigation>
 
     <!-- GRUPO NAVEGACIÓN USUARIO -->
@@ -84,21 +84,12 @@
         <!-- ACCIONES DE GRUPO NAVIGATION INICIO -->
 
         <!-- FRAGMENTS -->
-        <fragment
-            />
-        <fragment
-            />
-        <fragment
-            />
+
         <fragment
             android:id="@+id/RegAnimalFragment"
             android:name="com.example.vetycare.ui.fragment.RegAnimalFragment"
             android:label="@string/fragment_reg_animal_label"
             tools:layout="@layout/fragment_reg_animal"
-            />
-        <fragment
-            />
-        <fragment
             />
 
         <!-- DIALOGS -->
