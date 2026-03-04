@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Nombre de usuario y mascota -->
+    <style name="Nombres">
+        <item name="android:fontFamily">@font/tommy_soft_medium</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 
     <!-- Texto informativo -->
     <style name="TextInformativo">
@@ -33,14 +39,14 @@
     <!-- Subtitulo -->
     <style name="TextSubtitulo">
         <item name="android:fontFamily">@font/tommy_soft_regular</item>
-        <item name="android:textSize">22sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/Subtitulo</item>
     </style>
 
     <!-- Título -->
     <style name="TextTitulo">
         <item name="android:fontFamily">@font/tommy_soft_medium</item>
-        <item name="android:textSize">28sp</item>
+        <item name="android:textSize">25sp</item>
         <item name="android:textColor">@color/Titulo</item>
     </style>
 
