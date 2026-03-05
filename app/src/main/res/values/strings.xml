@@ -1,33 +1,19 @@
 <resources>
     <string name="app_name">VetyCare</string>
 
-    <!-- ══════════════════════════════════════════
-         NAVEGACIÓN (nav_graph)
-    ══════════════════════════════════════════ -->
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-    <string name="fragment_inicio_label">Inicio Fragment</string>
-    <string name="fragment_rec_pass_label">Rec Pass Fragment</string>
-    <string name="fragment_reg_animal_label">Reg Animal Fragment</string>
-    <string name="fragment_reg_usuario_label">Reg Usuario Fragment</string>
-
-    <!-- ══════════════════════════════════════════
-         GLOBALES (usados en varios layouts)
-    ══════════════════════════════════════════ -->
+    <!-- GLOBALES (usados en varios layouts) -->
     <string name="guardar">Guardar</string>
     <string name="entrar">Entrar</string>
     <string name="volver">Volver</string>
     <string name="action_settings">Settings</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
 
-    <!-- ══════════════════════════════════════════
-         activity_main.xml / content_main.xml
-    ══════════════════════════════════════════ -->
+    <!-- activity_main.xml / content_main.xml  -->
     <string name="cont_main_nombre_mascota">Nombre_mascota</string>
     <string name="cont_main_Nombre_usuario">Nombre_usuario</string>
 
-    <!-- ══════════════════════════════════════════
-         fragment_inicio.xml
-    ══════════════════════════════════════════ -->
+    <!-- fragment_inicio.xml  -->
     <string name="inicio_titulo">INICIO</string>
     <string name="inicio_correo">Correo:</string>
     <string name="inicio_contraseña">Contraseña:</string>
@@ -36,23 +22,17 @@
     <string name="inicio_registrate">"Regístrate"</string>
     <string name="inicio_olvido">"He olvidado mi contraseña"</string>
 
-    <!-- ══════════════════════════════════════════
-         fragment_usuario_inicio.xml
-    ══════════════════════════════════════════ -->
+    <!--  fragment_usuario_inicio.xml -->
     <string name="usuario_inicio">"BIENVENIDO"</string>
     <string name="usuario_inicio_eslogan">"Donde cada latido cuenta"</string>
 
-    <!-- ══════════════════════════════════════════
-         fragment_rec_pass.xml
-    ══════════════════════════════════════════ -->
+    <!--  fragment_rec_pass.xml  -->
     <string name="rc_pass_titulo">RECUPERAR CONTRASEÑA</string>
     <string name="rc_pass_correo">Introduzca el correo:</string>
     <string name="rc_pass_nuevacontraseña">Ingrese su nueva contraseña:</string>
     <string name="rc_pass_repetircontraseña">Confirma su contraseña:</string>
 
-    <!-- ══════════════════════════════════════════
-         fragment_reg_usuario.xml
-    ══════════════════════════════════════════ -->
+    <!-- fragment_reg_usuario.xml -->
     <string name="reg_usuario_titulo">"REGISTRO DE USUARIO"</string>
     <string name="reg_nombre">"Nombre:"</string>
     <string name="reg_apellido">"Apellido:"*</string>
@@ -66,9 +46,7 @@
         <item>Femenino</item>
     </string-array>
 
-    <!-- ══════════════════════════════════════════
-         fragment_reg_animal.xml
-    ══════════════════════════════════════════ -->
+    <!-- fragment_reg_animal.xml -->
     <string name="reg_animal_titulo">"REGISTRO DE MASCOTA"</string>
     <string name="reg_sexo">"Sexo:"*</string>
     <string name="reg_microchip">"Microchip:"*</string>
@@ -81,15 +59,12 @@
         <item>Hembra</item>
     </string-array>
 
-    <!-- ══════════════════════════════════════════
-         fragmen_usuario_mascota.xml / recycler_mascota.xml
-    ══════════════════════════════════════════ -->
+    <!-- fragmen_usuario_mascota.xml / recycler_mascota.xml -->
     <string name="usuario_mascota">PERFIL MASCOTAS</string>
     <string name="item_mascota">"Mascota"</string>
 
-    <!-- ══════════════════════════════════════════
-         fragment_usuario_calendario.xml
-    ══════════════════════════════════════════ -->
+
+    <!-- fragment_usuario_calendario.xml  -->
     <string name="usuario_calendario_btnMensual">Mensual</string>
     <string name="usuario_calendario_btnSemanal">Semanal</string>
     <string name="usuario_calendario_Vacunación">Vacunación</string>
@@ -98,9 +73,7 @@
     <string name="usuario_calendario_Pruebas">Pruebas</string>
     <string name="usuario_calendario_medicamentos">Comprar más medicamentos</string>
 
-    <!-- ══════════════════════════════════════════
-         fragment_usuario_calendario_cita.xml
-    ══════════════════════════════════════════ -->
+    <!-- fragment_usuario_calendario_cita.xml -->
     <string name="usuario_cldr_cita_mascota">- Mascota:</string>
     <string name="usuario_cldr_cita_clinica">- Clínica:</string>
     <string name="usuario_cldr_cita_tipo">- Tipo:</string>
@@ -116,5 +89,16 @@
         <item>1 semana antes</item>
         <item>1 mes antes</item>
     </string-array>
+    <!-- fragment_usuario_perfil.xml -->
+    <string name="usuario_perfil_editar">EDITAR</string>
+    <string name="usuario_perfil_cerrar">Cerrar sesion</string>
+
+
+    <!-- ================================== BACK ================================== -->
+    <!-- NAVEGACIÓN (nav_graph) -->
+    <string name="fragment_inicio_label">Inicio Fragment</string>
+    <string name="fragment_rec_pass_label">Rec Pass Fragment</string>
+    <string name="fragment_reg_animal_label">Reg Animal Fragment</string>
+    <string name="fragment_reg_usuario_label">Reg Usuario Fragment</string>
 
 </resources>
