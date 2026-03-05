@@ -234,7 +234,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_pass"
             style="@style/TextSubtitulo"/>
-
         <!-- Botón Guardar -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_guardar"

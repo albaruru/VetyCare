@@ -22,7 +22,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             style="@style/TextSubtitulo" />
-
         <!-- TARJETA-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layoutDetalle"
@@ -41,7 +40,7 @@
                 android:id="@+id/tv_label_mascota"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="- Mascota:"
+                android:text="@string/usuario_cldr_cita_mascota"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
@@ -63,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="- Clínica:"
+                android:text="@string/usuario_cldr_cita_clinica"
                 app:layout_constraintTop_toBottomOf="@id/tv_mascota"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
@@ -85,7 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="- Tipo:"
+                android:text="@string/usuario_cldr_cita_tipo"
                 app:layout_constraintTop_toBottomOf="@id/tv_clinica"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
@@ -94,7 +93,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
-                android:text="(Vacunación / Revisión / Consulta general / Pruebas)"
+                android:text="@string/usuario_cldr_cita_tipo_4"
                 android:textSize="11sp"
                 app:layout_constraintTop_toTopOf="@id/tv_label_tipo"
                 app:layout_constraintBottom_toBottomOf="@id/tv_label_tipo"
@@ -119,7 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="- Motivo breve:"
+                android:text="@string/usuario_cldr_cita_motivo"
                 app:layout_constraintTop_toBottomOf="@id/tv_tipo"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
@@ -145,7 +144,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="- Veterinario:"
+                android:text="@string/usuario_cldr_cita_motivo"
                 app:layout_constraintTop_toBottomOf="@id/et_motivo"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
@@ -167,7 +166,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="- Fecha de la cita:"
+                android:text="@string/usuario_cldr_cita_fecha"
                 app:layout_constraintTop_toBottomOf="@id/tv_veterinario"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
@@ -189,7 +188,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="- Recordatorio:"
+                android:text="@string/usuario_cldr_cita_recordatorio"
                 app:layout_constraintTop_toBottomOf="@id/tv_fecha"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />

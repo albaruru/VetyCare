@@ -37,7 +37,7 @@
                 android:id="@+id/rbMensual"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
-                android:text="Mensual"
+                android:text="@string/usuario_calendario_btnMensual"
                 android:checked="true"
                 android:button="@null"
                 android:gravity="center"
@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:layout_marginStart="8dp"
-                android:text="Semanal"
+                android:text="@string/usuario_calendario_btnSemanal"
                 android:button="@null"
                 android:gravity="center"
                 android:paddingHorizontal="20dp"
@@ -98,7 +98,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Vacunación"
+                    android:text="@string/usuario_calendario_Vacunación"
                     style="@style/TextBase" />
             </LinearLayout>
 
@@ -116,7 +116,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Revisión"
+                    android:text="@string/usuario_calendario_Revisión"
                     style="@style/TextBase" />
             </LinearLayout>
             <LinearLayout
@@ -133,7 +133,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Consulta general"
+                    android:text="@string/usuario_calendario_Consulta"
                     style="@style/TextBase" />
             </LinearLayout>
             <LinearLayout
@@ -150,7 +150,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Pruebas"
+                    android:text="@string/usuario_calendario_Pruebas"
                     style="@style/TextBase" />
             </LinearLayout>
             <LinearLayout
@@ -166,7 +166,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Comprar más medicamentos"
+                    android:text="@string/usuario_calendario_medicamentos"
                     style="@style/TextBase" />
             </LinearLayout>
         </LinearLayout>

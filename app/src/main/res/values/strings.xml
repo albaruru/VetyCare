@@ -1,20 +1,33 @@
 <resources>
     <string name="app_name">VetyCare</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
+
+    <!-- ══════════════════════════════════════════
+         NAVEGACIÓN (nav_graph)
+    ══════════════════════════════════════════ -->
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-    <string name="cont_main_nombre_mascota">Nombre_mascota</string>
-    <string name="cont_main_Nombre_usuario">Nombre_usuario</string>
-    <string name="usuario_mascota">PERFIL MASCOTAS</string>
+    <string name="fragment_inicio_label">Inicio Fragment</string>
+    <string name="fragment_rec_pass_label">Rec Pass Fragment</string>
+    <string name="fragment_reg_animal_label">Reg Animal Fragment</string>
+    <string name="fragment_reg_usuario_label">Reg Usuario Fragment</string>
 
+    <!-- ══════════════════════════════════════════
+         GLOBALES (usados en varios layouts)
+    ══════════════════════════════════════════ -->
     <string name="guardar">Guardar</string>
     <string name="entrar">Entrar</string>
     <string name="volver">Volver</string>
-    <string name="rc_pass_titulo">RECUPERAR CONTRASEÑA</string>
-    <string name="rc_pass_correo">Introduzca el correo:</string>
-    <string name="rc_pass_nuevacontraseña">Ingrese su nueva contraseña:</string>
-    <string name="rc_pass_repetircontraseña">Confirma su contraseña:</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- ══════════════════════════════════════════
+         activity_main.xml / content_main.xml
+    ══════════════════════════════════════════ -->
+    <string name="cont_main_nombre_mascota">Nombre_mascota</string>
+    <string name="cont_main_Nombre_usuario">Nombre_usuario</string>
+
+    <!-- ══════════════════════════════════════════
+         fragment_inicio.xml
+    ══════════════════════════════════════════ -->
     <string name="inicio_titulo">INICIO</string>
     <string name="inicio_correo">Correo:</string>
     <string name="inicio_contraseña">Contraseña:</string>
@@ -22,16 +35,42 @@
     <string name="inicio_cuenta">"¿Aún no tienes cuenta con nosotros?"</string>
     <string name="inicio_registrate">"Regístrate"</string>
     <string name="inicio_olvido">"He olvidado mi contraseña"</string>
+
+    <!-- ══════════════════════════════════════════
+         fragment_usuario_inicio.xml
+    ══════════════════════════════════════════ -->
+    <string name="usuario_inicio">"BIENVENIDO"</string>
+    <string name="usuario_inicio_eslogan">"Donde cada latido cuenta"</string>
+
+    <!-- ══════════════════════════════════════════
+         fragment_rec_pass.xml
+    ══════════════════════════════════════════ -->
+    <string name="rc_pass_titulo">RECUPERAR CONTRASEÑA</string>
+    <string name="rc_pass_correo">Introduzca el correo:</string>
+    <string name="rc_pass_nuevacontraseña">Ingrese su nueva contraseña:</string>
+    <string name="rc_pass_repetircontraseña">Confirma su contraseña:</string>
+
+    <!-- ══════════════════════════════════════════
+         fragment_reg_usuario.xml
+    ══════════════════════════════════════════ -->
     <string name="reg_usuario_titulo">"REGISTRO DE USUARIO"</string>
-    <string name="reg_animal_titulo">"REGISTRO DE MASCOTA"</string>
     <string name="reg_nombre">"Nombre:"</string>
     <string name="reg_apellido">"Apellido:"*</string>
     <string name="reg_dni">"NIE/NIF:"*</string>
     <string name="reg_fecha">"Fecha de nacimiento:"*</string>
     <string name="reg_correo">"Correo:"*</string>
     <string name="reg_telefono">"Teléfono:"*</string>
-    <string name="reg_sexo">"Sexo:"*</string>
     <string name="reg_contraseña">"Contraseña:"*</string>
+    <string-array name="opciones_sexo_usuario">
+        <item>Masculino</item>
+        <item>Femenino</item>
+    </string-array>
+
+    <!-- ══════════════════════════════════════════
+         fragment_reg_animal.xml
+    ══════════════════════════════════════════ -->
+    <string name="reg_animal_titulo">"REGISTRO DE MASCOTA"</string>
+    <string name="reg_sexo">"Sexo:"*</string>
     <string name="reg_microchip">"Microchip:"*</string>
     <string name="reg_especie">"Especie:"</string>
     <string name="reg_raza">"Raza:"*</string>
@@ -41,14 +80,35 @@
         <item>Macho</item>
         <item>Hembra</item>
     </string-array>
-    <string-array name="opciones_sexo_usuario">
-        <item>Masculino</item>
-        <item>Femenino</item>
-    </string-array>
-    <string name="usuario_inicio">"BIENVENIDO"</string>
-    <string name="usuario_inicio_eslogan">"Donde cada latido cuenta"</string>
+
+    <!-- ══════════════════════════════════════════
+         fragmen_usuario_mascota.xml / recycler_mascota.xml
+    ══════════════════════════════════════════ -->
+    <string name="usuario_mascota">PERFIL MASCOTAS</string>
     <string name="item_mascota">"Mascota"</string>
 
+    <!-- ══════════════════════════════════════════
+         fragment_usuario_calendario.xml
+    ══════════════════════════════════════════ -->
+    <string name="usuario_calendario_btnMensual">Mensual</string>
+    <string name="usuario_calendario_btnSemanal">Semanal</string>
+    <string name="usuario_calendario_Vacunación">Vacunación</string>
+    <string name="usuario_calendario_Revisión">Revisión</string>
+    <string name="usuario_calendario_Consulta">Consulta general</string>
+    <string name="usuario_calendario_Pruebas">Pruebas</string>
+    <string name="usuario_calendario_medicamentos">Comprar más medicamentos</string>
+
+    <!-- ══════════════════════════════════════════
+         fragment_usuario_calendario_cita.xml
+    ══════════════════════════════════════════ -->
+    <string name="usuario_cldr_cita_mascota">- Mascota:</string>
+    <string name="usuario_cldr_cita_clinica">- Clínica:</string>
+    <string name="usuario_cldr_cita_tipo">- Tipo:</string>
+    <string name="usuario_cldr_cita_tipo_4">(Vacunación / Revisión / Consulta general / Pruebas)</string>
+    <string name="usuario_cldr_cita_motivo">- Motivo breve:</string>
+    <string name="usuario_cldr_cita_veterinario">- Veterinario:</string>
+    <string name="usuario_cldr_cita_fecha">- Fecha de la cita:</string>
+    <string name="usuario_cldr_cita_recordatorio">- Recordatorio:</string>
     <string-array name="recordatorio_opciones">
         <item>Sin recordatorio</item>
         <item>1 día antes</item>
@@ -56,14 +116,5 @@
         <item>1 semana antes</item>
         <item>1 mes antes</item>
     </string-array>
-
-    <!-- NAVIGATION => fragments label -->
-    <string name="fragment_inicio_label">Inicio Fragment</string>
-    <string name="fragment_rec_pass_label">Rec Pass Fragment</string>
-    <string name="fragment_reg_animal_label">Reg Animal Fragment</string>
-    <string name="fragment_reg_usuario_label">Reg Usuario Fragment</string>
-
-
-
 
 </resources>

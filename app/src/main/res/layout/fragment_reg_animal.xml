@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="24dp">
-
         <!-- Título -->
         <TextView
             android:id="@+id/tv_titulo_animal"
@@ -22,7 +21,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             style="@style/TextTitulo"/>
-
         <!-- Imagen -->
         <ImageView
             android:id="@+id/iv_foto_animal"
@@ -233,7 +231,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_castracion"
             style="@style/TextSubtitulo"/>
-
         <!-- Botón Guardar -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_guardar"
