@@ -9,7 +9,7 @@
     android:background="@color/content_main"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <!-- Imagen del logo de la aplicación -->
+    <!-- LOGO -->
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="80dp"

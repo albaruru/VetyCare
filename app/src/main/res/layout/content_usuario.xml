@@ -18,7 +18,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-
         <!-- FOTO DEL DUEÑO -->
         <ImageView
             android:id="@+id/iv_foto_dueno"
@@ -32,7 +31,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
         <!-- NOMBRE DEL DUEÑO -->
         <TextView
             android:id="@+id/tv_nombre_dueno"
@@ -46,7 +44,6 @@
             app:layout_constraintStart_toEndOf="@id/iv_foto_dueno"
             app:layout_constraintEnd_toStartOf="@id/iv_logo"
             style="@style/Nombres" />
-
         <!-- LOGO EMPRESA -->
         <ImageView
             android:id="@+id/iv_logo"
@@ -62,7 +59,6 @@
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     <!-- DIVIDER -->
     <View
         android:id="@+id/divider_header"
@@ -73,7 +69,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-
     <!-- FILA BOTONES -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -83,7 +78,6 @@
         android:background="@color/menu"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="-16dp">
-
         <ImageButton
             android:id="@+id/btnIniMasc"
             android:layout_width="0dp"
@@ -93,7 +87,6 @@
             android:src="@drawable/btn_huella"
             android:background="@drawable/botones_menu"
             android:textSize="20sp" />
-
         <ImageButton
             android:id="@+id/btnCalendarUsu"
             android:layout_width="0dp"
@@ -103,7 +96,6 @@
             android:src="@drawable/btn_calendar"
             android:background="@drawable/botones_menu"
             android:textSize="20sp" />
-
         <ImageButton
             android:id="@+id/btnUsuario"
             android:layout_width="0dp"
@@ -113,7 +105,6 @@
             android:src="@drawable/btn_user"
             android:background="@drawable/botones_menu"
             android:textSize="20sp" />
-
         <ImageButton
             android:id="@+id/btnInicio"
             android:layout_width="0dp"
@@ -124,6 +115,5 @@
             android:background="@drawable/botones_menu"
             android:textSize="20sp" />
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:padding="24dp">
 
-        <!-- Título -->
+        <!-- TÍTULO -->
         <TextView
             android:id="@+id/tv_titulo"
             android:layout_width="wrap_content"
@@ -21,7 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             style="@style/TextTitulo"/>
-        <!-- nombre_usuario -->
+        <!-- Nombre_usuario -->
         <TextView
             android:id="@+id/tv_nombre_usuario"
             android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             style="@style/AppName"/>
-        <!-- Imagen -->
+        <!-- IMAGEN -->
         <ImageView
             android:id="@+id/imgLogo"
             android:layout_width="99dp"
@@ -56,7 +56,7 @@
             app:layout_constraintTop_toBottomOf="@id/txtAppName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
-        <!-- Eslogan -->
+        <!-- ESLOGAN -->
         <TextView
             android:id="@+id/tv_eslogan"
             android:layout_width="wrap_content"

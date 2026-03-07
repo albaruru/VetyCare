@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/content_main">
+    android:background="@color/content_usuario">
 
     <!-- NestedScrollView solo admite UN hijo directo. To.do va dentro de este ConstraintLayout. -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -83,7 +83,6 @@
             app:layout_constraintTop_toBottomOf="@id/calendarView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -101,7 +100,6 @@
                     android:text="@string/usuario_calendario_Vacunación"
                     style="@style/TextBase" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/content_main">
+    android:background="@color/content_mascotas">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="24dp">
-        <!-- Título -->
+        <!--TÍTULO -->
         <TextView
             android:id="@+id/tv_titulo_animal"
             android:layout_width="wrap_content"
@@ -21,7 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             style="@style/TextTitulo"/>
-        <!-- Imagen -->
+        <!-- FOTO DE LA MASCOTA -->
         <ImageView
             android:id="@+id/iv_foto_animal"
             android:layout_width="100dp"
@@ -34,7 +34,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_titulo_animal" />
-        <!-- Texto Nombre -->
+        <!-- TEXTO - Nombre -->
         <TextView
             android:id="@+id/tv_nombre_animal"
             android:layout_width="wrap_content"
@@ -44,7 +44,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_foto_animal"
             style="@style/TextBaseNegrita"/>
-        <!-- Texto Nombre -->
         <EditText
             android:id="@+id/et_nombre_animal"
             android:layout_width="0dp"
@@ -57,7 +56,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_nombre_animal"
             style="@style/TextBase"/>
-        <!-- Texto Microchip -->
+        <!-- TEXTO - Microchip -->
         <TextView
             android:id="@+id/tv_microchip"
             android:layout_width="wrap_content"
@@ -67,7 +66,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_nombre_animal"
             style="@style/TextBaseNegrita"/>
-        <!-- Texto Microchip -->
         <EditText
             android:id="@+id/et_microchip"
             android:layout_width="0dp"
@@ -80,7 +78,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_microchip"
             style="@style/TextBase"/>
-        <!-- Texto Especie -->
+        <!-- TEXTO - Especie -->
         <TextView
             android:id="@+id/tv_especie"
             android:layout_width="wrap_content"
@@ -90,7 +88,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_microchip"
             style="@style/TextBaseNegrita"/>
-        <!-- Texto Especie -->
         <EditText
             android:id="@+id/et_especie"
             android:layout_width="0dp"
@@ -103,7 +100,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_especie"
             style="@style/TextBase"/>
-        <!-- Texto Raza -->
+        <!-- TEXTO - Raza -->
         <TextView
             android:id="@+id/tv_raza"
             android:layout_width="wrap_content"
@@ -113,7 +110,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_especie"
             style="@style/TextBaseNegrita"/>
-        <!-- Texto Raza -->
         <EditText
             android:id="@+id/et_raza"
             android:layout_width="0dp"
@@ -126,7 +122,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_raza"
             style="@style/TextBaseNegrita"/>
-        <!-- Texto Fecha -->
+        <!-- TEXTO - Fecha -->
         <TextView
             android:id="@+id/tv_fecha_animal"
             android:layout_width="wrap_content"
@@ -136,7 +132,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_raza"
             style="@style/TextBaseNegrita"/>
-        <!-- Texto Fecha -->
         <EditText
             android:id="@+id/et_fecha_animal"
             android:layout_width="0dp"
@@ -149,7 +144,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_fecha_animal"
             style="@style/TextBaseNegrita"/>
-        <!-- Texto Sexo -->
+        <!-- TEXTO - Sexo -->
         <TextView
             android:id="@+id/tv_sexo"
             android:layout_width="wrap_content"
@@ -159,7 +154,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_fecha_animal"
             style="@style/TextBaseNegrita"/>
-        <!-- Texto Sexo -->
         <Spinner
             android:id="@+id/sp_sexo"
             android:layout_width="0dp"
@@ -171,7 +165,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_sexo"
             style="@style/TextBase"/>
-        <!-- Texto Peso -->
+        <!-- TEXTO - Peso -->
         <TextView
             android:id="@+id/tv_peso"
             android:layout_width="wrap_content"
@@ -181,7 +175,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sp_sexo"
             style="@style/TextBaseNegrita"/>
-        <!-- Texto Peso -->
         <EditText
             android:id="@+id/et_peso"
             android:layout_width="0dp"
@@ -194,7 +187,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_peso"
             style="@style/TextBase"/>
-        <!-- Texto Castracion -->
+        <!-- TEXTO - Castracion -->
         <TextView
             android:id="@+id/tv_castracion"
             android:layout_width="wrap_content"
@@ -204,7 +197,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_peso"
             style="@style/TextBaseNegrita"/>
-        <!-- Texto Castracion -->
         <EditText
             android:id="@+id/et_castracion"
             android:layout_width="0dp"
@@ -216,7 +208,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_castracion"
             style="@style/TextBase"/>
-        <!-- Botón Volver -->
+        <!-- BOTÓN - Volver -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_volver"
             android:layout_width="wrap_content"
@@ -231,7 +223,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_castracion"
             style="@style/TextSubtitulo"/>
-        <!-- Botón Guardar -->
+        <!-- BOTÓN - Guardar -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_guardar"
             android:layout_width="wrap_content"

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:padding="24dp">
 
-        <!-- Imagen -->
+        <!-- FOTO DEL USUARIO -->
         <ImageView
             android:id="@+id/iv_foto"
             android:layout_width="100dp"
@@ -26,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Nombre -->
+        <!-- TEXTO - Nombre -->
         <TextView
             android:id="@+id/tv_nombre"
             android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_nombre"
             style="@style/TextBase"/>
 
-        <!-- Apellido -->
+        <!-- TEXTO - Apellido -->
         <TextView
             android:id="@+id/tv_apellido"
             android:layout_width="wrap_content"
@@ -72,7 +72,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_apellido"
             style="@style/TextBase"/>
 
-        <!-- Sexo -->
+        <!-- TEXTO - Sexo -->
         <TextView
             android:id="@+id/tv_sexo"
             android:layout_width="wrap_content"
@@ -94,7 +94,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_sexo"
             style="@style/TextBase"/>
 
-        <!-- DNI  ← ahora va después de sp_sexo, no de et_apellido -->
+        <!-- TEXTO - DNI  -->
         <TextView
             android:id="@+id/tv_dni"
             android:layout_width="wrap_content"
@@ -116,7 +116,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_dni"
             style="@style/TextBase"/>
 
-        <!-- Fecha -->
+        <!-- TEXTO - Fecha -->
         <TextView
             android:id="@+id/tv_fecha"
             android:layout_width="wrap_content"
@@ -139,7 +139,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_fecha"
             style="@style/TextBase"/>
 
-        <!-- Correo -->
+        <!-- TEXTO - Correo -->
         <TextView
             android:id="@+id/tv_correo"
             android:layout_width="wrap_content"
@@ -162,7 +162,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_correo"
             style="@style/TextBase"/>
 
-        <!-- Teléfono -->
+        <!-- TEXTO - Teléfono -->
         <TextView
             android:id="@+id/tv_telefono"
             android:layout_width="wrap_content"
@@ -185,7 +185,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_telefono"
             style="@style/TextBase"/>
 
-        <!-- Contraseña -->
+        <!-- TEXTO - Contraseña -->
         <TextView
             android:id="@+id/tv_pass"
             android:layout_width="wrap_content"
@@ -208,12 +208,12 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_pass"
             style="@style/TextBase"/>
 
-        <!-- Botón Volver -->
+        <!-- BOTÓN - Volver -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_volver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"
             android:text="@string/usuario_perfil_cerrar"
             android:background="@drawable/boton_volver_cancelar"
@@ -223,12 +223,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_pass"
             style="@style/TextSubtitulo"/>
-        <!-- Botón Guardar -->
+
+        <!-- BOTÓN - Guardar -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_guardar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"
             android:text="@string/usuario_perfil_editar"
             android:background="@drawable/botones"

@@ -93,6 +93,35 @@
     <string name="usuario_perfil_editar">EDITAR</string>
     <string name="usuario_perfil_cerrar">Cerrar sesion</string>
 
+    <!-- fragment_usuario_clinica.xml / item_clinica.xml -->
+    <string name="clinica_titulo">CLÍNICAS</string>
+    <string name="clinica_descripcion">Encuentra nuestas clínicas veterinarias cerca de ti</string>
+    <string name="clinica_zona">- Comunidad autónoma:</string>
+    <string name="clinica_item_direccion">- Dirección:</string>
+    <string name="clinica_item_telefono">- Teléfono:</string>
+    <string name="clinica_item_horario">- Horario:</string>
+    <string-array name="opciones_comunidades">
+        <item>Todas</item>
+        <item>Andalucía</item>
+        <item>Aragón</item>
+        <item>Asturias</item>
+        <item>Baleares</item>
+        <item>Canarias</item>
+        <item>Cantabria</item>
+        <item>Castilla-La Mancha</item>
+        <item>Castilla y León</item>
+        <item>Cataluña</item>
+        <item>Ceuta</item>
+        <item>Comunidad de Madrid</item>
+        <item>Comunidad Valenciana</item>
+        <item>Extremadura</item>
+        <item>Galicia</item>
+        <item>La Rioja</item>
+        <item>Melilla</item>
+        <item>Murcia</item>
+        <item>Navarra</item>
+        <item>País Vasco</item>
+    </string-array>
 
     <!-- ================================== BACK ================================== -->
     <!-- NAVEGACIÓN (nav_graph) -->

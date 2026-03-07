@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/content_main">
+    android:background="@color/content_usuario">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -35,7 +35,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- Mascota -->
+            <!-- TEXTO - Mascota -->
             <TextView
                 android:id="@+id/tv_label_mascota"
                 android:layout_width="match_parent"
@@ -56,7 +56,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBase" />
 
-            <!-- Clínica -->
+            <!-- TEXTO - Clínica -->
             <TextView
                 android:id="@+id/tv_label_clinica"
                 android:layout_width="match_parent"
@@ -78,7 +78,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBase" />
 
-            <!-- Tipo: label y hint en la misma línea -->
+            <!-- TEXTO - Tipo -->
             <TextView
                 android:id="@+id/tv_label_tipo"
                 android:layout_width="wrap_content"
@@ -112,7 +112,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBase" />
 
-            <!-- Motivo breve — EditText multilinea scrollable -->
+            <!-- TEXTO - Motivo breve -->
             <TextView
                 android:id="@+id/tv_label_motivo"
                 android:layout_width="match_parent"
@@ -138,7 +138,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBase" />
 
-            <!-- Veterinario -->
+            <!-- TEXTO - Veterinario -->
             <TextView
                 android:id="@+id/tv_label_veterinario"
                 android:layout_width="match_parent"
@@ -160,7 +160,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBase" />
 
-            <!-- Fecha -->
+            <!-- TEXTO - Fecha -->
             <TextView
                 android:id="@+id/tv_label_fecha"
                 android:layout_width="match_parent"
@@ -182,7 +182,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBase" />
 
-            <!-- Recordatorio — Spinner -->
+            <!-- SPINNER - Recordatorio -->
             <TextView
                 android:id="@+id/tv_label_recordatorio"
                 android:layout_width="match_parent"
@@ -207,7 +207,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!-- Botón Volver -->
+        <!-- BOTÓN - Volver -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_volver"
             android:layout_width="wrap_content"
@@ -222,7 +222,7 @@
             app:layout_constraintTop_toBottomOf="@id/layoutDetalle"
             style="@style/TextSubtitulo"/>
 
-        <!-- Botón Guardar -->
+        <!-- BOTÓN - Guardar -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_guardar"
             android:layout_width="wrap_content"
