@@ -123,6 +123,16 @@
         <item>País Vasco</item>
     </string-array>
 
+    <!-- fragment_mascota_cita.xml -->
+    <string name="mascota_cita_titulo">CITA</string>
+    <string name="mascota_cita_btn_pedir">Pedir cita</string>
+
+    <!-- fragment_mascota_tratamiento.xml / item_tratamiento.xml -->
+    <string name="tratamiento_titulo">TRATAMIENTO</string>
+    <string name="tratamiento_fecha_inicio">Fecha inicio</string>
+    <string name="tratamiento_fecha_fin">Fecha fin</string>
+    <string name="tratamiento_nombre">Tratamiento</string>
+
     <!-- ================================== BACK ================================== -->
     <!-- NAVEGACIÓN (nav_graph) -->
     <string name="fragment_inicio_label">Inicio Fragment</string>
