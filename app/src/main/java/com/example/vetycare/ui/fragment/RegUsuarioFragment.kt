@@ -46,8 +46,8 @@ class RegUsuarioFragment : Fragment () {
     /* NAVEGACION ENTRE FRAGMENTS */
     fun navegacionFragment(num : Int) {
         when (num) {
-            1 -> findNavController().navigate(R.id.action_confirmacionDialog_to_InicioFragment)
-            2 -> findNavController().navigate(R.id.action_cancelacionDialog_to_InicioFragment)
+            1 -> findNavController().navigate(R.id.action_RegUsuarioFragment_to_confirmacionDialog)
+            2 -> findNavController().navigate(R.id.action_RegUsuarioFragment_to_cancelacionDialog)
         }
     }
 }
