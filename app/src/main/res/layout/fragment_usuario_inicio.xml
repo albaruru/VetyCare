@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:padding="24dp">
 
-        <!-- Título -->
+        <!-- TÍTULO -->
         <TextView
             android:id="@+id/tv_titulo"
             android:layout_width="wrap_content"
@@ -21,34 +21,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             style="@style/TextTitulo"/>
-
-        <!-- nombre_usuario -->
+        <!-- Nombre_usuario -->
         <TextView
             android:id="@+id/tv_nombre_usuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="nombre_usuario"
+            android:text="@string/cont_main_Nombre_usuario"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/tv_titulo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             style="@style/TextInformativo"/>
-
         <!-- NombreApp -->
         <TextView
             android:id="@+id/txtAppName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="60dp"
             android:text="@string/app_name"
             android:textColor="#9E9E9E"
             app:layout_constraintTop_toBottomOf="@id/tv_nombre_usuario"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             style="@style/AppName"/>
-
-        <!-- Imagen -->
+        <!-- IMAGEN -->
         <ImageView
             android:id="@+id/imgLogo"
             android:layout_width="99dp"
@@ -59,8 +56,7 @@
             app:layout_constraintTop_toBottomOf="@id/txtAppName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
-
-        <!-- Eslogan -->
+        <!-- ESLOGAN -->
         <TextView
             android:id="@+id/tv_eslogan"
             android:layout_width="wrap_content"

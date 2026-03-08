@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:padding="24dp">
 
-        <!-- Título -->
+        <!-- TÍTULO -->
         <TextView
             android:id="@+id/tv_titulo"
             android:layout_width="wrap_content"
@@ -23,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent"
             style="@style/TextTitulo"/>
 
-        <!-- Campo Correo -->
+        <!-- CORREO -->
         <EditText
             android:id="@+id/et_correo"
             android:layout_width="0dp"
@@ -39,7 +39,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_titulo"
             style="@style/TextBase"/>
 
-        <!-- Campo Contraseña -->
+        <!-- CONTRASEÑA -->
         <EditText
             android:id="@+id/et_contrasenha"
             android:layout_width="0dp"
@@ -55,7 +55,7 @@
             app:layout_constraintTop_toBottomOf="@+id/et_correo"
             style="@style/TextBase"/>
 
-        <!-- Checkbox Recordar usuario -->
+        <!-- CHECKBOX - RECORDAR USUARIO -->
         <CheckBox
             android:id="@+id/cb_recordar"
             android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
             app:layout_constraintTop_toBottomOf="@+id/et_contrasenha"
             style="@style/TextInformativo"/>
 
-        <!-- Botón Entrar -->
+        <!-- BOTON ENTRAR -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_entrar"
             android:layout_width="160dp"
@@ -80,7 +80,7 @@
             app:layout_constraintTop_toBottomOf="@+id/cb_recordar"
             style="@style/TextSubtitulo"/>
 
-        <!-- Texto ¿Aún no tienes cuenta? -->
+        <!-- TEXTO - ¿Aún no tienes cuenta? -->
         <TextView
             android:id="@+id/tv_registrate"
             android:layout_width="wrap_content"
@@ -92,7 +92,7 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_entrar"
             style="@style/TextInformativo"/>
 
-        <!-- Link Regístrate -->
+        <!-- LINK - Regístrate -->
         <TextView
             android:id="@+id/tv_link_registrate"
             android:layout_width="wrap_content"
@@ -105,7 +105,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_registrate"
             style="@style/TextInformativo"/>
 
-        <!-- Link Olvidé contraseña -->
+        <!-- LINK - Olvidé contraseña -->
         <TextView
             android:id="@+id/tv_olvide_contrasenha"
             android:layout_width="wrap_content"

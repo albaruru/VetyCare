@@ -9,7 +9,7 @@
     android:background="@drawable/background_cuadro_formulario"
     android:padding="12dp">
 
-    <!-- Foto de la mascota -->
+    <!-- FOTO DE LA MASCOTA -->
     <ImageView
         android:id="@+id/iv_foto_mascota"
         android:layout_width="76dp"
@@ -24,7 +24,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Botón "Mascota" -->
+    <!-- BOTÓN - "Mascota" -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_mascota"
         style="@style/TextBaseNegrita"
@@ -38,7 +38,6 @@
         app:layout_constraintStart_toStartOf="@+id/guia_central"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Separar foto del botón -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guia_central"
         android:layout_width="wrap_content"
