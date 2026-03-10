@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="0dp"
+    android:layout_marginVertical="6dp"
+    android:background="@drawable/background_cuadro_formulario"
+    android:padding="12dp">
+
+    <!-- TEXTO - Fecha del informe -->
+    <TextView
+        android:id="@+id/tv_fecha"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_cuadro_texto"
+        android:padding="8dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/TextBase" />
+
+    <!-- TEXTO - Concepto del informe -->
+    <TextView
+        android:id="@+id/tv_concepto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/background_cuadro_texto"
+        android:padding="8dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_fecha"
+        style="@style/TextBase" />
+
+    <!-- BOTÓN - Ver más (navega al detalle) -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_ver_mas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/informe_btn_ver_mas"
+        android:background="@drawable/boton_volver_cancelar"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_concepto"
+        style="@style/TextSubtitulo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
