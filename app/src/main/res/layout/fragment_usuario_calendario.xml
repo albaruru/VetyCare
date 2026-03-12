@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/content_main">
+    android:background="@color/content_usuario">
 
     <!-- NestedScrollView solo admite UN hijo directo. To.do va dentro de este ConstraintLayout. -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,7 +37,7 @@
                 android:id="@+id/rbMensual"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
-                android:text="Mensual"
+                android:text="@string/usuario_calendario_btnMensual"
                 android:checked="true"
                 android:button="@null"
                 android:gravity="center"
@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:layout_marginStart="8dp"
-                android:text="Semanal"
+                android:text="@string/usuario_calendario_btnSemanal"
                 android:button="@null"
                 android:gravity="center"
                 android:paddingHorizontal="20dp"
@@ -83,7 +83,6 @@
             app:layout_constraintTop_toBottomOf="@id/calendarView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -98,10 +97,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Vacunación"
+                    android:text="@string/usuario_calendario_Vacunación"
                     style="@style/TextBase" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -116,7 +114,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Revisión"
+                    android:text="@string/usuario_calendario_Revisión"
                     style="@style/TextBase" />
             </LinearLayout>
             <LinearLayout
@@ -133,7 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Consulta general"
+                    android:text="@string/usuario_calendario_Consulta"
                     style="@style/TextBase" />
             </LinearLayout>
             <LinearLayout
@@ -150,7 +148,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Pruebas"
+                    android:text="@string/usuario_calendario_Pruebas"
                     style="@style/TextBase" />
             </LinearLayout>
             <LinearLayout
@@ -166,7 +164,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Comprar más medicamentos"
+                    android:text="@string/usuario_calendario_medicamentos"
                     style="@style/TextBase" />
             </LinearLayout>
         </LinearLayout>

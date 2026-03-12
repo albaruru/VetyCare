@@ -10,12 +10,14 @@
         android:id="@+id/layoutHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:paddingTop="22dp"
+        android:paddingBottom="12dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
         android:background="@color/menu"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-
         <!-- FOTO DEL DUEÑO -->
         <ImageView
             android:id="@+id/iv_foto_dueno"
@@ -24,12 +26,11 @@
             android:background="@drawable/botones_menu"
             android:src="@android:drawable/ic_menu_camera"
             android:scaleType="centerCrop"
-            android:padding="8dp"
+            android:padding="10dp"
             android:contentDescription="Foto de perfil"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
         <!-- NOMBRE DEL DUEÑO -->
         <TextView
             android:id="@+id/tv_nombre_dueno"
@@ -37,13 +38,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:text="Nombre_dueño"
+            android:text="@string/cont_main_Nombre_usuario"
             app:layout_constraintTop_toTopOf="@id/iv_foto_dueno"
             app:layout_constraintBottom_toBottomOf="@id/iv_foto_dueno"
             app:layout_constraintStart_toEndOf="@id/iv_foto_dueno"
             app:layout_constraintEnd_toStartOf="@id/iv_logo"
             style="@style/Nombres" />
-
         <!-- LOGO EMPRESA -->
         <ImageView
             android:id="@+id/iv_logo"
@@ -96,40 +96,40 @@
             android:id="@+id/btnIniMasc"
             android:layout_width="0dp"
             android:layout_height="65dp"
-            android:layout_margin="5dp"
             android:layout_weight="0.25"
-            android:background="@drawable/botones_menu"
+            android:layout_margin="5dp"
             android:src="@drawable/btn_huella"
+            android:background="@drawable/botones_menu"
             android:textSize="20sp" />
 
         <ImageButton
             android:id="@+id/btnCalendarUsu"
             android:layout_width="0dp"
             android:layout_height="65dp"
-            android:layout_margin="5dp"
             android:layout_weight="0.25"
-            android:background="@drawable/botones_menu"
+            android:layout_margin="5dp"
             android:src="@drawable/btn_calendar"
+            android:background="@drawable/botones_menu"
             android:textSize="20sp" />
 
         <ImageButton
             android:id="@+id/btnUsuario"
             android:layout_width="0dp"
             android:layout_height="65dp"
-            android:layout_margin="5dp"
             android:layout_weight="0.25"
-            android:background="@drawable/botones_menu"
+            android:layout_margin="5dp"
             android:src="@drawable/btn_user"
+            android:background="@drawable/botones_menu"
             android:textSize="20sp" />
 
         <ImageButton
             android:id="@+id/btnInicio"
             android:layout_width="0dp"
             android:layout_height="65dp"
-            android:layout_margin="5dp"
             android:layout_weight="0.25"
-            android:background="@drawable/botones_menu"
+            android:layout_margin="5dp"
             android:src="@drawable/btn_inicio"
+            android:background="@drawable/botones_menu"
             android:textSize="20sp" />
     </LinearLayout>
 

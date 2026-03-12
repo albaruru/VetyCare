@@ -6,17 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- HEADER: Foto dueño + Nombre + Logo -->
+    <!-- HEADER: Foto mascota + Nombre + Logo -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:paddingTop="22dp"
+        android:paddingBottom="12dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
         android:background="@color/menu"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-
         <!-- FOTO DE LA MASCOTA -->
         <ImageView
             android:id="@+id/iv_foto_mascota"
@@ -30,7 +32,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
         <!-- NOMBRE DE LA MASCOTA -->
         <TextView
             android:id="@+id/tv_nombre_mascota"
@@ -38,13 +39,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:text="Nombre_mascota"
+            android:text="@string/cont_main_nombre_mascota"
             app:layout_constraintTop_toTopOf="@id/iv_foto_mascota"
             app:layout_constraintBottom_toBottomOf="@id/iv_foto_mascota"
             app:layout_constraintStart_toEndOf="@id/iv_foto_mascota"
             app:layout_constraintEnd_toStartOf="@id/iv_logo"
             style="@style/Nombres" />
-
         <!-- LOGO EMPRESA -->
         <ImageView
             android:id="@+id/iv_logo"

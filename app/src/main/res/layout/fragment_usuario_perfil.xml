@@ -2,40 +2,29 @@
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/content_usuario">
+    android:background="@color/content_main">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="24dp">
 
-        <!--TÍTULO -->
-        <TextView
-            android:id="@+id/tv_titulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/reg_usuario_titulo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            style="@style/TextTitulo"/>
-
         <!-- FOTO DEL USUARIO -->
         <ImageView
             android:id="@+id/iv_foto"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="20dp"
             android:background="@drawable/background_cuadro_texto"
             android:contentDescription="Foto de perfil"
             android:padding="8dp"
+            android:layout_marginTop="20dp"
             android:src="@android:drawable/ic_menu_camera"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_titulo" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- TEXTO - Nombre -->
         <TextView
@@ -224,9 +213,9 @@
             android:id="@+id/btn_volver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"
-            android:text="@string/volver"
+            android:text="@string/usuario_perfil_cerrar"
             android:background="@drawable/boton_volver_cancelar"
             app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -234,14 +223,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_pass"
             style="@style/TextSubtitulo"/>
+
         <!-- BOTÓN - Guardar -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_guardar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"
-            android:text="@string/guardar"
+            android:text="@string/usuario_perfil_editar"
             android:background="@drawable/botones"
             app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
