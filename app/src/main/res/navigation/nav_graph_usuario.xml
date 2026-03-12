@@ -7,22 +7,99 @@
 
     <!-- FRAGMENTS -->
     <fragment
-        android:id="@+id/usuarioInicioFragment"
+        android:id="@+id/UsuarioInicioFragment"
         android:name="com.example.vetycare.ui.fragment.usuario.UsuarioInicioFragment"
-        android:label="UsuarioInicioFragment"
+        android:label="Inicio Usuario"
         tools:layout="@layout/fragment_usuario_inicio"
-        />
+        >
+        <action
+            android:id="@+id/action_UsuarioInicioFragment_to_UsuarioRegMascota2"
+            app:destination="@id/UsuarioRegMascota" />
+        <action
+            android:id="@+id/action_UsuarioInicioFragment_to_UsuarioMascotaFragment"
+            app:destination="@id/UsuarioMascotaFragment" />
+        <action
+            android:id="@+id/action_UsuarioInicioFragment_to_UsuarioCalendario"
+            app:destination="@id/UsuarioCalendario" />
+        <action
+            android:id="@+id/action_UsuarioInicioFragment_to_UsuarioCalendarioCita"
+            app:destination="@id/UsuarioCalendarioCita" />
+    </fragment>
     <fragment
-        android:id="@+id/usuarioMascotaFragment"
+        android:id="@+id/UsuarioMascotaFragment"
         android:name="com.example.vetycare.ui.fragment.usuario.UsuarioMascotaFragment"
-        android:label="UsuarioMascotaFragment"
+        android:label="Usuario Mascota "
         tools:layout="@layout/fragment_usuario_mascota"
-        />
+        >
+        <action
+            android:id="@+id/action_UsuarioMascotaFragment_to_UsuarioInicioFragment"
+            app:destination="@id/UsuarioInicioFragment" />
+        <action
+            android:id="@+id/action_UsuarioMascotaFragment_to_UsuarioRegMascota"
+            app:destination="@id/UsuarioRegMascota" />
+        <action
+            android:id="@+id/action_UsuarioMascotaFragment_to_UsuarioCalendario"
+            app:destination="@id/UsuarioCalendario" />
+        <action
+            android:id="@+id/action_UsuarioMascotaFragment_to_UsuarioCalendarioCita"
+            app:destination="@id/UsuarioCalendarioCita" />
+    </fragment>
     <fragment
-        android:id="@+id/RegAnimalFragment"
+        android:id="@+id/UsuarioRegMascota"
         android:name="com.example.vetycare.ui.fragment.usuario.UsuarioRegMascotaFragment"
-        android:label="@string/fragment_reg_animal_label"
+        android:label="Usuario Registro Mascota"
         tools:layout="@layout/fragment_usuario_reg_mascota"
-        />
+        >
+        <action
+            android:id="@+id/action_UsuarioRegMascota_to_UsuarioInicioFragment2"
+            app:destination="@id/UsuarioInicioFragment" />
+        <action
+            android:id="@+id/action_UsuarioRegMascota_to_UsuarioMascotaFragment2"
+            app:destination="@id/UsuarioMascotaFragment" />
+        <action
+            android:id="@+id/action_UsuarioRegMascota_to_UsuarioCalendario2"
+            app:destination="@id/UsuarioCalendario" />
+        <action
+            android:id="@+id/action_UsuarioRegMascota_to_UsuarioCalendarioCita"
+            app:destination="@id/UsuarioCalendarioCita" />
+    </fragment>
+    <fragment
+        android:id="@+id/UsuarioCalendario"
+        android:name="com.example.vetycare.ui.fragment.usuario.UsuarioCalendarioFragment"
+        android:label="Usuario Calendario"
+        tools:layout="@layout/fragment_usuario_calendario"
+        >
+        <action
+            android:id="@+id/action_UsuarioCalendario_to_UsuarioInicioFragment"
+            app:destination="@id/UsuarioInicioFragment" />
+        <action
+            android:id="@+id/action_UsuarioCalendario_to_UsuarioRegMascota2"
+            app:destination="@id/UsuarioRegMascota" />
+        <action
+            android:id="@+id/action_UsuarioCalendario_to_UsuarioMascotaFragment"
+            app:destination="@id/UsuarioMascotaFragment" />
+        <action
+            android:id="@+id/action_UsuarioCalendario_to_UsuarioCalendarioCita2"
+            app:destination="@id/UsuarioCalendarioCita" />
+    </fragment>
+    <fragment
+        android:id="@+id/UsuarioCalendarioCita"
+        android:name="com.example.vetycare.ui.fragment.usuario.UsuarioCalendarioCitaFragment"
+        android:label="Usuario Calendario Cita"
+        tools:layout="@layout/fragment_usuario_calendario_cita"
+        >
+        <action
+            android:id="@+id/action_UsuarioCalendarioCita_to_UsuarioInicioFragment"
+            app:destination="@id/UsuarioInicioFragment" />
+        <action
+            android:id="@+id/action_UsuarioCalendarioCita_to_UsuarioRegMascota"
+            app:destination="@id/UsuarioRegMascota" />
+        <action
+            android:id="@+id/action_UsuarioCalendarioCita_to_UsuarioMascotaFragment"
+            app:destination="@id/UsuarioMascotaFragment" />
+        <action
+            android:id="@+id/action_UsuarioCalendarioCita_to_UsuarioCalendario"
+            app:destination="@id/UsuarioCalendario" />
+    </fragment>
 
 </navigation>
