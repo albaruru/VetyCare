@@ -106,16 +106,16 @@
         <action
             android:id="@+id/action_NavUsuario_NavLogin"
             app:destination="@id/NavLogin" />
-        <action
+        <!--action
             android:id="@+id/action_NavUsuario_NavMascosta"
-            app:destination="@id/NavMascosta" />
+            app:destination="@id/NavMascota" /-->
 
         <!-- DIALOGS -->
 
     </navigation>
 
-    <navigation
-        android:id="@+id/NavMascosta"
+    <!--navigation
+        android:id="@+id/NavMascota"
         app:startDestination=""
         >
         <fragment
@@ -124,7 +124,7 @@
         <action
             android:id="@+id/action_NavMascosta_NavUsuario"
             app:destination="@id/NavUsuario" />
-    </navigation>
+    </navigation-->
 
 
 </navigation>
