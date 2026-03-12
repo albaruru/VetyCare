@@ -1,4 +1,4 @@
-package com.example.vetycare.ui.fragment
+package com.example.vetycare.ui.fragment.usuario
 
 import android.content.Context
 import android.os.Bundle

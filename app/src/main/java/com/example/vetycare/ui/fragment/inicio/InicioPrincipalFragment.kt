@@ -1,4 +1,4 @@
-package com.example.vetycare.ui.fragment
+package com.example.vetycare.ui.fragment.inicio
 
 import android.content.Context
 import android.os.Bundle
@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.vetycare.R
-import com.example.vetycare.databinding.FragmentInicioBinding
+import com.example.vetycare.databinding.FragmentInicioPrincipalBinding
 
-class InicioFragment : Fragment() {
-    private lateinit var binding : FragmentInicioBinding
+class InicioPrincipalFragment : Fragment() {
+    private lateinit var binding : FragmentInicioPrincipalBinding
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -22,7 +22,7 @@ class InicioFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentInicioBinding.inflate(layoutInflater,container,false)
+        binding = FragmentInicioPrincipalBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
 

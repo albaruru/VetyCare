@@ -1,4 +1,4 @@
-package com.example.vetycare.ui.fragment
+package com.example.vetycare.ui.fragment.usuario
 
 import android.content.Context
 import android.os.Bundle
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.vetycare.databinding.FragmentUsuarioInicioBinding
 
-class UsuarioInicioFragment : Fragment () {
+class UsuarioInicioFragment : Fragment() {
     private lateinit var binding : FragmentUsuarioInicioBinding
 
     override fun onAttach(context: Context) {

@@ -1,4 +1,4 @@
-package com.example.vetycare.ui.fragment
+package com.example.vetycare.ui.fragment.usuario
 
 import android.content.Context
 import android.os.Bundle
@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.vetycare.databinding.FragmentRegAnimalBinding
+import com.example.vetycare.databinding.FragmentUsuarioRegMascotaBinding
 
-class RegAnimalFragment : Fragment () {
-    private lateinit var binding : FragmentRegAnimalBinding
+class UsuarioRegMascotaFragment : Fragment() {
+    private lateinit var binding : FragmentUsuarioRegMascotaBinding
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
