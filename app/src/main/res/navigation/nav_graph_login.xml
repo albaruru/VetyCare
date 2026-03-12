@@ -9,9 +9,9 @@
     <!-- FRAGMENTS -->
     <fragment
         android:id="@+id/InicioFragment"
-        android:name="com.example.vetycare.ui.fragment.InicioFragment"
+        android:name="com.example.vetycare.ui.fragment.inicio.InicioPrincipalFragment"
         android:label="@string/fragment_inicio_label"
-        tools:layout="@layout/fragment_inicio"
+        tools:layout="@layout/fragment_inicio_principal"
         >
         <action
             android:id="@+id/action_InicioFragment_to_RegUsuarioFragment"
@@ -22,9 +22,9 @@
     </fragment>
     <fragment
         android:id="@+id/RecPassFragment"
-        android:name="com.example.vetycare.ui.fragment.RecPassFragment"
+        android:name="com.example.vetycare.ui.fragment.inicio.InicioRecPassFragment"
         android:label="@string/fragment_rec_pass_label"
-        tools:layout="@layout/fragment_rec_pass"
+        tools:layout="@layout/fragment_inicio_rec_pass"
         >
         <action
             android:id="@+id/action_RecPassFragment_to_InicioFragment"
@@ -32,9 +32,9 @@
     </fragment>
     <fragment
         android:id="@+id/RegUsuarioFragment"
-        android:name="com.example.vetycare.ui.fragment.RegUsuarioFragment"
+        android:name="com.example.vetycare.ui.fragment.inicio.InicioRegistroFragment"
         android:label="@string/fragment_reg_usuario_label"
-        tools:layout="@layout/fragment_reg_usuario"
+        tools:layout="@layout/fragment_inicio_registro"
         >
         <action
             android:id="@+id/action_RegUsuarioFragment_to_confirmacionDialog"

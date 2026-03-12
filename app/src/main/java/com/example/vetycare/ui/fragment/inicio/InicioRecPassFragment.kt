@@ -1,4 +1,4 @@
-package com.example.vetycare.ui.fragment
+package com.example.vetycare.ui.fragment.inicio
 
 import android.content.Context
 import android.os.Bundle
@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.vetycare.R
-import com.example.vetycare.databinding.FragmentRecPassBinding
+import com.example.vetycare.databinding.FragmentInicioRecPassBinding
 
-class RecPassFragment : Fragment () {
-    private lateinit var binding : FragmentRecPassBinding
+class InicioRecPassFragment : Fragment() {
+    private lateinit var binding : FragmentInicioRecPassBinding
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -23,7 +23,7 @@ class RecPassFragment : Fragment () {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentRecPassBinding.inflate(layoutInflater, container,false)
+        binding = FragmentInicioRecPassBinding.inflate(layoutInflater, container,false)
         return binding.root
     }
 
