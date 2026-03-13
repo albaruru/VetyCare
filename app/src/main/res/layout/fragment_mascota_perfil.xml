@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:padding="24dp">
 
-
         <!-- FOTO DE LA MASCOTA -->
         <ImageView
             android:id="@+id/iv_foto_animal"

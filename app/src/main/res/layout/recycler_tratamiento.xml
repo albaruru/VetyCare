@@ -2,21 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="6dp"
-    android:background="@drawable/background_cuadro_formulario">
+    android:background="@drawable/background_cuadro_formulario"
+    android:padding="12dp">
 
-    <!-- TEXTO - Fecha del informe (siempre visible) -->
+    <!-- TEXTO - Fecha del informe -->
     <TextView
         android:id="@+id/tv_fecha"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="12dp"
         android:background="@drawable/background_cuadro_texto"
         android:padding="8dp"
         android:text=""
@@ -25,14 +22,12 @@
         app:layout_constraintTop_toTopOf="parent"
         style="@style/TextBase" />
 
-    <!-- TEXTO - Concepto del informe (siempre visible) -->
+    <!-- TEXTO - Concepto del informe -->
     <TextView
         android:id="@+id/tv_concepto"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
         android:layout_marginTop="6dp"
-        android:layout_marginEnd="12dp"
         android:background="@drawable/background_cuadro_texto"
         android:padding="8dp"
         android:text=""
@@ -41,163 +36,19 @@
         app:layout_constraintTop_toBottomOf="@id/tv_fecha"
         style="@style/TextBase" />
 
-    <!-- BLOQUE EXPANDIDO - Solo visible al pulsar "ver más" -->
-    <LinearLayout
-        android:id="@+id/ll_detalle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginTop="6dp"
-        android:orientation="vertical"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_concepto">
-
-        <!-- TEXTO - Título del informe -->
-        <TextView
-            android:id="@+id/tv_label_informe_titulo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/informe_label_titulo"
-            style="@style/TextBaseNegrita" />
-        <TextView
-            android:id="@+id/tv_informe_titulo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/background_cuadro_texto"
-            android:padding="8dp"
-            android:text=""
-            style="@style/TextBase" />
-
-        <!-- TEXTO - Cuerpo o texto del informe -->
-        <TextView
-            android:id="@+id/tv_label_cuerpo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/informe_label_cuerpo"
-            style="@style/TextBaseNegrita" />
-        <TextView
-            android:id="@+id/tv_cuerpo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/background_cuadro_texto"
-            android:minLines="3"
-            android:padding="8dp"
-            android:text=""
-            style="@style/TextBase" />
-
-        <!-- TEXTO - Medicamento / Tratamiento -->
-        <TextView
-            android:id="@+id/tv_label_medicamento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/informe_label_medicamento"
-            style="@style/TextBaseNegrita" />
-        <TextView
-            android:id="@+id/tv_medicamento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/background_cuadro_texto"
-            android:padding="8dp"
-            android:text=""
-            style="@style/TextBase" />
-
-        <!-- TEXTO - Próxima revisión -->
-        <TextView
-            android:id="@+id/tv_label_revision"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/informe_label_revision"
-            style="@style/TextBaseNegrita" />
-        <TextView
-            android:id="@+id/tv_revision"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/background_cuadro_texto"
-            android:padding="8dp"
-            android:text=""
-            style="@style/TextBase" />
-
-        <!-- TEXTO - Facturación -->
-        <TextView
-            android:id="@+id/tv_label_facturacion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/informe_label_facturacion"
-            style="@style/TextBaseNegrita" />
-        <TextView
-            android:id="@+id/tv_facturacion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/background_cuadro_texto"
-            android:padding="8dp"
-            android:text=""
-            style="@style/TextBase" />
-
-    </LinearLayout>
-
-    <!-- BOTONES - Ver más / Ver menos y Convertir a PDF (en la misma fila) -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_botones"
-        android:layout_width="0dp"
+    <!-- BOTÓN - Ver más -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_ver_mas"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="4dp"
+        android:text="@string/informe_btn_ver_mas"
+        android:background="@drawable/botones"
+        app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll_detalle">
-
-        <!-- BOTÓN - Convertir a PDF (solo visible expandido) -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_pdf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/informe_btn_pdf"
-            android:background="@drawable/botones"
-            android:visibility="gone"
-            app:backgroundTint="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/guia_botones"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            style="@style/TextSubtitulo" />
-
-        <!-- BOTÓN - Ver más / Ver menos -->
-
-        <!-- GUÍA - Divide los botones a la mitad -->
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guia_botones"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_ver_mas"
-            style="@style/TextSubtitulo"
-            android:layout_width="125dp"
-            android:layout_height="40dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/botones"
-            android:text="@string/informe_btn_ver_mas"
-            app:backgroundTint="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guia_botones" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toBottomOf="@id/tv_concepto"
+        style="@style/TextSubtitulo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
