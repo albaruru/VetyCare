@@ -6,8 +6,6 @@
     <!-- Fondo transparente -->
     <solid android:color="@android:color/transparent" />
 
-    <!-- Esquinas ligeramente redondeadas -->
-    <corners android:radius="20dp" />
 
 
 </shape>

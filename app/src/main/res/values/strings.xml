@@ -148,7 +148,7 @@
     <string name="informe_label_facturacion">- Facturación:</string>
     <string name="informe_btn_ver_mas">Ver más</string>
     <string name="informe_btn_ver_menos">Ver menos</string>
-    <string name="informe_btn_pdf">Convertir a PDF</string>
+    <string name="informe_btn_pdf">PDF</string>
 
     <!-- ================================== BACK ================================== -->
     <!-- NAVEGACIÓN (nav_graph) -->
