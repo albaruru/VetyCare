@@ -6,11 +6,6 @@
     <!-- Fondo transparente -->
     <solid android:color="@android:color/transparent" />
 
-    <!-- Esquinas ligeramente redondeadas -->
-    <corners android:radius="20dp" />
 
-    <!-- Borde fino -->
-    <stroke
-        android:width="2dp"
-        android:color="@color/botones_menu" />
+
 </shape>

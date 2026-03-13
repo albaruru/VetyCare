@@ -47,24 +47,22 @@
         <!-- LOGO EMPRESA -->
         <ImageView
             android:id="@+id/iv_logo"
-            android:layout_width="50dp"
+            android:layout_width="53dp"
             android:layout_height="50dp"
             android:background="@drawable/botones_menu"
-            android:src="@android:drawable/ic_menu_gallery"
             android:scaleType="centerCrop"
-            android:padding="4dp"
-            android:contentDescription="Logo"
-            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/icn_negro"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- DIVIDER -->
+    <!-- DIVIDER superior -->
     <View
         android:id="@+id/divider_header"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/menu"
+        android:layout_height="2dp"
+        android:background="@color/botones"
         app:layout_constraintTop_toBottomOf="@id/layoutHeader"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -133,6 +131,14 @@
             android:background="@drawable/botones_menu"
             android:textSize="20sp" />
     </LinearLayout>
-
+    <!-- DIVIDER inferior -->
+    <View
+        android:id="@+id/divider_feature"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/botones"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

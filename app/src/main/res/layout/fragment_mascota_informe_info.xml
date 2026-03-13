@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_mascotas">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp">
+
+        <!-- TEXTO - Fecha del informe -->
+        <TextView
+            android:id="@+id/tv_fecha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:padding="8dp"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/TextBase" />
+
+        <!-- TEXTO - Concepto del informe -->
+        <TextView
+            android:id="@+id/tv_concepto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:padding="8dp"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_fecha"
+            style="@style/TextBase" />
+
+        <!-- TEXTO - Título del informe -->
+        <TextView
+            android:id="@+id/tv_label_titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/informe_label_titulo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_concepto"
+            style="@style/TextBaseNegrita" />
+        <TextView
+            android:id="@+id/tv_titulo_informe"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:padding="8dp"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_titulo"
+            style="@style/TextBase" />
+
+        <!-- TEXTO - Cuerpo o texto del informe -->
+        <TextView
+            android:id="@+id/tv_label_cuerpo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/informe_label_cuerpo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_titulo_informe"
+            style="@style/TextBaseNegrita" />
+        <TextView
+            android:id="@+id/tv_cuerpo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:minLines="3"
+            android:padding="8dp"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_cuerpo"
+            style="@style/TextBase" />
+
+        <!-- TEXTO - Medicamento / Tratamiento -->
+        <TextView
+            android:id="@+id/tv_label_medicamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/informe_label_medicamento"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_cuerpo"
+            style="@style/TextBaseNegrita" />
+        <TextView
+            android:id="@+id/tv_medicamento"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:padding="8dp"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_medicamento"
+            style="@style/TextBase" />
+
+        <!-- TEXTO - Próxima revisión -->
+        <TextView
+            android:id="@+id/tv_label_revision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/informe_label_revision"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_medicamento"
+            style="@style/TextBaseNegrita" />
+        <TextView
+            android:id="@+id/tv_revision"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:padding="8dp"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_revision"
+            style="@style/TextBase" />
+
+        <!-- TEXTO - Facturación -->
+        <TextView
+            android:id="@+id/tv_label_facturacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/informe_label_facturacion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_revision"
+            style="@style/TextBaseNegrita" />
+        <TextView
+            android:id="@+id/tv_facturacion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:padding="8dp"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_facturacion"
+            style="@style/TextBase" />
+
+        <!-- BOTÓN - Convertir a PDF -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_pdf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/informe_btn_pdf"
+            android:background="@drawable/botones"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toStartOf="@id/guia_central"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_facturacion"
+            style="@style/TextSubtitulo" />
+
+        <!-- BOTÓN - Ver menos (volver atrás) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_ver_menos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/informe_btn_ver_menos"
+            android:background="@drawable/boton_volver_cancelar"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guia_central"
+            app:layout_constraintTop_toBottomOf="@id/tv_facturacion"
+            style="@style/TextSubtitulo" />
+
+        <!-- GUÍA - Divide los botones a la mitad -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guia_central"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

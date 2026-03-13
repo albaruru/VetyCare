@@ -2,38 +2,30 @@
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/content_mascotas">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="24dp">
-        <!--TÍTULO -->
-        <TextView
-            android:id="@+id/tv_titulo_animal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/reg_animal_titulo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            style="@style/TextTitulo"/>
+
         <!-- FOTO DE LA MASCOTA -->
         <ImageView
             android:id="@+id/iv_foto_animal"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="20dp"
             android:background="@drawable/background_cuadro_texto"
             android:contentDescription="Foto del animal"
             android:padding="8dp"
+            android:layout_marginTop="20dp"
             android:src="@android:drawable/ic_menu_camera"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_titulo_animal" />
+            app:layout_constraintTop_toTopOf="parent" />
+
         <!-- TEXTO - Nombre -->
         <TextView
             android:id="@+id/tv_nombre_animal"
@@ -56,6 +48,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_nombre_animal"
             style="@style/TextBase"/>
+
         <!-- TEXTO - Microchip -->
         <TextView
             android:id="@+id/tv_microchip"
@@ -78,6 +71,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_microchip"
             style="@style/TextBase"/>
+
         <!-- TEXTO - Especie -->
         <TextView
             android:id="@+id/tv_especie"
@@ -100,6 +94,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_especie"
             style="@style/TextBase"/>
+
         <!-- TEXTO - Raza -->
         <TextView
             android:id="@+id/tv_raza"
@@ -121,8 +116,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_raza"
-            style="@style/TextBaseNegrita"/>
-        <!-- TEXTO - Fecha -->
+            style="@style/TextBase"/>
+
+        <!-- TEXTO - Fecha de nacimiento -->
         <TextView
             android:id="@+id/tv_fecha_animal"
             android:layout_width="wrap_content"
@@ -143,7 +139,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_fecha_animal"
-            style="@style/TextBaseNegrita"/>
+            style="@style/TextBase"/>
+
         <!-- TEXTO - Sexo -->
         <TextView
             android:id="@+id/tv_sexo"
@@ -165,6 +162,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_sexo"
             style="@style/TextBase"/>
+
         <!-- TEXTO - Peso -->
         <TextView
             android:id="@+id/tv_peso"
@@ -187,7 +185,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_peso"
             style="@style/TextBase"/>
-        <!-- TEXTO - Castracion -->
+
+        <!-- TEXTO - Castración -->
         <TextView
             android:id="@+id/tv_castracion"
             android:layout_width="wrap_content"
@@ -208,13 +207,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_castracion"
             style="@style/TextBase"/>
+
         <!-- BOTÓN - Volver -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_volver"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="20dp"
+            android:layout_marginEnd="8dp"
             android:text="@string/volver"
             android:background="@drawable/boton_volver_cancelar"
             app:backgroundTint="@null"
@@ -223,13 +224,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_castracion"
             style="@style/TextSubtitulo"/>
+
         <!-- BOTÓN - Guardar -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_guardar"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="20dp"
+            android:layout_marginStart="8dp"
             android:text="@string/guardar"
             android:background="@drawable/botones"
             app:backgroundTint="@null"
@@ -239,6 +242,7 @@
             app:layout_constraintTop_toBottomOf="@+id/et_castracion"
             style="@style/TextSubtitulo"/>
 
+        <!-- GUÍA CENTRAL -->
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guia_central_animal"
             android:layout_width="wrap_content"

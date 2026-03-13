@@ -2,13 +2,14 @@
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/content_mascotas">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:paddingBottom="24dp">
 
         <!-- TÍTULO -->
@@ -21,7 +22,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            style="@style/TextTitulo" />
+            style="@style/TextTitulo"/>
 
         <!-- CABECERA DE LA TABLA -->
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -74,18 +75,21 @@
                 app:layout_constraintTop_toTopOf="parent"
                 style="@style/TextBaseNegrita" />
 
+            <!-- GUÍAS - Dividen la cabecera en 3 columnas iguales -->
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guia1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.33" />
+
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guia2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.66" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- LISTA - Filas de tratamientos -->
@@ -98,6 +102,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_cabecera" />
+
+        <!-- BOTÓN - Volver -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_volver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/volver"
+            android:background="@drawable/boton_volver_cancelar"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_tratamientos"
+            style="@style/TextSubtitulo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

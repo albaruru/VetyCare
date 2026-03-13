@@ -23,7 +23,6 @@
     <!-- NOMBRE DE LA APLICACIÓN -->
     <TextView
         android:id="@+id/txtAppName"
-        style="@style/AppName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="70dp"
@@ -31,7 +30,8 @@
         app:layout_constraintStart_toEndOf="@id/imgLogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/imgLogo"
-        app:layout_constraintBottom_toBottomOf="@id/imgLogo"/>
+        app:layout_constraintBottom_toBottomOf="@id/imgLogo"
+        style="@style/AppName"/>
     <!-- GUÍA HORIZONTAL -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"

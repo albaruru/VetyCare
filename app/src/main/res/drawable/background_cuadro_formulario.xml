@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Fondo transparente -->
-    <solid android:color="@color/formulario" />
+    <!-- Capa sombra -->
+    <item
+        android:left="2dp"
+        android:top="3dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/formulario_sombra" />
+            <corners android:radius="20dp" />
+        </shape>
+    </item>
 
-    <!-- Esquinas ligeramente redondeadas -->
-    <corners android:radius="20dp" />
+    <!-- Fondo principal-->
+    <item
+        android:bottom="3dp"
+        android:right="2dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/formulario" />
+            <corners android:radius="20dp" />
+            <stroke
+                android:width="2dp"
+                android:color="@color/formulario_borde" />
+        </shape>
+    </item>
 
-    <!-- Borde fino -->
-    <stroke
-        android:width="2dp"
-        android:color="@color/formulario_borde" />
-</shape>
+</layer-list>

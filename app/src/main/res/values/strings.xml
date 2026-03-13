@@ -127,11 +127,28 @@
     <string name="mascota_cita_titulo">CITA</string>
     <string name="mascota_cita_btn_pedir">Pedir cita</string>
 
-    <!-- fragment_mascota_tratamiento.xml / item_tratamiento.xml -->
+    <!-- fragment_mascota_tratamiento.xml / item_tratamiento.xml / fragment_mascota_tratamiento_info.xml -->
     <string name="tratamiento_titulo">TRATAMIENTO</string>
     <string name="tratamiento_fecha_inicio">Fecha inicio</string>
     <string name="tratamiento_fecha_fin">Fecha fin</string>
     <string name="tratamiento_nombre">Tratamiento</string>
+    <string name="tratamiento_label_medicacion">- Medicación:</string>
+    <string name="tratamiento_label_dosis">- Dosis:</string>
+    <string name="tratamiento_label_frecuencia">- Frecuencia:</string>
+    <string name="tratamiento_label_fecha_inicio">- Fecha inicio:</string>
+    <string name="tratamiento_label_fecha_fin">- Fecha fin:</string>
+    <string name="tratamiento_label_observaciones">- Observaciones:</string>
+
+    <!-- fragment_mascota_informe.xml / item_informe.xml / fragment_mascota_informe_info.xml -->
+    <string name="informe_titulo">INFORME</string>
+    <string name="informe_label_titulo">- Título:</string>
+    <string name="informe_label_cuerpo">- Cuerpo / Texto del informe:</string>
+    <string name="informe_label_medicamento">- Medicamento / Tratamiento:</string>
+    <string name="informe_label_revision">- Próxima revisión:</string>
+    <string name="informe_label_facturacion">- Facturación:</string>
+    <string name="informe_btn_ver_mas">Ver más</string>
+    <string name="informe_btn_ver_menos">Ver menos</string>
+    <string name="informe_btn_pdf">PDF</string>
 
     <!-- ================================== BACK ================================== -->
     <!-- NAVEGACIÓN (nav_graph) -->

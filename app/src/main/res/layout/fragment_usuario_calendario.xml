@@ -9,7 +9,7 @@
     <!-- NestedScrollView solo admite UN hijo directo. To.do va dentro de este ConstraintLayout. -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:paddingBottom="80dp">
         <!--TÍTULO -->
         <TextView
