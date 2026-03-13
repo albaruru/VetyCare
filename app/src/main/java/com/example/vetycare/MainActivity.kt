@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Inicializa el host raiz de nuestro proyecto
-        val navController = findNavController(R.id.nav_host_root)
+        // val navController = findNavController(R.id.nav_host_root)
     }
 
     override fun onSupportNavigateUp(): Boolean {

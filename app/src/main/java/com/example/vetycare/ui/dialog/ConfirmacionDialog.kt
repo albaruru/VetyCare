@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.example.vetycare.R
+import com.example.vetycare.navigation.NavigatorInicio
 
 class ConfirmacionDialog : DialogFragment () {
 
@@ -15,7 +16,8 @@ class ConfirmacionDialog : DialogFragment () {
         builder.setTitle("CONFIRMACIÓN")
         builder.setMessage("¿Estás seguro que deseas continuar?")
         builder.setPositiveButton("Aceptar") {_,_ ->
-            findNavController().navigate(R.id.action_confirmacionDialog_to_InicioFragment)
+            NavigatorInicio.DialogConfirmacionToInicioPrincipal(this)
+            // findNavController().navigate(R.id.action_confirmacionDialog_to_InicioFragment)
         }
         builder.setNegativeButton("Cancelar",null)
 

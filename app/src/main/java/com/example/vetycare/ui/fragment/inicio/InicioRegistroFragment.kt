@@ -44,7 +44,8 @@ class InicioRegistroFragment : Fragment() {
         }
     }
 
-    /* NAVEGACION ENTRE FRAGMENTS */
+    /* NAVEGACION ENTRE FRAGMENTS
+    * */
     fun navegacionFragment(num : Int) {
         when (num) {
             1 -> NavigatorInicio.InicioRegistroToConfirmacionDialog(this) // Navega al Diagog Confirmacion

@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.example.vetycare.R
+import com.example.vetycare.navigation.NavigatorInicio
 
 class CancelacionDialog : DialogFragment () {
 
@@ -15,7 +16,8 @@ class CancelacionDialog : DialogFragment () {
         builder.setTitle("CANCELAR")
         builder.setMessage("¿Esta seguro de querer cancelar?")
         builder.setPositiveButton("Sí") {_,_ ->
-            findNavController().navigate(R.id.action_cancelacionDialog_to_InicioFragment)
+            NavigatorInicio.DialogCancelacionToInicioPrincipal(this)
+            // findNavController().navigate(R.id.action_cancelacionDialog_to_InicioFragment)
         }
         builder.setNegativeButton("No",null)
 

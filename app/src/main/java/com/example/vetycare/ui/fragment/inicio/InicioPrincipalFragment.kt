@@ -47,7 +47,8 @@ class InicioPrincipalFragment : Fragment() {
         }
     }
 
-    /* NAVEGACION ENTRE FRAGMENTS */
+    /* NAVEGACION ENTRE FRAGMENTS
+    * */
     fun navegacionFragment(num : Int) {
         when (num) {
             1 -> NavigatorRoot.InicioToUsuario(this) // Navega al Container Usuario

@@ -41,7 +41,8 @@ class InicioRecPassFragment : Fragment() {
         }
     }
 
-    /* NAVEGACION ENTRE FRAGMENTS */
+    /* NAVEGACION ENTRE FRAGMENTS
+    * */
     fun navegacionFragment() {
         NavigatorInicio.InicioRecPassToInicioPrincipal(this) // Navega al Fragment Inicio Principal
     }
