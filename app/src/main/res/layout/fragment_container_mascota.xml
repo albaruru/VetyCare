@@ -9,12 +9,12 @@
     <!-- HEADER -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutHeader"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="22dp"
-        android:paddingBottom="12dp"
+        android:layout_width="411dp"
+        android:layout_height="85dp"
         android:paddingStart="24dp"
+        android:paddingTop="22dp"
         android:paddingEnd="24dp"
+        android:paddingBottom="12dp"
         android:background="@color/menu"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"

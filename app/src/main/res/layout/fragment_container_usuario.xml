@@ -8,42 +8,42 @@
     <!-- HEADER: Foto dueño + Nombre + Logo -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutHeader"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="22dp"
-        android:paddingBottom="12dp"
+        android:layout_width="411dp"
+        android:layout_height="85dp"
         android:paddingStart="24dp"
+        android:paddingTop="22dp"
         android:paddingEnd="24dp"
+        android:paddingBottom="12dp"
         android:background="@color/menu"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
         <!-- FOTO DEL DUEÑO -->
         <ImageView
             android:id="@+id/iv_foto_dueno"
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:background="@drawable/botones_menu"
-            android:src="@android:drawable/ic_menu_camera"
-            android:scaleType="centerCrop"
-            android:padding="10dp"
             android:contentDescription="Foto de perfil"
-            app:layout_constraintTop_toTopOf="parent"
+            android:padding="10dp"
+            android:scaleType="centerCrop"
+            android:src="@android:drawable/ic_menu_camera"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
         <!-- NOMBRE DEL DUEÑO -->
         <TextView
             android:id="@+id/tv_nombre_dueno"
+            style="@style/Nombres"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:text="@string/cont_main_Nombre_usuario"
-            app:layout_constraintTop_toTopOf="@id/iv_foto_dueno"
             app:layout_constraintBottom_toBottomOf="@id/iv_foto_dueno"
-            app:layout_constraintStart_toEndOf="@id/iv_foto_dueno"
             app:layout_constraintEnd_toStartOf="@id/iv_logo"
-            style="@style/Nombres" />
+            app:layout_constraintStart_toEndOf="@id/iv_foto_dueno"
+            app:layout_constraintTop_toTopOf="@id/iv_foto_dueno" />
         <!-- LOGO EMPRESA -->
         <ImageView
             android:id="@+id/iv_logo"
@@ -105,12 +105,12 @@
             android:background="@drawable/botones_menu"
             android:textSize="20sp" />
         <ImageButton
-            android:id="@+id/btnInicio"
+            android:id="@+id/btnClinicas"
             android:layout_width="0dp"
             android:layout_height="65dp"
             android:layout_weight="0.25"
             android:layout_margin="5dp"
-            android:src="@drawable/btn_inicio"
+            android:src="@drawable/btn_clinicas"
             android:background="@drawable/botones_menu"
             android:textSize="20sp" />
     </LinearLayout>
