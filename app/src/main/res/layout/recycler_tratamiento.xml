@@ -2,8 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="6dp"
     android:background="@drawable/background_cuadro_formulario">
 
@@ -173,26 +175,28 @@
             style="@style/TextSubtitulo" />
 
         <!-- BOTÓN - Ver más / Ver menos -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_ver_mas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/informe_btn_ver_mas"
-            android:background="@drawable/boton_volver_cancelar"
-            app:backgroundTint="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guia_botones"
-            app:layout_constraintTop_toTopOf="parent"
-            style="@style/TextSubtitulo" />
 
         <!-- GUÍA - Divide los botones a la mitad -->
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guia_botones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.5" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_ver_mas"
+            style="@style/TextSubtitulo"
+            android:layout_width="125dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/botones"
+            android:text="@string/informe_btn_ver_mas"
+            app:backgroundTint="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guia_botones" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

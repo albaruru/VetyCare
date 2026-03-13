@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="0dp"
+    android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="6dp"
     android:background="@drawable/background_cuadro_formulario"
     android:padding="12dp">
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/informe_btn_ver_mas"
-        android:background="@drawable/boton_volver_cancelar"
+        android:background="@drawable/botones"
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

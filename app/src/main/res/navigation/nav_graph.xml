@@ -16,7 +16,7 @@
             android:id="@+id/InicioFragment"
             android:name="com.example.vetycare.ui.fragment.InicioFragment"
             android:label="@string/fragment_inicio_label"
-            tools:layout="@layout/fragment_inicio"
+            tools:layout="@layout/fragment_inicio_prinicpal"
             >
             <action
                 android:id="@+id/action_InicioFragment_to_RegUsuarioFragment"
@@ -33,7 +33,7 @@
             android:id="@+id/RecPassFragment"
             android:name="com.example.vetycare.ui.fragment.RecPassFragment"
             android:label="@string/fragment_rec_pass_label"
-            tools:layout="@layout/fragment_rec_pass"
+            tools:layout="@layout/fragment_inicio_rec_pass"
             >
             <action
                 android:id="@+id/action_RecPassFragment_to_InicioFragment"
@@ -43,7 +43,7 @@
             android:id="@+id/RegUsuarioFragment"
             android:name="com.example.vetycare.ui.fragment.RegUsuarioFragment"
             android:label="@string/fragment_reg_usuario_label"
-            tools:layout="@layout/fragment_reg_usuario"
+            tools:layout="@layout/fragment_inicio_registro"
             >
             <action
                 android:id="@+id/action_RegUsuarioFragment_to_confirmacionDialog"
@@ -99,7 +99,7 @@
             android:id="@+id/RegAnimalFragment"
             android:name="com.example.vetycare.ui.fragment.RegAnimalFragment"
             android:label="@string/fragment_reg_animal_label"
-            tools:layout="@layout/fragment_reg_animal"
+            tools:layout="@layout/fragment_usuario_reg_mascota"
             />
 
         <!-- ACCIONES DE GRUPO NAVIGATION INICIO -->

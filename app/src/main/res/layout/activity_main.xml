@@ -10,6 +10,6 @@
     tools:context=".MainActivity">
 
     <!-- PARTE CENTRAL -> CONTENT DEL MAIN-->
-    <include layout="@layout/content_main"/>
+    <include layout="@layout/fragment_container_inicio"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

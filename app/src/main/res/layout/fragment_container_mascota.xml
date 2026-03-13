@@ -2,11 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- HEADER: Foto mascota + Nombre + Logo -->
+    <!-- HEADER -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutHeader"
         android:layout_width="match_parent"
@@ -19,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-        <!-- FOTO DE LA MASCOTA -->
+
         <ImageView
             android:id="@+id/iv_foto_mascota"
             android:layout_width="72dp"
@@ -32,53 +31,54 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-        <!-- NOMBRE DE LA MASCOTA -->
+
         <TextView
             android:id="@+id/tv_nombre_mascota"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            style="@style/Nombres"
+            android:layout_width="203dp"
+            android:layout_height="31dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:text="@string/cont_main_nombre_mascota"
-            app:layout_constraintTop_toTopOf="@id/iv_foto_mascota"
             app:layout_constraintBottom_toBottomOf="@id/iv_foto_mascota"
-            app:layout_constraintStart_toEndOf="@id/iv_foto_mascota"
             app:layout_constraintEnd_toStartOf="@id/iv_logo"
-            style="@style/Nombres" />
-        <!-- LOGO EMPRESA -->
+            app:layout_constraintStart_toEndOf="@id/iv_foto_mascota"
+            app:layout_constraintTop_toTopOf="@id/iv_foto_mascota" />
+
         <ImageView
             android:id="@+id/iv_logo"
-            android:layout_width="50dp"
+            android:layout_width="53dp"
             android:layout_height="50dp"
             android:background="@drawable/botones_menu"
-            android:src="@android:drawable/ic_menu_gallery"
             android:scaleType="centerCrop"
-            android:padding="4dp"
-            android:contentDescription="Logo"
-            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/icn_negro"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- DIVIDER -->
+    <!-- DIVIDER superior -->
     <View
         android:id="@+id/divider_header"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/menu"
+        android:layout_height="2dp"
+        android:background="@color/botones"
         app:layout_constraintTop_toBottomOf="@id/layoutHeader"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- FILA BOTONES -->
     <LinearLayout
+        android:id="@+id/dropdown_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
         android:background="@color/menu"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="-16dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
         <ImageButton
             android:id="@+id/btnCita"
             android:layout_width="0dp"
@@ -86,8 +86,7 @@
             android:layout_weight="0.20"
             android:layout_margin="5dp"
             android:src="@drawable/btn_cita"
-            android:background="@drawable/botones_menu"
-            android:textSize="20sp" />
+            android:background="@drawable/botones_menu" />
         <ImageButton
             android:id="@+id/btnTratamiento"
             android:layout_width="0dp"
@@ -95,8 +94,7 @@
             android:layout_weight="0.20"
             android:layout_margin="5dp"
             android:src="@drawable/btn_tratamiento"
-            android:background="@drawable/botones_menu"
-            android:textSize="20sp" />
+            android:background="@drawable/botones_menu" />
         <ImageButton
             android:id="@+id/btnInforme"
             android:layout_width="0dp"
@@ -104,8 +102,7 @@
             android:layout_weight="0.20"
             android:layout_margin="5dp"
             android:src="@drawable/btn_informes"
-            android:background="@drawable/botones_menu"
-            android:textSize="20sp" />
+            android:background="@drawable/botones_menu" />
         <ImageButton
             android:id="@+id/btnCalendarMas"
             android:layout_width="0dp"
@@ -113,8 +110,7 @@
             android:layout_weight="0.20"
             android:layout_margin="5dp"
             android:src="@drawable/btn_calendar"
-            android:background="@drawable/botones_menu"
-            android:textSize="20sp" />
+            android:background="@drawable/botones_menu" />
         <ImageButton
             android:id="@+id/btnMascotas"
             android:layout_width="0dp"
@@ -122,7 +118,17 @@
             android:layout_weight="0.20"
             android:layout_margin="5dp"
             android:src="@drawable/btn_huella"
-            android:background="@drawable/botones_menu"
-            android:textSize="20sp" />
+            android:background="@drawable/botones_menu" />
     </LinearLayout>
+
+    <!-- DIVIDER inferior -->
+    <View
+        android:id="@+id/divider_feature"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/botones"
+        app:layout_constraintBottom_toTopOf="@id/dropdown_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
