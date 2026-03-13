@@ -44,6 +44,8 @@
     <string-array name="opciones_sexo_usuario">
         <item>Masculino</item>
         <item>Femenino</item>
+        <item>Otro</item>
+        <item>Sin definir</item>
     </string-array>
 
     <!-- fragment_reg_animal.xml -->
@@ -57,6 +59,7 @@
     <string-array name="opciones_sexo_animal">
         <item>Macho</item>
         <item>Hembra</item>
+        <item>Sin definir</item>
     </string-array>
 
     <!-- fragmen_usuario_mascota.xml / recycler_mascota.xml -->
