@@ -9,20 +9,20 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.vetycare.R
 import com.example.vetycare.databinding.FragmentInicioPrincipalBinding
+import com.example.vetycare.navigation.NavigatorInicio
+import com.example.vetycare.navigation.NavigatorRoot
 
 class InicioPrincipalFragment : Fragment() {
     private lateinit var binding : FragmentInicioPrincipalBinding
+    private lateinit var navegar : NavigatorRoot
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView (inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View? {
         binding = FragmentInicioPrincipalBinding.inflate(layoutInflater,container,false)
+
         return binding.root
     }
 
@@ -50,9 +50,9 @@ class InicioPrincipalFragment : Fragment() {
     /* NAVEGACION ENTRE FRAGMENTS */
     fun navegacionFragment(num : Int) {
         when (num) {
-            1 -> findNavController().navigate(R.id.action_NavLogin_NavUsuario) // Navega a fragment_inicio_usuario
-            2 -> findNavController().navigate(R.id.action_InicioFragment_to_RegUsuarioFragment) // Navega a fragment_reg_usuario
-            3 -> findNavController().navigate(R.id.action_InicioFragment_to_RecPassFragment) // Navega a fragment_rec_pass
+            1 -> NavigatorRoot.InicioToUsuario(this) // Navega al Container Usuario
+            2 -> NavigatorInicio.InicioPrincipalToInicioRegistro(this) // Navega al Fragment Inicio Registro Ususario
+            3 -> NavigatorInicio.InicioPrincipalToInicioRecPass(this) // Navega al Fragment Inicio Recuperacion Contraseña
         }
     }
 }

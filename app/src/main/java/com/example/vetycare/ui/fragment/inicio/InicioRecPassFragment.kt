@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.vetycare.R
 import com.example.vetycare.databinding.FragmentInicioRecPassBinding
+import com.example.vetycare.navigation.NavigatorInicio
 
 class InicioRecPassFragment : Fragment() {
     private lateinit var binding : FragmentInicioRecPassBinding
@@ -42,6 +43,6 @@ class InicioRecPassFragment : Fragment() {
 
     /* NAVEGACION ENTRE FRAGMENTS */
     fun navegacionFragment() {
-        findNavController().navigate(R.id.action_RecPassFragment_to_InicioFragment) // Navega a fragment_inicio
+        NavigatorInicio.InicioRecPassToInicioPrincipal(this) // Navega al Fragment Inicio Principal
     }
 }

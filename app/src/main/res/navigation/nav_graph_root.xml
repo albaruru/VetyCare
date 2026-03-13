@@ -6,42 +6,51 @@
     android:id="@+id/nav_graph_root"
     app:startDestination="@id/inicioContainerFragment">
 
+    <!-- CONTAINER INICIO -->
     <fragment
         android:id="@+id/inicioContainerFragment"
         android:name="com.example.vetycare.ui.container.InicioContainerFragment"
         android:label="InicioContainerFragment"
-        tools:layout="@layout/fragment_container_inicio" />
+        tools:layout="@layout/fragment_container_inicio"
+        >
+        <action
+            android:id="@+id/action_inicioContainerFragment_to_usuarioContainerFragment"
+            app:destination="@id/usuarioContainerFragment"
+            />
+    </fragment>
 
+    <!-- CONTAINER USUARIO -->
     <fragment
         android:id="@+id/usuarioContainerFragment"
         android:name="com.example.vetycare.ui.container.UsuarioContainerFragment"
         android:label="UsuarioContainerFragment"
-        tools:layout="@layout/fragment_container_usuario" />
+        tools:layout="@layout/fragment_container_usuario"
+        >
+        <action
+            android:id="@+id/action_usuarioContainerFragment_to_inicioContainerFragment"
+            app:destination="@id/inicioContainerFragment"
+            app:popUpTo="@id/nav_graph_root"
+            app:popUpToInclusive="false"
+            />
+        <action
+            android:id="@+id/action_usuarioContainerFragment_to_mascotaContainerFragment"
+            app:destination="@id/mascotaContainerFragment"
+            />
+    </fragment>
 
+    <!-- CONTAINER MASCOTA -->
     <fragment
         android:id="@+id/mascotaContainerFragment"
         android:name="com.example.vetycare.ui.container.MascotaContainerFragment"
         android:label="MascotaContainerFragment"
-        tools:layout="@layout/fragment_container_mascota" />
-
-    <action
-        android:id="@+id/action_inicioContainerFragment_to_usuarioContainerFragment"
-        app:destination="@id/usuarioContainerFragment" />
-
-    <action
-        android:id="@+id/action_usuarioContainerFragment_to_inicioContainerFragment"
-        app:destination="@id/inicioContainerFragment"
-        app:popUpTo="@id/nav_graph_root"
-        app:popUpToInclusive="false" />
-
-    <action
-        android:id="@+id/action_usuarioContainerFragment_to_mascotaContainerFragment"
-        app:destination="@id/mascotaContainerFragment" />
-
-    <action
-        android:id="@+id/action_mascotaContainerFragment_to_usuarioContainerFragment"
-        app:destination="@id/usuarioContainerFragment"
-        app:popUpTo="@id/usuarioContainerFragment"
-        app:popUpToInclusive="false" />
+        tools:layout="@layout/fragment_container_mascota"
+        >
+        <action
+            android:id="@+id/action_mascotaContainerFragment_to_usuarioContainerFragment"
+            app:destination="@id/usuarioContainerFragment"
+            app:popUpTo="@id/usuarioContainerFragment"
+            app:popUpToInclusive="false"
+            />
+    </fragment>
 
 </navigation>

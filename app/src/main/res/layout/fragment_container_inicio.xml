@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintGuide_begin="100dp" />
 
-    <!-- FRAGMENT HOST DE LOS DIFERENTES FRAGMENTS -->
+    <!-- CONTAINER NAVEGACION INICIO => DONDE SE CARGARÁN LOS DIFERENTES FRAGMENTS DEL INICIO -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/container_host_inicio"
         android:name="androidx.navigation.fragment.NavHostFragment"

@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.vetycare.R
 import com.example.vetycare.databinding.FragmentInicioRegistroBinding
+import com.example.vetycare.navigation.NavigatorInicio
 
 class InicioRegistroFragment : Fragment() {
     private lateinit var binding : FragmentInicioRegistroBinding
@@ -46,8 +47,8 @@ class InicioRegistroFragment : Fragment() {
     /* NAVEGACION ENTRE FRAGMENTS */
     fun navegacionFragment(num : Int) {
         when (num) {
-            1 -> findNavController().navigate(R.id.action_RegUsuarioFragment_to_confirmacionDialog)
-            2 -> findNavController().navigate(R.id.action_RegUsuarioFragment_to_cancelacionDialog)
+            1 -> NavigatorInicio.InicioRegistroToConfirmacionDialog(this) // Navega al Diagog Confirmacion
+            2 -> NavigatorInicio.InicioRegistroToCancelacionDialog(this) // Navega al Dialog Cancelacion
         }
     }
 }
