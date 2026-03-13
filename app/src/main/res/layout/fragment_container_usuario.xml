@@ -122,12 +122,12 @@
             android:textSize="20sp" />
 
         <ImageButton
-            android:id="@+id/btnInicio"
+            android:id="@+id/btnClinicas"
             android:layout_width="0dp"
             android:layout_height="65dp"
             android:layout_weight="0.25"
             android:layout_margin="5dp"
-            android:src="@drawable/btn_inicio"
+            android:src="@drawable/btn_clinicas"
             android:background="@drawable/botones_menu"
             android:textSize="20sp" />
     </LinearLayout>

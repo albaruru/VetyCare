@@ -15,11 +15,7 @@ class UsuarioMascotaFragment: Fragment() {
         super.onAttach(context)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View? {
         binding = FragmentUsuarioMascotaBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
@@ -35,8 +31,5 @@ class UsuarioMascotaFragment: Fragment() {
 
     /* NAVEGACION ENTRE FRAGMENTS */
     fun navegacionFragment(num : Int) {
-        when (num) {
-
-        }
     }
 }

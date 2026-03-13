@@ -14,7 +14,6 @@ import com.example.vetycare.navigation.NavigatorRoot
 
 class InicioPrincipalFragment : Fragment() {
     private lateinit var binding : FragmentInicioPrincipalBinding
-    private lateinit var navegar : NavigatorRoot
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -22,7 +21,6 @@ class InicioPrincipalFragment : Fragment() {
 
     override fun onCreateView (inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View? {
         binding = FragmentInicioPrincipalBinding.inflate(layoutInflater,container,false)
-
         return binding.root
     }
 

@@ -15,15 +15,17 @@ class UsuarioRegMascotaFragment : Fragment() {
         super.onAttach(context)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View? {
+        binding = FragmentUsuarioRegMascotaBinding.inflate(layoutInflater,container,false)
+        return binding.root
     }
 
     override fun onResume() {
         super.onResume()
+
+        /* Acciones de los botones del fragment:
+        * -
+        * */
+
     }
 }

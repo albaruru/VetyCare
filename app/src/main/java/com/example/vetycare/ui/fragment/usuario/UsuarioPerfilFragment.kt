@@ -6,17 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.vetycare.databinding.FragmentUsuarioInicioBinding
+import com.example.vetycare.databinding.FragmentUsuarioPerfilBinding
 
-class UsuarioInicioFragment : Fragment() {
-    private lateinit var binding : FragmentUsuarioInicioBinding
+class UsuarioPerfilFragment : Fragment () {
+    private lateinit var binding : FragmentUsuarioPerfilBinding
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View? {
-        binding = FragmentUsuarioInicioBinding.inflate(layoutInflater,container,false)
+        binding = FragmentUsuarioPerfilBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
 
@@ -27,9 +27,5 @@ class UsuarioInicioFragment : Fragment() {
         * -
         * */
 
-    }
-
-    /* NAVEGACION ENTRE FRAGMENTS */
-    fun navegacionFragment (num : Int) {
     }
 }
