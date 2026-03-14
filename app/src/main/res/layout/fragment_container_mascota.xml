@@ -10,8 +10,8 @@
         android:id="@+id/layoutHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="22dp"
-        android:paddingBottom="12dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="8dp"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
         android:background="@color/menu"
@@ -21,8 +21,8 @@
 
         <ImageView
             android:id="@+id/iv_foto_mascota"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:background="@drawable/botones_menu"
             android:src="@android:drawable/ic_menu_camera"
             android:scaleType="centerCrop"
@@ -35,8 +35,8 @@
         <TextView
             android:id="@+id/tv_nombre_mascota"
             style="@style/Nombres"
-            android:layout_width="203dp"
-            android:layout_height="31dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:text="@string/cont_main_nombre_mascota"
@@ -47,8 +47,8 @@
 
         <ImageView
             android:id="@+id/iv_logo"
-            android:layout_width="53dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="38dp"
             android:background="@drawable/botones_menu"
             android:scaleType="centerCrop"
             android:src="@drawable/icn_negro"
@@ -82,41 +82,41 @@
         <ImageButton
             android:id="@+id/btnCita"
             android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:layout_height="50dp"
             android:layout_weight="0.20"
-            android:layout_margin="5dp"
+            android:layout_margin="3dp"
             android:src="@drawable/btn_cita"
             android:background="@drawable/botones_menu" />
         <ImageButton
             android:id="@+id/btnTratamiento"
             android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:layout_height="50dp"
             android:layout_weight="0.20"
-            android:layout_margin="5dp"
+            android:layout_margin="3dp"
             android:src="@drawable/btn_tratamiento"
             android:background="@drawable/botones_menu" />
         <ImageButton
             android:id="@+id/btnInforme"
             android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:layout_height="50dp"
             android:layout_weight="0.20"
-            android:layout_margin="5dp"
+            android:layout_margin="3dp"
             android:src="@drawable/btn_informes"
             android:background="@drawable/botones_menu" />
         <ImageButton
             android:id="@+id/btnCalendarMas"
             android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:layout_height="50dp"
             android:layout_weight="0.20"
-            android:layout_margin="5dp"
+            android:layout_margin="3dp"
             android:src="@drawable/btn_calendar"
             android:background="@drawable/botones_menu" />
         <ImageButton
             android:id="@+id/btnMascotas"
             android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:layout_height="50dp"
             android:layout_weight="0.20"
-            android:layout_margin="5dp"
+            android:layout_margin="3dp"
             android:src="@drawable/btn_huella"
             android:background="@drawable/botones_menu" />
     </LinearLayout>
