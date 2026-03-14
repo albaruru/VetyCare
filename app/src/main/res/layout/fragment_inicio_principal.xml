@@ -16,7 +16,7 @@
             android:id="@+id/tv_titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:text="@string/inicio_titulo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +28,7 @@
             android:id="@+id/et_correo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
             android:hint="@string/inicio_correo"
             android:gravity="center"
             android:background="@drawable/background_cuadro_texto"
@@ -71,7 +71,7 @@
             android:id="@+id/btn_entrar"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="50dp"
             android:text="@string/entrar"
             android:background="@drawable/botones"
             app:backgroundTint="@null"
@@ -85,7 +85,7 @@
             android:id="@+id/tv_registrate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="90dp"
             android:text="@string/inicio_cuenta"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -108,14 +108,16 @@
         <!-- LINK - Olvidé contraseña -->
         <TextView
             android:id="@+id/tv_olvide_contrasenha"
+            style="@style/TextInformativo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+
             android:text="@string/inicio_olvido"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_link_registrate"
-            style="@style/TextInformativo"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_link_registrate" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
