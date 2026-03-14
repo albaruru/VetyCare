@@ -27,13 +27,13 @@ class UsuarioRegMascotaFragment : Fragment() {
         parentFragmentManager.setFragmentResultListener(keyConfirmacion,this) { _, bundle ->
             val confirmado = bundle.getBoolean(ConfirmacionDialog.KEY_CONFIRMADO)
             if (confirmado) {
-                NavigatorUsuario.UsuarioRegMascota_to_UsuarioMascota(this)
+                navegacionFragment(1)
             }
         }
         parentFragmentManager.setFragmentResultListener(keyCancelacion,this) { _, bundle ->
             val cancelado = bundle.getBoolean(CancelacionDialog.KEY_CANCELADO)
             if (cancelado) {
-                NavigatorUsuario.UsuarioRegMascota_to_UsuarioMascota(this)
+                navegacionFragment(1)
             }
         }
     }
@@ -51,24 +51,29 @@ class UsuarioRegMascotaFragment : Fragment() {
         */
         binding.btnGuardar.setOnClickListener {
 
-            navegacionFragment(1)
+            mensaje("confirmacion")
         }
         binding.btnVolver.setOnClickListener {
 
-            navegacionFragment(2)
+            mensaje("cancelacion")
         }
     }
 
     fun navegacionFragment (num: Int) {
         when (num) {
-            1 -> {
+            1 -> NavigatorUsuario.UsuarioRegMascota_to_UsuarioMascota(this)
+        }
+    }
+    fun mensaje (tipo: String) {
+        when (tipo) {
+            "confirmacion" -> {
                 ConfirmacionDialog.nuevoDialog(
                     "CONFIRMAR REGISTRO DE MASCOTA",
                     "¿Deseas completar el registro de tu mascota?",
                     keyConfirmacion
                 ).show(parentFragmentManager,"ConfirmacionDialog")
             }
-            2 -> {
+            "cancelacion" -> {
                 CancelacionDialog.nuevoDialog(
                     "CANCELACION REGISTRO DE MASCOTA",
                     "¿Deseas cancelar el registro de tu mascota? \nTodos los datos introducidos se perderán.",

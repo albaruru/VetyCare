@@ -26,6 +26,6 @@ class UsuarioClinicaFragment : Fragment (){
         /* Acciones de los botones del fragment:
         * -
         * */
-
     }
+
 }

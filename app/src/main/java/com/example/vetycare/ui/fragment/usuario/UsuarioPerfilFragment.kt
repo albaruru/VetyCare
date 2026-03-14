@@ -27,13 +27,13 @@ class UsuarioPerfilFragment : Fragment () {
         parentFragmentManager.setFragmentResultListener(keyConfirmacion,this) { _, bundle ->
             val confirmado = bundle.getBoolean(ConfirmacionDialog.KEY_CONFIRMADO)
             if (confirmado) {
-                NavigatorUsuario.UsuarioPerfil_to_UsuarioInicio(this)
+                navegacionFragment(1)
             }
         }
         parentFragmentManager.setFragmentResultListener(keyCancelacion,this) { _, bundle ->
             val cancelado = bundle.getBoolean(CancelacionDialog.KEY_CANCELADO)
             if (cancelado) {
-                NavigatorRoot.UsuarioToInicio(this)
+                navegacionFragment(2)
             }
         }
     }
@@ -51,24 +51,31 @@ class UsuarioPerfilFragment : Fragment () {
         */
         binding.btnGuardar.setOnClickListener {
 
-            navegacionFragment(1)
+            mensaje("confirmacion")
         }
         binding.btnVolver.setOnClickListener {
 
-            navegacionFragment(2)
+            mensaje("cerrar_sesion")
         }
     }
 
     fun navegacionFragment(num: Int) {
         when (num) {
-            1 -> {
+            1 -> NavigatorUsuario.UsuarioPerfil_to_UsuarioInicio(this)
+            2 -> NavigatorRoot.Usuario_to_Inicio(this)
+        }
+    }
+
+    fun mensaje (tipo: String) {
+        when (tipo) {
+            "confirmacion" -> {
                 ConfirmacionDialog.nuevoDialog(
                     "CONFIRMAR MODIFICACION PERFIL",
                     "¿Deseas confirmar la modificacion del perfil?",
                     keyConfirmacion
                 ).show(parentFragmentManager,"ConfirmacionDialog")
             }
-            2 -> {
+            "cerrar_sesion" -> {
                 CancelacionDialog.nuevoDialog(
                     "CERRAR SESIÓN",
                     "¿Deseas cerrar la sesión? \nTendrás que volver a introducir tus credenciales.",

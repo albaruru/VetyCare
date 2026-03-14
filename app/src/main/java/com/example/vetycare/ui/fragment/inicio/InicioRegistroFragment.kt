@@ -34,7 +34,7 @@ class InicioRegistroFragment : Fragment() {
         parentFragmentManager.setFragmentResultListener(keyConfirmacion,this) { _, bundle ->
             val confirmado = bundle.getBoolean(ConfirmacionDialog.KEY_CONFIRMADO)
             if (confirmado) {
-                NavigatorInicio.InicioRegistroToInicioPrincipal(this)
+                navegacionFragment(1)
             }
         }
         /* DIALOG CANCELACION: Explicacion...
@@ -46,9 +46,8 @@ class InicioRegistroFragment : Fragment() {
         parentFragmentManager.setFragmentResultListener(keyCancelacion,this) { _, bundle ->
             val cancelado = bundle.getBoolean(CancelacionDialog.KEY_CANCELADO)
             if (cancelado) {
-                NavigatorInicio.InicioRegistroToInicioPrincipal(this)
+                navegacionFragment(1)
             }
-
         }
     }
 
@@ -66,11 +65,11 @@ class InicioRegistroFragment : Fragment() {
         * */
         binding.btnGuardar.setOnClickListener {
 
-            navegacionFragment(1)
+            mensaje("confirmacion")
         }
         binding.btnVolver.setOnClickListener {
 
-            navegacionFragment(2)
+            mensaje("cancelacion")
         }
     }
 
@@ -80,7 +79,13 @@ class InicioRegistroFragment : Fragment() {
     * */
     fun navegacionFragment(num : Int) {
         when (num) {
-            1 -> {
+            1 -> NavigatorInicio.InicioRegistro_to_InicioPrincipal(this)
+        }
+    }
+
+    fun mensaje (tipo: String) {
+        when (tipo) {
+            "confirmacion" -> {
                 /* Explicación del metodo ConfirmacionDialog.nuevoDialog(...)
 
                 Aquí hacemos lo siguiente:
@@ -95,7 +100,7 @@ class InicioRegistroFragment : Fragment() {
                     keyConfirmacion
                 ).show(parentFragmentManager,"ConfirmacionDialog")
             }
-            2 -> {
+            "cancelacion" -> {
                 /* Explicación del metodo CancelacionDialog.nuevoDialog(...)
 
                 Aquí hacemos lo siguiente:

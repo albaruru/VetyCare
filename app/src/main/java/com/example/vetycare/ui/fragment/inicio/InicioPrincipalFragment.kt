@@ -49,9 +49,9 @@ class InicioPrincipalFragment : Fragment() {
     * */
     fun navegacionFragment(num : Int) {
         when (num) {
-            1 -> NavigatorRoot.InicioToUsuario(this) // Navega al Container Usuario
-            2 -> NavigatorInicio.InicioPrincipalToInicioRegistro(this) // Navega al Fragment Inicio Registro Ususario
-            3 -> NavigatorInicio.InicioPrincipalToInicioRecPass(this) // Navega al Fragment Inicio Recuperacion Contraseña
+            1 -> NavigatorRoot.Inicio_to_Usuario(this) // Navega al Container Usuario
+            2 -> NavigatorInicio.InicioPrincipal_to_InicioRegistro(this) // Navega al Fragment Inicio Registro Ususario
+            3 -> NavigatorInicio.InicioPrincipal_to_InicioRecPass(this) // Navega al Fragment Inicio Recuperacion Contraseña
         }
     }
 }

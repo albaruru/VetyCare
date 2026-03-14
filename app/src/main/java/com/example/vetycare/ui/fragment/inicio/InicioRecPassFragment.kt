@@ -25,7 +25,7 @@ class InicioRecPassFragment : Fragment() {
         parentFragmentManager.setFragmentResultListener(keyConfirmacion, this) {_, bundle ->
             val confirmado = bundle.getBoolean(ConfirmacionDialog.KEY_CONFIRMADO)
             if (confirmado) {
-                NavigatorInicio.InicioRecPassToInicioPrincipal(this)
+                navegacionFragment(1)
             }
         }
     }
@@ -43,8 +43,7 @@ class InicioRecPassFragment : Fragment() {
         */
         binding.btnGuardar.setOnClickListener {
 
-
-            navegacionFragment(1)
+            mensaje("confirmacion")
         }
     }
 
@@ -52,7 +51,12 @@ class InicioRecPassFragment : Fragment() {
     * */
     fun navegacionFragment(num: Int) {
         when (num) {
-            1 -> {
+            1 -> NavigatorInicio.InicioRecPass_to_InicioPrincipal(this)
+        }
+    }
+    fun mensaje (tipo: String) {
+        when (tipo) {
+            "confirmacion" -> {
                 /* Explicación del metodo ConfirmacionDialog.nuevoDialog(...)
 
                 Aquí hacemos lo siguiente:

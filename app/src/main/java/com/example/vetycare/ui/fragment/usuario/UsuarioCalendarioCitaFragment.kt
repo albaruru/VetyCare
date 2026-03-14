@@ -27,13 +27,13 @@ class UsuarioCalendarioCitaFragment : Fragment() {
         parentFragmentManager.setFragmentResultListener(keyConfirmacion,this) { _, bundle ->
             val confirmado = bundle.getBoolean(ConfirmacionDialog.KEY_CONFIRMADO)
             if (confirmado) {
-                NavigatorUsuario.UsuarioCalendarioCita_to_UsuarioCalendario(this)
+                navegacionFragment(1)
             }
         }
         parentFragmentManager.setFragmentResultListener(keyCancelacion,this) { _, bundle ->
             val cancelado = bundle.getBoolean(CancelacionDialog.KEY_CANCELADO)
             if (cancelado) {
-                NavigatorUsuario.UsuarioCalendarioCita_to_UsuarioCalendario(this)
+                navegacionFragment(1)
             }
         }
     }
@@ -51,24 +51,29 @@ class UsuarioCalendarioCitaFragment : Fragment() {
         */
         binding.btnGuardar.setOnClickListener {
 
-            navegacionFragment(1)
+            mensaje("confirmacion")
         }
         binding.btnVolver.setOnClickListener {
 
-            navegacionFragment(2)
+            mensaje("cancelacion")
         }
     }
 
     fun navegacionFragment(num : Int) {
         when (num) {
-            1 -> {
+            1 -> NavigatorUsuario.UsuarioCalendarioCita_to_UsuarioCalendario(this)
+        }
+    }
+    fun mensaje (tipo: String) {
+        when (tipo) {
+            "confirmacion" -> {
                 ConfirmacionDialog.nuevoDialog(
                     "CONFIRMAR CITA MÉDICA",
                     "¿Deseas confirmar su cita con el veterinario?",
                     keyConfirmacion
                 ).show(parentFragmentManager,"ConfirmacionDialog")
             }
-            2 -> {
+            "cancelacion" -> {
                 CancelacionDialog.nuevoDialog(
                     "CANCELACION CITA MEDICA",
                     "¿Deseas cancelar la cita? \nTodos los datos introducidos se perderán.",
