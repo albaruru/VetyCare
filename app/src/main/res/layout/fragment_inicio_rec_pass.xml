@@ -96,7 +96,7 @@
             android:id="@+id/btn_guardar"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="100dp"
             android:text="@string/guardar"
             android:background="@drawable/botones"
             app:backgroundTint="@null"
