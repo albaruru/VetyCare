@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:text="@string/usuario_cldr_cita_tipo_4"
-                android:textSize="11sp"
+
                 app:layout_constraintTop_toTopOf="@id/tv_label_tipo"
                 app:layout_constraintBottom_toBottomOf="@id/tv_label_tipo"
                 app:layout_constraintStart_toEndOf="@id/tv_label_tipo"
