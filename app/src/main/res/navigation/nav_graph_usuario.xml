@@ -5,7 +5,7 @@
     android:id="@+id/nav_graph_usuario"
     app:startDestination="@+id/UsuarioInicioFragment">
 
-    <!-- FRAGMENTS -->
+    <!-- FRAGMENT USUARIO INICIO (PRINCIPAL) -->
     <fragment
         android:id="@+id/UsuarioInicioFragment"
         android:name="com.example.vetycare.ui.fragment.usuario.UsuarioInicioFragment"
@@ -13,18 +13,20 @@
         tools:layout="@layout/fragment_usuario_inicio"
         >
         <action
-            android:id="@+id/action_UsuarioInicioFragment_to_UsuarioRegMascota"
-            app:destination="@id/UsuarioRegMascota" />
-        <action
             android:id="@+id/action_UsuarioInicioFragment_to_UsuarioMascotaFragment"
             app:destination="@id/UsuarioMascotaFragment" />
         <action
             android:id="@+id/action_UsuarioInicioFragment_to_UsuarioCalendario"
             app:destination="@id/UsuarioCalendario" />
         <action
-            android:id="@+id/action_UsuarioInicioFragment_to_UsuarioCalendarioCita"
-            app:destination="@id/UsuarioCalendarioCita" />
+            android:id="@+id/action_UsuarioInicioFragment_to_UsuarioPerfilFragment"
+            app:destination="@id/UsuarioPerfilFragment" />
+        <action
+            android:id="@+id/action_UsuarioInicioFragment_to_UsuarioClinicaFragment"
+            app:destination="@id/UsuarioClinicaFragment" />
     </fragment>
+
+    <!-- FRAGMENT USUARIO PERFIL MASCOTAS (PRINCIPAL) -->
     <fragment
         android:id="@+id/UsuarioMascotaFragment"
         android:name="com.example.vetycare.ui.fragment.usuario.UsuarioMascotaFragment"
@@ -32,18 +34,14 @@
         tools:layout="@layout/fragment_usuario_mascota"
         >
         <action
-            android:id="@+id/action_UsuarioMascotaFragment_to_UsuarioInicioFragment"
-            app:destination="@id/UsuarioInicioFragment" />
-        <action
             android:id="@+id/action_UsuarioMascotaFragment_to_UsuarioRegMascota"
             app:destination="@id/UsuarioRegMascota" />
         <action
-            android:id="@+id/action_UsuarioMascotaFragment_to_UsuarioCalendario"
-            app:destination="@id/UsuarioCalendario" />
-        <action
-            android:id="@+id/action_UsuarioMascotaFragment_to_UsuarioCalendarioCita"
-            app:destination="@id/UsuarioCalendarioCita" />
+            android:id="@+id/action_UsuarioMascotaFragment_to_UsuarioInicioFragment"
+            app:destination="@id/UsuarioInicioFragment" />
     </fragment>
+
+    <!-- FRAGMENT USUARIO REGISTRO MASCOTA (SECUNDARIO) -->
     <fragment
         android:id="@+id/UsuarioRegMascota"
         android:name="com.example.vetycare.ui.fragment.usuario.UsuarioRegMascotaFragment"
@@ -51,18 +49,11 @@
         tools:layout="@layout/fragment_usuario_reg_mascota"
         >
         <action
-            android:id="@+id/action_UsuarioRegMascota_to_UsuarioInicioFragment"
-            app:destination="@id/UsuarioInicioFragment" />
-        <action
             android:id="@+id/action_UsuarioRegMascota_to_UsuarioMascotaFragment"
             app:destination="@id/UsuarioMascotaFragment" />
-        <action
-            android:id="@+id/action_UsuarioRegMascota_to_UsuarioCalendario"
-            app:destination="@id/UsuarioCalendario" />
-        <action
-            android:id="@+id/action_UsuarioRegMascota_to_UsuarioCalendarioCita"
-            app:destination="@id/UsuarioCalendarioCita" />
     </fragment>
+
+    <!-- FRAGMENT USUARIO CALENDARIO (PRINCIPAL) -->
     <fragment
         android:id="@+id/UsuarioCalendario"
         android:name="com.example.vetycare.ui.fragment.usuario.UsuarioCalendarioFragment"
@@ -70,18 +61,14 @@
         tools:layout="@layout/fragment_usuario_calendario"
         >
         <action
-            android:id="@+id/action_UsuarioCalendario_to_UsuarioInicioFragment"
-            app:destination="@id/UsuarioInicioFragment" />
-        <action
-            android:id="@+id/action_UsuarioCalendario_to_UsuarioRegMascota"
-            app:destination="@id/UsuarioRegMascota" />
-        <action
-            android:id="@+id/action_UsuarioCalendario_to_UsuarioMascotaFragment"
-            app:destination="@id/UsuarioMascotaFragment" />
-        <action
             android:id="@+id/action_UsuarioCalendario_to_UsuarioCalendarioCita"
             app:destination="@id/UsuarioCalendarioCita" />
+        <action
+            android:id="@+id/action_UsuarioCalendario_to_UsuarioInicioFragment"
+            app:destination="@id/UsuarioInicioFragment" />
     </fragment>
+
+    <!-- FRAGMENT USUARIO CALENDARIO CITA (SECUNDARIO) -->
     <fragment
         android:id="@+id/UsuarioCalendarioCita"
         android:name="com.example.vetycare.ui.fragment.usuario.UsuarioCalendarioCitaFragment"
@@ -89,29 +76,33 @@
         tools:layout="@layout/fragment_usuario_calendario_cita"
         >
         <action
-            android:id="@+id/action_UsuarioCalendarioCita_to_UsuarioInicioFragment"
-            app:destination="@id/UsuarioInicioFragment" />
-        <action
-            android:id="@+id/action_UsuarioCalendarioCita_to_UsuarioRegMascota"
-            app:destination="@id/UsuarioRegMascota" />
-        <action
-            android:id="@+id/action_UsuarioCalendarioCita_to_UsuarioMascotaFragment"
-            app:destination="@id/UsuarioMascotaFragment" />
-        <action
             android:id="@+id/action_UsuarioCalendarioCita_to_UsuarioCalendario"
             app:destination="@id/UsuarioCalendario" />
     </fragment>
+
+    <!-- FRAGMENT USUARIO PERFIL USUARIO (PRINCIPAL) -->
     <fragment
         android:id="@+id/UsuarioPerfilFragment"
         android:name="com.example.vetycare.ui.fragment.usuario.UsuarioPerfilFragment"
         android:label="Usuario Perfil Fragment"
         tools:layout="@layout/fragment_usuario_perfil"
-        />
+        >
+
+        <action
+            android:id="@+id/action_UsuarioPerfilFragment_to_UsuarioInicioFragment"
+            app:destination="@id/UsuarioInicioFragment" />
+    </fragment>
+
+    <!-- FRAGMENT USUARIO CLINICAS (PRINCIPAL) -->
     <fragment
         android:id="@+id/UsuarioClinicaFragment"
         android:name="com.example.vetycare.ui.fragment.usuario.UsuarioClinicaFragment"
         android:label="Usuario Clinica Fragment"
         tools:layout="@layout/fragment_usuario_clinica"
-        />
+        >
+        <action
+            android:id="@+id/action_UsuarioClinicaFragment_to_UsuarioInicioFragment"
+            app:destination="@id/UsuarioInicioFragment" />
+    </fragment>
 
 </navigation>

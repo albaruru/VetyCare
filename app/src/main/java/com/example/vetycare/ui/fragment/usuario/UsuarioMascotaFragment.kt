@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.vetycare.databinding.FragmentUsuarioMascotaBinding
+import com.example.vetycare.navigation.NavigatorUsuario
 
 class UsuarioMascotaFragment: Fragment() {
     private lateinit var binding : FragmentUsuarioMascotaBinding
@@ -24,12 +25,21 @@ class UsuarioMascotaFragment: Fragment() {
         super.onResume()
 
         /* Acciones de los botones del fragment:
-        * -
-        * */
+        -
+        */
+        binding.tvTitulo.setOnClickListener {
+
+            navegacionFragment(1)
+        }
 
     }
 
-    /* NAVEGACION ENTRE FRAGMENTS */
+    /* NAVEGACION ENTRE FRAGMENTS
+
+    */
     fun navegacionFragment(num : Int) {
+        when (num) {
+            1 -> NavigatorUsuario.UsuarioMascota_to_UsuarioRegMascota(this)
+        }
     }
 }

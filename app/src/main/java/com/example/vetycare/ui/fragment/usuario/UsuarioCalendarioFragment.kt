@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.vetycare.databinding.FragmentUsuarioCalendarioBinding
+import com.example.vetycare.navigation.NavigatorUsuario
 
 class UsuarioCalendarioFragment : Fragment() {
     private lateinit var binding : FragmentUsuarioCalendarioBinding
@@ -26,6 +27,6 @@ class UsuarioCalendarioFragment : Fragment() {
         /* Acciones de los botones del fragment:
         * -
         * */
-
+        binding.rbSemanal.setOnClickListener { NavigatorUsuario.UsuarioCalendario_to_UsuarioCalendarioCita(this) }
     }
 }

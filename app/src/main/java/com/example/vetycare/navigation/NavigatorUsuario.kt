@@ -11,97 +11,71 @@ object NavigatorUsuario {
     * */
 
     /* --- FRAGMENT DE INICIO ---
-    * UsuarioInicioToUsuarioRegMascota          =>
-    * UsuarioInicioToUsuarioMascota             =>
-    * UsuarioInicioToUsuarioCalendario          =>
-    * UsuarioInicioToUsuarioCalendarioCita      =>
+    * UsuarioInicio_to_UsuarioMascota      =>
+    * UsuarioInicio_to_UsuarioCalendario   =>
+    * UsuarioInicio_to_UsuarioPerfil       =>
+    * UsuarioInicio_to_UsuarioClinica      =>
     * */
-    fun UsuarioInicioToUsuarioRegMascota (fragment: Fragment) {
-        fragment.findNavController().navigate(R.id.action_UsuarioInicioFragment_to_UsuarioRegMascota)
-    }
-    fun UsuarioInicioToUsuarioMascota (fragment: Fragment) {
+    fun UsuarioInicio_to_UsuarioMascota (fragment: Fragment) {
         fragment.findNavController().navigate(R.id.action_UsuarioInicioFragment_to_UsuarioMascotaFragment)
     }
-    fun UsuarioInicioToUsuarioCalendario (fragment: Fragment) {
+    fun UsuarioInicio_to_UsuarioCalendario (fragment: Fragment) {
         fragment.findNavController().navigate(R.id.action_UsuarioInicioFragment_to_UsuarioCalendario)
     }
-    fun UsuarioInicioToUsuarioCalendarioCita (fragment: Fragment) {
-        fragment.findNavController().navigate(R.id.action_UsuarioInicioFragment_to_UsuarioCalendarioCita)
+    fun UsuarioInicio_to_UsuarioPerfil (fragment: Fragment) {
+        fragment.findNavController().navigate(R.id.action_UsuarioInicioFragment_to_UsuarioPerfilFragment)
+    }
+    fun UsuarioInicio_to_UsuarioClinica (fragment: Fragment) {
+        fragment.findNavController().navigate(R.id.action_UsuarioInicioFragment_to_UsuarioClinicaFragment)
     }
 
     /* --- FRAGMENT PERFIL MASCOTAS ---
-    * UsuarioMascotaToUsuarioInicio             =>
-    * UsuarioMascotaToUsuarioRegMascota         =>
-    * UsuarioMascotaToUsuarioCalendario         =>
-    * UsuarioMascotaToUsuarioCalendarioCita     =>
+    * UsuarioMascota_to_UsuarioRegMascota     =>
+    * UsuarioMascota_to_UsuarioInicio         =>
     * */
-    fun UsuarioMascotaToUsuarioInicio (fragment: Fragment) {
-        fragment.findNavController().navigate(R.id.action_UsuarioMascotaFragment_to_UsuarioInicioFragment)
-    }
-    fun UsuarioMascotaToUsuarioRegMascota (fragment: Fragment) {
+    fun UsuarioMascota_to_UsuarioRegMascota (fragment: Fragment) {
         fragment.findNavController().navigate(R.id.action_UsuarioMascotaFragment_to_UsuarioRegMascota)
     }
-    fun UsuarioMascotaToUsuarioCalendario (fragment: Fragment) {
-        fragment.findNavController().navigate(R.id.action_UsuarioMascotaFragment_to_UsuarioCalendario)
-    }
-    fun UsuarioMascotaToUsuarioCalendarioCita (fragment: Fragment) {
-        fragment.findNavController().navigate(R.id.action_UsuarioMascotaFragment_to_UsuarioCalendarioCita)
+    fun UsuarioMascota_to_UsuarioInicio (fragment: Fragment) {
+        fragment.findNavController().navigate(R.id.action_UsuarioMascotaFragment_to_UsuarioInicioFragment)
     }
 
     /* --- FRAGMENT DE REGISTRO MASCOTAS ---
-    * UsuarioRegMascotaToUsuarioInicio          =>
-    * UsuarioRegMascotaToUsuarioMascota         =>
-    * UsuarioRegMascotaToUsuarioCalendario      =>
-    * UsuarioRegMascotaToUsuarioCalendarioCita  =>
+    * UsuarioRegMascotaToUsuarioInicio    =>
     * */
-    fun UsuarioRegMascotaToUsuarioInicio (fragment: Fragment) {
-        fragment.findNavController().navigate(R.id.action_UsuarioRegMascota_to_UsuarioInicioFragment)
-    }
-    fun UsuarioRegMascotaToUsuarioMascota (fragment: Fragment) {
+    fun UsuarioRegMascota_to_UsuarioMascota (fragment: Fragment) {
         fragment.findNavController().navigate(R.id.action_UsuarioRegMascota_to_UsuarioMascotaFragment)
-    }
-    fun UsuarioRegMascotaToUsuarioCalendario (fragment: Fragment) {
-        fragment.findNavController().navigate(R.id.action_UsuarioRegMascota_to_UsuarioCalendario)
-    }
-    fun UsuarioRegMascotaToUsuarioCalendarioCita (fragment: Fragment) {
-        fragment.findNavController().navigate(R.id.action_UsuarioRegMascota_to_UsuarioCalendarioCita)
     }
 
     /* --- FRAGMENT DEL CALENDARIO DE CITAS ---
-    * UsuarioCalendarioToUsuarioInicio          =>
-    * UsuarioCalendarioToUsuarioRegMascota      =>
-    * UsuarioCalendarioToUsuarioMascota         =>
-    * UsuarioCalendarioToUsuarioCalendarioCita  =>
-    * */
-    fun UsuarioCalendarioToUsuarioInicio (fragment: Fragment) {
-        fragment.findNavController().navigate(R.id.action_UsuarioCalendario_to_UsuarioInicioFragment)
-    }
-    fun UsuarioCalendarioToUsuarioRegMascota (fragment: Fragment) {
-        fragment.findNavController().navigate(R.id.action_UsuarioCalendario_to_UsuarioRegMascota)
-    }
-    fun UsuarioCalendarioToUsuarioMascota (fragment: Fragment) {
-        fragment.findNavController().navigate(R.id.action_UsuarioCalendario_to_UsuarioMascotaFragment)
-    }
-    fun UsuarioCalendarioToUsuarioCalendarioCita (fragment: Fragment) {
+    UsuarioCalendario_to_UsuarioCalendarioCita  =>
+    UsuarioCalendario_to_UsuarioInicio          =>
+    */
+    fun UsuarioCalendario_to_UsuarioCalendarioCita (fragment: Fragment) {
         fragment.findNavController().navigate(R.id.action_UsuarioCalendario_to_UsuarioCalendarioCita)
+    }
+    fun UsuarioCalendario_to_UsuarioInicio (fragment: Fragment) {
+        fragment.findNavController().navigate(R.id.action_UsuarioCalendario_to_UsuarioInicioFragment)
     }
 
     /* --- FRAGMENT DEL CALENDARIO PARA AGENDAR CITAS ---
-    * UsuarioCalendarioCitaToUsuarioInicio      =>
-    * UsuarioCalendarioCitaToUsuarioRegMascota  =>
-    * UsuarioCalendarioCitaToUsuarioMascota     =>
-    * UsuarioCalendarioCitaToUsuarioCalendario  =>
-    * */
-    fun UsuarioCalendarioCitaToUsuarioInicio (fragment: Fragment) {
-        fragment.findNavController().navigate(R.id.action_UsuarioCalendarioCita_to_UsuarioInicioFragment)
-    }
-    fun UsuarioCalendarioCitaToUsuarioRegMascota (fragment: Fragment) {
-        fragment.findNavController().navigate(R.id.action_UsuarioCalendarioCita_to_UsuarioRegMascota)
-    }
-    fun UsuarioCalendarioCitaToUsuarioMascota (fragment: Fragment) {
-        fragment.findNavController().navigate(R.id.action_UsuarioCalendarioCita_to_UsuarioMascotaFragment)
-    }
-    fun UsuarioCalendarioCitaToUsuarioCalendario (fragment: Fragment) {
+    UsuarioCalendarioCita_to_UsuarioCalendario      =>
+    */
+    fun UsuarioCalendarioCita_to_UsuarioCalendario (fragment: Fragment) {
         fragment.findNavController().navigate(R.id.action_UsuarioCalendarioCita_to_UsuarioCalendario)
+    }
+
+    /* --- FRAGMENT USUARIO PERFIL USUARIO ---
+    UsuarioPerfil_to_UsuarioInicio =>
+    */
+    fun UsuarioPerfil_to_UsuarioInicio (fragment: Fragment) {
+        fragment.findNavController().navigate(R.id.action_UsuarioPerfilFragment_to_UsuarioInicioFragment)
+    }
+
+    /* --- FRAGMENT USUARIO CLINICAS ---
+    UsuarioClinica_to_UsuarioInicio =>
+    */
+    fun UsuarioClinica_to_UsuarioInicio (fragment: Fragment) {
+        fragment.findNavController().navigate(R.id.action_UsuarioClinicaFragment_to_UsuarioInicioFragment)
     }
 }
