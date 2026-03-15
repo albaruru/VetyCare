@@ -81,7 +81,7 @@
     <string name="usuario_cldr_cita_clinica">- Clínica:</string>
     <string name="usuario_cldr_cita_tipo">- Tipo:</string>
     <string name="usuario_cldr_cita_tipo_4">(Vacunación / Revisión / Consulta general / Pruebas)</string>
-    <string name="usuario_cldr_cita_motivo">- Motivo breve:</string>
+    <string name="usuario_cldr_cita_motivo">- Motivo:</string>
     <string name="usuario_cldr_cita_veterinario">- Veterinario:</string>
     <string name="usuario_cldr_cita_fecha">- Fecha de la cita:</string>
     <string name="usuario_cldr_cita_recordatorio">- Recordatorio:</string>
