@@ -11,6 +11,7 @@ import com.example.vetycare.R
 import com.example.vetycare.databinding.FragmentInicioPrincipalBinding
 import com.example.vetycare.navigation.NavigatorInicio
 import com.example.vetycare.navigation.NavigatorRoot
+import com.google.android.material.snackbar.Snackbar
 
 class InicioPrincipalFragment : Fragment() {
     private lateinit var binding : FragmentInicioPrincipalBinding
@@ -52,7 +53,28 @@ class InicioPrincipalFragment : Fragment() {
         }
     }
 
+    // FUNCION PARA COMPROBAR INICIO DE SESION
     fun comprobarInicioSesion() : Boolean {
-        return false
+        val correo = binding.etCorreo.text.toString().trim()
+        val pass = binding.etContrasenha.text.toString().trim()
+
+        // Verificar que no haya campos vacios
+        if (correo.isEmpty() || pass.isEmpty()) {
+            mostrarSnackbar("Por favor, rellena todos los campos")
+            return false
+        }
+
+        // Verificar credenciales (CORREO:alba@uem.com / PASS:raton)
+        if (correo == "alba@uem.com" && pass == "raton") {
+             return true
+        } else {
+            mostrarSnackbar("Correo o contraseña incorrectos")
+             return false
+        }
+    }
+
+    // FUNCION PARA MOSTRAR EL SNACKBAR
+    fun mostrarSnackbar(mensaje: String) {
+        Snackbar.make(binding.root, mensaje, Snackbar.LENGTH_SHORT).show()
     }
 }

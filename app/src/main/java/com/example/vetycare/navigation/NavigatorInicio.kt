@@ -7,7 +7,7 @@ import com.example.vetycare.R
 
 object NavigatorInicio {
 
-    /* NAVEGACION CONTAINER INICIO: desgloce por métodos
+    /* NAVEGACIÓN CONTAINER INICIO: desglose por métodos
 
     - InicioPrincipal_to_InicioRegistro   => Navegamos del Fragment Principal                => Fragment Registro Usuario
     - InicioPrincipal_to_InicioRecPass    => Navegamos del Fragment Principal                => Fragment Recuperacion Contraseña
