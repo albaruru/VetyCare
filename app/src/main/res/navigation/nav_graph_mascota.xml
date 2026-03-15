@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph_mascota">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_mascota"
+    app:startDestination="@id/MascotaCitaFragment">
+
+    <fragment
+        android:id="@+id/MascotaCitaFragment"
+        android:name="com.example.vetycare.ui.fragment.mascota.MascotaCitaFragment"
+        android:label="MascotaCitaFragment"
+        tools:layout="@layout/fragment_mascota_cita"
+        />
+    <fragment
+        android:id="@+id/MascotaInformeFragment"
+        android:name="com.example.vetycare.ui.fragment.mascota.MascotaInformeFragment"
+        android:label="MascotaInformeFragment"
+        tools:layout="@layout/fragment_mascota_informe"
+        >
+        <action
+            android:id="@+id/action_MascotaInformeFragment_to_MascotaInformeInfoFragment"
+            app:destination="@id/MascotaInformeInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/MascotaInformeInfoFragment"
+        android:name="com.example.vetycare.ui.fragment.mascota.MascotaInformeInfoFragment"
+        android:label="MascotaInformeInfoFragment"
+        tools:layout="@layout/fragment_mascota_informe_info"
+        >
+        <action
+            android:id="@+id/action_MascotaInformeInfoFragment_to_MascotaInformeFragment"
+            app:destination="@id/MascotaInformeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/MascotaPerfilFragment"
+        android:name="com.example.vetycare.ui.fragment.mascota.MascotaPerfilFragment"
+        android:label="MascotaPerfilFragment"
+        tools:layout="@layout/fragment_mascota_perfil"
+        />
+    <fragment
+        android:id="@+id/MascotaTratamientoFragment"
+        android:name="com.example.vetycare.ui.fragment.mascota.MascotaTratamientoFragment"
+        android:label="MascotaTratamientoFragment"
+        tools:layout="@layout/fragment_mascota_tratamiento"
+        >
+        <action
+            android:id="@+id/action_MascotaTratamientoFragment_to_MascotaTratamientoInfoFragment"
+            app:destination="@id/MascotaTratamientoInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/MascotaTratamientoInfoFragment"
+        android:name="com.example.vetycare.ui.fragment.mascota.MascotaTratamientoInfoFragment"
+        android:label="MascotaTratamientoInfoFragment"
+        tools:layout="@layout/fragment_mascota_tratamiento_info"
+        >
+        <action
+            android:id="@+id/action_MascotaTratamientoInfoFragment_to_MascotaTratamientoFragment"
+            app:destination="@id/MascotaTratamientoFragment" />
+    </fragment>
 
 </navigation>
