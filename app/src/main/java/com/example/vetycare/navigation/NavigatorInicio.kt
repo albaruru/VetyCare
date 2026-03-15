@@ -9,10 +9,10 @@ object NavigatorInicio {
 
     /* NAVEGACION CONTAINER INICIO: desgloce por métodos
 
-    - InicioPrincipal_to_InicioRegistro      => Navegamos del Fragment Principal                => Fragment Registro Usuario
-    - InicioPrincipal_to_InicioRecPass       => Navegamos del Fragment Principal                => Fragment Recuperacion Contraseña
+    - InicioPrincipal_to_InicioRegistro   => Navegamos del Fragment Principal                => Fragment Registro Usuario
+    - InicioPrincipal_to_InicioRecPass    => Navegamos del Fragment Principal                => Fragment Recuperacion Contraseña
 
-    - InicioRecPass_to_InicioPrincipal       => Navegamos del Fragment Recuperacion Contraseña  => Fragment Principal
+    - InicioRecPass_to_InicioPrincipal    => Navegamos del Fragment Recuperacion Contraseña  => Fragment Principal
     - InicioRegistro_to_InicioPrincipal   => Navegamos del Fragment Registro Usuario         => Fragment Principal
 
     */

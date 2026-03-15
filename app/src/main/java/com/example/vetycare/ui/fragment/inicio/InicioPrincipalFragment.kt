@@ -14,6 +14,7 @@ import com.example.vetycare.navigation.NavigatorRoot
 
 class InicioPrincipalFragment : Fragment() {
     private lateinit var binding : FragmentInicioPrincipalBinding
+    private var sesion : Boolean = false
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -32,17 +33,13 @@ class InicioPrincipalFragment : Fragment() {
         * -
         *  */
         binding.btnEntrar.setOnClickListener {
-
+            sesion = comprobarInicioSesion()
+            if (sesion) {
             navegacionFragment(1)
+            }
         }
-        binding.tvLinkRegistrate.setOnClickListener{
-
-            navegacionFragment(2)
-        }
-        binding.tvOlvideContrasenha.setOnClickListener {
-
-            navegacionFragment(3)
-        }
+        binding.tvLinkRegistrate.setOnClickListener{ navegacionFragment(2) }
+        binding.tvOlvideContrasenha.setOnClickListener { navegacionFragment(3) }
     }
 
     /* NAVEGACION ENTRE FRAGMENTS
@@ -53,5 +50,9 @@ class InicioPrincipalFragment : Fragment() {
             2 -> NavigatorInicio.InicioPrincipal_to_InicioRegistro(this) // Navega al Fragment Inicio Registro Ususario
             3 -> NavigatorInicio.InicioPrincipal_to_InicioRecPass(this) // Navega al Fragment Inicio Recuperacion Contraseña
         }
+    }
+
+    fun comprobarInicioSesion() : Boolean {
+        return false
     }
 }
