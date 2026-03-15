@@ -27,6 +27,6 @@ class UsuarioCalendarioFragment : Fragment() {
         /* Acciones de los botones del fragment:
         * -
         * */
-        binding.rbSemanal.setOnClickListener { NavigatorUsuario.UsuarioCalendario_to_UsuarioCalendarioCita(this) }
+        binding.rbPedirCita.setOnClickListener { NavigatorUsuario.UsuarioCalendario_to_UsuarioCalendarioCita(this) }
     }
 }

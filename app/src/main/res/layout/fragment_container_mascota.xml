@@ -104,14 +104,7 @@
             android:layout_margin="5dp"
             android:src="@drawable/btn_informes"
             android:background="@drawable/botones_menu" />
-        <ImageButton
-            android:id="@+id/btnCalendarMas"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
-            android:layout_weight="0.20"
-            android:layout_margin="5dp"
-            android:src="@drawable/btn_calendar"
-            android:background="@drawable/botones_menu" />
+
         <ImageButton
             android:id="@+id/btnMascotas"
             android:layout_width="0dp"
@@ -119,7 +112,15 @@
             android:layout_weight="0.20"
             android:layout_margin="5dp"
             android:src="@drawable/btn_huella"
-            android:background="@drawable/botones_menu" />
+            android:background="@drawable/botones_menu"/>
+        <ImageButton
+            android:id="@+id/btRegrar"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_weight="0.20"
+            android:layout_margin="5dp"
+            android:src="@drawable/btn_regresa"
+            android:background="@drawable/botones_menu"/>
     </LinearLayout>
 
     <!-- DIVIDER inferior -->

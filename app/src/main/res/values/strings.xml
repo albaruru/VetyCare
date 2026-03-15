@@ -68,7 +68,7 @@
 
 
     <!-- fragment_usuario_calendario.xml  -->
-    <string name="usuario_calendario_btnMensual">Mensual</string>
+    <string name="usuario_calendario_btnCita">Pedir cita</string>
     <string name="usuario_calendario_btnSemanal">Semanal</string>
     <string name="usuario_calendario_Vacunación">Vacunación</string>
     <string name="usuario_calendario_Revisión">Revisión</string>
