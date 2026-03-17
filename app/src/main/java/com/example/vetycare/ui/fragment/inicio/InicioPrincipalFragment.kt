@@ -11,6 +11,7 @@ import com.example.vetycare.R
 import com.example.vetycare.databinding.FragmentInicioPrincipalBinding
 import com.example.vetycare.navigation.NavigatorInicio
 import com.example.vetycare.navigation.NavigatorRoot
+import com.example.vetycare.utils.mostrarSnackbar
 import com.google.android.material.snackbar.Snackbar
 
 class InicioPrincipalFragment : Fragment() {
@@ -71,10 +72,5 @@ class InicioPrincipalFragment : Fragment() {
             mostrarSnackbar("Correo o contraseña incorrectos")
              return false
         }
-    }
-
-    // FUNCION PARA MOSTRAR EL SNACKBAR
-    fun mostrarSnackbar(mensaje: String) {
-        Snackbar.make(binding.root, mensaje, Snackbar.LENGTH_SHORT).show()
     }
 }

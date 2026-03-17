@@ -11,6 +11,8 @@ import com.example.vetycare.R
 import com.example.vetycare.databinding.FragmentInicioRecPassBinding
 import com.example.vetycare.navigation.NavigatorInicio
 import com.example.vetycare.ui.dialog.ConfirmacionDialog
+import com.example.vetycare.utils.mostrarSnackbar
+import com.google.android.material.snackbar.Snackbar
 
 class InicioRecPassFragment : Fragment() {
     private lateinit var binding : FragmentInicioRecPassBinding
@@ -42,8 +44,10 @@ class InicioRecPassFragment : Fragment() {
         - Botón Guardar => Recogeremos el correo y la contraseña para cambiar las credenciales del usuario en FireBase
         */
         binding.btnGuardar.setOnClickListener {
-
+            // Solo si la validación es correcta, mostramos el diálogo de confirmación
+            if(comprobarCampos()){
             mensaje("confirmacion")
+            }
         }
     }
 
@@ -72,5 +76,31 @@ class InicioRecPassFragment : Fragment() {
                 ).show(parentFragmentManager, "ConfirmacionDialog")
             }
         }
+    }
+
+    // FUNCION PARA COMPROBAR INICIO DE SESION
+    fun comprobarCampos(): Boolean{
+        val correo = binding.etCorreo.text.toString().trim()
+        val pass1 = binding.etNuevacontrasenha.text.toString().trim()
+        val pass2 = binding.etRepetircontrasenha.text.toString().trim()
+
+        // Verificar que no haya campos vacíos
+        if(correo.isEmpty() || pass1.isEmpty() || pass2.isEmpty()){
+            mostrarSnackbar("Por favor, rellena todos los campos.")
+            return false
+        }
+        // Verificar que el correo sea correcto
+        // TODO: EN ESTE CASO PONEMOS EL CORREO POR DEFECTO -> alba@uem.com
+        if(correo != "alba@uem.com"){
+            mostrarSnackbar("El correo introducido no existe.")
+            return false
+        }
+
+        // Verificar que las contrasenas coincidan
+        if(pass1 != pass2){
+            mostrarSnackbar("Las contraseñas no coinciden.")
+            return false
+        }
+        return true
     }
 }

@@ -12,6 +12,8 @@ import com.example.vetycare.databinding.FragmentInicioRegistroBinding
 import com.example.vetycare.navigation.NavigatorInicio
 import com.example.vetycare.ui.dialog.CancelacionDialog
 import com.example.vetycare.ui.dialog.ConfirmacionDialog
+import com.example.vetycare.utils.mostrarSnackbar
+import com.google.android.material.snackbar.Snackbar
 
 class InicioRegistroFragment : Fragment() {
     private lateinit var binding : FragmentInicioRegistroBinding
@@ -64,8 +66,10 @@ class InicioRegistroFragment : Fragment() {
         * - Botón Volver => Descarta cualquier información introducida en nuestros bloques de texto y volvemos a la pantalla login
         * */
         binding.btnGuardar.setOnClickListener {
-
+            // Solo si la validación es correcta, mostramos el diálogo de confirmación
+            if(comprobarCampos()){
             mensaje("confirmacion")
+            }
         }
         binding.btnVolver.setOnClickListener {
 
@@ -116,5 +120,30 @@ class InicioRegistroFragment : Fragment() {
                 ).show(parentFragmentManager,"CancelacionDialog")
             }
         }
+    }
+
+    // FUNCION PARA COMPROBAR INICIO DE SESION
+    fun comprobarCampos(): Boolean{
+        val nombre = binding.etNombre.text.toString().trim()
+        val apellido = binding.etApellido.text.toString().trim()
+        val dni = binding.etDni.text.toString().trim()
+        val fecha = binding.etFecha.text.toString().trim()
+        val correo = binding.etCorreo.text.toString().trim()
+        val telefono = binding.etTelefono.text.toString().trim()
+        val pass = binding.etPass.text.toString().trim()
+
+        // Verificar que no haya campos vacíos
+        if (nombre.isEmpty() || apellido.isEmpty() || dni.isEmpty() ||
+            fecha.isEmpty() || correo.isEmpty() || telefono.isEmpty() || pass.isEmpty()) {
+            mostrarSnackbar("Por favor, rellena todos los campos")
+            return false
+        }
+
+        // Verificar que el teléfono tenga 9 dígitos
+        if(telefono.length != 9){
+            mostrarSnackbar("El teléfono debe tener 9 dígitos")
+            return false
+        }
+        return true
     }
 }
