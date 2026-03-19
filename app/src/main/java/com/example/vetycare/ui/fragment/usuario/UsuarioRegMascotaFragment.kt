@@ -11,6 +11,7 @@ import com.example.vetycare.navigation.NavigatorInicio
 import com.example.vetycare.navigation.NavigatorUsuario
 import com.example.vetycare.ui.dialog.CancelacionDialog
 import com.example.vetycare.ui.dialog.ConfirmacionDialog
+import com.example.vetycare.utils.mostrarSnackbar
 
 class UsuarioRegMascotaFragment : Fragment() {
     private lateinit var binding : FragmentUsuarioRegMascotaBinding
@@ -50,15 +51,21 @@ class UsuarioRegMascotaFragment : Fragment() {
         -
         */
         binding.btnGuardar.setOnClickListener {
-
+            //Solo si los campos son válidos, mostramos el diálogo
+            if (comprobarCamposMascota()){
             mensaje("confirmacion")
+            }
         }
-        binding.btnVolver.setOnClickListener {
 
+        binding.btnVolver.setOnClickListener {
             mensaje("cancelacion")
         }
     }
 
+    /* NAVEGACION ENTRE FRAGMENTS
+    1.- Mostramos el mensaje de confirmación y según la respuesta, entrará en el parentFragmentManager de nuestro metodo onCreate
+    2.- Mostramos el mensaje de cancelacion y según la respuesta, entrará en el parentFragmentManager de nuestro metodo onCreate
+    * */
     fun navegacionFragment (num: Int) {
         when (num) {
             1 -> NavigatorUsuario.UsuarioRegMascota_to_UsuarioMascota(this)
@@ -81,5 +88,31 @@ class UsuarioRegMascotaFragment : Fragment() {
                 ).show(parentFragmentManager,"CancelacionDialog")
             }
         }
+    }
+
+    // FUNCIÓN PARA COMPROBAR REGISTRO DE MASCOTA
+    fun comprobarCamposMascota(): Boolean {
+        val nombre = binding.etNombreAnimal.text.toString().trim()
+        val chip = binding.etMicrochip.text.toString().trim()
+        val especie = binding.etEspecie.text.toString().trim()
+        val raza = binding.etRaza.text.toString().trim()
+        val fecha = binding.etFechaAnimal.text.toString().trim()
+        val peso = binding.etPeso.text.toString().trim()
+        val castracion = binding.etCastracion.text.toString().trim()
+
+        //Verificar que no haya campos vacíos
+        if (nombre.isEmpty() || chip.isEmpty() || especie.isEmpty() ||
+            raza.isEmpty() || fecha.isEmpty() || peso.isEmpty() || castracion.isEmpty()) {
+
+            mostrarSnackbar( "Por favor, completa todos los datos de la mascota")
+            return false
+        }
+
+        // Validación específica del microchip
+        if (chip.length != 15) {
+            mostrarSnackbar("El microchip debe tener exactamente 15 dígitos")
+            return false
+        }
+        return true
     }
 }

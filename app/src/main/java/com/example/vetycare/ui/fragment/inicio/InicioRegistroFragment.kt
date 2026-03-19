@@ -122,7 +122,7 @@ class InicioRegistroFragment : Fragment() {
         }
     }
 
-    // FUNCION PARA COMPROBAR INICIO DE SESION
+    // FUNCION PARA COMPROBAR REGISTRO DE USUARIO
     fun comprobarCampos(): Boolean{
         val nombre = binding.etNombre.text.toString().trim()
         val apellido = binding.etApellido.text.toString().trim()

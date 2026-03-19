@@ -78,7 +78,7 @@ class InicioRecPassFragment : Fragment() {
         }
     }
 
-    // FUNCION PARA COMPROBAR INICIO DE SESION
+    // FUNCION PARA COMPROBAR RECUPERACIÓN DE CONTRASEÑA
     fun comprobarCampos(): Boolean{
         val correo = binding.etCorreo.text.toString().trim()
         val pass1 = binding.etNuevacontrasenha.text.toString().trim()
