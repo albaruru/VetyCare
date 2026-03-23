@@ -22,7 +22,9 @@ class UsuarioContainerFragment : Fragment (R.layout.fragment_container_usuario) 
         val botonPerfilUsuario = view?.findViewById<ImageButton> (R.id.btnUsuario)
         val botonClinicas = view?.findViewById<ImageButton> (R.id.btnClinicas)
 
-        /* Asignamos la navegación en las variables de los botones creados: */
+        /* Asignamos la navegación en las variables de los botones creados:
+        *
+        * */
         botonPerfilMascotas?.setOnClickListener {
             navController.navigate(R.id.UsuarioMascotaFragment)
         }

@@ -12,6 +12,8 @@ import com.example.vetycare.databinding.FragmentInicioRegistroBinding
 import com.example.vetycare.navigation.NavigatorInicio
 import com.example.vetycare.ui.dialog.CancelacionDialog
 import com.example.vetycare.ui.dialog.ConfirmacionDialog
+import com.example.vetycare.utils.mostrarSnackbar
+import com.google.android.material.snackbar.Snackbar
 
 class InicioRegistroFragment : Fragment() {
     private lateinit var binding : FragmentInicioRegistroBinding
@@ -34,7 +36,7 @@ class InicioRegistroFragment : Fragment() {
         parentFragmentManager.setFragmentResultListener(keyConfirmacion,this) { _, bundle ->
             val confirmado = bundle.getBoolean(ConfirmacionDialog.KEY_CONFIRMADO)
             if (confirmado) {
-                NavigatorInicio.InicioRegistroToInicioPrincipal(this)
+                navegacionFragment(1)
             }
         }
         /* DIALOG CANCELACION: Explicacion...
@@ -46,9 +48,8 @@ class InicioRegistroFragment : Fragment() {
         parentFragmentManager.setFragmentResultListener(keyCancelacion,this) { _, bundle ->
             val cancelado = bundle.getBoolean(CancelacionDialog.KEY_CANCELADO)
             if (cancelado) {
-                NavigatorInicio.InicioRegistroToInicioPrincipal(this)
+                navegacionFragment(1)
             }
-
         }
     }
 
@@ -65,12 +66,14 @@ class InicioRegistroFragment : Fragment() {
         * - Botón Volver => Descarta cualquier información introducida en nuestros bloques de texto y volvemos a la pantalla login
         * */
         binding.btnGuardar.setOnClickListener {
-
-            navegacionFragment(1)
+            // Solo si la validación es correcta, mostramos el diálogo de confirmación
+            if(comprobarCampos()){
+            mensaje("confirmacion")
+            }
         }
         binding.btnVolver.setOnClickListener {
 
-            navegacionFragment(2)
+            mensaje("cancelacion")
         }
     }
 
@@ -80,7 +83,13 @@ class InicioRegistroFragment : Fragment() {
     * */
     fun navegacionFragment(num : Int) {
         when (num) {
-            1 -> {
+            1 -> NavigatorInicio.InicioRegistro_to_InicioPrincipal(this)
+        }
+    }
+
+    fun mensaje (tipo: String) {
+        when (tipo) {
+            "confirmacion" -> {
                 /* Explicación del metodo ConfirmacionDialog.nuevoDialog(...)
 
                 Aquí hacemos lo siguiente:
@@ -95,7 +104,7 @@ class InicioRegistroFragment : Fragment() {
                     keyConfirmacion
                 ).show(parentFragmentManager,"ConfirmacionDialog")
             }
-            2 -> {
+            "cancelacion" -> {
                 /* Explicación del metodo CancelacionDialog.nuevoDialog(...)
 
                 Aquí hacemos lo siguiente:
@@ -111,5 +120,30 @@ class InicioRegistroFragment : Fragment() {
                 ).show(parentFragmentManager,"CancelacionDialog")
             }
         }
+    }
+
+    // FUNCION PARA COMPROBAR REGISTRO DE USUARIO
+    fun comprobarCampos(): Boolean{
+        val nombre = binding.etNombre.text.toString().trim()
+        val apellido = binding.etApellido.text.toString().trim()
+        val dni = binding.etDni.text.toString().trim()
+        val fecha = binding.etFecha.text.toString().trim()
+        val correo = binding.etCorreo.text.toString().trim()
+        val telefono = binding.etTelefono.text.toString().trim()
+        val pass = binding.etPass.text.toString().trim()
+
+        // Verificar que no haya campos vacíos
+        if (nombre.isEmpty() || apellido.isEmpty() || dni.isEmpty() ||
+            fecha.isEmpty() || correo.isEmpty() || telefono.isEmpty() || pass.isEmpty()) {
+            mostrarSnackbar("Por favor, rellena todos los campos")
+            return false
+        }
+
+        // Verificar que el teléfono tenga 9 dígitos
+        if(telefono.length != 9){
+            mostrarSnackbar("El teléfono debe tener 9 dígitos")
+            return false
+        }
+        return true
     }
 }

@@ -11,9 +11,12 @@ import com.example.vetycare.R
 import com.example.vetycare.databinding.FragmentInicioPrincipalBinding
 import com.example.vetycare.navigation.NavigatorInicio
 import com.example.vetycare.navigation.NavigatorRoot
+import com.example.vetycare.utils.mostrarSnackbar
+import com.google.android.material.snackbar.Snackbar
 
 class InicioPrincipalFragment : Fragment() {
     private lateinit var binding : FragmentInicioPrincipalBinding
+    private var sesion : Boolean = false
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -32,26 +35,42 @@ class InicioPrincipalFragment : Fragment() {
         * -
         *  */
         binding.btnEntrar.setOnClickListener {
-
+            sesion = comprobarInicioSesion()
+            if (sesion) {
             navegacionFragment(1)
+            }
         }
-        binding.tvLinkRegistrate.setOnClickListener{
-
-            navegacionFragment(2)
-        }
-        binding.tvOlvideContrasenha.setOnClickListener {
-
-            navegacionFragment(3)
-        }
+        binding.tvLinkRegistrate.setOnClickListener{ navegacionFragment(2) }
+        binding.tvOlvideContrasenha.setOnClickListener { navegacionFragment(3) }
     }
 
     /* NAVEGACION ENTRE FRAGMENTS
     * */
     fun navegacionFragment(num : Int) {
         when (num) {
-            1 -> NavigatorRoot.InicioToUsuario(this) // Navega al Container Usuario
-            2 -> NavigatorInicio.InicioPrincipalToInicioRegistro(this) // Navega al Fragment Inicio Registro Ususario
-            3 -> NavigatorInicio.InicioPrincipalToInicioRecPass(this) // Navega al Fragment Inicio Recuperacion Contraseña
+            1 -> NavigatorRoot.Inicio_to_Usuario(this) // Navega al Container Usuario
+            2 -> NavigatorInicio.InicioPrincipal_to_InicioRegistro(this) // Navega al Fragment Inicio Registro Ususario
+            3 -> NavigatorInicio.InicioPrincipal_to_InicioRecPass(this) // Navega al Fragment Inicio Recuperacion Contraseña
+        }
+    }
+
+    // FUNCION PARA COMPROBAR INICIO DE SESION
+    fun comprobarInicioSesion() : Boolean {
+        val correo = binding.etCorreo.text.toString().trim()
+        val pass = binding.etContrasenha.text.toString().trim()
+
+        // Verificar que no haya campos vacios
+        if (correo.isEmpty() || pass.isEmpty()) {
+            mostrarSnackbar("Por favor, rellena todos los campos")
+            return false
+        }
+
+        // Verificar credenciales (CORREO:alba@uem.com / PASS:raton)
+        if (correo == "alba@uem.com" && pass == "raton") {
+             return true
+        } else {
+            mostrarSnackbar("Correo o contraseña incorrectos")
+             return false
         }
     }
 }

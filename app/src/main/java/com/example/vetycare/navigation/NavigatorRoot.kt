@@ -9,7 +9,7 @@ object NavigatorRoot {
     /* NAVEGACION CONTAINER INICIO: desgloce por métodos
     * - InicioToUsuario => Navegamos del Container Inicio    => Container Usuario
     * */
-    fun InicioToUsuario (fragment: Fragment) {
+    fun Inicio_to_Usuario (fragment: Fragment) {
         fragment.requireActivity()
             .findNavController(R.id.nav_host_root)
             .navigate(R.id.action_inicioContainerFragment_to_usuarioContainerFragment)
@@ -19,12 +19,12 @@ object NavigatorRoot {
     * - UsuarioToInicio => Navegamos del Container Usuario   => Container Inicio
     * - UsuarioToMascota => Navegamos del Container Usuario  => Container Mascota
     * */
-    fun UsuarioToInicio (fragment: Fragment) {
+    fun Usuario_to_Inicio (fragment: Fragment) {
         fragment.requireActivity()
             .findNavController(R.id.nav_host_root)
             .navigate(R.id.action_usuarioContainerFragment_to_inicioContainerFragment)
     }
-    fun UsuarioToMascota (fragment: Fragment) {
+    fun Usuario_to_Mascota (fragment: Fragment) {
         fragment.requireActivity()
             .findNavController(R.id.nav_host_root)
             .navigate(R.id.action_usuarioContainerFragment_to_mascotaContainerFragment)
@@ -33,7 +33,7 @@ object NavigatorRoot {
     /* NAVEGACIÓN CONTAINER MASCOTA
     * - MascotaToUsuario => Navegamos del Container Mascota  => Container Usuario
     * */
-    fun MascotaToUsuario (fragment: Fragment) {
+    fun Mascota_to_Usuario (fragment: Fragment) {
         fragment.requireActivity()
             .findNavController(R.id.nav_host_root)
             .navigate(R.id.action_mascotaContainerFragment_to_usuarioContainerFragment)
