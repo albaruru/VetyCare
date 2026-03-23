@@ -29,26 +29,27 @@
             android:id="@+id/tv_correo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="50dp"
             android:text="@string/rc_pass_correo"
             app:layout_constraintBottom_toTopOf="@+id/et_correo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_titulo"
             style="@style/TextBaseNegrita"/>
-
-        <!-- NUEVA CONTRASEÑA -->
         <EditText
             android:id="@+id/et_correo"
             android:layout_width="0dp"
-            android:layout_height="46dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/background_cuadro_texto"
+            android:padding="12dp"
+            android:gravity="center"
+            android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.666"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_correo"
             style="@style/TextBase"/>
 
+        <!-- NUEVA CONTRASEÑA -->
         <TextView
             android:id="@+id/tv_contrasenha"
             android:layout_width="match_parent"
@@ -62,11 +63,14 @@
         <EditText
             android:id="@+id/et_nuevacontrasenha"
             android:layout_width="0dp"
-            android:layout_height="46dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:gravity="center"
             android:background="@drawable/background_cuadro_texto"
-            app:layout_constraintEnd_toEndOf="@+id/et_correo"
-            app:layout_constraintStart_toStartOf="@+id/et_correo"
+            android:padding="12dp"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_contrasenha"
             style="@style/TextBase"/>
 
@@ -83,24 +87,41 @@
         <EditText
             android:id="@+id/et_repetircontrasenha"
             android:layout_width="0dp"
-            android:layout_height="46dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:gravity="center"
             android:background="@drawable/background_cuadro_texto"
-            app:layout_constraintEnd_toEndOf="@+id/et_correo"
-            app:layout_constraintStart_toStartOf="@+id/et_correo"
+            android:padding="12dp"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_repetircontrasenha"
             style="@style/TextBase"/>
+
+        <!-- BOTÓN - Volver -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_volver"
+            style="@style/TextSubtitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/boton_volver_cancelar"
+            android:text="@string/volver"
+            app:backgroundTint="@null"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guia_horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/et_repetircontrasenha"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_guardar" />
 
         <!-- GUARDAR -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_guardar"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="60dp"
             android:text="@string/guardar"
             android:background="@drawable/botones"
             app:backgroundTint="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guia_horizontal"
             app:layout_constraintTop_toBottomOf="@+id/et_repetircontrasenha"

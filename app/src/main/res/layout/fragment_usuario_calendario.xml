@@ -2,6 +2,7 @@
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/content_usuario">
@@ -23,151 +24,161 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             style="@style/TextTitulo"/>
-        <!-- SELECTOR MENSUAL / SEMANAL -->
-        <RadioGroup
-            android:id="@+id/rgVistaCalendario"
+        <!--Boton pedir cita -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/rbPedirCita"
+            style="@style/TextBotones"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_titulo"
+            android:layout_height="45dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/botones"
+            android:gravity="center"
+            android:paddingHorizontal="30dp"
+            android:text="@string/usuario_calendario_btnCita"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-            <RadioButton
-                android:id="@+id/rbMensual"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:text="@string/usuario_calendario_btnMensual"
-                android:checked="true"
-                android:button="@null"
-                android:gravity="center"
-                android:paddingHorizontal="20dp"
-                android:background="@drawable/botones"
-                style="@style/TextBotones" />
-            <RadioButton
-                android:id="@+id/rbSemanal"
-                android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:layout_marginStart="8dp"
-                android:text="@string/usuario_calendario_btnSemanal"
-                android:button="@null"
-                android:gravity="center"
-                android:paddingHorizontal="20dp"
-                android:background="@drawable/boton_volver_cancelar"
-                style="@style/TextBotones" />
-        </RadioGroup>
+            app:layout_constraintTop_toBottomOf="@id/tv_titulo" />
 
         <!-- CALENDARIO-->
-        <CalendarView
+        <com.kizitonwose.calendar.view.CalendarView
             android:id="@+id/calendarView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginHorizontal="8dp"
-            app:layout_constraintTop_toBottomOf="@id/rgVistaCalendario"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
-            style="@style/TextBase"
-            />
+            app:layout_constraintHorizontal_bias="0.473"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rbPedirCita" />
 
         <!--LEYENDA DE COLORES-->
         <LinearLayout
             android:id="@+id/layoutLeyenda"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="268dp"
+            android:layout_height="142dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/background_cuadro_texto"
-            android:padding="10dp"
-            app:layout_constraintTop_toBottomOf="@id/calendarView"
+            android:orientation="vertical"
+            android:padding="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/calendarView">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="4dp"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="4dp">
+                android:orientation="horizontal">
                 <View
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:background="@color/Vacunacion" />
                 <TextView
+                    style="@style/TextBase"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="@string/usuario_calendario_Vacunación"
-                    style="@style/TextBase" />
+                    android:text="@string/usuario_calendario_Vacunación" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="4dp"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="4dp">
+                android:orientation="horizontal">
                 <View
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:background="@color/Revisión" />
                 <TextView
+                    style="@style/TextBase"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="@string/usuario_calendario_Revisión"
-                    style="@style/TextBase" />
+                    android:text="@string/usuario_calendario_Revisión" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="4dp"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="4dp">
+                android:orientation="horizontal">
                 <View
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:background="@color/Consulta" />
                 <TextView
+                    style="@style/TextBase"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="@string/usuario_calendario_Consulta"
-                    style="@style/TextBase" />
+                    android:text="@string/usuario_calendario_Consulta" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="4dp"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="4dp">
+                android:orientation="horizontal">
                 <View
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:background="@color/Pruebas" />
                 <TextView
+                    style="@style/TextBase"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="@string/usuario_calendario_Pruebas"
-                    style="@style/TextBase" />
+                    android:text="@string/usuario_calendario_Pruebas" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
                 <View
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:background="@color/Medicamentos" />
                 <TextView
+                    style="@style/TextBase"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="@string/usuario_calendario_medicamentos"
-                    style="@style/TextBase" />
+                    android:text="@string/usuario_calendario_medicamentos" />
             </LinearLayout>
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_citas_dia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Citas del día seleccionado"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/layoutLeyenda"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/TextSubtitulo"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCitasDia"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="8dp"
+            android:nestedScrollingEnabled="false"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/tv_citas_dia"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

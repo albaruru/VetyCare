@@ -185,77 +185,21 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_telefono"
             style="@style/TextBase"/>
 
-        <!-- TEXTO - Contraseña -->
-        <TextView
-            android:id="@+id/tv_pass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/reg_contraseña"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_telefono"
-            style="@style/TextBaseNegrita"/>
-        <EditText
-            android:id="@+id/et_pass"
-            android:layout_width="0dp"
-            android:layout_height="46dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/background_cuadro_texto"
-            android:inputType="textPassword"
-            android:padding="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_pass"
-            style="@style/TextBase"/>
-
-        <!-- BOTÓN - Volver -->
+        <!-- BOTÓN - Cerrar sesión -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_volver"
+            android:id="@+id/btn_cerrarsesion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"
             android:text="@string/usuario_perfil_cerrar"
-            android:background="@drawable/boton_volver_cancelar"
-            app:backgroundTint="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guia_central"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_pass"
-            style="@style/TextSubtitulo"/>
-
-        <!-- BOTÓN - Guardar -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_guardar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="20dp"
-            android:text="@string/usuario_perfil_editar"
             android:background="@drawable/botones"
             app:backgroundTint="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guia_central"
-            app:layout_constraintTop_toBottomOf="@+id/et_pass"
-            style="@style/TextSubtitulo"/>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guia_central"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5" />
+            app:layout_constraintTop_toBottomOf="@+id/et_telefono"
+            app:layout_constraintBottom_toBottomOf="parent"
+            style="@style/TextBotones"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
-
-
-
-
-
-
-
-
-
-

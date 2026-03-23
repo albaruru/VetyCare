@@ -196,7 +196,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_peso"
             style="@style/TextBaseNegrita"/>
-        <EditText
+        <Spinner
             android:id="@+id/et_castracion"
             android:layout_width="0dp"
             android:layout_height="46dp"
@@ -225,15 +225,15 @@
             app:layout_constraintTop_toBottomOf="@+id/et_castracion"
             style="@style/TextSubtitulo"/>
 
-        <!-- BOTÓN - Guardar -->
+        <!-- BOTÓN - Eliminar  -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_guardar"
+            android:id="@+id/btn_Eliminar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="20dp"
             android:layout_marginStart="8dp"
-            android:text="@string/guardar"
+            android:text="@string/eliminar"
             android:background="@drawable/botones"
             app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -242,7 +242,6 @@
             app:layout_constraintTop_toBottomOf="@+id/et_castracion"
             style="@style/TextSubtitulo"/>
 
-        <!-- GUÍA CENTRAL -->
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guia_central_animal"
             android:layout_width="wrap_content"
