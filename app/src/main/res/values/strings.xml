@@ -3,6 +3,7 @@
 
     <!-- GLOBALES (usados en varios layouts) -->
     <string name="guardar">Guardar</string>
+    <string name="eliminar">Eliminar</string>
     <string name="entrar">Entrar</string>
     <string name="volver">Volver</string>
     <string name="action_settings">Settings</string>
@@ -51,14 +52,19 @@
     <!-- fragment_reg_animal.xml -->
     <string name="reg_animal_titulo">"REGISTRO DE MASCOTA"</string>
     <string name="reg_sexo">"Sexo:"</string>
+    <string name="reg_castracion">"Castracion/Esterilización:"</string>
     <string name="reg_microchip">"Microchip:"</string>
     <string name="reg_especie">"Especie:"</string>
     <string name="reg_raza">"Raza:"</string>
     <string name="reg_peso">"Peso:"</string>
-    <string name="reg_castracion">"Castración/Esterilización:"</string>
     <string-array name="opciones_sexo_animal">
         <item>Macho</item>
         <item>Hembra</item>
+        <item>Sin definir</item>
+    </string-array>
+    <string-array name="opciones_castracion">
+        <item>Si</item>
+        <item>No</item>
         <item>Sin definir</item>
     </string-array>
 
