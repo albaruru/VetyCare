@@ -25,25 +25,22 @@
             app:layout_constraintTop_toTopOf="parent"
             style="@style/TextTitulo"/>
         <!--Boton pedir cita -->
-        <RadioButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/rbPedirCita"
+            style="@style/TextBotones"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/botones"
-            android:button="@null"
-            android:checked="true"
             android:gravity="center"
             android:paddingHorizontal="30dp"
             android:text="@string/usuario_calendario_btnCita"
+            app:backgroundTint="@null"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_titulo"
-            style="@style/TextSubtitulo"/>
+            app:layout_constraintTop_toBottomOf="@id/tv_titulo" />
 
         <!-- CALENDARIO-->
-
-        <!--LEYENDA DE COLORES-->
         <com.kizitonwose.calendar.view.CalendarView
             android:id="@+id/calendarView"
             android:layout_width="0dp"
@@ -55,7 +52,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rbPedirCita" />
 
-        <!-- LISTA DE CITAS DEL DÍA -->
+        <!--LEYENDA DE COLORES-->
         <LinearLayout
             android:id="@+id/layoutLeyenda"
             android:layout_width="268dp"
@@ -75,12 +72,10 @@
                 android:layout_marginBottom="4dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
                 <View
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:background="@color/Vacunacion" />
-
                 <TextView
                     style="@style/TextBase"
                     android:layout_width="wrap_content"
@@ -95,12 +90,10 @@
                 android:layout_marginBottom="4dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
                 <View
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:background="@color/Revisión" />
-
                 <TextView
                     style="@style/TextBase"
                     android:layout_width="wrap_content"
@@ -115,12 +108,10 @@
                 android:layout_marginBottom="4dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
                 <View
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:background="@color/Consulta" />
-
                 <TextView
                     style="@style/TextBase"
                     android:layout_width="wrap_content"
@@ -135,12 +126,10 @@
                 android:layout_marginBottom="4dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
                 <View
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:background="@color/Pruebas" />
-
                 <TextView
                     style="@style/TextBase"
                     android:layout_width="wrap_content"
@@ -154,12 +143,10 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
                 <View
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:background="@color/Medicamentos" />
-
                 <TextView
                     style="@style/TextBase"
                     android:layout_width="wrap_content"

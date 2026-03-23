@@ -208,30 +208,14 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_pass"
             style="@style/TextBase"/>
 
-        <!-- BOTÓN - Volver -->
+        <!-- BOTÓN - Cerrar sesión -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_volver"
+            android:id="@+id/btn_cerrarsesion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"
             android:text="@string/usuario_perfil_cerrar"
-            android:background="@drawable/boton_volver_cancelar"
-            app:backgroundTint="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guia_central"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_pass"
-            style="@style/TextSubtitulo"/>
-
-        <!-- BOTÓN - Guardar -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_guardar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="20dp"
-            android:text="@string/usuario_perfil_editar"
             android:background="@drawable/botones"
             app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -249,13 +233,3 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
-
-
-
-
-
-
-
-
-
-

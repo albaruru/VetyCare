@@ -35,12 +35,12 @@
     <!-- fragment_reg_usuario.xml -->
     <string name="reg_usuario_titulo">"REGISTRO DE USUARIO"</string>
     <string name="reg_nombre">"Nombre:"</string>
-    <string name="reg_apellido">"Apellido:"*</string>
-    <string name="reg_dni">"NIE/NIF:"*</string>
-    <string name="reg_fecha">"Fecha de nacimiento:"*</string>
-    <string name="reg_correo">"Correo:"*</string>
-    <string name="reg_telefono">"Teléfono:"*</string>
-    <string name="reg_contraseña">"Contraseña:"*</string>
+    <string name="reg_apellido">"Apellido:"</string>
+    <string name="reg_dni">"NIE/NIF:"</string>
+    <string name="reg_fecha">"Fecha de nacimiento:"</string>
+    <string name="reg_correo">"Correo:"</string>
+    <string name="reg_telefono">"Teléfono:"</string>
+    <string name="reg_contraseña">"Contraseña:"</string>
     <string-array name="opciones_sexo_usuario">
         <item>Masculino</item>
         <item>Femenino</item>
@@ -50,12 +50,12 @@
 
     <!-- fragment_reg_animal.xml -->
     <string name="reg_animal_titulo">"REGISTRO DE MASCOTA"</string>
-    <string name="reg_sexo">"Sexo:"*</string>
-    <string name="reg_microchip">"Microchip:"*</string>
+    <string name="reg_sexo">"Sexo:"</string>
+    <string name="reg_microchip">"Microchip:"</string>
     <string name="reg_especie">"Especie:"</string>
-    <string name="reg_raza">"Raza:"*</string>
-    <string name="reg_peso">"Peso:"*</string>
-    <string name="reg_castracion">"Castración/Esterilización:"*</string>
+    <string name="reg_raza">"Raza:"</string>
+    <string name="reg_peso">"Peso:"</string>
+    <string name="reg_castracion">"Castración/Esterilización:"</string>
     <string-array name="opciones_sexo_animal">
         <item>Macho</item>
         <item>Hembra</item>
@@ -64,7 +64,7 @@
 
     <!-- fragmen_usuario_mascota.xml / recycler_mascota.xml -->
     <string name="usuario_mascota">PERFIL MASCOTAS</string>
-    <string name="item_mascota">"Mascota"</string>
+    <string name="item_mascota">"Añadir nueva mascota"</string>
 
 
     <!-- fragment_usuario_calendario.xml  -->
@@ -98,6 +98,8 @@
 
     <!-- fragment_usuario_clinica.xml / item_clinica.xml -->
     <string name="clinica_titulo">CLÍNICAS</string>
+    <string name="clinica_ver_listado">Ver listado</string>
+    <string name="clinica_ver_mapa">Ver mapa</string>
     <string name="clinica_descripcion">Encuentra nuestas clínicas veterinarias cerca de ti</string>
     <string name="clinica_zona">- Comunidad autónoma:</string>
     <string name="clinica_item_direccion">- Dirección:</string>
@@ -152,6 +154,7 @@
     <string name="informe_btn_ver_mas">Ver más</string>
     <string name="informe_btn_ver_menos">Ver menos</string>
     <string name="informe_btn_pdf">PDF</string>
+
 
     <!-- ================================== BACK ================================== -->
     <!-- NAVEGACIÓN (nav_graph) -->

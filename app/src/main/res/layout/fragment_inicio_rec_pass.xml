@@ -97,16 +97,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_repetircontrasenha"
             style="@style/TextBase"/>
+
+        <!-- BOTÓN - Volver -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_volver"
+            style="@style/TextSubtitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/boton_volver_cancelar"
+            android:text="@string/volver"
+            app:backgroundTint="@null"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guia_horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/et_repetircontrasenha"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_guardar" />
+
         <!-- GUARDAR -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_guardar"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="60dp"
             android:text="@string/guardar"
             android:background="@drawable/botones"
             app:backgroundTint="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guia_horizontal"
             app:layout_constraintTop_toBottomOf="@+id/et_repetircontrasenha"
