@@ -22,5 +22,6 @@ class MascotaTratamientoInfoFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        // TODO: BINDING PARA EL BOTON VOLVER
     }
 }

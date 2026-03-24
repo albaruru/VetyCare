@@ -22,5 +22,6 @@ class MascotaTratamientoFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        // FIXME: ELIMINAR EL BOTON VOLER EN XML
     }
 }

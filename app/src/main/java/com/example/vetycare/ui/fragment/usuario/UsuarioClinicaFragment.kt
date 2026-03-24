@@ -27,9 +27,7 @@ class UsuarioClinicaFragment : Fragment (){
         /* Acciones de los botones del fragment:
         * -
         * */
-        binding.tvTitulo.setOnClickListener {
-            NavigatorRoot.Usuario_to_Mascota(this)
-        }
+        // TODO: CREAR BINDING DE LOS BOTONES VER LISTADO Y VER MAPA(TOOGLE BOTOON)
     }
 
 }

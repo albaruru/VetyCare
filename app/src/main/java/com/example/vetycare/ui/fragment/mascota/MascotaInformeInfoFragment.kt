@@ -22,5 +22,6 @@ class MascotaInformeInfoFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        // TODO: BINDING PARA EL BOTON DE VER MENOS Y PDF
     }
 }

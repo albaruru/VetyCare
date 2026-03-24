@@ -53,7 +53,7 @@ class UsuarioRegMascotaFragment : Fragment() {
         binding.btnGuardar.setOnClickListener {
             //Solo si los campos son válidos, mostramos el diálogo
             if (comprobarCamposMascota()){
-            mensaje("confirmacion")
+                mensaje("confirmacion")
             }
         }
 
@@ -101,8 +101,8 @@ class UsuarioRegMascotaFragment : Fragment() {
         val castracion = binding.etCastracion.text.toString().trim()
 
         //Verificar que no haya campos vacíos
-        if (nombre.isEmpty() || chip.isEmpty() || especie.isEmpty() ||
-            raza.isEmpty() || fecha.isEmpty() || peso.isEmpty() || castracion.isEmpty()) {
+        if (nombre.isEmpty() || especie.isEmpty() ||
+            raza.isEmpty() || fecha.isEmpty() || peso.isEmpty()) {
 
             mostrarSnackbar( "Por favor, completa todos los datos de la mascota")
             return false

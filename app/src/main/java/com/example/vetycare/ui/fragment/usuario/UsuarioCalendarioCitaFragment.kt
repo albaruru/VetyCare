@@ -57,6 +57,7 @@ class UsuarioCalendarioCitaFragment : Fragment() {
 
             mensaje("cancelacion")
         }
+        // TODO: CREAR CLASE MOLDE PARA RECOGER DATOS
     }
 
     fun navegacionFragment(num : Int) {

@@ -49,6 +49,7 @@ class InicioRecPassFragment : Fragment() {
             mensaje("confirmacion")
             }
         }
+        // TODO: LOGICA DE BOTON VOLVER
     }
 
     /* NAVEGACION ENTRE FRAGMENTS

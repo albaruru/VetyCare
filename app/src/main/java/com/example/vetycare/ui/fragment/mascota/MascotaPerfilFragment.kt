@@ -22,5 +22,14 @@ class MascotaPerfilFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        // TODO: BINDING PARA LOS BOTONES VOLVER Y ELIMINAR
+        // FIXME: binding.etDatosMascota.isEnabled = false // Esto lo deshabilita por completo
+        /* FIXME: <EditText -> HAY QUE PONERLO EN CADA UNO DE LOS ET
+            android:id="@+id/et_datos_mascota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false" /> */
     }
 }

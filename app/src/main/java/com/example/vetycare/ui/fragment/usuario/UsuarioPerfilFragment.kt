@@ -23,13 +23,14 @@ class UsuarioPerfilFragment : Fragment () {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        // FIXME CARLOS
         parentFragmentManager.setFragmentResultListener(keyConfirmacion,this) { _, bundle ->
             val confirmado = bundle.getBoolean(ConfirmacionDialog.KEY_CONFIRMADO)
             if (confirmado) {
                 navegacionFragment(1)
             }
         }
+        // FIXME CARLOS
         parentFragmentManager.setFragmentResultListener(keyCancelacion,this) { _, bundle ->
             val cancelado = bundle.getBoolean(CancelacionDialog.KEY_CANCELADO)
             if (cancelado) {
@@ -49,18 +50,24 @@ class UsuarioPerfilFragment : Fragment () {
         /* Acciones de los botones del fragment:
         -
         */
-        binding.btnGuardar.setOnClickListener {
-
-            mensaje("confirmacion")
-        }
-        binding.btnVolver.setOnClickListener {
+        binding.btnCerrarsesion.setOnClickListener {
 
             mensaje("cerrar_sesion")
         }
+        // FIXME: binding.etDatosUsuario.isEnabled = false // Esto lo deshabilita por completo
+        /* FIXME: <EditText -> HAY QUE PONERLO EN CADA UNO DE LOS ET
+            android:id="@+id/et_datos_usuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false" /> */
+
     }
 
     fun navegacionFragment(num: Int) {
         when (num) {
+            // FIXME CARLOS
             1 -> NavigatorUsuario.UsuarioPerfil_to_UsuarioInicio(this)
             2 -> NavigatorRoot.Usuario_to_Inicio(this)
         }
@@ -68,6 +75,7 @@ class UsuarioPerfilFragment : Fragment () {
 
     fun mensaje (tipo: String) {
         when (tipo) {
+            //FIXME CARLOS
             "confirmacion" -> {
                 ConfirmacionDialog.nuevoDialog(
                     "CONFIRMAR MODIFICACION PERFIL",

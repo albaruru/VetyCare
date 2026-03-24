@@ -27,7 +27,7 @@ class UsuarioMascotaFragment: Fragment() {
         /* Acciones de los botones del fragment:
         -
         */
-        binding.tvTitulo.setOnClickListener {
+        binding.btnMascota.setOnClickListener {
 
             navegacionFragment(1)
         }

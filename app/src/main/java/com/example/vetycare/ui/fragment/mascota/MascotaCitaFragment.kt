@@ -22,5 +22,8 @@ class MascotaCitaFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        // TODO: BINDING DE LOS BOTONES PEDIR CITA Y VOLVER
+        // TODO: HACER MENSAJES DE CONFIRMACION Y CANCELACION
+        // TODO: RECOGER DATOS EN CLASES MOLDE
     }
 }
