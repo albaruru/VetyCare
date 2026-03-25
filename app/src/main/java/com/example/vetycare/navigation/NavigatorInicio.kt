@@ -7,26 +7,26 @@ import com.example.vetycare.R
 
 object NavigatorInicio {
 
-    /* NAVEGACION CONTAINER INICIO: desgloce por métodos
+    /* NAVEGACIÓN CONTAINER INICIO: desglose por métodos
 
-    - InicioPrincipalToInicioRegistro      => Navegamos del Fragment Principal                => Fragment Registro Usuario
-    - InicioPrincipalToInicioRecPass       => Navegamos del Fragment Principal                => Fragment Recuperacion Contraseña
+    - InicioPrincipal_to_InicioRegistro   => Navegamos del Fragment Principal                => Fragment Registro Usuario
+    - InicioPrincipal_to_InicioRecPass    => Navegamos del Fragment Principal                => Fragment Recuperacion Contraseña
 
-    - InicioRecPassToInicioPrincipal       => Navegamos del Fragment Recuperacion Contraseña  => Fragment Principal
-    - InicioRegistroToInicioPrincipal   => Navegamos del Fragment Registro Usuario         => Fragment Principal
+    - InicioRecPass_to_InicioPrincipal    => Navegamos del Fragment Recuperacion Contraseña  => Fragment Principal
+    - InicioRegistro_to_InicioPrincipal   => Navegamos del Fragment Registro Usuario         => Fragment Principal
 
     */
 
-    fun InicioPrincipalToInicioRegistro (fragment: Fragment) {
+    fun InicioPrincipal_to_InicioRegistro (fragment: Fragment) {
         fragment.findNavController().navigate(R.id.action_InicioPrincipalFragment_to_InicioRegistroFragment)
     }
-    fun InicioPrincipalToInicioRecPass (fragment: Fragment) {
+    fun InicioPrincipal_to_InicioRecPass (fragment: Fragment) {
         fragment.findNavController().navigate(R.id.action_InicioPrincipalFragment_to_InicioRecPassFragment)
     }
-    fun InicioRecPassToInicioPrincipal (fragment: Fragment) {
+    fun InicioRecPass_to_InicioPrincipal (fragment: Fragment) {
         fragment.findNavController().navigate(R.id.action_InicioRecPassFragment_to_InicioPrincipalFragment)
     }
-    fun InicioRegistroToInicioPrincipal (fragment: Fragment) {
+    fun InicioRegistro_to_InicioPrincipal (fragment: Fragment) {
         fragment.findNavController().navigate(R.id.action_InicioRegistroFragment_to_InicioPrincipalFragment)
     }
 }

@@ -26,7 +26,7 @@ class UsuarioInicioFragment : Fragment() {
         /* Acciones de los botones del fragment:
         * -
         * */
-
+        // TODO: CAMBIAR NOMBRE_USUARIO POR EL USUARIO QUE NOS DE LA BBDD
     }
 
     /* NAVEGACION ENTRE FRAGMENTS */
