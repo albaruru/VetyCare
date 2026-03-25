@@ -50,7 +50,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.473"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rbPedirCita" />
+            app:layout_constraintTop_toBottomOf="@id/rbPedirCita"
+            app:cv_dayViewResource="@layout/reclycler_dia_calendario"/>
 
         <!--LEYENDA DE COLORES-->
         <LinearLayout
@@ -93,7 +94,7 @@
                 <View
                     android:layout_width="16dp"
                     android:layout_height="16dp"
-                    android:background="@color/Revisión" />
+                    android:background="@color/Revision" />
                 <TextView
                     style="@style/TextBase"
                     android:layout_width="wrap_content"
