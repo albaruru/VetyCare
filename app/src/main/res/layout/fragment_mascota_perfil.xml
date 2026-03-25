@@ -47,7 +47,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_nombre_animal"
-            style="@style/TextBase"/>
+            style="@style/TextBase"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"/>
 
         <!-- TEXTO - Microchip -->
         <TextView
@@ -70,7 +73,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_microchip"
-            style="@style/TextBase"/>
+            style="@style/TextBase"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"/>
 
         <!-- TEXTO - Especie -->
         <TextView
@@ -93,7 +99,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_especie"
-            style="@style/TextBase"/>
+            style="@style/TextBase"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"/>
 
         <!-- TEXTO - Raza -->
         <TextView
@@ -116,7 +125,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_raza"
-            style="@style/TextBase"/>
+            style="@style/TextBase"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"/>
 
         <!-- TEXTO - Fecha de nacimiento -->
         <TextView
@@ -139,7 +151,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_fecha_animal"
-            style="@style/TextBase"/>
+            style="@style/TextBase"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"/>
 
         <!-- TEXTO - Sexo -->
         <TextView
@@ -157,11 +172,11 @@
             android:layout_height="46dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/background_cuadro_texto"
-            android:entries="@array/opciones_sexo_animal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_sexo"
-            style="@style/TextBase"/>
+            style="@style/TextBase"
+            android:enabled="false" />
 
         <!-- TEXTO - Peso -->
         <TextView
@@ -184,7 +199,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_peso"
-            style="@style/TextBase"/>
+            style="@style/TextBase"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"/>
 
         <!-- TEXTO - Castración -->
         <TextView
@@ -206,7 +224,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_castracion"
-            style="@style/TextBase"/>
+            style="@style/TextBase"
+            android:enabled="false"/>
 
         <!-- BOTÓN - Volver -->
         <com.google.android.material.button.MaterialButton
