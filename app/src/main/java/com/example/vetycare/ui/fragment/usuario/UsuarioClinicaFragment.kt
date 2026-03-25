@@ -28,6 +28,9 @@ class UsuarioClinicaFragment : Fragment (){
         * -
         * */
         // TODO: CREAR BINDING DE LOS BOTONES VER LISTADO Y VER MAPA(TOOGLE BOTOON)
+        binding.btnVerMapa.setOnClickListener {
+
+        }
     }
 
 }
