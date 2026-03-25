@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.vetycare.databinding.FragmentMascotaTratamientoBinding
+import com.example.vetycare.navigation.NavigatorMascota
 
 class MascotaTratamientoFragment : Fragment() {
     private lateinit var binding : FragmentMascotaTratamientoBinding
@@ -22,6 +23,18 @@ class MascotaTratamientoFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        // FIXME: ELIMINAR EL BOTON VOLER EN XML
+        // TODO: CUANDO PRESIONES UN TRATAMIENTO SE ABRA MascotaTratamientoInfoFragment
+        // PROVISIONAL PARA LLEGAR A LA ZONA DE TRATAMIENTO INFO
+        binding.tvTitulo.setOnClickListener {
+
+            navegacionFragment(1)
+        }
+    }
+
+    // NAVEGACION ENTRE FRAGMENTS
+    fun navegacionFragment(num: Int) {
+        when (num) {
+            1 -> NavigatorMascota.MascotaTratamiento_to_MascotaTratamientoInfo(this)
+        }
     }
 }

@@ -47,6 +47,6 @@ class MascotaInformeInfoFragment : Fragment() {
 
     // FUNCIÓN PARA GENERAR PDF DE LA INFORMACION DEL INFROME
     private fun generarPDF() {
-       
+
     }
 }
