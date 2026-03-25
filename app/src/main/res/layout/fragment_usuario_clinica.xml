@@ -112,7 +112,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sp_zona" />
 
-        <!-- MAPA (se muestra al pulsar "Ver mapa") -->
+        <!-- MAPA (se muestra al pulsar "Ver mapa")
         <fragment
             android:id="@+id/map_clinicas"
             android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -122,7 +122,7 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sp_zona" />
+            app:layout_constraintTop_toBottomOf="@id/sp_zona" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
