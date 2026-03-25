@@ -98,7 +98,6 @@ class UsuarioRegMascotaFragment : Fragment() {
         val raza = binding.etRaza.text.toString().trim()
         val fecha = binding.etFechaAnimal.text.toString().trim()
         val peso = binding.etPeso.text.toString().trim()
-        val castracion = binding.etCastracion.text.toString().trim()
 
         //Verificar que no haya campos vacíos
         if (nombre.isEmpty() || especie.isEmpty() ||
