@@ -20,16 +20,12 @@ class UsuarioInicioFragment : Fragment() {
         return binding.root
     }
 
+    /* Este fragment no tiene acciones, únicamente es la pantalla de bienvenida.
+    */
     override fun onResume() {
         super.onResume()
 
-        /* Acciones de los botones del fragment:
-        * -
-        * */
-        // TODO: CAMBIAR NOMBRE_USUARIO POR EL USUARIO QUE NOS DE LA BBDD
-    }
-
-    /* NAVEGACION ENTRE FRAGMENTS */
-    fun navegacionFragment (num : Int) {
+        // TODO: Hecho. Cuando se conecte con la base de datos, obtener el nombre a partir de la rama propietario
+        binding.tvNombreUsuario.setText("Alba Ruano aka LA CAUDILLA")
     }
 }
