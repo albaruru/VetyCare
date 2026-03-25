@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.vetycare.databinding.FragmentMascotaInformeBinding
+import com.example.vetycare.navigation.NavigatorMascota
 
 class MascotaInformeFragment : Fragment () {
     private lateinit var binding: FragmentMascotaInformeBinding
@@ -22,5 +23,18 @@ class MascotaInformeFragment : Fragment () {
 
     override fun onResume() {
         super.onResume()
+        // TODO: CUANDO PRESIONES UN INFORME SE ABRA MascotaInformeInfoFragment
+        // PROVISIONAL PARA LLEGAR A LA ZONA DE INFORME INFO
+        binding.tvTitulo.setOnClickListener {
+
+            navegacionFragment(1)
+        }
+    }
+
+    // NAVEGACION ENTRE FRAGMENTS
+    fun navegacionFragment(num: Int) {
+        when (num) {
+            1 -> NavigatorMascota.MascotaInforme_to_MascotaInformeInfo(this)
+        }
     }
 }
