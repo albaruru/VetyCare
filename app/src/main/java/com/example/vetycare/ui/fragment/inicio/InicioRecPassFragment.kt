@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.vetycare.R
 import com.example.vetycare.databinding.FragmentInicioRecPassBinding
 import com.example.vetycare.navigation.NavigatorInicio
+import com.example.vetycare.ui.dialog.CancelacionDialog
 import com.example.vetycare.ui.dialog.ConfirmacionDialog
 import com.example.vetycare.utils.mostrarSnackbar
 import com.google.android.material.snackbar.Snackbar
@@ -17,6 +18,7 @@ import com.google.android.material.snackbar.Snackbar
 class InicioRecPassFragment : Fragment() {
     private lateinit var binding : FragmentInicioRecPassBinding
     private val keyConfirmacion = "confirmacion_recuperacion"
+    private val keyCancelacion = "cancelacion_recuperacion"
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -24,9 +26,18 @@ class InicioRecPassFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Dialog Confirmación
         parentFragmentManager.setFragmentResultListener(keyConfirmacion, this) {_, bundle ->
             val confirmado = bundle.getBoolean(ConfirmacionDialog.KEY_CONFIRMADO)
             if (confirmado) {
+                navegacionFragment(1)
+            }
+        }
+
+        // Dialog Cancelación
+        parentFragmentManager.setFragmentResultListener(keyCancelacion, this) {_, bundle ->
+            val cancelado = bundle.getBoolean(CancelacionDialog.KEY_CANCELADO)
+            if (cancelado) {
                 navegacionFragment(1)
             }
         }
@@ -42,6 +53,7 @@ class InicioRecPassFragment : Fragment() {
 
         /* Acciones de los botones del fragment:
         - Botón Guardar => Recogeremos el correo y la contraseña para cambiar las credenciales del usuario en FireBase
+        - Botón Volver => Descarta cualquier información introducida en nuestros bloques de texto y volvemos a la pantalla login
         */
         binding.btnGuardar.setOnClickListener {
             // Solo si la validación es correcta, mostramos el diálogo de confirmación
@@ -49,7 +61,9 @@ class InicioRecPassFragment : Fragment() {
             mensaje("confirmacion")
             }
         }
-        // TODO: LOGICA DE BOTON VOLVER
+        binding.btnVolver.setOnClickListener {
+            mensaje("cancelacion")
+        }
     }
 
     /* NAVEGACION ENTRE FRAGMENTS
@@ -75,6 +89,21 @@ class InicioRecPassFragment : Fragment() {
                     "¿Deseas completar el cambio de contraseña?",
                     keyConfirmacion
                 ).show(parentFragmentManager, "ConfirmacionDialog")
+            }
+            "cancelacion" -> {
+                /* Explicación del metodo CancelacionDialog.nuevoDialog(...)
+
+                Aquí hacemos lo siguiente:
+                1. Creamos una instancia del diálogo
+                2. Le pasamos título, mensaje y clave. (Si no se rellenan, se pondrán los valores por defecto del Dialog)
+                3. Mostramos en pantalla nuestra alerta.
+
+                */
+                CancelacionDialog.nuevoDialog(
+                    "CANCELACION RECUPERAR CONTRASEÑA",
+                    "¿Deseas cancelar el proceso? \nLos cambios no se guardarán.",
+                    keyCancelacion
+                ).show(parentFragmentManager,"CancelacionDialog")
             }
         }
     }
