@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.vetycare.databinding.FragmentMascotaTratamientoInfoBinding
+import com.example.vetycare.navigation.NavigatorMascota
 
 class MascotaTratamientoInfoFragment : Fragment() {
     private lateinit var binding : FragmentMascotaTratamientoInfoBinding
@@ -22,6 +23,18 @@ class MascotaTratamientoInfoFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        // TODO: BINDING PARA EL BOTON VOLVER
+        /* Acciones de los botones del fragment:
+        - Botón Volver => Navega al MascotaTratamientoFragment
+        */
+        binding.btnVolver.setOnClickListener {
+            navegacionFragment(1)
+        }
+    }
+
+    // NAVEGACION ENTRE FRAGMENTS
+    fun navegacionFragment(num: Int) {
+        when (num) {
+            1 -> NavigatorMascota.MascotaTratamientoInfo_to_MascotaTratamiento(this)
+        }
     }
 }
