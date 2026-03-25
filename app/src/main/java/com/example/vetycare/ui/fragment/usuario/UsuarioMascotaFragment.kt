@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.vetycare.databinding.FragmentUsuarioMascotaBinding
+import com.example.vetycare.navigation.NavigatorRoot
 import com.example.vetycare.navigation.NavigatorUsuario
 
 class UsuarioMascotaFragment: Fragment() {
@@ -31,6 +32,11 @@ class UsuarioMascotaFragment: Fragment() {
 
             navegacionFragment(1)
         }
+        // PROVISIONAL PARA LLEGAR A LA ZONA DE MASCOTAS
+        binding.tvTitulo.setOnClickListener {
+
+            navegacionFragment(2)
+        }
 
     }
 
@@ -40,6 +46,7 @@ class UsuarioMascotaFragment: Fragment() {
     fun navegacionFragment(num : Int) {
         when (num) {
             1 -> NavigatorUsuario.UsuarioMascota_to_UsuarioRegMascota(this)
+            2 -> NavigatorRoot.Usuario_to_Mascota(this)
         }
     }
 }

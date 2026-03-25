@@ -189,12 +189,12 @@
 
         <!-- BOTÓN - Volver -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_volver"
+            android:id="@+id/btn_limpiar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:text="@string/volver"
+            android:text="@string/mascota_cita_btn_limpiar"
             android:background="@drawable/boton_volver_cancelar"
             app:backgroundTint="@null"
             app:layout_constraintEnd_toStartOf="@+id/guia_central"

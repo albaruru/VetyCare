@@ -135,8 +135,9 @@
     </string-array>
 
     <!-- fragment_mascota_cita.xml -->
-    <string name="mascota_cita_titulo">INFORMACION CITA</string>
+    <string name="mascota_cita_titulo">INFORMACIÓN CITA</string>
     <string name="mascota_cita_btn_pedir">Pedir cita</string>
+    <string name="mascota_cita_btn_limpiar">Limpiar</string>
 
     <!-- fragment_mascota_tratamiento.xml / item_tratamiento.xml / fragment_mascota_tratamiento_info.xml -->
     <string name="tratamiento_titulo">TRATAMIENTO</string>
