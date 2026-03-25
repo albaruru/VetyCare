@@ -8,10 +8,18 @@
     android:padding="4dp">
 
     <TextView
-        android:id="@+id/calendarDayText"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:id="@+id/tvDia"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
         android:gravity="center"
         style="@style/TextBase"/>
+
+    <LinearLayout
+        android:id="@+id/layoutIndicadores"
+        android:layout_width="wrap_content"
+        android:layout_height="8dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="2dp"/>
 
 </LinearLayout>
