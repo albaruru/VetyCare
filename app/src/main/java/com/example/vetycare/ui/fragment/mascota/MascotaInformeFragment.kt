@@ -22,6 +22,5 @@ class MascotaInformeFragment : Fragment () {
 
     override fun onResume() {
         super.onResume()
-        // TODO: ELIMINAR EL BOTON VOLVER DEL XML
     }
 }
