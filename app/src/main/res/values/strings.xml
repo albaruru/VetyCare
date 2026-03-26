@@ -151,12 +151,17 @@
 
     <!-- fragment_mascota_tratamiento.xml / item_tratamiento.xml / fragment_mascota_tratamiento_info.xml -->
     <string name="tratamiento_titulo">TRATAMIENTOS</string>
+    <string name="tratamiento_id">ID_TRATAMIENTO</string>
+    <string name="tratamiento_label_procedimiento">- Procedimiento:</string>
+    <string name="tratamiento_label_administracion">- Via de administración:</string>
+    <string name="tratamiento_label_medicacion">- Medicación:</string>
+    <string name="tratamiento_label_medicacion_recycler">Medicación</string>
     <string name="tratamiento_fecha_inicio">Fecha inicio</string>
     <string name="tratamiento_fecha_fin">Fecha fin</string>
     <string name="tratamiento_nombre">Tratamiento</string>
-    <string name="tratamiento_label_medicacion">- Medicación:</string>
     <string name="tratamiento_label_dosis">- Dosis:</string>
     <string name="tratamiento_label_frecuencia">- Frecuencia:</string>
+    <string name="tratamiento_label_frecuencia_recycler">Frecuencia</string>
     <string name="tratamiento_label_fecha_inicio">- Fecha inicio:</string>
     <string name="tratamiento_label_fecha_fin">- Fecha fin:</string>
     <string name="tratamiento_label_observaciones">- Observaciones:</string>
