@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.vetycare.databinding.FragmentUsuarioClinicaBinding
 import com.example.vetycare.navigation.NavigatorRoot
+import com.example.vetycare.navigation.NavigatorUsuario
 
 class UsuarioClinicaFragment : Fragment (){
     private lateinit var binding : FragmentUsuarioClinicaBinding
@@ -27,14 +28,13 @@ class UsuarioClinicaFragment : Fragment (){
         /* Acciones de los botones del fragment:
         * -
         * */
-        // TODO: CREAR BINDING DE LOS BOTONES VER LISTADO Y VER MAPA(TOOGLE BOTOON)
         binding.btnVerMapa.setOnClickListener {
             navegacionFragment(1)
         }
     }
     fun navegacionFragment(num : Int) {
         when (num) {
-            1 -> num
+            1 -> NavigatorUsuario.UsuarioClinica_to_UsuarioClinicaMapa(this)
         }
     }
 }
