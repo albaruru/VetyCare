@@ -29,8 +29,12 @@ class UsuarioClinicaFragment : Fragment (){
         * */
         // TODO: CREAR BINDING DE LOS BOTONES VER LISTADO Y VER MAPA(TOOGLE BOTOON)
         binding.btnVerMapa.setOnClickListener {
-
+            navegacionFragment(1)
         }
     }
-
+    fun navegacionFragment(num : Int) {
+        when (num) {
+            1 -> num
+        }
+    }
 }

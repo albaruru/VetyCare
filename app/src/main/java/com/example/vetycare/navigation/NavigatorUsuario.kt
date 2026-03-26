@@ -53,4 +53,10 @@ object NavigatorUsuario {
     fun UsuarioClinica_to_UsuarioInicio (fragment: Fragment) {
         fragment.findNavController().navigate(R.id.action_UsuarioClinicaFragment_to_UsuarioInicioFragment)
     }
+    fun UsuarioClinica_to_UsuarioClinicaMapa (fragment: Fragment) {
+        fragment.findNavController().navigate(R.id.action_UsuarioClinicaFragment_to_usuarioClinicaMapaFragment)
+    }
+    fun UsuarioClinicaMapa_to_UsuarioClinica (fragment: Fragment) {
+        fragment.findNavController().navigate(R.id.action_usuarioClinicaMapaFragment_to_UsuarioClinicaFragment)
+    }
 }

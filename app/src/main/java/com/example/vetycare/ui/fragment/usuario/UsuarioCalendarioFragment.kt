@@ -59,18 +59,10 @@ class UsuarioCalendarioFragment : Fragment() {
         * -
         * */
         // TODO: El boton pedir cita ha quedado descartado por parte de la caudilla
-        binding.rbPedirCita.setOnClickListener {
 
-            navegacionFragment(1)
-        }
     }
 
-    fun navegacionFragment(num: Int) {
-        when (num) {
-            1 -> NavigatorUsuario.UsuarioCalendario_to_UsuarioCalendarioCita(this)
-        }
-    }
-// ── TODO LO DE AQUÍ ABAJO ES AÑADIDO ─────────────
+    // ── TODO LO DE AQUÍ ABAJO ES AÑADIDO (ALBA) ─────────────
 
     private fun configurarRecyclerView() {
         binding.rvCitasDia.layoutManager = LinearLayoutManager(requireContext())
