@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/content_main">
+    android:background="@color/content_main"
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,13 +16,15 @@
             android:id="@+id/tv_titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
             android:text="@string/usuario_inicio"
             android:textSize="30dp"
+            style="@style/TextTitulo"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_nombre_usuario"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            style="@style/TextTitulo"/>
+            app:layout_constraintVertical_chainStyle="packed" />
+
         <!-- Nombre_usuario -->
         <TextView
             android:id="@+id/tv_nombre_usuario"
@@ -30,10 +33,12 @@
             android:layout_marginTop="40dp"
             android:text="@string/cont_main_Nombre_usuario"
             android:textStyle="bold"
+            style="@style/TextSubtitulo"
             app:layout_constraintTop_toBottomOf="@id/tv_titulo"
+            app:layout_constraintBottom_toTopOf="@id/txtAppName"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            style="@style/TextSubtitulo"/>
+            app:layout_constraintEnd_toEndOf="parent" />
+
         <!-- NombreApp -->
         <TextView
             android:id="@+id/txtAppName"
@@ -41,10 +46,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="75dp"
             android:text="@string/app_name"
+            style="@style/AppName"
             app:layout_constraintTop_toBottomOf="@id/tv_nombre_usuario"
+            app:layout_constraintBottom_toTopOf="@id/imgLogo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            style="@style/AppName"/>
+            app:layout_constraintEnd_toEndOf="parent" />
+
         <!-- IMAGEN -->
         <ImageView
             android:id="@+id/imgLogo"
@@ -53,22 +60,23 @@
             android:layout_marginTop="20dp"
             android:contentDescription="Logo"
             android:src="@drawable/icn_negro"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtAppName"
+            app:layout_constraintBottom_toTopOf="@id/tv_eslogan"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtAppName" />
+            app:layout_constraintEnd_toEndOf="parent" />
+
         <!-- ESLOGAN -->
         <TextView
             android:id="@+id/tv_eslogan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="50dp"
             android:text="@string/usuario_inicio_eslogan"
+            style="@style/TextSubtitulo"
             app:layout_constraintTop_toBottomOf="@id/imgLogo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            style="@style/TextSubtitulo" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

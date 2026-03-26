@@ -36,24 +36,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_titulo" />
 
-<<<<<<< HEAD
-=======
-        <!-- BOTÓN - Volver -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_volver"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:text="@string/volver"
-            android:background="@drawable/boton_volver_cancelar"
-            app:backgroundTint="@null"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rv_tratamientos"
-            style="@style/TextBotones" />
->>>>>>> feature/visual
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

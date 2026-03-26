@@ -142,9 +142,6 @@
     <string name="mascota_perfil">PERFIL MASCOTA</string>
 
     <!-- fragment_mascota_cita.xml -->
-    <string name="mascota_cita_btn_pedir">Pedir cita</string>
-    <string name="mascota_cita_btn_limpiar">Limpiar</string>
-=======
     <string name="mascota_cita_titulo">PEDIR CITA</string>
     <string name="mascota_cita_btn_pedir">Pedir cita</string>
     <string name="usuario_cldr_cita_fecha_hint">Selecciona una fecha</string>
