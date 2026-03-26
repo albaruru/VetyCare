@@ -1,33 +1,15 @@
 package com.example.vetycare.ui.fragment.usuario
 
 import android.content.Context
-import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 //import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.vetycare.R
 import com.example.vetycare.databinding.FragmentUsuarioCalendarioBinding
-import com.example.vetycare.model.Cita
-import com.example.vetycare.model.TipoCita
-import com.example.vetycare.navigation.NavigatorUsuario
 //import com.example.vetycare.ui.container.CitasAdapter
 //import com.example.vetycare.ui.container.CitasViewModel
-import com.kizitonwose.calendar.core.CalendarDay
-import com.kizitonwose.calendar.core.DayPosition
-import com.kizitonwose.calendar.core.daysOfWeek
-import com.kizitonwose.calendar.view.MonthDayBinder
-import com.kizitonwose.calendar.view.ViewContainer
-import kotlinx.coroutines.launch
-import java.time.LocalDate
-import java.time.YearMonth
 
 class UsuarioCalendarioFragment : Fragment() {
     private lateinit var binding : FragmentUsuarioCalendarioBinding

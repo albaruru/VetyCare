@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vetycare.databinding.RecyclerCalendarioCitaBinding
-import com.example.vetycare.model.Cita
-import com.example.vetycare.model.TipoCita
+import com.example.vetycare.model.entities.Cita
+import com.example.vetycare.model.enums.TipoCita
 
 class CitasAdapter : ListAdapter<Cita, CitasAdapter.CitaViewHolder>(DIFF) {
 

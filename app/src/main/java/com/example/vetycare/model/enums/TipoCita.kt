@@ -1,4 +1,4 @@
-package com.example.vetycare.model
+package com.example.vetycare.model.enums
 import com.example.vetycare.R
 
 enum class TipoCita(val colorRes: Int) {

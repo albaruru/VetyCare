@@ -1,6 +1,6 @@
 /*package com.example.vetycare.ui.container
 
-import com.example.vetycare.model.Cita
+import com.example.vetycare.model.entities.Cita
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
