@@ -1,4 +1,4 @@
-package com.example.vetycare.ui.container
+/*package com.example.vetycare.ui.container
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -32,4 +32,4 @@ class CitasViewModel : ViewModel() {
             it.fechaHoraInicio.startsWith(fecha)
         }
     }
-}
+}*/

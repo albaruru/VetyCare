@@ -1,4 +1,4 @@
-package com.example.vetycare.ui.container
+/*package com.example.vetycare.ui.container
 
 import android.content.res.ColorStateList
 import android.view.LayoutInflater
@@ -59,4 +59,4 @@ class CitasAdapter : ListAdapter<Cita, CitasAdapter.CitaViewHolder>(DIFF) {
             }
         }
     }
-}
+}*/

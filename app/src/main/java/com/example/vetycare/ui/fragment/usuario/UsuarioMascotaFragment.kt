@@ -32,7 +32,7 @@ class UsuarioMascotaFragment: Fragment() {
 
             navegacionFragment(1)
         }
-        // PROVISIONAL PARA LLEGAR A LA ZONA DE MASCOTAS
+        //  TODO: PROVISIONAL PARA LLEGAR A LA ZONA DE MASCOTAS
         binding.tvTitulo.setOnClickListener {
 
             navegacionFragment(2)

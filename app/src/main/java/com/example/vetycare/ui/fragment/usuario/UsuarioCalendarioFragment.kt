@@ -11,15 +11,15 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
+//import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vetycare.R
 import com.example.vetycare.databinding.FragmentUsuarioCalendarioBinding
 import com.example.vetycare.model.Cita
 import com.example.vetycare.model.TipoCita
 import com.example.vetycare.navigation.NavigatorUsuario
-import com.example.vetycare.ui.container.CitasAdapter
-import com.example.vetycare.ui.container.CitasViewModel
+//import com.example.vetycare.ui.container.CitasAdapter
+//import com.example.vetycare.ui.container.CitasViewModel
 import com.kizitonwose.calendar.core.CalendarDay
 import com.kizitonwose.calendar.core.DayPosition
 import com.kizitonwose.calendar.core.daysOfWeek
@@ -32,8 +32,8 @@ import java.time.YearMonth
 class UsuarioCalendarioFragment : Fragment() {
     private lateinit var binding : FragmentUsuarioCalendarioBinding
     // ── AÑADIDO ──────────────────────────────────────
-    private val viewModel: CitasViewModel by viewModels()
-    private val citasAdapter = CitasAdapter()
+    //private val viewModel: CitasViewModel by viewModels()
+    //private val citasAdapter = CitasAdapter()
     //
 
     override fun onAttach(context: Context) {
@@ -47,9 +47,9 @@ class UsuarioCalendarioFragment : Fragment() {
     // ── AÑADIDO ──────────────────────────────────────
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        configurarRecyclerView()
-        configurarCalendario()
-        observarDatos()
+        //configurarRecyclerView()
+        //configurarCalendario()
+        //observarDatos()
     }
     // ─────────────────────────────────────────────────
     override fun onResume() {
@@ -63,10 +63,10 @@ class UsuarioCalendarioFragment : Fragment() {
     }
 
     // ── TODO LO DE AQUÍ ABAJO ES AÑADIDO (ALBA) ─────────────
-
+    /* FIXME: Está comentado porque todavia no está conectado con firebase
     private fun configurarRecyclerView() {
         binding.rvCitasDia.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvCitasDia.adapter = citasAdapter
+        //binding.rvCitasDia.adapter = citasAdapter
     }
 
     private fun configurarCalendario() {
@@ -173,5 +173,5 @@ class UsuarioCalendarioFragment : Fragment() {
                 }
             }
         }
-    }
+    }*/
 }
