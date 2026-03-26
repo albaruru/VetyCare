@@ -167,15 +167,14 @@
 
     <!-- fragment_mascota_informe.xml / item_informe.xml / fragment_mascota_informe_info.xml -->
     <string name="informe_titulo">INFORMES</string>
-    <string name="informe_label_titulo">- Título:</string>
-    <string name="informe_label_cuerpo">- Cuerpo / Texto del informe:</string>
-    <string name="informe_label_medicamento">- Medicamento / Tratamiento:</string>
-    <string name="informe_label_revision">- Próxima revisión:</string>
-    <string name="informe_label_facturacion">- Facturación:</string>
-    <string name="informe_btn_ver_mas">Ver más</string>
-    <string name="informe_btn_ver_menos">Ver menos</string>
-    <string name="informe_btn_pdf">PDF</string>
-
+    <string name="informe_id">ID_INFORME</string>
+    <string name="informe_label_concepto">- Concepto:</string>
+    <string name="informe_label_fecha">- Fecha:</string>
+    <string name="informe_label_valoracion">- Valoración:</string>
+    <string name="informe_label_medicamento">- Medicamento </string>
+    <string name="informe_label_tratamiento">- Tratamiento:</string>
+    <string name="informe_label_importe">- Importe total:</string>
+    <string name="informe_btn_ver_mas">Detalles</string>
 
     <!-- ================================== BACK ================================== -->
     <!-- NAVEGACIÓN (nav_graph) -->
