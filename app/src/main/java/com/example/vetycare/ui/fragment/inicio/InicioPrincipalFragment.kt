@@ -6,20 +6,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.example.vetycare.R
 import com.example.vetycare.databinding.FragmentInicioPrincipalBinding
 import com.example.vetycare.navigation.NavigatorInicio
 import com.example.vetycare.navigation.NavigatorRoot
+import com.example.vetycare.utils.FirebaseUtils
 import com.example.vetycare.utils.mostrarSnackbar
-import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class InicioPrincipalFragment : Fragment() {
     private lateinit var binding : FragmentInicioPrincipalBinding
+    private lateinit var auth: FirebaseAuth
+    private lateinit var firebaseDatabase: FirebaseDatabase
     private var sesion : Boolean = false
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        auth = FirebaseAuth.getInstance()
+        firebaseDatabase = FirebaseDatabase.getInstance(FirebaseUtils.URL_RTDB)
+
     }
 
     override fun onCreateView (inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View? {
@@ -45,6 +51,7 @@ class InicioPrincipalFragment : Fragment() {
     }
 
     /* NAVEGACION ENTRE FRAGMENTS
+    Metodo para navegar en las diferentes pantallas de nuestro fragment perteneciente al container inicio
     * */
     fun navegacionFragment(num : Int) {
         when (num) {
@@ -54,23 +61,25 @@ class InicioPrincipalFragment : Fragment() {
         }
     }
 
-    // FUNCION PARA COMPROBAR INICIO DE SESION
+    /* FUNCION PARA COMPROBAR INICIO DE SESION
+    * En este metodo realizamos la comprobación de la existencia de una cuenta en nuestra base de datos
+    * */
     fun comprobarInicioSesion() : Boolean {
-        val correo = binding.etCorreo.text.toString().trim()
-        val pass = binding.etContrasenha.text.toString().trim()
-
-        // Verificar que no haya campos vacios
-        if (correo.isEmpty() || pass.isEmpty()) {
-            mostrarSnackbar("Por favor, rellena todos los campos")
-            return false
-        }
-
-        // Verificar credenciales (CORREO:alba@uem.com / PASS:raton)
-        if (correo == "alba@uem.com" && pass == "raton") {
-             return true
-        } else {
-            mostrarSnackbar("Correo o contraseña incorrectos")
-             return false
-        }
+        var logeo : Boolean = false
+        auth
+            .signInWithEmailAndPassword(
+                binding.etCorreo.text.toString(),
+                binding.etContrasenha.text.toString()
+            ).addOnCompleteListener {
+                if (it.isSuccessful) {
+                    mostrarSnackbar("Bienvenido a VetyCare!")
+                    logeo = true
+                }
+                else {
+                    mostrarSnackbar("Correo o contraseña incorrectos")
+                    logeo = false
+                }
+            }
+        return logeo
     }
 }

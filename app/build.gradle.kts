@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.google.gms.google.services)
     //id("com.google.gms.google-services") // Firebase
 }
 
@@ -34,6 +35,8 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.database)
 
     // Core library desugaring (necesario para Kizitonwose)
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
