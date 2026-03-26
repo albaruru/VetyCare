@@ -2,7 +2,7 @@ package com.example.vetycare.model.entities
 
 data class Clinica(
     var id: String? = null, // Se usa con 'var' para poder asignarlo al leer
-    val activa: Boolean? = null,
+    val activa: Boolean? = null, // Cada vez que se elimina una clinica se pone en FALSE
     val codigoPostal: Int? = null,
     val comunidadAutonoma: String? = null,
     val direccion: String? = null,
@@ -12,8 +12,15 @@ data class Clinica(
     val url: String? = null
 ) {
     constructor() : this(
-        "",false, 0, "",
-        "", "","",0L,""
+        "",
+        false,
+        0,
+        "",
+        "",
+        "",
+        "",
+        0L,
+        ""
     )
 }
 

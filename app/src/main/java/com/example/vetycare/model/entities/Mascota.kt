@@ -5,19 +5,29 @@ data class Mascota(
     val activa: Boolean? = null,
     val castracion: Boolean? = null,
     val especie: String? = null,
-    val fechaCreacion: Long? = null,
+    val fechaRegistro: String? = null,
     val fechaNacimiento: String? = null,
     val idPropietario: String? = null,
     val microchip: String? = null,
     val nombre: String? = null,
-    val pasoActual: Double? = null,
+    val pesoActual: Double? = null,
     val raza: String? = null,
     val sexo: String? = null,
     val urlFotoMasc: String? = null
 ) {
     constructor() : this(
-        "",false, false, "",
-        0L, "", "", "",
-        "", 0.0, "", "",""
+        "",
+        false,
+        false,
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        0.0,
+        "",
+        "",
+        ""
     )
 }

@@ -3,7 +3,7 @@ package com.example.vetycare.model.entities
 data class Patologia(
     var id: String? = null, // Se usa con 'var' para poder asignarlo al leer
     val activa: Boolean? = null,
-    val categoriaPatologia: String? = null,
+    val categoriaPatologica: String? = null,
     val codigoClinico: String? = null,
     val descripcion: String? = null,
     val esCronica: Boolean? = null,
@@ -12,8 +12,14 @@ data class Patologia(
     val nombre: String? = null,
 ) {
     constructor() : this(
-        "",false, "", "",
-        "", false, false, 0,
+        "",
+        false,
+        "",
+        "",
+        "",
+        false,
+        false,
+        0,
         ""
     )
 }

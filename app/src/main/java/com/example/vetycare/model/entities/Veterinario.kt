@@ -2,12 +2,11 @@ package com.example.vetycare.model.entities
 
 data class Veterinario(
     var id: String? = null, // Se usa con 'var' para poder asignarlo al leer
-    val activo: Boolean? = null,
+    val activa: Boolean? = null,
     val apellido: String? = null,
     val authUid: String? = null,
     val correo: String? = null,
     val especialidad: String? = null,
-    val fechaCreacion: Long? = null,
     val idClinica: String? = null,
     val idColegio: String? = null,
     val nombre: String? = null,
@@ -15,8 +14,16 @@ data class Veterinario(
     val telefono: Long? = null
 ) {
     constructor() : this(
-        "",false, "", "",
-        "", "", 0L, "",
-        "", "", "", 0L
+        "",
+        false,
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        0L
     )
 }

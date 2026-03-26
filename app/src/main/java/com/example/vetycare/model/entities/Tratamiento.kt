@@ -9,11 +9,17 @@ data class Tratamiento(
     val idMascota: String? = null,
     val objetivoTerapeutico: String? = null,
     val observaciones: String? = null,
-    val tipoTratamiento: String? = null
+    val tipoTratamiento: String? = null // TODO: ES EL QUE COGEMOS PARA DIAGNOSTICO Y PARA TRATAMIENTO
 ) {
     constructor() : this(
-        "","", "", "",
-        "", "", "", "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
         ""
     )
 }

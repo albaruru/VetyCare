@@ -7,13 +7,19 @@ data class Medicamento(
     val fechaCreacion: String? = null,
     val formaFarmaceutica: String? = null,
     val laboratorio: String? = null,
-    val nombreComercial: String? = null,
+    val nombreComercial: String? = null, // TODO: ES EL QUE COGEMOS PARA DIAGNOSTICO
     val principioActivo: String? = null,
     val requiereReceta: Boolean? = null
 ) {
     constructor() : this(
-        "","", false, "",
-        "", "", "", "",
+        "",
+        "",
+        false,
+        "",
+        "",
+        "",
+        "",
+        "",
         false
     )
 }

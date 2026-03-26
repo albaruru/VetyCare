@@ -9,10 +9,16 @@ data class MedicamentoEnTratamiento(
     val fechaInicio: String? = null,
     val frecuencia: String? = null,
     val indicaciones: String? = null,
-    val viaDministracion: String? = null // FIXME: ESTA ASÍ ESCRITO PORQUE EN FIREBASE ESTA IGUAL!!
+    val viaAdministracion: String? = null
 ) {
     constructor() : this(
-        null, "", "", "",
-        "", "", "", ""
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
     )
 }
