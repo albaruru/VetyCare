@@ -39,7 +39,7 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
             navController.navigate(R.id.MascotaPerfilFragment)
         }
         botonRegresar?.setOnClickListener {
-            navController.navigate(NavigatorRoot.Mascota_to_Usuario(this))
+            NavigatorRoot.Mascota_to_Usuario(this)
         }
     }
 }
