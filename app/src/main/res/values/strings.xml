@@ -43,10 +43,10 @@
     <string name="reg_telefono">"Teléfono:"</string>
     <string name="reg_contraseña">"Contraseña:"</string>
     <string-array name="opciones_sexo_usuario">
+        <item>Sin definir</item>
         <item>Masculino</item>
         <item>Femenino</item>
         <item>Otro</item>
-        <item>Sin definir</item>
     </string-array>
 
     <!-- fragment_reg_animal.xml -->
@@ -58,14 +58,14 @@
     <string name="reg_raza">"Raza:"</string>
     <string name="reg_peso">"Peso:"</string>
     <string-array name="opciones_sexo_animal">
+        <item>Sin definir</item>
         <item>Macho</item>
         <item>Hembra</item>
-        <item>Sin definir</item>
     </string-array>
     <string-array name="opciones_castracion">
+        <item>Sin definir</item>
         <item>Si</item>
         <item>No</item>
-        <item>Sin definir</item>
     </string-array>
 
     <!-- fragmen_usuario_mascota.xml / recycler_mascota.xml -->
@@ -112,7 +112,7 @@
     <string name="clinica_item_telefono">- Teléfono:</string>
     <string name="clinica_item_horario">- Horario:</string>
     <string-array name="opciones_comunidades">
-        <item>Todas</item>
+        <item>Seleccione una comunidad: </item>
         <item>Andalucía</item>
         <item>Aragón</item>
         <item>Asturias</item>
@@ -133,13 +133,14 @@
         <item>Navarra</item>
         <item>País Vasco</item>
     </string-array>
-
+    <!-- fragment_mascota_perfil.xml -->
+    <string name="mascota_perfil">PERFIL MASCOTA</string>
     <!-- fragment_mascota_cita.xml -->
-    <string name="mascota_cita_titulo">INFORMACION CITA</string>
+    <string name="mascota_cita_titulo">PEDIR CITA</string>
     <string name="mascota_cita_btn_pedir">Pedir cita</string>
 
     <!-- fragment_mascota_tratamiento.xml / item_tratamiento.xml / fragment_mascota_tratamiento_info.xml -->
-    <string name="tratamiento_titulo">TRATAMIENTO</string>
+    <string name="tratamiento_titulo">TRATAMIENTOS</string>
     <string name="tratamiento_fecha_inicio">Fecha inicio</string>
     <string name="tratamiento_fecha_fin">Fecha fin</string>
     <string name="tratamiento_nombre">Tratamiento</string>
@@ -151,7 +152,7 @@
     <string name="tratamiento_label_observaciones">- Observaciones:</string>
 
     <!-- fragment_mascota_informe.xml / item_informe.xml / fragment_mascota_informe_info.xml -->
-    <string name="informe_titulo">INFORME</string>
+    <string name="informe_titulo">INFORMES</string>
     <string name="informe_label_titulo">- Título:</string>
     <string name="informe_label_cuerpo">- Cuerpo / Texto del informe:</string>
     <string name="informe_label_medicamento">- Medicamento / Tratamiento:</string>

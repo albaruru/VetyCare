@@ -8,15 +8,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vetycare.databinding.RecyclerCalendarioCitaBinding
-import com.example.vetycare.model.Cita
 import com.example.vetycare.model.TipoCita
 
-class CitasAdapter : ListAdapter<Cita, CitasAdapter.CitaViewHolder>(DIFF) {
+class CitasAdapter : ListAdapter<CitaConNombres, CitasAdapter.CitaViewHolder>(DIFF) {
 
     companion object {
-        private val DIFF = object : DiffUtil.ItemCallback<Cita>() {
-            override fun areItemsTheSame(old: Cita, new: Cita) = old.id == new.id
-            override fun areContentsTheSame(old: Cita, new: Cita) = old == new
+        private val DIFF = object : DiffUtil.ItemCallback<CitaConNombres>() {
+            override fun areItemsTheSame(old: CitaConNombres, new: CitaConNombres) =
+                old.cita.id == new.cita.id
+            override fun areContentsTheSame(old: CitaConNombres, new: CitaConNombres) =
+                old == new
         }
     }
 
@@ -31,20 +32,18 @@ class CitasAdapter : ListAdapter<Cita, CitasAdapter.CitaViewHolder>(DIFF) {
     }
 
     override fun onBindViewHolder(holder: CitaViewHolder, position: Int) {
-        val cita = getItem(position)
+        val item = getItem(position)
         with(holder.binding) {
+            // Nombres reales en lugar de IDs
+            tvMascota.text = item.nombreMascota
+            tvClinica.text = item.nombreClinica
+            tvTipo.text = item.cita.tipoCita
+            tvMotivo.text = item.cita.motivoConsulta
+            tvFecha.text = item.cita.fechaHoraInicio.replace("T", "  ")
+            tvRecordatorio.text = item.cita.estadoCita
 
-            // Mascota e IDs
-            tvMascota.text = cita.idMascota
-            tvClinica.text = cita.idClinica
-            tvTipo.text = cita.tipoCita
-            tvMotivo.text = cita.motivoConsulta
-            tvFecha.text = cita.fechaHoraInicio
-                .replace("T", "  ")  // "2025-01-20  10:00:00"
-            tvRecordatorio.text = cita.estadoCita
-
-            // Colorea el fondo de tvTipo según el tipo de cita
-            val colorRes = when (cita.tipoCita.lowercase()) {
+            // Color según tipo de cita
+            val colorRes = when (item.cita.tipoCita.lowercase()) {
                 "vacunacion", "vacunación" -> TipoCita.VACUNACION.colorRes
                 "revision", "revisión"    -> TipoCita.REVISION.colorRes
                 "consulta"                -> TipoCita.CONSULTA.colorRes

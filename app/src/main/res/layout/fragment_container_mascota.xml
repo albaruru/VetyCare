@@ -112,7 +112,7 @@
             android:src="@drawable/btn_informes"
             android:background="@drawable/botones_menu" />
         <ImageButton
-            android:id="@+id/btRegrar"
+            android:id="@+id/btnRegresar"
             android:layout_width="0dp"
             android:layout_height="65dp"
             android:layout_weight="0.20"
