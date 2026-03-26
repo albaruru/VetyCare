@@ -41,10 +41,7 @@ class InicioPrincipalFragment : Fragment() {
         * -
         *  */
         binding.btnEntrar.setOnClickListener {
-            sesion = comprobarInicioSesion()
-            if (sesion) {
-            navegacionFragment(1)
-            }
+            comprobarInicioSesion()
         }
         binding.tvLinkRegistrate.setOnClickListener{ navegacionFragment(2) }
         binding.tvOlvideContrasenha.setOnClickListener { navegacionFragment(3) }
@@ -64,8 +61,7 @@ class InicioPrincipalFragment : Fragment() {
     /* FUNCION PARA COMPROBAR INICIO DE SESION
     * En este metodo realizamos la comprobación de la existencia de una cuenta en nuestra base de datos
     * */
-    fun comprobarInicioSesion() : Boolean {
-        var logeo : Boolean = false
+    fun comprobarInicioSesion() {
         auth
             .signInWithEmailAndPassword(
                 binding.etCorreo.text.toString(),
@@ -73,13 +69,11 @@ class InicioPrincipalFragment : Fragment() {
             ).addOnCompleteListener {
                 if (it.isSuccessful) {
                     mostrarSnackbar("Bienvenido a VetyCare!")
-                    logeo = true
+                    navegacionFragment(1)
                 }
                 else {
                     mostrarSnackbar("Correo o contraseña incorrectos")
-                    logeo = false
                 }
             }
-        return logeo
     }
 }
