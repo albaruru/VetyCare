@@ -13,7 +13,7 @@
     <TextView
         android:id="@+id/tv_fecha"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:background="@drawable/background_cuadro_texto"
         android:padding="8dp"
         android:text=""
@@ -26,7 +26,7 @@
     <TextView
         android:id="@+id/tv_concepto"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="6dp"
         android:background="@drawable/background_cuadro_texto"
         android:padding="8dp"
@@ -48,6 +48,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_concepto"
-        style="@style/TextSubtitulo" />
+        style="@style/TextBotones" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

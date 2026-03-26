@@ -54,23 +54,23 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_ver_listado"
-                style="@style/TextBaseNegrita"
                 android:layout_width="0dp"
                 android:layout_height="42dp"
                 android:layout_weight="1"
                 android:background="@drawable/boton_volver_cancelar"
                 android:text="@string/clinica_ver_listado"
-                app:backgroundTint="@null" />
+                app:backgroundTint="@null"
+                style="@style/TextBotones"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_ver_mapa"
-                style="@style/TextBaseNegrita"
                 android:layout_width="0dp"
                 android:layout_height="42dp"
                 android:layout_weight="1"
                 android:background="@drawable/botones"
                 android:text="@string/clinica_ver_mapa"
-                app:backgroundTint="@null" />
+                app:backgroundTint="@null"
+                style="@style/TextBotones"/>
         </LinearLayout>
 
         <!-- MAPA (se muestra al pulsar "Ver mapa")

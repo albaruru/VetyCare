@@ -9,8 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="24dp">
+        android:layout_height="match_parent">
 
         <!-- TÍTULO -->
         <TextView
@@ -37,7 +36,7 @@
         <TextView
             android:id="@+id/tv_medicacion"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="46dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/background_cuadro_texto"
             android:padding="8dp"
@@ -60,7 +59,7 @@
         <TextView
             android:id="@+id/tv_dosis"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="46dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/background_cuadro_texto"
             android:padding="8dp"
@@ -83,7 +82,7 @@
         <TextView
             android:id="@+id/tv_frecuencia"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="46dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/background_cuadro_texto"
             android:padding="8dp"
@@ -106,7 +105,7 @@
         <TextView
             android:id="@+id/tv_fecha_inicio"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="46dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/background_cuadro_texto"
             android:padding="8dp"
@@ -129,7 +128,7 @@
         <TextView
             android:id="@+id/tv_fecha_fin"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="46dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/background_cuadro_texto"
             android:padding="8dp"
@@ -176,7 +175,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_observaciones"
-            style="@style/TextSubtitulo" />
+            style="@style/TextBotones" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -235,7 +235,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guia_central_animal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_castracion"
-            style="@style/TextSubtitulo"/>
+            style="@style/TextBotones"/>
 
         <!-- BOTÓN - Eliminar  -->
         <com.google.android.material.button.MaterialButton
@@ -252,7 +252,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guia_central_animal"
             app:layout_constraintTop_toBottomOf="@+id/et_castracion"
-            style="@style/TextSubtitulo"/>
+            style="@style/TextBotones"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guia_central_animal"

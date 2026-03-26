@@ -86,7 +86,12 @@
     <string name="usuario_cldr_cita_mascota">- Mascota:</string>
     <string name="usuario_cldr_cita_clinica">- Clínica:</string>
     <string name="usuario_cldr_cita_tipo">- Tipo:</string>
-    <string name="usuario_cldr_cita_tipo_4">(Vacunación / Revisión / Consulta general / Pruebas)</string>
+    <string-array name="usuario_cldr_cita_tipo_4">
+        <item>Vacunación</item>
+        <item>Revisión</item>
+        <item>Consulta general</item>
+        <item>Pruebas</item>
+    </string-array>
     <string name="usuario_cldr_cita_motivo">- Motivo:</string>
     <string name="usuario_cldr_cita_veterinario">- Veterinario:</string>
     <string name="usuario_cldr_cita_fecha">- Fecha de la cita:</string>
@@ -99,7 +104,7 @@
         <item>1 mes antes</item>
     </string-array>
     <!-- fragment_usuario_perfil.xml -->
-    <string name="usuario_perfil_editar">EDITAR</string>
+    <string name="usuario_perfil_perfil">PERFIL USUARIO</string>
     <string name="usuario_perfil_cerrar">Cerrar sesion</string>
 
     <!-- fragment_usuario_clinica.xml / item_clinica.xml -->
@@ -135,9 +140,14 @@
     </string-array>
     <!-- fragment_mascota_perfil.xml -->
     <string name="mascota_perfil">PERFIL MASCOTA</string>
+
     <!-- fragment_mascota_cita.xml -->
     <string name="mascota_cita_titulo">PEDIR CITA</string>
     <string name="mascota_cita_btn_pedir">Pedir cita</string>
+    <string name="usuario_cldr_cita_fecha_hint">Selecciona una fecha</string>
+    <string name="usuario_cldr_cita_mascota_hint">Nombre de la mascota</string>
+    <string name="usuario_cldr_cita_clinica_hint">Nombre de la clínica</string>
+    <string name="usuario_cldr_cita_motivo_hint">Describe brevemente el motivo</string>
 
     <!-- fragment_mascota_tratamiento.xml / item_tratamiento.xml / fragment_mascota_tratamiento_info.xml -->
     <string name="tratamiento_titulo">TRATAMIENTOS</string>

@@ -27,7 +27,6 @@
     <!-- BOTÓN - "Mascota" -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_mascota"
-        style="@style/TextBaseNegrita"
         android:layout_width="243dp"
         android:layout_height="46dp"
         android:background="@drawable/botones"
@@ -36,7 +35,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guia_central"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/TextBotones"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guia_central"

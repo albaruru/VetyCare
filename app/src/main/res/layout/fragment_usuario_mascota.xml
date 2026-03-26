@@ -20,22 +20,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- BOTÓN - anclado abajo -->
-
-    <!-- RECYCLERVIEW - ocupa el espacio entre título y botón -->
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_mascota"
-        style="@style/TextBotones"
         android:layout_width="273dp"
-        android:layout_height="66dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="372dp"
         android:background="@drawable/botones"
         android:text="@string/item_mascota"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/TextBotones"/>
 
+    <!-- RECYCLERVIEW - ocupa el espacio entre título y botón -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerMascotas"
         android:layout_width="391dp"

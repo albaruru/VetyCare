@@ -22,6 +22,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             style="@style/TextTitulo" />
+
         <!-- TARJETA-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layoutDetalle"
@@ -47,7 +48,7 @@
             <TextView
                 android:id="@+id/tv_mascota"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="46dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/background_cuadro_texto"
                 android:padding="8dp"
@@ -69,7 +70,7 @@
             <TextView
                 android:id="@+id/tv_clinica"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="46dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/background_cuadro_texto"
                 android:padding="8dp"
@@ -78,37 +79,25 @@
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBase" />
 
-            <!-- TEXTO - Tipo -->
+            <!-- SPINNER - Tipo -->
             <TextView
                 android:id="@+id/tv_label_tipo"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="@string/usuario_cldr_cita_tipo"
                 app:layout_constraintTop_toBottomOf="@id/tv_clinica"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
-            <TextView
-                android:id="@+id/tv_tipo_hint"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:text="@string/usuario_cldr_cita_tipo_4"
-                android:textSize="11sp"
-                app:layout_constraintTop_toTopOf="@id/tv_label_tipo"
-                app:layout_constraintBottom_toBottomOf="@id/tv_label_tipo"
-                app:layout_constraintStart_toEndOf="@id/tv_label_tipo"
-                app:layout_constraintEnd_toEndOf="parent"
-                style="@style/TextBase" />
-            <TextView
-                android:id="@+id/tv_tipo"
+            <Spinner
+                android:id="@+id/sp_tipo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="46dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/background_cuadro_texto"
+                android:entries="@array/usuario_cldr_cita_tipo_4"
                 android:padding="8dp"
-                android:text=""
-                app:layout_constraintTop_toBottomOf="@id/tv_tipo_hint"
+                app:layout_constraintTop_toBottomOf="@id/tv_label_tipo"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBase" />
 
@@ -119,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="@string/usuario_cldr_cita_motivo"
-                app:layout_constraintTop_toBottomOf="@id/tv_tipo"
+                app:layout_constraintTop_toBottomOf="@id/sp_tipo"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
             <EditText
@@ -151,7 +140,7 @@
             <TextView
                 android:id="@+id/tv_veterinario"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="46dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/background_cuadro_texto"
                 android:padding="8dp"
@@ -173,7 +162,7 @@
             <TextView
                 android:id="@+id/tv_fecha"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="46dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/background_cuadro_texto"
                 android:padding="8dp"
@@ -220,7 +209,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guia_central"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutDetalle"
-            style="@style/TextSubtitulo"/>
+            style="@style/TextBotones"/>
 
         <!-- BOTÓN - Guardar -->
         <com.google.android.material.button.MaterialButton
@@ -235,7 +224,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guia_central"
             app:layout_constraintTop_toBottomOf="@id/layoutDetalle"
-            style="@style/TextSubtitulo"/>
+            style="@style/TextBotones"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guia_central"
@@ -243,6 +232,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.5" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

@@ -27,7 +27,7 @@
     <TextView
         android:id="@+id/tv_nombre_clinica"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_marginStart="12dp"
         android:gravity="center_vertical"
         android:text="Nombre"
@@ -40,7 +40,7 @@
     <TextView
         android:id="@+id/tv_ciudad"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_marginStart="12dp"
         android:gravity="center_vertical"
         android:text="Ciudad"
@@ -64,7 +64,7 @@
     <TextView
         android:id="@+id/tv_label_direccion"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_marginTop="10dp"
         android:text="@string/clinica_item_direccion"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +73,7 @@
     <TextView
         android:id="@+id/tv_direccion"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
         android:maxLines="2"
@@ -88,7 +88,7 @@
     <TextView
         android:id="@+id/tv_label_telefono"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_marginTop="6dp"
         android:text="@string/clinica_item_telefono"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,7 +97,7 @@
     <TextView
         android:id="@+id/tv_telefono"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="6dp"
         android:text=""
@@ -110,7 +110,7 @@
     <TextView
         android:id="@+id/tv_label_horario"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_marginTop="6dp"
         android:text="@string/clinica_item_horario"
         app:layout_constraintStart_toStartOf="parent"
@@ -119,7 +119,7 @@
     <TextView
         android:id="@+id/tv_horario"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="6dp"
         android:text=""
