@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.android.application)
-    //id("com.google.gms.google-services") // Firebase
 }
 
 android {
@@ -38,11 +37,7 @@ dependencies {
     // Core library desugaring (necesario para Kizitonwose)
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 
-<<<<<<< HEAD
     // Calendario Kizitonwose (elimina prolific)
-=======
-    // Calendario Kizitonwose
->>>>>>> feature/visual
     implementation("com.kizitonwose.calendar:view:2.5.0")
 
     // Coroutines (necesario para el ViewModel)
@@ -53,15 +48,13 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.3")
 
     // Firebase
-<<<<<<< HEAD
     /*implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-auth-ktx")*/
-=======
+
     //implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
     //implementation("com.google.firebase:firebase-database-ktx")
     //implementation("com.google.firebase:firebase-auth-ktx")
->>>>>>> feature/visual
 
     // Maps (si lo usas más adelante)
     // implementation("com.google.android.gms:play-services-maps:19.0.0")
