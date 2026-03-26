@@ -38,6 +38,9 @@
             style="@style/TextBaseNegrita"/>
         <EditText
             android:id="@+id/et_nombre"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"
             android:layout_width="0dp"
             android:layout_height="46dp"
             android:layout_marginTop="8dp"
@@ -61,6 +64,9 @@
             style="@style/TextBaseNegrita"/>
         <EditText
             android:id="@+id/et_apellido"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"
             android:layout_width="0dp"
             android:layout_height="46dp"
             android:layout_marginTop="8dp"
@@ -84,6 +90,9 @@
             style="@style/TextBaseNegrita"/>
         <Spinner
             android:id="@+id/sp_sexo"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"
             android:layout_width="0dp"
             android:layout_height="46dp"
             android:layout_marginTop="8dp"
@@ -106,6 +115,9 @@
             style="@style/TextBaseNegrita"/>
         <EditText
             android:id="@+id/et_dni"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"
             android:layout_width="0dp"
             android:layout_height="46dp"
             android:layout_marginTop="8dp"
@@ -128,6 +140,9 @@
             style="@style/TextBaseNegrita"/>
         <EditText
             android:id="@+id/et_fecha"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"
             android:layout_width="0dp"
             android:layout_height="46dp"
             android:layout_marginTop="8dp"
@@ -151,6 +166,9 @@
             style="@style/TextBaseNegrita"/>
         <EditText
             android:id="@+id/et_correo"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"
             android:layout_width="0dp"
             android:layout_height="46dp"
             android:layout_marginTop="8dp"
@@ -174,6 +192,9 @@
             style="@style/TextBaseNegrita"/>
         <EditText
             android:id="@+id/et_telefono"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"
             android:layout_width="0dp"
             android:layout_height="46dp"
             android:layout_marginTop="8dp"

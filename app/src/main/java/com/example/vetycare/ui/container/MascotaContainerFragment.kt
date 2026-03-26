@@ -8,6 +8,7 @@ import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import com.example.vetycare.R
+import com.example.vetycare.navigation.NavigatorRoot
 
 class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) {
 
@@ -23,6 +24,7 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
         val botonTratamiento = view?.findViewById<ImageButton>(R.id.btnTratamiento)
         val botonInforme = view?.findViewById<ImageButton>(R.id.btnInforme)
         val botonMascota = view?.findViewById<ImageButton>(R.id.btnMascotas)
+        val botonRegresar = view?.findViewById<ImageButton>(R.id.btnRegresar)
 
         botonCita?.setOnClickListener {
             navController.navigate(R.id.MascotaCitaFragment)
@@ -35,6 +37,9 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
         }
         botonMascota?.setOnClickListener {
             navController.navigate(R.id.MascotaPerfilFragment)
+        }
+        botonRegresar?.setOnClickListener {
+            navController.navigate(NavigatorRoot.Mascota_to_Usuario(this))
         }
     }
 }

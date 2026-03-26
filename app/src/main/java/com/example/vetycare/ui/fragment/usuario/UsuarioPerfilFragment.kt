@@ -14,7 +14,6 @@ import com.example.vetycare.ui.dialog.ConfirmacionDialog
 
 class UsuarioPerfilFragment : Fragment () {
     private lateinit var binding : FragmentUsuarioPerfilBinding
-    private val keyConfirmacion = "confirmacion_registro" // Clave propia de la clase para ConfirmacionDialog
     private val keyCancelacion = "cancelacion_registro" // Clave propia de la clase para CancelacionDialog
 
     override fun onAttach(context: Context) {
@@ -23,18 +22,10 @@ class UsuarioPerfilFragment : Fragment () {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // FIXME CARLOS
-        parentFragmentManager.setFragmentResultListener(keyConfirmacion,this) { _, bundle ->
-            val confirmado = bundle.getBoolean(ConfirmacionDialog.KEY_CONFIRMADO)
-            if (confirmado) {
-                navegacionFragment(1)
-            }
-        }
-        // FIXME CARLOS
         parentFragmentManager.setFragmentResultListener(keyCancelacion,this) { _, bundle ->
             val cancelado = bundle.getBoolean(CancelacionDialog.KEY_CANCELADO)
             if (cancelado) {
-                navegacionFragment(2)
+                navegacionFragment(1)
             }
         }
     }
@@ -50,39 +41,29 @@ class UsuarioPerfilFragment : Fragment () {
         /* Acciones de los botones del fragment:
         -
         */
+        // Los EditTexts no tendrán funcion en este fragment ya que únicamente son para mostrar la informacion
+        binding.etNombre.isEnabled = false
+        binding.etApellido.isEnabled = false
+        binding.spSexo.isEnabled = false
+        binding.etDni.isEnabled = false
+        binding.etFecha.isEnabled = false
+        binding.etCorreo.isEnabled = false
+        binding.etTelefono.isEnabled = false
+
         binding.btnCerrarsesion.setOnClickListener {
 
             mensaje("cerrar_sesion")
         }
-        // FIXME: binding.etDatosUsuario.isEnabled = false // Esto lo deshabilita por completo
-        /* FIXME: <EditText -> HAY QUE PONERLO EN CADA UNO DE LOS ET
-            android:id="@+id/et_datos_usuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusable="false"
-            android:clickable="true"
-            android:cursorVisible="false" /> */
-
     }
 
     fun navegacionFragment(num: Int) {
         when (num) {
-            // FIXME CARLOS
-            1 -> NavigatorUsuario.UsuarioPerfil_to_UsuarioInicio(this)
-            2 -> NavigatorRoot.Usuario_to_Inicio(this)
+            1 -> NavigatorRoot.Usuario_to_Inicio(this)
         }
     }
 
     fun mensaje (tipo: String) {
         when (tipo) {
-            //FIXME CARLOS
-            "confirmacion" -> {
-                ConfirmacionDialog.nuevoDialog(
-                    "CONFIRMAR MODIFICACION PERFIL",
-                    "¿Deseas confirmar la modificacion del perfil?",
-                    keyConfirmacion
-                ).show(parentFragmentManager,"ConfirmacionDialog")
-            }
             "cerrar_sesion" -> {
                 CancelacionDialog.nuevoDialog(
                     "CERRAR SESIÓN",
