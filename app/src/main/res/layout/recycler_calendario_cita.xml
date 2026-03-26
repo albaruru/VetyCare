@@ -21,7 +21,7 @@
     <TextView
         android:id="@+id/tv_mascota"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/background_cuadro_texto"
         android:padding="8dp"
@@ -42,7 +42,7 @@
     <TextView
         android:id="@+id/tv_clinica"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/background_cuadro_texto"
         android:padding="8dp"
@@ -63,7 +63,7 @@
     <TextView
         android:id="@+id/tv_tipo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/background_cuadro_texto"
         android:padding="8dp"
@@ -84,7 +84,7 @@
     <TextView
         android:id="@+id/tv_motivo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/background_cuadro_texto"
         android:padding="8dp"
@@ -105,7 +105,7 @@
     <TextView
         android:id="@+id/tv_fecha"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/background_cuadro_texto"
         android:padding="8dp"
@@ -126,7 +126,7 @@
     <TextView
         android:id="@+id/tv_recordatorio"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/background_cuadro_texto"
         android:padding="8dp"

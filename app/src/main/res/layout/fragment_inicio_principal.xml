@@ -28,7 +28,7 @@
             android:id="@+id/et_correo"
             style="@style/TextBase"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="46dp"
             android:layout_marginTop="50dp"
             android:background="@drawable/background_cuadro_texto"
             android:gravity="center"
@@ -44,7 +44,7 @@
         <EditText
             android:id="@+id/et_contrasenha"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="46dp"
             android:layout_marginTop="25dp"
             android:hint="@string/inicio_contraseña"
             android:gravity="center"
@@ -72,14 +72,14 @@
             android:id="@+id/btn_entrar"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="65dp"
             android:text="@string/entrar"
             android:background="@drawable/botones"
             app:backgroundTint="@null"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cb_recordar"
-            style="@style/TextSubtitulo"/>
+            style="@style/TextBotones"/>
 
         <!-- TEXTO - ¿Aún no tienes cuenta? -->
         <TextView
