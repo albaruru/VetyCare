@@ -11,6 +11,7 @@ data class Propietario(
     val fechaNacimiento: String? = null,
     val nombre: String? = null,
     val telefono: Long? = null,
+    val sexo: String? = null,
     val urlFotoProp: String? = null
 ) {
     constructor() : this(
@@ -24,6 +25,7 @@ data class Propietario(
         "",
         "",
         0L,
+        "",
         ""
     )
 }
