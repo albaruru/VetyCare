@@ -19,13 +19,11 @@ class InicioPrincipalFragment : Fragment() {
     private lateinit var binding : FragmentInicioPrincipalBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var firebaseDatabase: FirebaseDatabase
-    private var sesion : Boolean = false
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         auth = FirebaseAuth.getInstance()
         firebaseDatabase = FirebaseDatabase.getInstance(FirebaseUtils.URL_RTDB)
-
     }
 
     override fun onCreateView (inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View? {
