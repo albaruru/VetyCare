@@ -52,10 +52,6 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-auth-ktx")*/
 
-    //implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
-    //implementation("com.google.firebase:firebase-database-ktx")
-    //implementation("com.google.firebase:firebase-auth-ktx")
-
-    // Maps (si lo usas más adelante)
-    // implementation("com.google.android.gms:play-services-maps:19.0.0")
+    // Maps (
+    implementation("com.mapbox.maps:android:11.20.2")
 }

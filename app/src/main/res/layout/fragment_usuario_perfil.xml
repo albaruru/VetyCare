@@ -100,8 +100,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_apellido"
             style="@style/TextBaseNegrita"/>
-        <Spinner
-            android:id="@+id/sp_sexo"
+        <EditText
+            android:id="@+id/et_sexo"
             android:focusable="false"
             android:clickable="true"
             android:cursorVisible="false"
@@ -109,7 +109,7 @@
             android:layout_height="46dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/background_cuadro_texto"
-            android:entries="@array/opciones_sexo_usuario"
+            android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_sexo"
@@ -123,7 +123,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/reg_dni"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sp_sexo"
+            app:layout_constraintTop_toBottomOf="@id/et_sexo"
             style="@style/TextBaseNegrita"/>
         <EditText
             android:id="@+id/et_dni"
