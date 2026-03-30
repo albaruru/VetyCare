@@ -55,7 +55,7 @@ class InicioRecPassFragment : Fragment() {
         - Botón Guardar => Recogeremos el correo y la contraseña para cambiar las credenciales del usuario en FireBase
         - Botón Volver => Descarta cualquier información introducida en nuestros bloques de texto y volvemos a la pantalla login
         */
-        binding.btnGuardar.setOnClickListener {
+        binding.btnEnviar.setOnClickListener {
             // Solo si la validación es correcta, mostramos el diálogo de confirmación
             if(comprobarCampos()){
             mensaje("confirmacion")
@@ -111,11 +111,9 @@ class InicioRecPassFragment : Fragment() {
     // FUNCION PARA COMPROBAR RECUPERACIÓN DE CONTRASEÑA
     fun comprobarCampos(): Boolean{
         val correo = binding.etCorreo.text.toString().trim()
-        val pass1 = binding.etNuevacontrasenha.text.toString().trim()
-        val pass2 = binding.etRepetircontrasenha.text.toString().trim()
 
         // Verificar que no haya campos vacíos
-        if(correo.isEmpty() || pass1.isEmpty() || pass2.isEmpty()){
+        if(correo.isEmpty()){
             mostrarSnackbar("Por favor, rellena todos los campos.")
             return false
         }
@@ -123,12 +121,6 @@ class InicioRecPassFragment : Fragment() {
         // TODO: EN ESTE CASO PONEMOS EL CORREO POR DEFECTO -> alba@uem.com
         if(correo != "alba@uem.com"){
             mostrarSnackbar("El correo introducido no existe.")
-            return false
-        }
-
-        // Verificar que las contrasenas coincidan
-        if(pass1 != pass2){
-            mostrarSnackbar("Las contraseñas no coinciden.")
             return false
         }
         return true
