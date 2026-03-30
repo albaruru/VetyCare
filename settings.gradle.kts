@@ -19,20 +19,11 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-    }
-}
-
-rootProject.name = "VetyCare"
-include(":app")
-
-
-dependencyResolutionManagement {
-    repositories {
-        google()
-        mavenCentral()
-        // Añade esto:
         maven {
             url = uri("https://api.mapbox.com/downloads/v2/releases/maven")
         }
     }
 }
+
+rootProject.name = "VetyCare"
+include(":app")
