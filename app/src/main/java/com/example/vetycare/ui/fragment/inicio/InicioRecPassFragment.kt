@@ -12,27 +12,27 @@ import com.example.vetycare.databinding.FragmentInicioRecPassBinding
 import com.example.vetycare.navigation.NavigatorInicio
 import com.example.vetycare.ui.dialog.CancelacionDialog
 import com.example.vetycare.ui.dialog.ConfirmacionDialog
+import com.example.vetycare.utils.FirebaseUtils
 import com.example.vetycare.utils.mostrarSnackbar
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class InicioRecPassFragment : Fragment() {
     private lateinit var binding : FragmentInicioRecPassBinding
     private val keyConfirmacion = "confirmacion_recuperacion"
     private val keyCancelacion = "cancelacion_recuperacion"
+    private lateinit var auth : FirebaseAuth
+    private lateinit var firebaseDatabase: FirebaseDatabase
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        auth = FirebaseAuth.getInstance()
+        firebaseDatabase = FirebaseDatabase.getInstance(FirebaseUtils.URL_RTDB)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Dialog Confirmación
-        parentFragmentManager.setFragmentResultListener(keyConfirmacion, this) {_, bundle ->
-            val confirmado = bundle.getBoolean(ConfirmacionDialog.KEY_CONFIRMADO)
-            if (confirmado) {
-                navegacionFragment(1)
-            }
-        }
 
         // Dialog Cancelación
         parentFragmentManager.setFragmentResultListener(keyCancelacion, this) {_, bundle ->
@@ -52,14 +52,12 @@ class InicioRecPassFragment : Fragment() {
         super.onResume()
 
         /* Acciones de los botones del fragment:
-        - Botón Guardar => Recogeremos el correo y la contraseña para cambiar las credenciales del usuario en FireBase
+        - Botón Enviar => Recogeremos el correo y le mandaremos un email para la recuperación de contraseña
         - Botón Volver => Descarta cualquier información introducida en nuestros bloques de texto y volvemos a la pantalla login
         */
-        binding.btnGuardar.setOnClickListener {
+        binding.btnEnviar.setOnClickListener {
             // Solo si la validación es correcta, mostramos el diálogo de confirmación
-            if(comprobarCampos()){
-            mensaje("confirmacion")
-            }
+            recuperacionPassFirebase()
         }
         binding.btnVolver.setOnClickListener {
             mensaje("cancelacion")
@@ -75,21 +73,6 @@ class InicioRecPassFragment : Fragment() {
     }
     fun mensaje (tipo: String) {
         when (tipo) {
-            "confirmacion" -> {
-                /* Explicación del metodo ConfirmacionDialog.nuevoDialog(...)
-
-                Aquí hacemos lo siguiente:
-                1. Creamos una instancia del diálogo
-                2. Le pasamos título, mensaje y clave. (Si no se rellenan, se pondrán los valores por defecto del Dialog)
-                3. Mostramos en pantalla nuestra alerta.
-
-                */
-                ConfirmacionDialog.nuevoDialog(
-                    "CONFIRMAR CAMBIO DE CONTRASEÑA",
-                    "¿Deseas completar el cambio de contraseña?",
-                    keyConfirmacion
-                ).show(parentFragmentManager, "ConfirmacionDialog")
-            }
             "cancelacion" -> {
                 /* Explicación del metodo CancelacionDialog.nuevoDialog(...)
 
@@ -108,28 +91,28 @@ class InicioRecPassFragment : Fragment() {
         }
     }
 
-    // FUNCION PARA COMPROBAR RECUPERACIÓN DE CONTRASEÑA
-    fun comprobarCampos(): Boolean{
+    // FUNCION PARA LA RECUPERACIÓN DE CONTRASEÑA
+    fun recuperacionPassFirebase(): Boolean {
         val correo = binding.etCorreo.text.toString().trim()
-        val pass1 = binding.etNuevacontrasenha.text.toString().trim()
-        val pass2 = binding.etRepetircontrasenha.text.toString().trim()
 
-        // Verificar que no haya campos vacíos
-        if(correo.isEmpty() || pass1.isEmpty() || pass2.isEmpty()){
-            mostrarSnackbar("Por favor, rellena todos los campos.")
-            return false
-        }
-        // Verificar que el correo sea correcto
-        // TODO: EN ESTE CASO PONEMOS EL CORREO POR DEFECTO -> alba@uem.com
-        if(correo != "alba@uem.com"){
-            mostrarSnackbar("El correo introducido no existe.")
+
+        // Validación antes de llamar a Firebase
+        if(correo.isEmpty()){
+            mostrarSnackbar("Por favor, introduce tu correo electrónico.")
             return false
         }
 
-        // Verificar que las contrasenas coincidan
-        if(pass1 != pass2){
-            mostrarSnackbar("Las contraseñas no coinciden.")
-            return false
+        // Llamada al metodo específico de Auth para cambiar la contraseña
+        auth.sendPasswordResetEmail(correo)
+            .addOnCompleteListener { task ->
+                if(task.isSuccessful){
+                    // Si Firebase encuentra el correo y manda el email
+                    mostrarSnackbar("Correo de recuperación enviado a: $correo")
+                    navegacionFragment(1) // Navegamos al InicioPrincipal
+                } else {
+                    // Si el correo no existe en el Auth o hay error de conexion
+                    mostrarSnackbar("Error: No se ha podido enviar el correo. Verifica que existe")
+            }
         }
         return true
     }
