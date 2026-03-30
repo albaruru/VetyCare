@@ -50,9 +50,7 @@ class CitasRepository {
             emptyList()
         }
     }
-<<<<<<< HEAD
-}*/
-=======
+}
 
     // Para obtener el nombre real de la mascota
     suspend fun getNombreMascota(idMascota: String): String {
@@ -73,5 +71,4 @@ class CitasRepository {
             idClinica
         }
     }
-}
->>>>>>> feature/visual
+}*/

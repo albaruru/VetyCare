@@ -26,15 +26,10 @@ class MascotaInformeInfoFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         /* Acciones de los botones del fragment:
-        - Botón Ver Menos => Navega al MascotaInformeFragment
-        - Botón PDF => Creará un PDF de la información del informe
+        - Botón Volver => Navega al MascotaInformeFragment
         */
-        binding.btnVerMenos.setOnClickListener {
+        binding.btnVolver.setOnClickListener {
             navegacionFragment(1)
-        }
-        binding.btnPdf.setOnClickListener {
-            // TODO: CREAR LA LOGICA DE LA FUNCION DE GENERAR PDF
-            generarPDF()
         }
     }
 
@@ -43,10 +38,5 @@ class MascotaInformeInfoFragment : Fragment() {
         when (num) {
             1 -> NavigatorMascota.MascotaInformeInfo_to_MascotaInforme(this)
         }
-    }
-
-    // FUNCIÓN PARA GENERAR PDF DE LA INFORMACION DEL INFROME
-    private fun generarPDF() {
-
     }
 }

@@ -27,16 +27,7 @@ class MascotaCitaFragment : Fragment() {
             val confirmado = bundle.getBoolean(ConfirmacionDialog.KEY_CONFIRMADO)
             if (confirmado) {
                 // TODO: RECOGER DATOS EN CLASES MOLDE
-                ejecutarLimpieza()
                 mostrarSnackbar("Cita solicitada con éxito.")
-            }
-        }
-
-        // Dialog Cancelación
-        parentFragmentManager.setFragmentResultListener(keyCancelacion, this) {_, bundle ->
-            val cancelado = bundle.getBoolean(CancelacionDialog.KEY_CANCELADO)
-            if (cancelado) {
-                ejecutarLimpieza()
             }
         }
     }
@@ -59,9 +50,6 @@ class MascotaCitaFragment : Fragment() {
                     mensaje("confirmacion")
                 }
         }
-        binding.btnLimpiar.setOnClickListener {
-            mensaje("limpiar")
-        }
     }
 
     fun mensaje(tipo: String) {
@@ -72,13 +60,6 @@ class MascotaCitaFragment : Fragment() {
                     "¿Estás seguro de que quieres solicitar esta cita?",
                     keyConfirmacion
                 ).show(parentFragmentManager, "ConfirmacionDialog")
-            }
-            "limpiar" -> {
-                CancelacionDialog.nuevoDialog(
-                    "LIMPIAR DATOS",
-                    "¿Deseas vaciar todos los campos del formulario?",
-                    keyCancelacion
-                ).show(parentFragmentManager, "CancelacionDialog")
             }
         }
     }
@@ -95,15 +76,5 @@ class MascotaCitaFragment : Fragment() {
             return false
         }
         return true
-    }
-
-    // FUNCION PARA LIMPIAR TODOS LOS CAMPOS
-    private fun ejecutarLimpieza() {
-        binding.etMotivo.text.clear()
-        binding.spRecordatorio.setSelection(0)
-        binding.tvClinica.text = ""
-        binding.tvTipo.text = ""
-        binding.tvFecha.text = ""
-        binding.etMotivo.clearFocus()
     }
 }
