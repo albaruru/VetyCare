@@ -63,11 +63,10 @@ class UsuarioClinicaMapaFragment : Fragment() {
         binding.mapView.mapboxMap.loadStyle(Style.MAPBOX_STREETS) {
             binding.mapView.mapboxMap.setCamera(
                 CameraOptions.Builder()
-                    .center(Point.fromLngLat(-3.7038, 40.0))
-                    .zoom(4.5)
+                    .center(Point.fromLngLat(-4.0, 40.0))
+                    .zoom(5.5)
                     .build()
             )
-            // cargarClinicas() // Descomentar en rama database
         }
     }
 
