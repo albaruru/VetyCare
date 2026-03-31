@@ -22,19 +22,14 @@ class MascotaAdapter(
     inner class MascotaHolder(val binding: RecyclerMascotaBinding):
         RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): MascotaHolder {
+    override fun onCreateViewHolder (parent: ViewGroup, viewType: Int) : MascotaHolder {
+
         val binding:  RecyclerMascotaBinding = RecyclerMascotaBinding.inflate(
             LayoutInflater.from(contexto), parent, false)
         return MascotaHolder(binding)
     }
 
-    override fun onBindViewHolder(
-        holder: MascotaHolder,
-        position: Int
-    ) {
+    override fun onBindViewHolder (holder: MascotaHolder, position: Int) {
         val item: Mascota = lista[position]
         holder.binding.btnMascota.text = item.nombre
 

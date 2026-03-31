@@ -45,7 +45,7 @@
             app:layout_constraintTop_toTopOf="@id/iv_foto_dueno"
             style="@style/Nombres" />
         <!-- LOGO EMPRESA -->
-        <ImageView
+        <ImageButton
             android:id="@+id/iv_logo"
             android:layout_width="53dp"
             android:layout_height="50dp"

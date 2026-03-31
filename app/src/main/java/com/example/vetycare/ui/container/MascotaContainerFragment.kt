@@ -25,6 +25,7 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
         val botonInforme = view?.findViewById<ImageButton>(R.id.btnInforme)
         val botonMascota = view?.findViewById<ImageButton>(R.id.btnMascotas)
         val botonRegresar = view?.findViewById<ImageButton>(R.id.btnRegresar)
+        val botonVetyCare = view?.findViewById<ImageButton>(R.id.iv_logo)
 
         botonCita?.setOnClickListener {
             navController.navigate(R.id.MascotaCitaFragment)
@@ -39,6 +40,9 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
             navController.navigate(R.id.MascotaPerfilFragment)
         }
         botonRegresar?.setOnClickListener {
+            NavigatorRoot.Mascota_to_Usuario(this)
+        }
+        botonVetyCare?.setOnClickListener {
             NavigatorRoot.Mascota_to_Usuario(this)
         }
     }
