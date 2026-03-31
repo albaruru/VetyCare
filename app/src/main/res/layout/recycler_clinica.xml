@@ -30,20 +30,20 @@
         android:layout_height="25dp"
         android:layout_marginStart="12dp"
         android:gravity="center_vertical"
-        android:text="Nombre"
+        android:hint="Nombre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/iv_logo_clinica"
         app:layout_constraintTop_toTopOf="parent"
         style="@style/TextBaseNegrita" />
 
-    <!-- TEXTO - Ciudad -->
+    <!-- TEXTO - Provincia -->
     <TextView
-        android:id="@+id/tv_ciudad"
+        android:id="@+id/tv_provincia"
         android:layout_width="0dp"
         android:layout_height="25dp"
         android:layout_marginStart="12dp"
         android:gravity="center_vertical"
-        android:text="Ciudad"
+        android:hint="Provincia"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/iv_logo_clinica"
         app:layout_constraintBottom_toBottomOf="@id/iv_logo_clinica"
@@ -106,26 +106,5 @@
         app:layout_constraintTop_toBottomOf="@id/tv_direccion"
         style="@style/TextBase"/>
 
-    <!-- TEXTO - Horario -->
-    <TextView
-        android:id="@+id/tv_label_horario"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_marginTop="6dp"
-        android:text="@string/clinica_item_horario"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_label_telefono"
-        style="@style/TextBaseNegrita" />
-    <TextView
-        android:id="@+id/tv_horario"
-        android:layout_width="0dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="6dp"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_label_horario"
-        app:layout_constraintTop_toBottomOf="@id/tv_telefono"
-        style="@style/TextBase" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

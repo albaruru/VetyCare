@@ -61,7 +61,6 @@
                 android:text="@string/clinica_ver_listado"
                 app:backgroundTint="@null"
                 style="@style/TextBotones"/>
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_ver_mapa"
                 android:layout_width="0dp"

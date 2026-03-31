@@ -44,7 +44,7 @@ class UsuarioPerfilFragment : Fragment () {
         // Los EditTexts no tendrán funcion en este fragment ya que únicamente son para mostrar la informacion
         binding.etNombre.isEnabled = false
         binding.etApellido.isEnabled = false
-        binding.spSexo.isEnabled = false
+        binding.etSexo.isEnabled = false
         binding.etDni.isEnabled = false
         binding.etFecha.isEnabled = false
         binding.etCorreo.isEnabled = false
