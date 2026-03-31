@@ -12,6 +12,7 @@ import com.example.vetycare.databinding.FragmentInicioPrincipalBinding
 import com.example.vetycare.navigation.NavigatorInicio
 import com.example.vetycare.navigation.NavigatorRoot
 import com.example.vetycare.utils.mostrarSnackbar
+import com.example.vetycare.utils.ocultarTeclado
 import com.google.android.material.snackbar.Snackbar
 
 class InicioPrincipalFragment : Fragment() {
@@ -35,6 +36,7 @@ class InicioPrincipalFragment : Fragment() {
         * -
         *  */
         binding.btnEntrar.setOnClickListener {
+            ocultarTeclado()
             sesion = comprobarInicioSesion()
             if (sesion) {
             navegacionFragment(1)
@@ -67,10 +69,10 @@ class InicioPrincipalFragment : Fragment() {
 
         // Verificar credenciales (CORREO:alba@uem.com / PASS:raton)
         if (correo == "alba@uem.com" && pass == "raton") {
-             return true
+            return true
         } else {
             mostrarSnackbar("Correo o contraseña incorrectos")
-             return false
+            return false
         }
     }
 }
