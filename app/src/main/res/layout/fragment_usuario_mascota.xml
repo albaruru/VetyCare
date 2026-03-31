@@ -29,27 +29,25 @@
             android:id="@+id/btn_mascota"
             android:layout_width="273dp"
             android:layout_height="60dp"
-            android:layout_marginBottom="372dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/botones"
             android:text="@string/item_mascota"
             app:backgroundTint="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_titulo"
             style="@style/TextBotones"/>
 
         <!-- RECYCLERVIEW - ocupa el espacio entre título y botón -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerMascotas"
-            android:layout_width="391dp"
-            android:layout_height="195dp"
-            android:layout_marginTop="20dp"
-            android:paddingVertical="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_mascota"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_titulo"
-            app:layout_constraintVertical_bias="0.007" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_mascota" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
