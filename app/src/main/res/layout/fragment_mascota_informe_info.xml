@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:padding="24dp">
 
         <!-- TÍTULO -->
@@ -29,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:layout_marginStart="15dp"
             android:text="@string/informe_label_concepto"
             app:layout_constraintTop_toBottomOf="@id/tv_titulo"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,11 +53,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/informe_label_fecha"
             app:layout_constraintTop_toBottomOf="@id/tv_concepto"
             app:layout_constraintStart_toStartOf="parent"
             style="@style/TextBaseNegrita" />
-
         <TextView
             android:id="@+id/tv_fecha"
             android:layout_width="0dp"
@@ -75,11 +76,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/informe_label_valoracion"
             app:layout_constraintTop_toBottomOf="@id/tv_fecha"
             app:layout_constraintStart_toStartOf="parent"
             style="@style/TextBaseNegrita" />
-
         <TextView
             android:id="@+id/tv_valoracion"
             android:layout_width="0dp"
@@ -99,11 +100,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/informe_label_medicamento"
             app:layout_constraintTop_toBottomOf="@id/tv_valoracion"
             app:layout_constraintStart_toStartOf="parent"
             style="@style/TextBaseNegrita" />
-
         <TextView
             android:id="@+id/tv_medicamento"
             android:layout_width="0dp"
@@ -122,11 +123,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/informe_label_tratamiento"
             app:layout_constraintTop_toBottomOf="@id/tv_medicamento"
             app:layout_constraintStart_toStartOf="parent"
             style="@style/TextBaseNegrita" />
-
         <TextView
             android:id="@+id/tv_tratamiento"
             android:layout_width="0dp"
@@ -145,11 +146,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/informe_label_importe"
             app:layout_constraintTop_toBottomOf="@id/tv_tratamiento"
             app:layout_constraintStart_toStartOf="parent"
             style="@style/TextBaseNegrita" />
-
         <TextView
             android:id="@+id/tv_importe"
             android:layout_width="0dp"
@@ -165,7 +166,7 @@
         <!-- BOTÓN -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_volver"
-            android:layout_width="wrap_content"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"

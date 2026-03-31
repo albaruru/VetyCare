@@ -29,11 +29,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:layout_marginStart="15dp"
             android:text="@string/tratamiento_label_procedimiento"
             app:layout_constraintTop_toBottomOf="@id/tv_titulo"
             app:layout_constraintStart_toStartOf="parent"
             style="@style/TextBaseNegrita" />
-
         <TextView
             android:id="@+id/tv_procedimiento"
             android:layout_width="0dp"
@@ -52,11 +52,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/tratamiento_label_administracion"
             app:layout_constraintTop_toBottomOf="@id/tv_procedimiento"
             app:layout_constraintStart_toStartOf="parent"
             style="@style/TextBaseNegrita" />
-
         <TextView
             android:id="@+id/tv_via_administracion"
             android:layout_width="0dp"
@@ -75,11 +75,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/tratamiento_label_medicacion"
             app:layout_constraintTop_toBottomOf="@id/tv_via_administracion"
             app:layout_constraintStart_toStartOf="parent"
             style="@style/TextBaseNegrita" />
-
         <TextView
             android:id="@+id/tv_medicacion"
             android:layout_width="0dp"
@@ -98,11 +98,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/tratamiento_label_dosis"
             app:layout_constraintTop_toBottomOf="@id/tv_medicacion"
             app:layout_constraintStart_toStartOf="parent"
             style="@style/TextBaseNegrita" />
-
         <TextView
             android:id="@+id/tv_dosis"
             android:layout_width="0dp"
@@ -121,11 +121,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/tratamiento_label_frecuencia"
             app:layout_constraintTop_toBottomOf="@id/tv_dosis"
             app:layout_constraintStart_toStartOf="parent"
             style="@style/TextBaseNegrita" />
-
         <TextView
             android:id="@+id/tv_frecuencia"
             android:layout_width="0dp"
@@ -144,11 +144,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/tratamiento_label_fecha_inicio"
             app:layout_constraintTop_toBottomOf="@id/tv_frecuencia"
             app:layout_constraintStart_toStartOf="parent"
             style="@style/TextBaseNegrita" />
-
         <TextView
             android:id="@+id/tv_fecha_inicio"
             android:layout_width="0dp"
@@ -167,11 +167,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/tratamiento_label_fecha_fin"
             app:layout_constraintTop_toBottomOf="@id/tv_fecha_inicio"
             app:layout_constraintStart_toStartOf="parent"
             style="@style/TextBaseNegrita" />
-
         <TextView
             android:id="@+id/tv_fecha_fin"
             android:layout_width="0dp"
@@ -190,11 +190,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/tratamiento_label_observaciones"
             app:layout_constraintTop_toBottomOf="@id/tv_fecha_fin"
             app:layout_constraintStart_toStartOf="parent"
             style="@style/TextBaseNegrita" />
-
         <TextView
             android:id="@+id/tv_observaciones"
             android:layout_width="0dp"
@@ -211,7 +211,7 @@
         <!-- BOTÓN -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_volver"
-            android:layout_width="wrap_content"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"

@@ -83,19 +83,19 @@
     <string name="usuario_calendario_medicamentos">Comprar más medicamentos</string>
 
     <!-- fragment_usuario_calendario_cita.xml -->
-    <string name="usuario_cldr_cita_mascota">- Mascota:</string>
-    <string name="usuario_cldr_cita_clinica">- Clínica:</string>
-    <string name="usuario_cldr_cita_tipo">- Tipo:</string>
+    <string name="usuario_cldr_cita_mascota">Mascota:</string>
+    <string name="usuario_cldr_cita_clinica">Clínica:</string>
+    <string name="usuario_cldr_cita_tipo">Tipo:</string>
     <string-array name="usuario_cldr_cita_tipo_4">
         <item>Vacunación</item>
         <item>Revisión</item>
         <item>Consulta general</item>
         <item>Pruebas</item>
     </string-array>
-    <string name="usuario_cldr_cita_motivo">- Motivo:</string>
-    <string name="usuario_cldr_cita_veterinario">- Veterinario:</string>
-    <string name="usuario_cldr_cita_fecha">- Fecha de la cita:</string>
-    <string name="usuario_cldr_cita_recordatorio">- Recordatorio:</string>
+    <string name="usuario_cldr_cita_motivo">Motivo:</string>
+    <string name="usuario_cldr_cita_veterinario">Veterinario:</string>
+    <string name="usuario_cldr_cita_fecha">Fecha de la cita:</string>
+    <string name="usuario_cldr_cita_recordatorio">Recordatorio:</string>
     <string-array name="recordatorio_opciones">
         <item>Sin recordatorio</item>
         <item>1 día antes</item>
@@ -112,10 +112,10 @@
     <string name="clinica_ver_listado">Ver listado</string>
     <string name="clinica_ver_mapa">Ver mapa</string>
     <string name="clinica_descripcion">Encuentra nuestras clínicas veterinarias cerca de ti</string>
-    <string name="clinica_zona">- Comunidad autónoma:</string>
-    <string name="clinica_item_direccion">- Dirección:</string>
-    <string name="clinica_item_telefono">- Teléfono:</string>
-    <string name="clinica_item_horario">- Horario:</string>
+    <string name="clinica_zona">Comunidad autónoma:</string>
+    <string name="clinica_item_direccion">Dirección:</string>
+    <string name="clinica_item_telefono">Teléfono:</string>
+    <string name="clinica_item_horario">Horario:</string>
     <string-array name="opciones_comunidades">
         <item>Seleccione una comunidad: </item>
         <item>Andalucía</item>
@@ -153,28 +153,26 @@
     <!-- fragment_mascota_tratamiento.xml / item_tratamiento.xml / fragment_mascota_tratamiento_info.xml -->
     <string name="tratamiento_titulo">TRATAMIENTOS</string>
     <string name="tratamiento_id">ID_TRATAMIENTO</string>
-    <string name="tratamiento_label_procedimiento">- Procedimiento:</string>
-    <string name="tratamiento_label_administracion">- Via de administración:</string>
-    <string name="tratamiento_label_medicacion">- Medicación:</string>
-    <string name="tratamiento_fecha_inicio">Fecha inicio</string>
-    <string name="tratamiento_fecha_fin">Fecha fin</string>
+    <string name="tratamiento_label_procedimiento">Procedimiento:</string>
+    <string name="tratamiento_label_administracion">Via de administración:</string>
+    <string name="tratamiento_label_medicacion">Medicación:</string>
     <string name="tratamiento_nombre">Tratamiento</string>
-    <string name="tratamiento_label_dosis">- Dosis:</string>
-    <string name="tratamiento_label_frecuencia">- Frecuencia:</string>
-    <string name="tratamiento_label_fecha_inicio">- Fecha inicio:</string>
-    <string name="tratamiento_label_fecha_fin">- Fecha fin:</string>
-    <string name="tratamiento_label_observaciones">- Observaciones:</string>
+    <string name="tratamiento_label_dosis">Dosis:</string>
+    <string name="tratamiento_label_frecuencia">Frecuencia:</string>
+    <string name="tratamiento_label_fecha_inicio">Fecha inicio:</string>
+    <string name="tratamiento_label_fecha_fin">Fecha fin:</string>
+    <string name="tratamiento_label_observaciones">Observaciones:</string>
     <string name="tratamiento_btn_detalles">Detalles</string>
 
     <!-- fragment_mascota_informe.xml / item_informe.xml / fragment_mascota_informe_info.xml -->
     <string name="informe_titulo">INFORMES</string>
     <string name="informe_id">ID_INFORME</string>
-    <string name="informe_label_concepto">- Concepto:</string>
-    <string name="informe_label_fecha">- Fecha:</string>
-    <string name="informe_label_valoracion">- Valoración:</string>
-    <string name="informe_label_medicamento">- Medicamento </string>
-    <string name="informe_label_tratamiento">- Tratamiento:</string>
-    <string name="informe_label_importe">- Importe total:</string>
+    <string name="informe_label_concepto">Concepto:</string>
+    <string name="informe_label_fecha">Fecha:</string>
+    <string name="informe_label_valoracion">Valoración:</string>
+    <string name="informe_label_medicamento">Medicamento </string>
+    <string name="informe_label_tratamiento">Tratamiento:</string>
+    <string name="informe_label_importe">Importe total:</string>
     <string name="informe_btn_ver_mas">Detalles</string>
 
     <!-- ================================== BACK ================================== -->

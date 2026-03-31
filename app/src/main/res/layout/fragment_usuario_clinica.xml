@@ -77,7 +77,7 @@
             android:id="@+id/tv_label_zona"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="25dp"
+            android:layout_marginHorizontal="40dp"
             android:layout_marginTop="20dp"
             android:text="@string/clinica_zona"
             app:layout_constraintEnd_toEndOf="parent"
