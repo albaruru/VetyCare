@@ -1,8 +1,11 @@
 package com.example.vetycare.navigation
 
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.vetycare.R
+import com.example.vetycare.model.entities.Mascota
 
 object NavigatorRoot {
 
@@ -37,5 +40,15 @@ object NavigatorRoot {
         fragment.requireActivity()
             .findNavController(R.id.nav_host_root)
             .navigate(R.id.action_mascotaContainerFragment_to_usuarioContainerFragment)
+    }
+
+    fun UsuarioMascota_to_MascotaPerfil(fragment: Fragment, mascota: Mascota) {
+        val bundle = Bundle()
+        bundle.putSerializable("mascota_key", mascota)
+
+        // Usamos el mismo NavHost que en el resto de tus funciones
+        fragment.requireActivity()
+            .findNavController(R.id.nav_host_root)
+            .navigate(R.id.action_usuarioContainerFragment_to_mascotaContainerFragment, bundle)
     }
 }

@@ -33,6 +33,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 
     // Core library desugaring (necesario para Kizitonwose)
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
