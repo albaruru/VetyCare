@@ -91,7 +91,7 @@
         <ImageButton
             android:id="@+id/btnIniMasc"
             android:layout_width="0dp"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
             android:layout_weight="0.25"
             android:layout_margin="5dp"
             android:src="@drawable/btn_huella"
@@ -101,7 +101,7 @@
         <ImageButton
             android:id="@+id/btnCalendarUsu"
             android:layout_width="0dp"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
             android:layout_weight="0.25"
             android:layout_margin="5dp"
             android:src="@drawable/btn_calendar"
@@ -111,7 +111,7 @@
         <ImageButton
             android:id="@+id/btnUsuario"
             android:layout_width="0dp"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
             android:layout_weight="0.25"
             android:layout_margin="5dp"
             android:src="@drawable/btn_user"
@@ -121,7 +121,7 @@
         <ImageButton
             android:id="@+id/btnClinicas"
             android:layout_width="0dp"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
             android:layout_weight="0.25"
             android:layout_margin="5dp"
             android:src="@drawable/btn_clinicas"
