@@ -18,7 +18,7 @@
 
         <meta-data
             android:name="com.mapbox.token"
-            android:value="@string/mapbox_access_token" />
+            android:value="@string/mapbox_access_token"/>
 
         <activity
             android:name=".MainActivity"

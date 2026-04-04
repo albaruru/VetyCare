@@ -47,6 +47,8 @@
             android:id="@+id/iv_logo"
             android:layout_width="45dp"
             android:layout_height="50dp"
+            android:background="@drawable/botones_menu"
+            android:scaleType="centerCrop"
             android:src="@drawable/icn_negro"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
