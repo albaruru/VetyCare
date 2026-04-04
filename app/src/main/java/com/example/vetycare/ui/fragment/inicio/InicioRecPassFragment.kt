@@ -20,7 +20,6 @@ import com.google.firebase.database.FirebaseDatabase
 
 class InicioRecPassFragment : Fragment() {
     private lateinit var binding : FragmentInicioRecPassBinding
-    private val keyConfirmacion = "confirmacion_recuperacion"
     private val keyCancelacion = "cancelacion_recuperacion"
     private lateinit var auth : FirebaseAuth
     private lateinit var firebaseDatabase: FirebaseDatabase
