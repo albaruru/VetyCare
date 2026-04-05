@@ -75,13 +75,13 @@
         <!-- LEYENDA -->
         <LinearLayout
             android:id="@+id/layoutLeyenda"
-            android:layout_width="268dp"
-            android:layout_height="142dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="24dp"
+            android:padding="16dp"
             android:background="@drawable/background_cuadro_texto"
             android:orientation="vertical"
-            android:padding="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/calendarView">
