@@ -47,20 +47,24 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
+
+            <!-- TEXTO - Clínica -->
             <EditText
                 android:id="@+id/et_mascota"
+                style="@style/TextBase"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:layout_marginTop="4dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:background="@drawable/background_cuadro_texto"
-                android:padding="8dp"
-                android:inputType="textPersonName"
                 android:hint="@string/usuario_cldr_cita_mascota_hint"
-                app:layout_constraintTop_toBottomOf="@id/tv_label_mascota"
+                android:inputType="textPersonName"
                 app:layout_constraintStart_toStartOf="parent"
-                style="@style/TextBase" />
+                app:layout_constraintTop_toBottomOf="@id/tv_label_mascota" />
 
-            <!-- TEXTO - Clínica -->
             <TextView
                 android:id="@+id/tv_label_clinica"
                 android:layout_width="match_parent"
@@ -76,8 +80,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:layout_marginTop="4dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:background="@drawable/background_cuadro_texto"
-                android:padding="8dp"
                 android:inputType="textCapWords"
                 android:hint="@string/usuario_cldr_cita_clinica_hint"
                 app:layout_constraintTop_toBottomOf="@id/tv_label_clinica"
@@ -95,19 +102,20 @@
                 app:layout_constraintTop_toBottomOf="@id/et_clinica"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
-            <Spinner
-                android:id="@+id/sp_tipo"
-                android:layout_width="match_parent"
-                android:layout_height="46dp"
-                android:layout_marginTop="4dp"
-                android:entries="@array/usuario_cldr_cita_tipo_4"
-                android:background="@drawable/background_cuadro_texto"
-                android:padding="8dp"
-                app:layout_constraintTop_toBottomOf="@id/tv_label_tipo"
-                app:layout_constraintStart_toStartOf="parent"
-                style="@style/TextBase" />
 
             <!-- TEXTO - Motivo breve -->
+            <Spinner
+                android:id="@+id/sp_tipo"
+                style="@style/TextBase"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="16dp"
+                android:padding="8dp"
+                android:background="@drawable/background_cuadro_texto"
+                android:entries="@array/usuario_cldr_cita_tipo_4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_label_tipo" />
+
             <TextView
                 android:id="@+id/tv_label_motivo"
                 android:layout_width="match_parent"
@@ -123,12 +131,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="4dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:background="@drawable/background_cuadro_texto"
                 android:gravity="top|start"
                 android:inputType="textMultiLine"
                 android:maxLines="5"
                 android:overScrollMode="always"
-                android:padding="8dp"
                 android:scrollbars="vertical"
                 android:hint="@string/usuario_cldr_cita_motivo_hint"
                 app:layout_constraintTop_toBottomOf="@id/tv_label_motivo"
@@ -163,7 +174,10 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:padding="8dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
                     android:hint="@string/usuario_cldr_cita_fecha_hint"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/ib_calendar"
@@ -187,7 +201,6 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!-- SPINNER - Recordatorio -->
             <!-- SPINNER - Recordatorio -->
             <TextView
                 android:id="@+id/tv_label_recordatorio"

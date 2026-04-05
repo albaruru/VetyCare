@@ -1,5 +1,6 @@
 package com.example.vetycare.ui.fragment.mascota
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import com.example.vetycare.databinding.FragmentMascotaCitaBinding
 import com.example.vetycare.ui.dialog.CancelacionDialog
 import com.example.vetycare.ui.dialog.ConfirmacionDialog
 import com.example.vetycare.utils.mostrarSnackbar
+import java.util.Calendar
 
 class MascotaCitaFragment : Fragment() {
     private lateinit var binding : FragmentMascotaCitaBinding
@@ -44,11 +46,33 @@ class MascotaCitaFragment : Fragment() {
        - Botón Pedir Cita => Recogeremos la información de los campos para pedir la cita
        - Botón Volver => Descarta cualquier información introducida en nuestros bloques de texto y volvemos a la pantalla login
        */
+        // Abrir calendario al pulsar el icono o el recuadro
+        binding.ibCalendar.setOnClickListener { abrirDatePicker() }
+        binding.tvFecha.setOnClickListener { abrirDatePicker() }
+
         binding.btnGuardar.setOnClickListener {
             // Solo si la validación es correcta, mostramos el diálogo de confirmación
                 if (comprobarCampos()) {
                     mensaje("confirmacion")
                 }
+        }
+    }
+
+    // FUNCION PARA ABRIR EL CALENDARIO
+    private fun abrirDatePicker() {
+        val calendar = Calendar.getInstance()
+
+        DatePickerDialog(
+            requireContext(),
+            { _, year, month, dayOfMonth ->
+                binding.tvFecha.text = String.format("%02d/%02d/%04d", dayOfMonth, month + 1, year)
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        ).apply {
+            datePicker.minDate = calendar.timeInMillis // No permite fechas pasadas
+            show()
         }
     }
 
