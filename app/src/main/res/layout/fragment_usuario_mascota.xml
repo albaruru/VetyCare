@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,45 +7,47 @@
     android:layout_height="match_parent"
     android:background="@color/content_usuario">
 
-    <!-- TÍTULO -->
-    <TextView
-        android:id="@+id/tv_titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/usuario_mascota"
-        style="@style/TextTitulo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp">
 
-    <!-- BOTÓN - anclado abajo -->
+        <!-- TÍTULO -->
+        <TextView
+            android:id="@+id/tv_titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/usuario_mascota"
+            style="@style/TextTitulo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- RECYCLERVIEW - ocupa el espacio entre título y botón -->
+        <!-- BOTÓN - anclado abajo -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_mascota"
+            android:layout_width="273dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/botones"
+            android:text="@string/item_mascota"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_titulo"
+            style="@style/TextBotones"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_mascota"
-        style="@style/TextBotones"
-        android:layout_width="273dp"
-        android:layout_height="66dp"
-        android:layout_marginBottom="372dp"
-        android:background="@drawable/botones"
-        android:text="@string/item_mascota"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <!-- RECYCLERVIEW - ocupa el espacio entre título y botón -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerMascotas"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_mascota"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerMascotas"
-        android:layout_width="391dp"
-        android:layout_height="195dp"
-        android:layout_marginTop="20dp"
-        android:paddingVertical="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_mascota"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_titulo"
-        app:layout_constraintVertical_bias="0.007" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

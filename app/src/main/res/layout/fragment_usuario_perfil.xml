@@ -5,26 +5,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/content_main">
+    android:background="@color/content_usuario">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="24dp">
 
+        <!-- TÍTULO -->
+        <TextView
+            android:id="@+id/tv_titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/usuario_perfil_perfil"
+            style="@style/TextTitulo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <!-- FOTO DEL USUARIO -->
         <ImageView
             android:id="@+id/iv_foto"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/background_cuadro_texto"
             android:contentDescription="Foto de perfil"
             android:padding="8dp"
-            android:layout_marginTop="20dp"
             android:src="@android:drawable/ic_menu_camera"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tv_titulo" />
 
         <!-- TEXTO - Nombre -->
         <TextView
@@ -32,9 +44,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:layout_marginStart="15dp"
             android:text="@string/reg_nombre"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_foto"
+            app:layout_constraintTop_toBottomOf="@id/iv_foto"
             style="@style/TextBaseNegrita"/>
         <EditText
             android:id="@+id/et_nombre"
@@ -49,7 +62,7 @@
             android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_nombre"
+            app:layout_constraintTop_toBottomOf="@id/tv_nombre"
             style="@style/TextBase"/>
 
         <!-- TEXTO - Apellido -->
@@ -58,9 +71,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/reg_apellido"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_nombre"
+            app:layout_constraintTop_toBottomOf="@id/et_nombre"
             style="@style/TextBaseNegrita"/>
         <EditText
             android:id="@+id/et_apellido"
@@ -75,7 +89,7 @@
             android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_apellido"
+            app:layout_constraintTop_toBottomOf="@id/tv_apellido"
             style="@style/TextBase"/>
 
         <!-- TEXTO - Sexo -->
@@ -84,9 +98,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/reg_sexo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_apellido"
+            app:layout_constraintTop_toBottomOf="@id/et_apellido"
             style="@style/TextBaseNegrita"/>
         <EditText
             android:id="@+id/et_sexo"
@@ -100,18 +115,19 @@
             android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sexo"
+            app:layout_constraintTop_toBottomOf="@id/tv_sexo"
             style="@style/TextBase"/>
 
-        <!-- TEXTO - DNI  -->
+        <!-- TEXTO - DNI -->
         <TextView
             android:id="@+id/tv_dni"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/reg_dni"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_sexo"
+            app:layout_constraintTop_toBottomOf="@id/et_sexo"
             style="@style/TextBaseNegrita"/>
         <EditText
             android:id="@+id/et_dni"
@@ -125,7 +141,7 @@
             android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_dni"
+            app:layout_constraintTop_toBottomOf="@id/tv_dni"
             style="@style/TextBase"/>
 
         <!-- TEXTO - Fecha -->
@@ -134,9 +150,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/reg_fecha"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_dni"
+            app:layout_constraintTop_toBottomOf="@id/et_dni"
             style="@style/TextBaseNegrita"/>
         <EditText
             android:id="@+id/et_fecha"
@@ -151,7 +168,7 @@
             android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_fecha"
+            app:layout_constraintTop_toBottomOf="@id/tv_fecha"
             style="@style/TextBase"/>
 
         <!-- TEXTO - Correo -->
@@ -160,9 +177,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/reg_correo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_fecha"
+            app:layout_constraintTop_toBottomOf="@id/et_fecha"
             style="@style/TextBaseNegrita"/>
         <EditText
             android:id="@+id/et_correo"
@@ -177,7 +195,7 @@
             android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_correo"
+            app:layout_constraintTop_toBottomOf="@id/tv_correo"
             style="@style/TextBase"/>
 
         <!-- TEXTO - Teléfono -->
@@ -186,9 +204,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/reg_telefono"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_correo"
+            app:layout_constraintTop_toBottomOf="@id/et_correo"
             style="@style/TextBaseNegrita"/>
         <EditText
             android:id="@+id/et_telefono"
@@ -203,7 +222,7 @@
             android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_telefono"
+            app:layout_constraintTop_toBottomOf="@id/tv_telefono"
             style="@style/TextBase"/>
 
         <!-- BOTÓN - Cerrar sesión -->
@@ -218,8 +237,7 @@
             app:backgroundTint="@null"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_telefono"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_telefono"
             style="@style/TextBotones"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,6 +14,8 @@ import com.example.vetycare.utils.FirebaseUtils
 import com.example.vetycare.utils.mostrarSnackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.example.vetycare.utils.ocultarTeclado
+import com.google.android.material.snackbar.Snackbar
 
 class InicioPrincipalFragment : Fragment() {
     private lateinit var binding : FragmentInicioPrincipalBinding
@@ -39,6 +41,7 @@ class InicioPrincipalFragment : Fragment() {
         * -
         *  */
         binding.btnEntrar.setOnClickListener {
+            ocultarTeclado()
             comprobarInicioSesion()
         }
         binding.tvLinkRegistrate.setOnClickListener{ navegacionFragment(2) }

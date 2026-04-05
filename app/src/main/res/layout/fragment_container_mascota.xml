@@ -3,27 +3,26 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <!-- HEADER -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutHeader"
-        android:layout_width="411dp"
-        android:layout_height="85dp"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
         android:paddingStart="24dp"
-        android:paddingTop="22dp"
+        android:paddingTop="12dp"
         android:paddingEnd="24dp"
-        android:paddingBottom="12dp"
+        android:paddingBottom="4dp"
         android:background="@color/menu"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-
+        <!-- FOTO DE LA MASCOTA -->
         <ImageView
             android:id="@+id/iv_foto_mascota"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:background="@drawable/botones_menu"
             android:src="@android:drawable/ic_menu_camera"
             android:scaleType="centerCrop"
@@ -31,24 +30,24 @@
             android:contentDescription="Foto de perfil"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
+            app:layout_constraintStart_toStartOf="parent"
+            />
+        <!-- NOMBRE DE LA MASCOTA -->
         <TextView
             android:id="@+id/tv_nombre_mascota"
-            style="@style/Nombres"
-            android:layout_width="203dp"
-            android:layout_height="31dp"
-            android:layout_marginStart="8dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
             android:layout_marginEnd="8dp"
             android:text="@string/cont_main_nombre_mascota"
             app:layout_constraintBottom_toBottomOf="@id/iv_foto_mascota"
-            app:layout_constraintEnd_toStartOf="@id/iv_logo"
+            app:layout_constraintEnd_toStartOf="@+id/iv_logo"
             app:layout_constraintStart_toEndOf="@id/iv_foto_mascota"
-            app:layout_constraintTop_toTopOf="@id/iv_foto_mascota" />
-
-        <ImageView
+            app:layout_constraintTop_toTopOf="@id/iv_foto_mascota"
+            style="@style/Nombres"/>
+        <ImageButton
             android:id="@+id/iv_logo"
-            android:layout_width="53dp"
+            android:layout_width="45dp"
             android:layout_height="50dp"
             android:background="@drawable/botones_menu"
             android:scaleType="centerCrop"
@@ -82,41 +81,51 @@
         <ImageButton
             android:id="@+id/btnMascotas"
             android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:layout_height="40dp"
             android:layout_weight="0.20"
-            android:layout_margin="5dp"
+            android:layout_margin="6dp"
+            android:padding="2dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/btn_huella"
             android:background="@drawable/botones_menu"/>
         <ImageButton
             android:id="@+id/btnCita"
             android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:layout_height="40dp"
             android:layout_weight="0.20"
             android:layout_margin="5dp"
-            android:src="@drawable/btn_cita"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_calendar"
             android:background="@drawable/botones_menu" />
         <ImageButton
             android:id="@+id/btnTratamiento"
             android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:layout_height="40dp"
             android:layout_weight="0.20"
             android:layout_margin="5dp"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/btn_tratamiento"
             android:background="@drawable/botones_menu" />
         <ImageButton
             android:id="@+id/btnInforme"
             android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:layout_height="40dp"
             android:layout_weight="0.20"
             android:layout_margin="5dp"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/btn_informes"
             android:background="@drawable/botones_menu" />
         <ImageButton
             android:id="@+id/btnRegresar"
             android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:layout_height="40dp"
             android:layout_weight="0.20"
             android:layout_margin="5dp"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/btn_regresa"
             android:background="@drawable/botones_menu"/>
     </LinearLayout>

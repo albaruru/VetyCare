@@ -7,6 +7,13 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
+// Clase que agrupa la cita con los nombres resueltos
+data class CitaConNombres(
+    val cita: Cita,
+    val nombreMascota: String,
+    val nombreClinica: String
+)
+
 class CitasViewModel : ViewModel() {
 
     private val repository = CitasRepository()
@@ -14,8 +21,8 @@ class CitasViewModel : ViewModel() {
     private val _todasLasCitas = MutableStateFlow<List<Cita>>(emptyList())
     val todasLasCitas: StateFlow<List<Cita>> = _todasLasCitas
 
-    private val _citasDelDia = MutableStateFlow<List<Cita>>(emptyList())
-    val citasDelDia: StateFlow<List<Cita>> = _citasDelDia
+    private val _citasDelDia = MutableStateFlow<List<CitaConNombres>>(emptyList())
+    val citasDelDia: StateFlow<List<CitaConNombres>> = _citasDelDia
 
     init {
         cargarCitas()
@@ -28,8 +35,19 @@ class CitasViewModel : ViewModel() {
     }
 
     fun seleccionarDia(fecha: String) {
-        _citasDelDia.value = _todasLasCitas.value.filter {
-            it.fechaHoraInicio.startsWith(fecha)
+        viewModelScope.launch {
+            val citasFiltradas = _todasLasCitas.value.filter {
+                it.fechaHoraInicio.startsWith(fecha)
+            }
+            // Resuelve los nombres de cada cita
+            val citasConNombres = citasFiltradas.map { cita ->
+                CitaConNombres(
+                    cita = cita,
+                    nombreMascota = repository.getNombreMascota(cita.idMascota),
+                    nombreClinica = repository.getNombreClinica(cita.idClinica)
+                )
+            }
+            _citasDelDia.value = citasConNombres
         }
     }
 }*/

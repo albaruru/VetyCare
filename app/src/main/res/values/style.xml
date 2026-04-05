@@ -53,7 +53,7 @@
     <!-- App Name -->
     <style name="AppName">
         <item name="android:fontFamily">@font/tommy_soft_medium</item>
-        <item name="android:textSize">36sp</item>
+        <item name="android:textSize">50sp</item>
         <item name="android:textColor">@color/Titulo</item>
     </style>
 
