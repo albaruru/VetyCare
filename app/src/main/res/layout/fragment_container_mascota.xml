@@ -24,12 +24,14 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/botones_menu"
-            android:contentDescription="Foto de perfil"
-            android:scaleType="centerCrop"
             android:src="@android:drawable/ic_menu_camera"
+            android:scaleType="centerCrop"
+            android:padding="8dp"
+            android:contentDescription="Foto de perfil"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            />
         <!-- NOMBRE DE LA MASCOTA -->
         <TextView
             android:id="@+id/tv_nombre_mascota"
