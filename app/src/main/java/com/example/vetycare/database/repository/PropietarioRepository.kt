@@ -7,21 +7,21 @@ class PropietarioRepository (private val remotePropietario: PropietarioRemote) {
 
     fun obtenerPropietario (
         authUid: String,
-        onSucces: (Propietario) -> Unit,
-        onError: (String?) -> Unit) {
-
-        remotePropietario.obtenerIdPropietarioPorAuthUid(
+        onSuccess: (Propietario) -> Unit,
+        onError: (String?) -> Unit
+    ) {
+        remotePropietario.obtenerIdPropietarioPorAuthUid (
             authUid = authUid,
             onSuccess = { idPropietario ->
                 if(idPropietario.isNullOrEmpty()) {
                     onError("No se ha encontrado el propietario")
                     return@obtenerIdPropietarioPorAuthUid
                 }
-                remotePropietario.obtenerPropietarioPorId(
+                remotePropietario.obtenerPropietarioPorId (
                     idPropietario = idPropietario,
                     onSuccess = { propietario ->
                         if(propietario != null) {
-                            onSucces(propietario)
+                            onSuccess(propietario)
                         }
                         else {
                             onError("No se pudieron cargar los datos del propietario")
@@ -31,6 +31,34 @@ class PropietarioRepository (private val remotePropietario: PropietarioRemote) {
                 )
             },
             onError = onError
+        )
+    }
+
+    fun crearPropietario (
+        idProp: String,
+        prop: Propietario,
+        success: () -> Unit,
+        error: (String?) -> Unit
+    ) {
+        remotePropietario.crearPropietario(
+            idProp,
+            prop,
+            success,
+            error
+        )
+    }
+
+    fun actualizarPropietario (
+        idProp: String,
+        cambios: Map<String, Any?>,
+        success: () -> Unit,
+        error: (String?) -> Unit
+    ) {
+        remotePropietario.actualizarPropietario(
+            idProp,
+            cambios,
+            success,
+            error
         )
     }
 }
