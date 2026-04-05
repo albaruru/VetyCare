@@ -88,23 +88,25 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="-16dp">
-
         <ImageButton
             android:id="@+id/btnIniMasc"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="0.25"
             android:layout_margin="5dp"
+            android:padding="2dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/btn_huella"
             android:background="@drawable/botones_menu"
             android:textSize="20sp" />
-
         <ImageButton
             android:id="@+id/btnCalendarUsu"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="0.25"
             android:layout_margin="5dp"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/btn_calendar"
             android:background="@drawable/botones_menu"
             android:textSize="20sp" />
@@ -115,6 +117,8 @@
             android:layout_height="40dp"
             android:layout_weight="0.25"
             android:layout_margin="5dp"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/btn_user"
             android:background="@drawable/botones_menu"
             android:textSize="20sp" />
@@ -125,6 +129,8 @@
             android:layout_height="40dp"
             android:layout_weight="0.25"
             android:layout_margin="5dp"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/btn_clinicas"
             android:background="@drawable/botones_menu"
             android:textSize="20sp" />
