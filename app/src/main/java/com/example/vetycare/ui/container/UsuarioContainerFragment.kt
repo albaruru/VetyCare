@@ -41,5 +41,28 @@ class UsuarioContainerFragment : Fragment (R.layout.fragment_container_usuario) 
         botonVetyCare?.setOnClickListener {
             navController.navigate(R.id.UsuarioInicioFragment)
         }
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            // Ponemos los iconos por defecto, para que cada vez que se cambie de fragment, se limpie los iconos.
+            botonPerfilMascotas?.setImageResource(R.drawable.btn_huella)
+            botonCalendario?.setImageResource(R.drawable.btn_calendar)
+            botonPerfilUsuario?.setImageResource(R.drawable.btn_user)
+            botonClinicas?.setImageResource(R.drawable.btn_clinicas)
+
+            // Cambiamos el icono de color según el fragment que se encuentra visible
+            when (destination.id) {
+                R.id.UsuarioMascotaFragment -> {
+                    botonPerfilMascotas?.setImageResource(R.drawable.btn_huella_black)
+                }
+                R.id.UsuarioCalendario -> {
+                    botonCalendario?.setImageResource(R.drawable.btn_calendar_black)
+                }
+                R.id.UsuarioPerfilFragment -> {
+                    botonPerfilUsuario?.setImageResource(R.drawable.btn_user_black)
+                }
+                R.id.UsuarioClinicaFragment -> {
+                    botonClinicas?.setImageResource(R.drawable.btn_clinicas_black)
+                }
+            }
+        }
     }
 }

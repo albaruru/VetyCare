@@ -45,5 +45,29 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
         botonVetyCare?.setOnClickListener {
             NavigatorRoot.Mascota_to_Usuario(this)
         }
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            botonMascota?.setImageResource(R.drawable.btn_huella)
+            botonCita?.setImageResource(R.drawable.btn_calendar)
+            botonTratamiento?.setImageResource(R.drawable.btn_tratamiento)
+            botonInforme?.setImageResource(R.drawable.btn_informes)
+            botonRegresar?.setImageResource(R.drawable.btn_regresa)
+
+            when (destination.id) {
+                R.id.MascotaPerfilFragment -> {
+                    botonMascota?.setImageResource(R.drawable.btn_huella_black)
+                }
+                R.id.MascotaCitaFragment -> {
+                    botonCita?.setImageResource(R.drawable.btn_calendar_black)
+                }
+                R.id.MascotaTratamientoFragment -> {
+                    botonTratamiento?.setImageResource(R.drawable.btn_tratamiento_black)
+                }
+                R.id.MascotaInformeFragment -> {
+                    botonInforme?.setImageResource(R.drawable.btn_informes_black)
+                }
+            }
+        }
+
     }
 }
