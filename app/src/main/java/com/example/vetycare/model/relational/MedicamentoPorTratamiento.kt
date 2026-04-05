@@ -1,6 +1,6 @@
 package com.example.vetycare.model.relational
 
-data class MedicamentoEnTratamiento(
+data class MedicamentoPorTratamiento(
     var idTratamiento: String? = null,    // Es la llave 'trat_001'
     var idMedicamento: String? = null,    // Es la llave 'med_001'
     val dosis: String? = null,
