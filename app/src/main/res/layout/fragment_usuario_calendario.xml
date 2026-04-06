@@ -14,19 +14,19 @@
         <!-- TÍTULO -->
         <TextView
             android:id="@+id/tv_titulo"
-            style="@style/TextTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="CALENDARIO"
+            android:text="@string/usuario_calendario_titulo"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/TextTitulo"/>
 
         <!-- CABECERA MES -->
         <LinearLayout
             android:id="@+id/layoutMes"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
@@ -40,27 +40,31 @@
                 android:id="@+id/btnMesAnterior"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
                 android:src="@drawable/ic_arrow_left"
                 android:background="?attr/selectableItemBackgroundBorderless"/>
-
             <TextView
                 android:id="@+id/tvMesAnio"
-                style="@style/TextSubtitulo"
-                android:layout_width="198dp"
+                android:layout_width="250dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Marzo 2026" />
-
+                android:text="@string/usuario_calendario_mes"
+                style="@style/TextSubtitulo"/>
             <ImageButton
                 android:id="@+id/btnMesSiguiente"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
                 android:src="@drawable/ic_arrow_right"
                 android:background="?attr/selectableItemBackgroundBorderless"/>
         </LinearLayout>
 
         <!-- CALENDARIO -->
+
+        <!-- LEYENDA -->
         <com.kizitonwose.calendar.view.CalendarView
             android:id="@+id/calendarView"
             android:layout_width="0dp"
@@ -69,10 +73,10 @@
             android:layout_marginTop="8dp"
             app:cv_dayViewResource="@layout/reclycler_dia_calendario"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.473"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layoutMes"/>
+            app:layout_constraintTop_toBottomOf="@id/layoutMes" />
 
-        <!-- LEYENDA -->
         <LinearLayout
             android:id="@+id/layoutLeyenda"
             android:layout_width="wrap_content"
@@ -175,7 +179,6 @@
         <!-- TEXTO CITAS -->
         <TextView
             android:id="@+id/tvCitasDia"
-            style="@style/TextSubtitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -183,7 +186,8 @@
             android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/layoutLeyenda"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/TextSubtitulo" />
 
         <!-- RECYCLER -->
         <androidx.recyclerview.widget.RecyclerView
