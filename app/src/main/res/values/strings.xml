@@ -37,7 +37,7 @@
     <!-- fragment_reg_usuario.xml -->
     <string name="reg_usuario_titulo">"REGISTRO DE USUARIO"</string>
     <string name="reg_nombre">"Nombre:"</string>
-    <string name="reg_apellido">"Apellido:"</string>
+    <string name="reg_apellido">"Apellidos:"</string>
     <string name="reg_dni">"NIE/NIF:"</string>
     <string name="reg_fecha">"Fecha de nacimiento:"</string>
     <string name="reg_correo">"Correo:"</string>
