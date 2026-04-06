@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.vetycare.database.remote.PropietarioRemote
+import com.example.vetycare.database.repository.PropietarioRepository
 import com.example.vetycare.databinding.FragmentUsuarioInicioBinding
 import com.example.vetycare.model.entities.Propietario
 import com.example.vetycare.utils.FirebaseUtils
@@ -20,6 +22,7 @@ class UsuarioInicioFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var databaseReference: DatabaseReference
+    private lateinit var propietarioRepository: PropietarioRepository
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -33,6 +36,13 @@ class UsuarioInicioFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val remotePropietario = PropietarioRemote(databaseReference)
+        propietarioRepository = PropietarioRepository(remotePropietario)
+        cargarDatosUsuario()
+    }
+
     /* Este fragment no tiene acciones, únicamente es la pantalla de bienvenida.
     */
     override fun onResume() {
@@ -41,38 +51,23 @@ class UsuarioInicioFragment : Fragment() {
     }
 
     private fun cargarDatosUsuario() {
-        val authUid = auth.currentUser?.uid
-        if (authUid.isNullOrEmpty()) {
+        val auth = auth.currentUser?.uid
+        if (auth.isNullOrEmpty()) {
             mostrarSnackbar("No se ha podido encontrar el autentificador")
             return
         }
 
-        databaseReference.child("propietariosPorAuthUid").child(authUid).get()
-            .addOnSuccessListener { snapshotId ->
-                val idPropietario = snapshotId.getValue(String::class.java)
-                if (idPropietario.isNullOrEmpty()) {
-                    mostrarSnackbar("No se ha encontrado propietario")
-                    return@addOnSuccessListener
+        propietarioRepository.obtenerPropietario(
+            auth,
+            { propietario ->
+                binding.tvNombreUsuario.setText(propietario.nombre + " " + propietario.apellido)
+                if (propietario.sexo.equals("Femenino")) {
+                    binding.tvTitulo.setText("BIENVENIDA")
                 }
-                databaseReference.child("propietarios").child(idPropietario).get()
-                    .addOnSuccessListener { snapshotProp ->
-                        val propietario = snapshotProp.getValue(Propietario::class.java)
-                        if (propietario != null) {
-                            binding.tvNombreUsuario.setText(propietario?.nombre + " " + propietario?.apellido)
-                            if (propietario?.sexo.equals("Femenino")) {
-                                binding.tvTitulo.setText("BIENVENIDA")
-                            }
-                        }
-                        else {
-                            mostrarSnackbar("No se pudieron cargar los datos del propietario")
-                        }
-                    }
-                    .addOnFailureListener {
-                        mostrarSnackbar("ERROR al leer el propietario")
-                    }
+            },
+            { mensajeDeError ->
+                mostrarSnackbar(mensajeDeError?:"ERROR")
             }
-            .addOnFailureListener {
-                mostrarSnackbar("ERROR al buscar el propietario por authUid")
-            }
+        )
     }
 }

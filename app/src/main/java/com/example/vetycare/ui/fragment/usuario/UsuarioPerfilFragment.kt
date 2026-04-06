@@ -2,7 +2,6 @@ package com.example.vetycare.ui.fragment.usuario
 
 import android.content.Context
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,11 +10,8 @@ import com.bumptech.glide.Glide
 import com.example.vetycare.database.remote.PropietarioRemote
 import com.example.vetycare.database.repository.PropietarioRepository
 import com.example.vetycare.databinding.FragmentUsuarioPerfilBinding
-import com.example.vetycare.model.entities.Propietario
 import com.example.vetycare.navigation.NavigatorRoot
-import com.example.vetycare.navigation.NavigatorUsuario
 import com.example.vetycare.ui.dialog.CancelacionDialog
-import com.example.vetycare.ui.dialog.ConfirmacionDialog
 import com.example.vetycare.utils.FirebaseUtils
 import com.example.vetycare.utils.mostrarSnackbar
 import com.google.firebase.auth.FirebaseAuth
@@ -74,7 +70,6 @@ class UsuarioPerfilFragment : Fragment () {
         binding.etCorreo.isEnabled = false
         binding.etTelefono.isEnabled = false
         binding.btnCerrarsesion.setOnClickListener {
-
             mensaje("cerrar_sesion")
         }
     }
@@ -106,8 +101,8 @@ class UsuarioPerfilFragment : Fragment () {
         }
 
         propietarioRepository.obtenerPropietario(
-            authUid = auth,
-            onSucces = { propietario ->
+            auth,
+            { propietario ->
                 binding.etNombre.setText(propietario.nombre)
                 binding.etApellido.setText(propietario.apellido)
                 binding.etSexo.setText(propietario.sexo)
@@ -120,8 +115,8 @@ class UsuarioPerfilFragment : Fragment () {
                     .load(propietario.urlFotoProp)
                     .into(binding.ivFoto)
             },
-            onError = { mensaje ->
-                mostrarSnackbar(mensaje?:"ERROR")
+            { mensajeDeError ->
+                mostrarSnackbar(mensajeDeError?:"ERROR")
             }
         )
     }

@@ -7,30 +7,30 @@ class PropietarioRepository (private val remotePropietario: PropietarioRemote) {
 
     fun obtenerPropietario (
         authUid: String,
-        onSuccess: (Propietario) -> Unit,
-        onError: (String?) -> Unit
+        Success: (Propietario) -> Unit,
+        Error: (String?) -> Unit
     ) {
         remotePropietario.obtenerIdPropietarioPorAuthUid (
             authUid = authUid,
-            onSuccess = { idPropietario ->
-                if(idPropietario.isNullOrEmpty()) {
-                    onError("No se ha encontrado el propietario")
+            { idProp ->
+                if(idProp.isNullOrEmpty()) {
+                    Error("No se ha encontrado el propietario")
                     return@obtenerIdPropietarioPorAuthUid
                 }
                 remotePropietario.obtenerPropietarioPorId (
-                    idPropietario = idPropietario,
-                    onSuccess = { propietario ->
+                    idProp,
+                    { propietario ->
                         if(propietario != null) {
-                            onSuccess(propietario)
+                            Success(propietario)
                         }
                         else {
-                            onError("No se pudieron cargar los datos del propietario")
+                            Error("No se pudieron cargar los datos del propietario")
                         }
                     },
-                    onError = onError
+                    Error
                 )
             },
-            onError = onError
+            Error
         )
     }
 

@@ -13,7 +13,7 @@ class PropietarioRemote (private val databaseReference : DatabaseReference) {
         onSuccess: (String?) -> Unit,
         onError: (String?) -> Unit
         ) {
-        databaseReference.child("propietariosPorAuthId").child(authUid).get()
+        databaseReference.child("propietariosPorAuthUid").child(authUid).get()
             .addOnSuccessListener { snapshot ->
                 val idPropietario = snapshot.getValue(String::class.java)
                 onSuccess(idPropietario)
