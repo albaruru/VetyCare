@@ -70,7 +70,7 @@
     </string-array>
 
     <!-- fragmen_usuario_mascota.xml / recycler_mascota.xml -->
-    <string name="usuario_mascota">PERFIL MASCOTAS</string>
+    <string name="usuario_mascota">TUS MASCOTAS</string>
     <string name="item_mascota">"Añadir nueva mascota"</string>
 
 
