@@ -9,8 +9,20 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:padding="24dp">
+
+        <!-- TÍTULO -->
+        <TextView
+            android:id="@+id/tv_titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/mascota_perfil"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/TextTitulo"/>
 
         <!-- FOTO DE LA MASCOTA -->
         <ImageView
@@ -20,11 +32,11 @@
             android:background="@drawable/background_cuadro_texto"
             android:contentDescription="Foto del animal"
             android:padding="8dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:src="@android:drawable/ic_menu_camera"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_titulo" />
 
         <!-- TEXTO - Nombre -->
         <TextView
@@ -32,6 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:layout_marginStart="15dp"
             android:text="@string/reg_nombre"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_foto_animal"
@@ -58,6 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/reg_microchip"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_nombre_animal"
@@ -84,6 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/reg_especie"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_microchip"
@@ -110,6 +125,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/reg_raza"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_especie"
@@ -136,6 +152,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/reg_fecha"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_raza"
@@ -162,6 +179,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/reg_sexo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_fecha_animal"
@@ -171,6 +189,7 @@
             android:layout_width="0dp"
             android:layout_height="46dp"
             android:layout_marginTop="8dp"
+            android:padding="12dp"
             android:background="@drawable/background_cuadro_texto"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -184,6 +203,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/reg_peso"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sp_sexo"
@@ -210,6 +230,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
             android:text="@string/reg_castracion"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_peso"
@@ -230,7 +251,7 @@
         <!-- BOTÓN - Volver -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_volver"
-            android:layout_width="0dp"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="20dp"
@@ -242,12 +263,12 @@
             app:layout_constraintEnd_toStartOf="@+id/guia_central_animal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_castracion"
-            style="@style/TextSubtitulo"/>
+            style="@style/TextBotones"/>
 
         <!-- BOTÓN - Eliminar  -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_Eliminar"
-            android:layout_width="0dp"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="20dp"
@@ -259,7 +280,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guia_central_animal"
             app:layout_constraintTop_toBottomOf="@+id/et_castracion"
-            style="@style/TextSubtitulo"/>
+            style="@style/TextBotones"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guia_central_animal"

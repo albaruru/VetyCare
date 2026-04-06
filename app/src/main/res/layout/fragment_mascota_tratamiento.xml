@@ -24,85 +24,17 @@
             app:layout_constraintTop_toTopOf="parent"
             style="@style/TextTitulo"/>
 
-        <!-- CABECERA DE LA TABLA -->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_cabecera"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/background_tabla_cabecera"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_titulo">
-
-            <!-- TEXTO - Cabecera fecha inicio -->
-            <TextView
-                android:id="@+id/tv_cab_inicio"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="8dp"
-                android:text="@string/tratamiento_fecha_inicio"
-                app:layout_constraintEnd_toStartOf="@id/guia1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                style="@style/TextBaseNegrita" />
-
-            <!-- TEXTO - Cabecera fecha fin -->
-            <TextView
-                android:id="@+id/tv_cab_fin"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="8dp"
-                android:text="@string/tratamiento_fecha_fin"
-                app:layout_constraintEnd_toStartOf="@id/guia2"
-                app:layout_constraintStart_toEndOf="@id/guia1"
-                app:layout_constraintTop_toTopOf="parent"
-                style="@style/TextBaseNegrita" />
-
-            <!-- TEXTO - Cabecera tratamiento -->
-            <TextView
-                android:id="@+id/tv_cab_tratamiento"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="8dp"
-                android:text="@string/tratamiento_nombre"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/guia2"
-                app:layout_constraintTop_toTopOf="parent"
-                style="@style/TextBaseNegrita" />
-
-            <!-- GUÍAS - Dividen la cabecera en 3 columnas iguales -->
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guia1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.33" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guia2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.66" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
         <!-- LISTA - Filas de tratamientos -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_tratamientos"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
             android:nestedScrollingEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cl_cabecera" />
-
+            app:layout_constraintTop_toBottomOf="@id/tv_titulo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

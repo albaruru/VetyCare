@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.vetycare.database.remote.PropietarioRemote
+import com.example.vetycare.database.repository.PropietarioRepository
 import com.example.vetycare.databinding.FragmentUsuarioPerfilBinding
 import com.example.vetycare.model.entities.Propietario
 import com.example.vetycare.navigation.NavigatorRoot
@@ -25,6 +27,7 @@ class UsuarioPerfilFragment : Fragment () {
     private lateinit var auth: FirebaseAuth
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var databaseReference: DatabaseReference
+    private lateinit var propietarioRepository: PropietarioRepository
     private val keyCancelacion = "cancelacion_registro" // Clave propia de la clase para CancelacionDialog
 
     override fun onAttach(context: Context) {
@@ -51,6 +54,8 @@ class UsuarioPerfilFragment : Fragment () {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val remotePropietario = PropietarioRemote(databaseReference)
+        propietarioRepository = PropietarioRepository(remotePropietario)
         cargarDatosUsuario()
     }
 
@@ -93,44 +98,31 @@ class UsuarioPerfilFragment : Fragment () {
     }
 
     private fun cargarDatosUsuario() {
-        val authUid = auth.currentUser?.uid
-        if (authUid.isNullOrEmpty()) {
-            mostrarSnackbar("No se ha podido encontrar el autentificador")
+        val auth = auth.currentUser?.uid
+
+        if (auth.isNullOrEmpty()) {
+            mostrarSnackbar("No se ha podido encontrar su identificador")
             return
         }
 
-        databaseReference.child("propietariosPorAuthUid").child(authUid).get()
-            .addOnSuccessListener { snapshotId ->
-                val idPropietario = snapshotId.getValue(String::class.java)
-                if (idPropietario.isNullOrEmpty()) {
-                    mostrarSnackbar("No se ha encontrado propietario")
-                    return@addOnSuccessListener
-                }
-                databaseReference.child("propietarios").child(idPropietario).get()
-                    .addOnSuccessListener { snapshotProp ->
-                        val propietario = snapshotProp.getValue(Propietario::class.java)
-                        if (idPropietario != null) {
-                            binding.etNombre.setText(propietario?.nombre)
-                            binding.etApellido.setText(propietario?.apellido)
-                            binding.etSexo.setText(propietario?.sexo)
-                            binding.etDni.setText(propietario?.dni)
-                            binding.etFecha.setText(propietario?.fechaNacimiento)
-                            binding.etCorreo.setText(propietario?.email)
-                            binding.etTelefono.setText(propietario?.telefono.toString())
-                            Glide.with(this)
-                                .load(propietario?.urlFotoProp)
-                                .into(binding.ivFoto)
-                        }
-                        else {
-                            mostrarSnackbar("No se pudieron cargar los datos del propietario")
-                        }
-                    }
-                    .addOnFailureListener {
-                        mostrarSnackbar("ERROR al leer el propietario")
-                    }
+        propietarioRepository.obtenerPropietario(
+            authUid = auth,
+            onSucces = { propietario ->
+                binding.etNombre.setText(propietario.nombre)
+                binding.etApellido.setText(propietario.apellido)
+                binding.etSexo.setText(propietario.sexo)
+                binding.etDni.setText(propietario.dni)
+                binding.etFecha.setText(propietario.fechaNacimiento)
+                binding.etCorreo.setText(propietario.email)
+                binding.etTelefono.setText(propietario.telefono.toString())
+
+                Glide.with(this)
+                    .load(propietario.urlFotoProp)
+                    .into(binding.ivFoto)
+            },
+            onError = { mensaje ->
+                mostrarSnackbar(mensaje?:"ERROR")
             }
-            .addOnFailureListener {
-                mostrarSnackbar("ERROR al buscar el propietario por authUid")
-            }
+        )
     }
 }
