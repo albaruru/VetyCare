@@ -17,8 +17,8 @@
 
     <!-- fragment_inicio.xml  -->
     <string name="inicio_titulo">INICIO</string>
-    <string name="inicio_correo">Correo:</string>
-    <string name="inicio_contraseña">Contraseña:</string>
+    <string name="inicio_correo">Correo</string>
+    <string name="inicio_contraseña">Contraseña</string>
     <string name="inicio_recordar">Recordar usuario</string>
     <string name="inicio_cuenta">"¿Aún no tienes cuenta con nosotros?"</string>
     <string name="inicio_registrate">"Regístrate"</string>
@@ -31,6 +31,7 @@
     <!--  fragment_rec_pass.xml  -->
     <string name="rc_pass_titulo">RECUPERAR CONTRASEÑA</string>
     <string name="rc_pass_correo">Introduzca el correo:</string>
+    <string name="rc_pass_correoEjem">ejemplo@correo.com</string>
     <string name="rc_pass_info">Te enviaremos un correo con las instrucciones para restablecer tu contraseña.</string>
 
     <!-- fragment_reg_usuario.xml -->
@@ -74,6 +75,8 @@
 
 
     <!-- fragment_usuario_calendario.xml  -->
+    <string name="usuario_calendario_titulo">CALENDARIO</string>
+    <string name="usuario_calendario_mes">MES</string>
     <string name="usuario_calendario_btnCita">Pedir cita</string>
     <string name="usuario_calendario_btnSemanal">Semanal</string>
     <string name="usuario_calendario_Vacunación">Vacunación</string>

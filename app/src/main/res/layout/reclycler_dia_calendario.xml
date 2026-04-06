@@ -7,13 +7,16 @@
     android:gravity="center"
     android:padding="4dp">
 
+    <!-- Número del día con fondo circular cuando está seleccionado -->
     <TextView
         android:id="@+id/tvDia"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:gravity="center"
+        android:background="@drawable/background_dia_calendario"
         style="@style/TextBase"/>
 
+    <!-- Indicadores de color debajo del número -->
     <LinearLayout
         android:id="@+id/layoutIndicadores"
         android:layout_width="wrap_content"
