@@ -56,9 +56,10 @@
         <item name="android:textSize">50sp</item>
         <item name="android:textColor">@color/Titulo</item>
     </style>
+
+    <!-- Imagen redondeada -->
     <style name="ShapeCircle">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">12dp</item>
     </style>
-
 </resources>
