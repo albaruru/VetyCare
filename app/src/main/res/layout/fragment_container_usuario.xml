@@ -24,7 +24,6 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:contentDescription="Foto de perfil"
-            android:padding="10dp"
             android:scaleType="centerCrop"
             android:src="@android:drawable/ic_menu_camera"
             app:layout_constraintBottom_toBottomOf="parent"

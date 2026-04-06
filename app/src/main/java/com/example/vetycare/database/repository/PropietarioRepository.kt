@@ -7,7 +7,7 @@ class PropietarioRepository (private val remotePropietario: PropietarioRemote) {
 
     fun obtenerPropietario (
         authUid: String,
-        Success: (Propietario) -> Unit,
+        Success: (String, Propietario) -> Unit,
         Error: (String?) -> Unit
     ) {
         remotePropietario.obtenerIdPropietarioPorAuthUid (
@@ -21,7 +21,7 @@ class PropietarioRepository (private val remotePropietario: PropietarioRemote) {
                     idProp,
                     { propietario ->
                         if(propietario != null) {
-                            Success(propietario)
+                            Success(idProp,propietario)
                         }
                         else {
                             Error("No se pudieron cargar los datos del propietario")

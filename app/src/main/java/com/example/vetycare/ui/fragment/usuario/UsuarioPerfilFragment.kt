@@ -38,6 +38,9 @@ class UsuarioPerfilFragment : Fragment () {
         parentFragmentManager.setFragmentResultListener(keyCancelacion,this) { _, bundle ->
             val cancelado = bundle.getBoolean(CancelacionDialog.KEY_CANCELADO)
             if (cancelado) {
+                // Cerramos la sesión del usuario
+                auth.signOut()
+                // Navegamos al fragment de inicio
                 navegacionFragment(1)
             }
         }
@@ -102,7 +105,7 @@ class UsuarioPerfilFragment : Fragment () {
 
         propietarioRepository.obtenerPropietario(
             auth,
-            { propietario ->
+            { id, propietario ->
                 binding.etNombre.setText(propietario.nombre)
                 binding.etApellido.setText(propietario.apellido)
                 binding.etSexo.setText(propietario.sexo)

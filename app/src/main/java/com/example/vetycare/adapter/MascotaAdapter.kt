@@ -49,4 +49,10 @@ class MascotaAdapter(
     override fun getItemCount(): Int{
         return lista.size
     }
+
+    fun actualizarLista(nuevaLista: List<Mascota>) {
+        lista.clear()
+        lista.addAll(nuevaLista)
+        notifyDataSetChanged()
+    }
 }

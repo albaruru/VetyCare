@@ -8,18 +8,35 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vetycare.adapter.MascotaAdapter
+import com.example.vetycare.database.remote.MascotaRemote
+import com.example.vetycare.database.remote.PropietarioRemote
+import com.example.vetycare.database.repository.MascotaRepository
+import com.example.vetycare.database.repository.PropietarioRepository
 import com.example.vetycare.databinding.FragmentUsuarioMascotaBinding
 import com.example.vetycare.model.entities.Mascota
 import com.example.vetycare.navigation.NavigatorRoot
 import com.example.vetycare.navigation.NavigatorUsuario
+import com.example.vetycare.utils.FirebaseUtils
+import com.example.vetycare.utils.mostrarSnackbar
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class UsuarioMascotaFragment: Fragment(), MascotaAdapter.OnMascotaListener {
     private lateinit var binding : FragmentUsuarioMascotaBinding
     private lateinit var adapterMascota: MascotaAdapter
     private lateinit var listaMascotas: ArrayList<Mascota>
+    private lateinit var auth: FirebaseAuth
+    private lateinit var firebaseDatabase: FirebaseDatabase
+    private lateinit var databaseReference: DatabaseReference
+    private lateinit var propietarioRepository: PropietarioRepository
+    private lateinit var mascotaRepository: MascotaRepository
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        auth = FirebaseAuth.getInstance()
+        firebaseDatabase = FirebaseDatabase.getInstance(FirebaseUtils.URL_RTDB)
+        databaseReference = firebaseDatabase.reference
     }
 
     override fun onCreateView(
@@ -33,13 +50,17 @@ class UsuarioMascotaFragment: Fragment(), MascotaAdapter.OnMascotaListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val remotePropietario = PropietarioRemote(databaseReference)
+        propietarioRepository = PropietarioRepository(remotePropietario)
+
+        val remoteMascota = MascotaRemote(databaseReference)
+        mascotaRepository = MascotaRepository(remoteMascota)
 
         instancias()
-        // Llenamos la lista con datos de prueba
-        crearMascotasDePrueba()
-
         // Configuramos el RecyclerView
         configurarRecycler()
+        // Llenamos la lista con las mascotas del propietario
+        cargarMascotasUsuario()
     }
 
     private fun instancias() {
@@ -54,6 +75,35 @@ class UsuarioMascotaFragment: Fragment(), MascotaAdapter.OnMascotaListener {
         binding.recyclerMascotas.adapter = adapterMascota
     }
 
+    private fun cargarMascotasUsuario() {
+        val auth = auth.currentUser?.uid
+
+        if (auth.isNullOrEmpty()) {
+            mostrarSnackbar("No se ha podido encontrar su identificador")
+            return
+        }
+
+        /* Obtenemos el id del usuario para buscar sus mascotas:...
+        */
+        propietarioRepository.obtenerPropietario(
+            auth,
+            { id, propietario ->
+                mascotaRepository.obtenerMascotasPorPropietario(
+                    id,
+                    { listaResultado ->
+                        adapterMascota.actualizarLista(listaResultado.map{it.second})
+                    },
+                    { mensajeDeError ->
+                        mostrarSnackbar(mensajeDeError ?: "ERROR al cargar mascotas")
+                    }
+                )
+            },
+            { mensajeDeError ->
+                mostrarSnackbar(mensajeDeError?: "ERROR")
+            }
+        )
+    }
+    /* FIXME: RECYCLER QUE VIENE DE BACKEND
     private fun crearMascotasDePrueba() {
         listaMascotas.clear()
 
@@ -99,7 +149,7 @@ class UsuarioMascotaFragment: Fragment(), MascotaAdapter.OnMascotaListener {
 
         // Notificamos al adaptador para que pinte los datos de prueba
         adapterMascota.notifyDataSetChanged()
-    }
+    }*/
 
     override fun onMascotaClick(mascota: Mascota){
         // Pasamos la mascota seleccionada a la navegación para ver su perfil

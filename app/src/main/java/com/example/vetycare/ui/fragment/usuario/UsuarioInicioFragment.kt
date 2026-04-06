@@ -59,7 +59,7 @@ class UsuarioInicioFragment : Fragment() {
 
         propietarioRepository.obtenerPropietario(
             auth,
-            { propietario ->
+            { id, propietario ->
                 binding.tvNombreUsuario.setText(propietario.nombre + " " + propietario.apellido)
                 if (propietario.sexo.equals("Femenino")) {
                     binding.tvTitulo.setText("BIENVENIDA")
