@@ -9,7 +9,7 @@ class ClinicaRemote(private val databaseReference: DatabaseReference) {
         idClinica: String,
         onSuccess: (Clinica?) -> Unit,
         onError: (String?) -> Unit
-    ) {
+        ) {
         databaseReference.child("clinicas").child(idClinica).get()
             .addOnSuccessListener { snapshot ->
                 val clinica = snapshot.getValue(Clinica::class.java)
@@ -27,7 +27,7 @@ class ClinicaRemote(private val databaseReference: DatabaseReference) {
         claveComunidad: String,
         onSuccess: (List<String>) -> Unit,
         onError: (String?) -> Unit
-    ) {
+        ) {
         databaseReference.child("clinicasPorComunidadAutonoma").child(claveComunidad).get()
             .addOnSuccessListener { snapshot ->
                 val listaIds = mutableListOf<String>()
@@ -38,7 +38,6 @@ class ClinicaRemote(private val databaseReference: DatabaseReference) {
                         child.key?.let { listaIds.add(it) }
                     }
                 }
-
                 onSuccess(listaIds)
             }
             .addOnFailureListener {

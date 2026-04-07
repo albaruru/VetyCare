@@ -41,6 +41,10 @@ class ClinicaAdapter(
             .load(item.url) // No carga nada porque no tenemos foto de clinica
             .placeholder(R.mipmap.logo_vetycare) // Por defecto carga el logo de vetycare
             .into(holder.binding.ivLogoClinica)
+
+        holder.itemView.setOnClickListener {
+            listener.onClinicaClick(item)
+        }
     }
 
     override fun getItemCount(): Int {
