@@ -19,15 +19,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
         <!-- FOTO DE LA MASCOTA -->
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_foto_mascota"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/botones_menu"
-            android:src="@android:drawable/ic_menu_camera"
+            android:background="@drawable/background_cuadro_texto"
+            android:padding="2dp"
             android:scaleType="centerCrop"
-            android:padding="8dp"
-            android:contentDescription="Foto de perfil"
+            android:src="@android:drawable/ic_menu_camera"
+            app:shapeAppearanceOverlay="@style/ShapeCircle"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

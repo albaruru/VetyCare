@@ -8,21 +8,39 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.vetycare.R
+import com.example.vetycare.database.remote.MascotaRemote
+import com.example.vetycare.database.remote.PropietarioRemote
+import com.example.vetycare.database.repository.MascotaRepository
+import com.example.vetycare.database.repository.PropietarioRepository
 import com.example.vetycare.databinding.FragmentInicioRegistroBinding
 import com.example.vetycare.navigation.NavigatorInicio
 import com.example.vetycare.ui.dialog.CancelacionDialog
 import com.example.vetycare.ui.dialog.ConfirmacionDialog
+import com.example.vetycare.utils.FirebaseUtils
 import com.example.vetycare.utils.mostrarSnackbar
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class InicioRegistroFragment : Fragment() {
     private lateinit var binding : FragmentInicioRegistroBinding
-
+    private lateinit var auth: FirebaseAuth
+    private lateinit var firebaseDatabase: FirebaseDatabase
+    private lateinit var databaseReference: DatabaseReference
+    private lateinit var propietarioRepository: PropietarioRepository
+    private lateinit var mascotaRepository: MascotaRepository
     private val keyConfirmacion = "confirmacion_registro" // Clave propia de la clase para ConfirmacionDialog
     private val keyCancelacion = "cancelacion_registro" // Clave propia de la clase para CancelacionDialog
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        auth = FirebaseAuth.getInstance()
+        firebaseDatabase = FirebaseDatabase.getInstance(FirebaseUtils.URL_RTDB)
+        databaseReference = firebaseDatabase.reference
+
+        val remotePropietario = PropietarioRemote(databaseReference)
+        propietarioRepository = PropietarioRepository(remotePropietario)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -146,4 +164,6 @@ class InicioRegistroFragment : Fragment() {
         }
         return true
     }
+
+
 }

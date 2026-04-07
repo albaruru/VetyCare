@@ -2,6 +2,7 @@ package com.example.vetycare.database.repository
 
 import com.example.vetycare.database.remote.MascotaRemote
 import com.example.vetycare.model.entities.Mascota
+import com.google.firebase.database.DatabaseReference
 
 class MascotaRepository (private val remoteMascota: MascotaRemote) {
 
@@ -91,5 +92,12 @@ class MascotaRepository (private val remoteMascota: MascotaRemote) {
             Success,
             Error
         )
+    }
+
+    fun generarIdMascota(
+        onSuccess: (String) -> Unit,
+        onError: (String) -> Unit
+        ) {
+        remoteMascota.generarIdMascota(onSuccess, onError)
     }
 }

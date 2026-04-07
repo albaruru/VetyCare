@@ -73,4 +73,35 @@ class MascotaRemote (private val databaseReference: DatabaseReference) {
             .addOnSuccessListener { onSuccess() }
             .addOnFailureListener { onError("EEROR al actualizar la mascota") }
     }
+
+    fun generarIdMascota(
+        onSuccess: (String) -> Unit,
+        onError: (String) -> Unit
+    ) {
+        databaseReference.child("mascotas").get()
+            .addOnSuccessListener { snapshot ->
+
+                var maxNumero = 0
+
+                for (child in snapshot.children) {
+                    val id = child.key ?: continue
+
+                    val partes = id.split("_")
+                    if (partes.size == 2) {
+                        val numero = partes[1].toIntOrNull()
+                        if (numero != null && numero > maxNumero) {
+                            maxNumero = numero
+                        }
+                    }
+                }
+
+                val nuevoNumero = maxNumero + 1
+                val nuevoId = "masc_" + String.format("%03d", nuevoNumero)
+
+                onSuccess(nuevoId)
+            }
+            .addOnFailureListener {
+                onError("ERROR al generar ID de mascota")
+            }
+    }
 }
