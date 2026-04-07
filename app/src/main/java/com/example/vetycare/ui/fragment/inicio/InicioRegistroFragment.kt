@@ -13,6 +13,7 @@ import com.example.vetycare.database.remote.PropietarioRemote
 import com.example.vetycare.database.repository.MascotaRepository
 import com.example.vetycare.database.repository.PropietarioRepository
 import com.example.vetycare.databinding.FragmentInicioRegistroBinding
+import com.example.vetycare.model.entities.Propietario
 import com.example.vetycare.navigation.NavigatorInicio
 import com.example.vetycare.ui.dialog.CancelacionDialog
 import com.example.vetycare.ui.dialog.ConfirmacionDialog
@@ -54,7 +55,8 @@ class InicioRegistroFragment : Fragment() {
         parentFragmentManager.setFragmentResultListener(keyConfirmacion,this) { _, bundle ->
             val confirmado = bundle.getBoolean(ConfirmacionDialog.KEY_CONFIRMADO)
             if (confirmado) {
-                navegacionFragment(1)
+                registrarUsuario()
+                // FIXME: BORRAR => navegacionFragment(1)
             }
         }
         /* DIALOG CANCELACION: Explicacion...
@@ -144,26 +146,106 @@ class InicioRegistroFragment : Fragment() {
     fun comprobarCampos(): Boolean{
         val nombre = binding.etNombre.text.toString().trim()
         val apellido = binding.etApellido.text.toString().trim()
+        val sexo = binding.spSexo.selectedItem.toString().trim()
         val dni = binding.etDni.text.toString().trim()
         val fecha = binding.etFecha.text.toString().trim()
         val correo = binding.etCorreo.text.toString().trim()
         val telefono = binding.etTelefono.text.toString().trim()
         val pass = binding.etPass.text.toString().trim()
 
-        // Verificar que no haya campos vacíos
         if (nombre.isEmpty() || apellido.isEmpty() || dni.isEmpty() ||
             fecha.isEmpty() || correo.isEmpty() || telefono.isEmpty() || pass.isEmpty()) {
             mostrarSnackbar("Por favor, rellena todos los campos")
             return false
         }
-
-        // Verificar que el teléfono tenga 9 dígitos
-        if(telefono.length != 9){
+        if (sexo.equals("Selecciona una opción", ignoreCase = true)) {
+            mostrarSnackbar("Selecciona el sexo")
+            return false
+        }
+        if (telefono.length != 9) {
             mostrarSnackbar("El teléfono debe tener 9 dígitos")
             return false
         }
+        if (telefono.toLongOrNull() == null) {
+            mostrarSnackbar("El teléfono solo debe contener números")
+            return false
+        }
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
+            mostrarSnackbar("Introduce un correo válido")
+            return false
+        }
+        if (pass.length < 6) {
+            mostrarSnackbar("La contraseña debe tener al menos 6 caracteres")
+            return false
+        }
+
         return true
     }
 
+    private fun registrarUsuario () {
+        val nombre = binding.etNombre.text.toString().trim()
+        val apellido = binding.etApellido.text.toString()
+        val sexo = binding.spSexo.selectedItem.toString().trim()
+        val dni = binding.etDni.text.toString().trim()
+        val fechaNacimiento = binding.etFecha.text.toString().trim()
+        val correo = binding.etCorreo.text.toString().trim()
+        val telefonoTexto = binding.etTelefono.text.toString().trim()
+        val pass = binding.etPass.text.toString().trim()
+
+        val telefono = telefonoTexto.toLongOrNull()
+        if (telefono == null) {
+            mostrarSnackbar("El teléfono debe ser numérico.")
+            return
+        }
+
+        auth.createUserWithEmailAndPassword(correo, pass)
+            .addOnSuccessListener { authResult ->
+                val auth = authResult.user?.uid
+                if (auth.isNullOrEmpty()) {
+                    mostrarSnackbar("No se ha podido obtener el UID del usuario")
+                    return@addOnSuccessListener
+                }
+                propietarioRepository.generarIdPropietario(
+                    { idProp ->
+                        val propietarioNuevo = Propietario(
+                            id = idProp,
+                            activa = true,
+                            apellido = apellido,
+                            authUid = auth,
+                            dni = dni,
+                            email = correo,
+                            fechaRegistro = obtenerFechaActual(),
+                            fechaNacimiento = fechaNacimiento,
+                            nombre = nombre,
+                            telefono = telefono,
+                            sexo = sexo,
+                            urlFotoProp = ""
+                        )
+                        propietarioRepository.crearPropietario(
+                            idProp,
+                            propietarioNuevo,
+                            {
+                                mostrarSnackbar("Usuario registrado correctamente")
+                                navegacionFragment(1)
+                            },
+                            { mensajeDeError ->
+                                mostrarSnackbar(mensajeDeError ?: "ERROR al guardar el propietario en la base de datos")
+                            }
+                        )
+                    },
+                    { mensajeDeError ->
+                        mostrarSnackbar(mensajeDeError ?: "ERROR")
+                    }
+                )
+            }
+            .addOnFailureListener { exception ->
+                mostrarSnackbar(exception.message ?: "ERROR al crear el usuaruo en Firebase Auth")
+            }
+    }
+
+    private fun obtenerFechaActual() : String {
+        val formato = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault())
+        return formato.format(java.util.Date())
+    }
 
 }

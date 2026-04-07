@@ -156,7 +156,7 @@ class UsuarioRegMascotaFragment : Fragment() {
                 val raza = binding.etRaza.text.toString().trim()
                 val fechaNacimiento = binding.etFechaAnimal.text.toString().trim()
                 val pesoTexto = binding.etPeso.text.toString().trim()
-                val sexo = binding.spSexo.isSelected.toString()
+                val sexo = binding.spSexo.selectedItem.toString()
 
                 val castracionTexto = binding.spCastracion.toString()
                 val castracion = false

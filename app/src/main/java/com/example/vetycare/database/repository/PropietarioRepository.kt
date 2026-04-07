@@ -9,7 +9,7 @@ class PropietarioRepository (private val remotePropietario: PropietarioRemote) {
         authUid: String,
         Success: (String, Propietario) -> Unit,
         Error: (String?) -> Unit
-    ) {
+        ) {
         remotePropietario.obtenerIdPropietarioPorAuthUid (
             authUid = authUid,
             { idProp ->
@@ -39,7 +39,7 @@ class PropietarioRepository (private val remotePropietario: PropietarioRemote) {
         prop: Propietario,
         success: () -> Unit,
         error: (String?) -> Unit
-    ) {
+        ) {
         remotePropietario.crearPropietario(
             idProp,
             prop,
@@ -53,12 +53,19 @@ class PropietarioRepository (private val remotePropietario: PropietarioRemote) {
         cambios: Map<String, Any?>,
         success: () -> Unit,
         error: (String?) -> Unit
-    ) {
+        ) {
         remotePropietario.actualizarPropietario(
             idProp,
             cambios,
             success,
             error
         )
+    }
+
+    fun generarIdPropietario(
+        success: (String) -> Unit,
+        error: (String) -> Unit
+        ) {
+        remotePropietario.generarIdPropietario(success, error)
     }
 }

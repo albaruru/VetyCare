@@ -76,4 +76,38 @@ class PropietarioRemote (private val databaseReference : DatabaseReference) {
             .addOnSuccessListener { onSuccess() }
             .addOnFailureListener { onError("ERROR al utilizar el propietario") }
     }
+
+    /* METODO PARA GENERAR EL SIGUIENTE ID DEL PROPIETARIO:
+    RAMA => propietarios
+    */
+    fun generarIdPropietario(
+        onSuccess: (String) -> Unit,
+        onError: (String) -> Unit
+    ) {
+        databaseReference.child("propietarios").get()
+            .addOnSuccessListener { snapshot ->
+
+                var maxNumero = 0
+
+                for (child in snapshot.children) {
+                    val id = child.key ?: continue
+
+                    val partes = id.split("_")
+                    if (partes.size == 2) {
+                        val numero = partes[1].toIntOrNull()
+                        if (numero != null && numero > maxNumero) {
+                            maxNumero = numero
+                        }
+                    }
+                }
+
+                val nuevoNumero = maxNumero + 1
+                val nuevoId = "prop_" + String.format("%03d", nuevoNumero)
+
+                onSuccess(nuevoId)
+            }
+            .addOnFailureListener {
+                onError("ERROR al generar ID del propietario")
+            }
+    }
 }
