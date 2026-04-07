@@ -1,5 +1,7 @@
 package com.example.vetycare.model.entities
 
+import java.io.Serializable
+
 data class Propietario(
     var id: String? = null, // Se usa con 'var' para poder asignarlo al leer
     val activa: Boolean? = null,
@@ -12,7 +14,7 @@ data class Propietario(
     val nombre: String? = null,
     val telefono: Long? = null,
     val urlFotoProp: String? = null
-) {
+): Serializable {
     constructor() : this(
         "",
         false,

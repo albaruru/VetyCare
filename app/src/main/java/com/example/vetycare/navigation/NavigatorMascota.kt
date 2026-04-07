@@ -1,8 +1,11 @@
 package com.example.vetycare.navigation
 
+import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.vetycare.R
+import com.example.vetycare.model.entities.Diagnostico
 
 object NavigatorMascota {
 
@@ -20,8 +23,15 @@ object NavigatorMascota {
     fun MascotaInformeInfo_to_MascotaInforme(fragment: Fragment) {
         fragment.findNavController().navigate(R.id.action_MascotaInformeInfoFragment_to_MascotaInformeFragment)
     }
-    fun MascotaInforme_to_MascotaInformeInfo(fragment: Fragment) {
-        fragment.findNavController().navigate(R.id.action_MascotaInformeFragment_to_MascotaInformeInfoFragment)
+    fun MascotaInforme_to_MascotaInformeInfo(fragment: Fragment, informe: Diagnostico? = null) {
+        val bundle = Bundle()
+        if (informe != null) {
+            bundle.putSerializable("informe_key", informe)
+        }
+
+        fragment.findNavController().navigate(
+            R.id.action_MascotaInformeFragment_to_MascotaInformeInfoFragment, bundle
+        )
     }
 
     /* --- NAVEGACIÓN DE TRATAMIENTOS --- */

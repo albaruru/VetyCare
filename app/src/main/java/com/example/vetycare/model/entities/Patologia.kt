@@ -1,5 +1,7 @@
 package com.example.vetycare.model.entities
 
+import java.io.Serializable
+
 data class Patologia(
     var id: String? = null, // Se usa con 'var' para poder asignarlo al leer
     val activa: Boolean? = null,
@@ -10,7 +12,7 @@ data class Patologia(
     val esZoonotica: Boolean? = null,
     val nivelGravedad: Int? = null,
     val nombre: String? = null,
-) {
+) : Serializable {
     constructor() : this(
         "",
         false,

@@ -1,5 +1,7 @@
 package com.example.vetycare.model.entities
 
+import java.io.Serializable
+
 data class Cita(
     var id: String? = null,
     val estadoCita: String? = null,
@@ -16,7 +18,7 @@ data class Cita(
     val clinica: Clinica? = Clinica(),
     val mascota: Mascota? = Mascota(),
     val veterinario: Veterinario? = Veterinario()
-) {
+) : Serializable {
     constructor() : this(
         "",
         "",

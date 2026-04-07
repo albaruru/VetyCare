@@ -1,5 +1,7 @@
 package com.example.vetycare.model.relational
 
+import java.io.Serializable
+
 data class MedicamentoPorTratamiento(
     var idTratamiento: String? = null,    // Es la llave 'trat_001'
     var idMedicamento: String? = null,    // Es la llave 'med_001'
@@ -10,7 +12,7 @@ data class MedicamentoPorTratamiento(
     val frecuencia: String? = null,
     val indicaciones: String? = null,
     val viaAdministracion: String? = null
-) {
+) : Serializable {
     constructor() : this(
         "",
         "",

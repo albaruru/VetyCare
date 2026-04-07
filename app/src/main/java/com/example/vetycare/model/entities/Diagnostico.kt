@@ -1,5 +1,7 @@
 package com.example.vetycare.model.entities
 
+import java.io.Serializable
+
 // TODO: ESTE SERÍA NUESTRO INFORME EN XML
 data class Diagnostico(
     var id: String? = null, // Se usa con 'var' para poder asignarlo al leer
@@ -17,7 +19,7 @@ data class Diagnostico(
     val cita: Cita? = Cita(),
     val tratamiento: Tratamiento? = Tratamiento(),
     val medicamento: Medicamento? = Medicamento()
-) {
+) : Serializable {
     constructor() : this(
         "",
         "",

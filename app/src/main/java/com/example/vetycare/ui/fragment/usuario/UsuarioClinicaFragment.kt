@@ -89,7 +89,6 @@ class UsuarioClinicaFragment : Fragment(), ClinicaAdapter.OnClinicaListener{
     }
 
     private fun configurarSpinner() {
-        // Cargamos las opciones del string-array que me has pasado
         val spinnerAdapter = ArrayAdapter.createFromResource(
             requireContext(),
             R.array.opciones_comunidades,
