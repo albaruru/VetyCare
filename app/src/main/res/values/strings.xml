@@ -70,7 +70,7 @@
     </string-array>
 
     <!-- fragmen_usuario_mascota.xml / recycler_mascota.xml -->
-    <string name="usuario_mascota">PERFIL MASCOTAS</string>
+    <string name="usuario_mascota">TUS MASCOTAS</string>
     <string name="item_mascota">"Añadir nueva mascota"</string>
 
 
@@ -84,6 +84,7 @@
     <string name="usuario_calendario_Consulta">Consulta general</string>
     <string name="usuario_calendario_Pruebas">Pruebas</string>
     <string name="usuario_calendario_medicamentos">Comprar más medicamentos</string>
+    <string name="usuario_calendario_leyenda">LEYENDA</string>
 
     <!-- fragment_usuario_calendario_cita.xml -->
     <string name="usuario_cldr_cita_mascota">Mascota:</string>

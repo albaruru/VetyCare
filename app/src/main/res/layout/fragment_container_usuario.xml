@@ -19,14 +19,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <!-- FOTO DEL DUEÑO -->
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_foto_dueno"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:contentDescription="Foto de perfil"
-            android:padding="10dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:padding="2dp"
             android:scaleType="centerCrop"
             android:src="@android:drawable/ic_menu_camera"
+            app:shapeAppearanceOverlay="@style/ShapeCircle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -61,7 +62,7 @@
         android:id="@+id/divider_header"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/botones"
+        android:background="@color/menu_bordes"
         app:layout_constraintTop_toBottomOf="@id/layoutHeader"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -111,7 +112,6 @@
             android:src="@drawable/btn_calendar"
             android:background="@drawable/botones_menu"
             android:textSize="20sp" />
-
         <ImageButton
             android:id="@+id/btnUsuario"
             android:layout_width="0dp"
@@ -123,7 +123,6 @@
             android:src="@drawable/btn_user"
             android:background="@drawable/botones_menu"
             android:textSize="20sp" />
-
         <ImageButton
             android:id="@+id/btnClinicas"
             android:layout_width="0dp"
@@ -141,7 +140,7 @@
         android:id="@+id/divider_feature"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/botones"
+        android:background="@color/menu_bordes"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

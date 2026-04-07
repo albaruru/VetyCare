@@ -6,7 +6,7 @@
         android:left="2dp"
         android:top="3dp">
         <shape android:shape="rectangle">
-            <solid android:color="@color/botones_sombra" />
+            <solid android:color="@color/botones_claros_sombra" />
             <corners android:radius="20dp" />
         </shape>
     </item>
@@ -16,11 +16,11 @@
         android:bottom="3dp"
         android:right="2dp">
         <shape android:shape="rectangle">
-            <solid android:color="@color/botones_volver_cancelar" />
+            <solid android:color="@color/botones_claros" />
             <corners android:radius="20dp" />
             <stroke
                 android:width="2dp"
-                android:color="@color/botones_bordes_volver_cancelar" />
+                android:color="@color/botones_claros_bordes" />
         </shape>
     </item>
 

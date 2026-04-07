@@ -10,7 +10,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="24dp">
+        android:paddingBottom="24dp"
+        android:paddingHorizontal="24dp">
 
         <!-- TÍTULO -->
         <TextView
@@ -30,7 +31,7 @@
             android:layout_width="273dp"
             android:layout_height="60dp"
             android:layout_marginTop="30dp"
-            android:background="@drawable/botones"
+            android:background="@drawable/boton_volver_cancelar"
             android:text="@string/item_mascota"
             app:backgroundTint="@null"
             app:layout_constraintEnd_toEndOf="parent"
