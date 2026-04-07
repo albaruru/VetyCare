@@ -63,8 +63,6 @@
         </LinearLayout>
 
         <!-- CALENDARIO -->
-
-        <!-- LEYENDA -->
         <com.kizitonwose.calendar.view.CalendarView
             android:id="@+id/calendarView"
             android:layout_width="0dp"
@@ -77,102 +75,123 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutMes" />
 
+        <!-- LEYENDA -->
         <LinearLayout
-            android:id="@+id/layoutLeyenda"
+            android:id="@+id/layoutLeyendaContenedor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="70dp"
             android:layout_marginTop="24dp"
-            android:padding="16dp"
-            android:background="@drawable/background_cuadro_texto"
-            android:orientation="vertical"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/calendarView">
 
-            <LinearLayout
+            <!-- TEXTO VERTICAL -->
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-                <View
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:background="@color/Vacunacion"/>
-                <TextView
-                    style="@style/TextBase"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="@string/usuario_calendario_Vacunación"/>
-            </LinearLayout>
+                android:text="@string/usuario_calendario_leyenda"
+                android:rotation="-90"
+                android:textStyle="bold"
+                android:textColor="@color/menu_bordes"
+                style="@style/TextBase"/>
+
+            <!-- CUADRO LEYENDA -->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/layoutLeyenda"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-                <View
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:background="@color/Revision"/>
-                <TextView
-                    style="@style/TextBase"
-                    android:layout_width="wrap_content"
+                android:padding="16dp"
+                android:background="@drawable/background_cuadro_texto"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="@string/usuario_calendario_Revisión"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-                <View
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:background="@color/Consulta"/>
-                <TextView
-                    style="@style/TextBase"
-                    android:layout_width="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <View
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:background="@color/Vacunacion"/>
+                    <TextView
+                        style="@style/TextBase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/usuario_calendario_Vacunación"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="@string/usuario_calendario_Consulta"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-                <View
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:background="@color/Pruebas"/>
-                <TextView
-                    style="@style/TextBase"
-                    android:layout_width="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <View
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:background="@color/Revision"/>
+                    <TextView
+                        style="@style/TextBase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/usuario_calendario_Revisión"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="@string/usuario_calendario_Pruebas"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-                <View
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:background="@color/Medicamentos"/>
-                <TextView
-                    style="@style/TextBase"
-                    android:layout_width="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <View
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:background="@color/Consulta"/>
+                    <TextView
+                        style="@style/TextBase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/usuario_calendario_Consulta"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="@string/usuario_calendario_medicamentos"/>
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <View
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:background="@color/Pruebas"/>
+                    <TextView
+                        style="@style/TextBase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/usuario_calendario_Pruebas"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <View
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:background="@color/Medicamentos"/>
+                    <TextView
+                        style="@style/TextBase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/usuario_calendario_medicamentos"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
@@ -182,9 +201,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Citas del día seleccionado"
             android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/layoutLeyenda"
+            app:layout_constraintTop_toBottomOf="@id/layoutLeyendaContenedor"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             style="@style/TextSubtitulo" />
