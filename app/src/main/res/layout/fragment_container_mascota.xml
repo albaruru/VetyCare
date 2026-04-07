@@ -30,8 +30,7 @@
             app:shapeAppearanceOverlay="@style/ShapeCircle"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent" />
         <!-- NOMBRE DE LA MASCOTA -->
         <TextView
             android:id="@+id/tv_nombre_mascota"
@@ -45,6 +44,7 @@
             app:layout_constraintStart_toEndOf="@id/iv_foto_mascota"
             app:layout_constraintTop_toTopOf="@id/iv_foto_mascota"
             style="@style/Nombres"/>
+        <!-- LOGO EMPRESA -->
         <ImageButton
             android:id="@+id/iv_logo"
             android:layout_width="45dp"
@@ -62,7 +62,7 @@
         android:id="@+id/divider_header"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/botones"
+        android:background="@color/menu_bordes"
         app:layout_constraintTop_toBottomOf="@id/layoutHeader"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -135,7 +135,7 @@
         android:id="@+id/divider_feature"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/botones"
+        android:background="@color/menu_bordes"
         app:layout_constraintBottom_toTopOf="@id/dropdown_menu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

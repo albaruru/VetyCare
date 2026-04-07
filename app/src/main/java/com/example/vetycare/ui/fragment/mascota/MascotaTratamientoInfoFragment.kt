@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.vetycare.databinding.FragmentMascotaTratamientoInfoBinding
+import com.example.vetycare.model.entities.Tratamiento
 import com.example.vetycare.navigation.NavigatorMascota
 
 class MascotaTratamientoInfoFragment : Fragment() {
@@ -36,5 +37,32 @@ class MascotaTratamientoInfoFragment : Fragment() {
         when (num) {
             1 -> NavigatorMascota.MascotaTratamientoInfo_to_MascotaTratamiento(this)
         }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val tratamiento = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            arguments?.getSerializable("tratamiento_key", Tratamiento::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            arguments?.getSerializable("tratamiento_key") as? Tratamiento
+        }
+
+        if (tratamiento != null) {
+            pintarDatosTratamiento(tratamiento)
+        }
+    }
+
+    private fun pintarDatosTratamiento(t: Tratamiento) {
+        binding.tvTitulo.text = "Tratamiento #${t.id}"
+        binding.tvProcedimiento.text = t.tipoTratamiento
+        binding.tvFechaInicio.text = t.fechaInicio
+        binding.tvFechaFin.text = t.fechaFin
+        binding.tvObservaciones.text = t.observaciones
+        binding.tvMedicacion.text = t.medicamento?.nombreComercial ?: "No especificado"
+        binding.tvDosis.text = t.detallesMedicacion?.dosis ?: "N/A"
+        binding.tvFrecuencia.text = t.detallesMedicacion?.frecuencia ?: "N/A"
+        binding.tvViaAdministracion.text = t.detallesMedicacion?.viaAdministracion ?: "N/A"
     }
 }

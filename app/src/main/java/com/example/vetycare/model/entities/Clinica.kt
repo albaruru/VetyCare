@@ -1,5 +1,7 @@
 package com.example.vetycare.model.entities
 
+import java.io.Serializable
+
 data class Clinica(
     var id: String? = null, // Se usa con 'var' para poder asignarlo al leer
     val activa: Boolean? = null, // Cada vez que se elimina una clinica se pone en FALSE
@@ -10,7 +12,7 @@ data class Clinica(
     val provincia: String? = null,
     val telefono: Long? = null,
     val url: String? = null
-) {
+) : Serializable {
     constructor() : this(
         "",
         false,

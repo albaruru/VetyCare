@@ -35,10 +35,16 @@ class MascotaAdapter(
 
         // Cargar imagen de mascota con Glide
         val urlImagen = item.urlFotoMasc
-        Glide.with(contexto)
-            .load(urlImagen)
-            .placeholder(R.mipmap.logo_vetycare) // TODO: PONER IMAGEN DE MASCOTA POR DEFECTO
-            .into(holder.binding.ivFotoMascota)
+
+        if (!urlImagen.isNullOrEmpty()) {
+            Glide.with(contexto)
+                .load(urlImagen)
+                .placeholder(R.drawable.img_predeterminada)
+                .error(R.drawable.img_predeterminada)
+                .into(holder.binding.ivFotoMascota)
+        } else {
+            holder.binding.ivFotoMascota.setImageResource(R.drawable.img_predeterminada)
+        }
 
         // Programamos el evento de clic del botón
         holder.binding.btnMascota.setOnClickListener {
