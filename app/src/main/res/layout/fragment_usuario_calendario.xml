@@ -95,9 +95,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/usuario_calendario_leyenda"
                 android:rotation="-90"
-                android:textStyle="bold"
-                android:textColor="@color/menu_bordes"
-                style="@style/TextBase"/>
+                style="@style/TextInformativo"/>
 
             <!-- CUADRO LEYENDA -->
             <LinearLayout
