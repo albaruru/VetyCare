@@ -29,7 +29,7 @@ class InformeAdapter(
 
     override fun onBindViewHolder(holder: InformeHolder, position: Int) {
         val item = lista[position]
-        
+
         holder.binding.tvTitulo.text = "Informe #${item.id}"
         holder.binding.tvConcepto.text = item.patologia?.nombre ?: "Sin concepto"
         holder.binding.tvFrecuencia.text = item.fechaDiagnostico // Se usa el campo de fecha

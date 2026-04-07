@@ -1,5 +1,6 @@
 package com.example.vetycare.model.entities
 
+import com.example.vetycare.model.relational.MedicamentoPorTratamiento
 import java.io.Serializable
 
 data class Tratamiento(
@@ -11,7 +12,9 @@ data class Tratamiento(
     val idMascota: String? = null,
     val objetivoTerapeutico: String? = null,
     val observaciones: String? = null,
-    val tipoTratamiento: String? = null // TODO: ES EL QUE COGEMOS PARA DIAGNOSTICO Y PARA TRATAMIENTO
+    val tipoTratamiento: String? = null, // TODO: ES EL QUE COGEMOS PARA DIAGNOSTICO Y PARA TRATAMIENTO
+    val medicamento: Medicamento? = Medicamento(),
+    val detallesMedicacion: MedicamentoPorTratamiento? = MedicamentoPorTratamiento()
 ) : Serializable {
     constructor() : this(
         "",
@@ -22,6 +25,8 @@ data class Tratamiento(
         "",
         "",
         "",
-        ""
+        "",
+        Medicamento(),
+        MedicamentoPorTratamiento()
     )
 }
