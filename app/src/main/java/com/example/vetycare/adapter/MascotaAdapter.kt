@@ -39,11 +39,11 @@ class MascotaAdapter(
         if (!urlImagen.isNullOrEmpty()) {
             Glide.with(contexto)
                 .load(urlImagen)
-                .placeholder(R.drawable.img_predeterminada)
-                .error(R.drawable.img_predeterminada)
+                .placeholder(R.drawable.img_mascotas)
+                .error(R.drawable.img_mascotas)
                 .into(holder.binding.ivFotoMascota)
         } else {
-            holder.binding.ivFotoMascota.setImageResource(R.drawable.img_predeterminada)
+            holder.binding.ivFotoMascota.setImageResource(R.drawable.img_mascotas)
         }
 
         // Programamos el evento de clic del botón
