@@ -5,6 +5,18 @@ import com.example.vetycare.model.entities.Clinica
 
 class ClinicaRepository(private val remoteClinica: ClinicaRemote) {
 
+    fun obtenerTodasLasClinicasActivas(
+        onSuccess: (List<Clinica>) -> Unit,
+        onError: (String?) -> Unit
+        ) {
+        remoteClinica.obtenerTodasLasClinicas(
+            onSuccess = { lista ->
+                onSuccess(lista.filter { it.activa == true })
+            },
+            onError = onError
+        )
+    }
+
     fun obtenerClinicaPorId(
         idClinica: String,
         onSuccess: (Clinica) -> Unit,

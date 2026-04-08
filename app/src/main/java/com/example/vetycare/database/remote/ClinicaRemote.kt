@@ -5,6 +5,28 @@ import com.google.firebase.database.DatabaseReference
 
 class ClinicaRemote(private val databaseReference: DatabaseReference) {
 
+    fun obtenerTodasLasClinicas(
+        onSuccess: (List<Clinica>) -> Unit,
+        onError: (String?) -> Unit
+        ) {
+        databaseReference.child("clinicas").get()
+            .addOnSuccessListener { snapshot ->
+                val lista = mutableListOf<Clinica>()
+
+                for (child in snapshot.children) {
+                    val clinica = child.getValue(Clinica::class.java)
+                    if (clinica != null) {
+                        clinica.id = child.key ?: ""
+                        lista.add(clinica)
+                    }
+                }
+
+                onSuccess(lista)
+            }
+            .addOnFailureListener {
+                onError("ERROR al leer todas las clínicas")
+            }
+    }
     fun obtenerClinicaPorId(
         idClinica: String,
         onSuccess: (Clinica?) -> Unit,

@@ -1,10 +1,10 @@
 package com.example.vetycare.database.remote
 
 import com.example.vetycare.model.entities.Cita
+import com.example.vetycare.model.entities.Clinica
 import com.google.firebase.database.DatabaseReference
 
 class CitaRemote (private val databaseReference: DatabaseReference) {
-
     fun obtenerCitaPorId(
         idCita: String,
         onSuccess: (Cita?) -> Unit,

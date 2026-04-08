@@ -1,5 +1,6 @@
 package com.example.vetycare.model.entities
 
+import com.example.vetycare.model.relational.Coordenadas
 import java.io.Serializable
 
 data class Clinica(
@@ -7,6 +8,7 @@ data class Clinica(
     val activa: Boolean? = null, // Cada vez que se elimina una clinica se pone en FALSE
     val codigoPostal: Int? = null,
     val comunidadAutonoma: String? = null,
+    val coordenadas: Coordenadas? = null,
     val direccion: String? = null,
     val nombre: String? = null,
     val provincia: String? = null,
@@ -18,6 +20,7 @@ data class Clinica(
         false,
         0,
         "",
+        null,
         "",
         "",
         "",
