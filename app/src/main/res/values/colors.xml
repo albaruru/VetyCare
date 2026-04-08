@@ -26,6 +26,7 @@
     <color name="Consulta">#FFF176</color>
     <color name="Pruebas">#FFCC80</color>
     <color name="Medicamentos">#F48FB1</color>
+    <color name="Tipo_cita">#565656</color>
 
 </resources>
 

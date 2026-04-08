@@ -11,15 +11,15 @@
     android:padding="12dp">
 
     <!-- FOTO DE LA CLINICA -->
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_logo_clinica"
         android:layout_width="55dp"
-        android:layout_height="48dp"
-        android:background="@drawable/background_cuadro_texto"
-        android:contentDescription="Logo clínica"
+        android:layout_height="55dp"
         android:padding="2dp"
         android:scaleType="centerCrop"
+        android:background="@drawable/background_cuadro_texto"
         android:src="@android:drawable/ic_menu_camera"
+        app:shapeAppearanceOverlay="@style/ShapeCircle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -77,14 +77,13 @@
     <!-- fragment_usuario_calendario.xml  -->
     <string name="usuario_calendario_titulo">CALENDARIO</string>
     <string name="usuario_calendario_mes">MES</string>
-    <string name="usuario_calendario_btnCita">Pedir cita</string>
-    <string name="usuario_calendario_btnSemanal">Semanal</string>
     <string name="usuario_calendario_Vacunación">Vacunación</string>
     <string name="usuario_calendario_Revisión">Revisión</string>
     <string name="usuario_calendario_Consulta">Consulta general</string>
     <string name="usuario_calendario_Pruebas">Pruebas</string>
     <string name="usuario_calendario_medicamentos">Comprar más medicamentos</string>
     <string name="usuario_calendario_leyenda">LEYENDA</string>
+    <string name="usuario_calendario_dtllCita">DETALLE DE LA CITA</string>
 
     <!-- fragment_usuario_calendario_cita.xml -->
     <string name="usuario_cldr_cita_mascota">Mascota:</string>
