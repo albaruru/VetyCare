@@ -6,6 +6,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.vetycare.R
 import com.example.vetycare.model.entities.Mascota
+import com.example.vetycare.ui.container.MascotaContainerFragment
 
 object NavigatorRoot {
 
@@ -44,7 +45,7 @@ object NavigatorRoot {
 
     fun UsuarioMascota_to_MascotaPerfil(fragment: Fragment, mascota: Mascota) {
         val bundle = Bundle()
-        bundle.putSerializable("mascota_key", mascota)
+        bundle.putSerializable(MascotaContainerFragment.ARG_MASCOTA, mascota)
 
         // Usamos el mismo NavHost que en el resto de tus funciones
         fragment.requireActivity()

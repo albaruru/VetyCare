@@ -87,7 +87,7 @@ class UsuarioMascotaFragment: Fragment(), MascotaAdapter.OnMascotaListener {
         */
         propietarioRepository.obtenerPropietario(
             auth,
-            { id, propietario ->
+            { id, _ ->
                 mascotaRepository.obtenerMascotasPorPropietario(
                     id,
                     { listaResultado ->
@@ -103,53 +103,6 @@ class UsuarioMascotaFragment: Fragment(), MascotaAdapter.OnMascotaListener {
             }
         )
     }
-    /* FIXME: RECYCLER QUE VIENE DE BACKEND
-    private fun crearMascotasDePrueba() {
-        listaMascotas.clear()
-
-        // Añadimos objetos Mascota manualmente usando el constructor de tu clase Mascota.kt
-        listaMascotas.add(Mascota(
-            "masc_002",
-            true,
-            true,
-            "Perro",
-            "1743004800000",
-            "2021-06-15",
-            "prop_002",
-            "MC-ES-0002",
-            "Luna",
-            12.5,
-            "Beagle",
-            "Hembra",
-            "https://media.istockphoto.com/id/962855368/es/foto/beagle-5-años-de-edad-sentado-en-frente-de-fondo-blanco.jpg?s=612x612&w=0&k=20&c=d2t7LgrDPoUpXZomjBU6g6VH1ePVsyXcpsWiPh28cn8="
-        ))
-
-        listaMascotas.add(Mascota(
-            "masc_003",
-            true,
-            false,
-            "Gato",
-            "1743004800000",
-            "2022-01-10",
-            "prop_002",
-            "MC-ES-0003",
-            "Simbad",
-            4.2,
-            "Siamés",
-            "Macho",
-            "https://clinicaveterinarium.es/wp-content/uploads/2023/11/lindo-gatito-gato-siames-interior.jpg"
-        ))
-
-        listaMascotas.add(Mascota(
-            nombre = "Bella",
-            especie = "Perro",
-            raza = "Golden",
-            urlFotoMasc = "" // Dejamos vacío para probar el placeholder
-        ))
-
-        // Notificamos al adaptador para que pinte los datos de prueba
-        adapterMascota.notifyDataSetChanged()
-    }*/
 
     override fun onMascotaClick(mascota: Mascota){
         // Pasamos la mascota seleccionada a la navegación para ver su perfil
@@ -165,9 +118,7 @@ class UsuarioMascotaFragment: Fragment(), MascotaAdapter.OnMascotaListener {
         binding.btnMascota.setOnClickListener {
             navegacionFragment(1)
         }
-        //  TODO: PROVISIONAL PARA LLEGAR A LA ZONA DE MASCOTAS
         binding.tvTitulo.setOnClickListener {
-
             navegacionFragment(2)
         }
     }
