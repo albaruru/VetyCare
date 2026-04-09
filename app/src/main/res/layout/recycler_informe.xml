@@ -11,10 +11,10 @@
     <!-- TÍTULO -->
     <TextView
         android:id="@+id/tv_titulo"
+        android:text="@string/informe_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="@string/informe_id"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         style="@style/TextSubtitulo"/>
@@ -36,8 +36,9 @@
         android:layout_width="0dp"
         android:layout_height="46dp"
         android:layout_marginTop="4dp"
-        android:background="@drawable/background_cuadro_texto"
         android:padding="8dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/background_cuadro_texto"
         app:layout_constraintTop_toBottomOf="@id/tv_label_concepto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,8 +61,9 @@
         android:layout_width="0dp"
         android:layout_height="46dp"
         android:layout_marginTop="4dp"
-        android:background="@drawable/background_cuadro_texto"
         android:padding="8dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/background_cuadro_texto"
         app:layout_constraintTop_toBottomOf="@id/tv_label_fecha"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

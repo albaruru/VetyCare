@@ -14,10 +14,10 @@
         <!-- TÍTULO -->
         <TextView
             android:id="@+id/tv_titulo"
+            android:text="@string/informe_titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="@string/informe_titulo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -26,16 +26,14 @@
         <!-- LISTA - Informes de la mascota -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_informes"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:nestedScrollingEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.812"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_titulo" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

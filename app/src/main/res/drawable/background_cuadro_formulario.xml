@@ -3,8 +3,8 @@
 
     <!-- Capa sombra -->
     <item
-        android:left="2dp"
-        android:top="3dp">
+        android:left="3dp"
+        android:top="4dp">
         <shape android:shape="rectangle">
             <solid android:color="@color/formulario_sombra" />
             <corners android:radius="20dp" />
@@ -13,8 +13,8 @@
 
     <!-- Fondo principal-->
     <item
-        android:bottom="3dp"
-        android:right="2dp">
+        android:bottom="4dp"
+        android:right="3dp">
         <shape android:shape="rectangle">
             <solid android:color="@color/formulario" />
             <corners android:radius="20dp" />
