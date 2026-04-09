@@ -36,7 +36,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- TEXTO - Mascota -->
+            <!-- LABEL - Mascota -->
             <TextView
                 android:id="@+id/tv_label_mascota"
                 android:layout_width="match_parent"
@@ -47,7 +47,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
 
-            <!-- TEXTO - Clínica -->
+            <!-- CAMPO - Mascota -->
             <EditText
                 android:id="@+id/et_mascota"
                 style="@style/TextBase"
@@ -64,6 +64,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_label_mascota" />
 
+            <!-- LABEL - Clínica -->
             <TextView
                 android:id="@+id/tv_label_clinica"
                 android:layout_width="match_parent"
@@ -74,6 +75,8 @@
                 app:layout_constraintTop_toBottomOf="@id/et_mascota"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
+
+            <!-- CAMPO - Clínica -->
             <EditText
                 android:id="@+id/et_clinica"
                 android:layout_width="match_parent"
@@ -90,7 +93,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBase" />
 
-            <!-- SPINNER - Tipo -->
+            <!-- LABEL - Tipo -->
             <TextView
                 android:id="@+id/tv_label_tipo"
                 android:layout_width="match_parent"
@@ -102,19 +105,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
 
-            <!-- TEXTO - Motivo breve -->
+            <!-- SPINNER - Tipo -->
             <Spinner
                 android:id="@+id/sp_tipo"
                 style="@style/TextBase"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="4dp"
                 android:padding="8dp"
                 android:background="@drawable/background_cuadro_texto"
                 android:entries="@array/usuario_cldr_cita_tipo_4"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_label_tipo" />
 
+            <!-- LABEL - Motivo -->
             <TextView
                 android:id="@+id/tv_label_motivo"
                 android:layout_width="match_parent"
@@ -125,6 +129,8 @@
                 app:layout_constraintTop_toBottomOf="@id/sp_tipo"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
+
+            <!-- CAMPO - Motivo -->
             <EditText
                 android:id="@+id/et_motivo"
                 android:layout_width="match_parent"
@@ -145,7 +151,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBase" />
 
-            <!-- FECHA -->
+            <!-- LABEL - Fecha -->
             <TextView
                 android:id="@+id/tv_label_fecha"
                 android:layout_width="match_parent"
@@ -157,7 +163,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita"/>
 
-            <!-- FECHA -->
+            <!-- CAMPO - Fecha -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_fecha"
                 android:layout_width="match_parent"
@@ -182,8 +188,7 @@
                     app:layout_constraintEnd_toStartOf="@id/ib_calendar"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    style="@style/TextBase"
-                    />
+                    style="@style/TextBase" />
 
                 <ImageButton
                     android:id="@+id/ib_calendar"
@@ -200,7 +205,32 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!-- SPINNER - Recordatorio -->
+            <!-- LABEL - Hora -->
+            <TextView
+                android:id="@+id/tv_label_hora"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="15dp"
+                android:text="@string/usuario_cldr_cita_hora"
+                app:layout_constraintTop_toBottomOf="@id/cl_fecha"
+                app:layout_constraintStart_toStartOf="parent"
+                style="@style/TextBaseNegrita" />
+
+            <!-- SPINNER - Hora -->
+            <Spinner
+                android:id="@+id/sp_hora"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/background_cuadro_texto"
+                android:entries="@array/horas_opciones"
+                android:padding="8dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_label_hora"
+                app:layout_constraintStart_toStartOf="parent"
+                style="@style/TextBase" />
+
+            <!-- LABEL - Recordatorio -->
             <TextView
                 android:id="@+id/tv_label_recordatorio"
                 android:layout_width="match_parent"
@@ -208,9 +238,11 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginStart="15dp"
                 android:text="@string/usuario_cldr_cita_recordatorio"
-                app:layout_constraintTop_toBottomOf="@id/cl_fecha"
+                app:layout_constraintTop_toBottomOf="@id/sp_hora"
                 app:layout_constraintStart_toStartOf="parent"
                 style="@style/TextBaseNegrita" />
+
+            <!-- SPINNER - Recordatorio -->
             <Spinner
                 android:id="@+id/sp_recordatorio"
                 android:layout_width="match_parent"
