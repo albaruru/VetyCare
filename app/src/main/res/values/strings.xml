@@ -332,7 +332,7 @@
     <string name="informe_label_concepto">Concepto:</string>
     <string name="informe_label_fecha">Fecha:</string>
     <string name="informe_label_valoracion">Valoración:</string>
-    <string name="informe_label_medicamento">Medicamento </string>
+    <string name="informe_label_medicamento">Medicamento:</string>
     <string name="informe_label_tratamiento">Tratamiento:</string>
     <string name="informe_label_importe">Importe total:</string>
     <string name="informe_btn_ver_mas">Detalles</string>

@@ -9,7 +9,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="24dp">
+        android:paddingBottom="24dp"
+        android:paddingHorizontal="24dp">
 
         <!-- TÍTULO -->
         <TextView
@@ -40,12 +41,14 @@
             android:layout_width="0dp"
             android:layout_height="46dp"
             android:layout_marginTop="4dp"
-            android:background="@drawable/background_cuadro_texto"
             android:padding="8dp"
+            android:paddingStart="15dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/background_cuadro_texto"
             app:layout_constraintTop_toBottomOf="@id/tv_label_concepto"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            style="@style/TextBase" />
+            style="@style/TextBase"/>
 
         <!-- FECHA -->
         <TextView
@@ -63,8 +66,10 @@
             android:layout_width="0dp"
             android:layout_height="46dp"
             android:layout_marginTop="4dp"
-            android:background="@drawable/background_cuadro_texto"
             android:padding="8dp"
+            android:paddingStart="15dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/background_cuadro_texto"
             app:layout_constraintTop_toBottomOf="@id/tv_label_fecha"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -87,8 +92,10 @@
             android:layout_height="wrap_content"
             android:minLines="3"
             android:layout_marginTop="4dp"
-            android:background="@drawable/background_cuadro_texto"
             android:padding="8dp"
+            android:paddingStart="15dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/background_cuadro_texto"
             app:layout_constraintTop_toBottomOf="@id/tv_label_valoracion"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -102,6 +109,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginStart="15dp"
             android:text="@string/informe_label_medicamento"
+            android:gravity="center_vertical"
             app:layout_constraintTop_toBottomOf="@id/tv_valoracion"
             app:layout_constraintStart_toStartOf="parent"
             style="@style/TextBaseNegrita" />
@@ -110,8 +118,10 @@
             android:layout_width="0dp"
             android:layout_height="46dp"
             android:layout_marginTop="4dp"
-            android:background="@drawable/background_cuadro_texto"
             android:padding="8dp"
+            android:paddingStart="15dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/background_cuadro_texto"
             app:layout_constraintTop_toBottomOf="@id/tv_label_medicamento"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -133,8 +143,10 @@
             android:layout_width="0dp"
             android:layout_height="46dp"
             android:layout_marginTop="4dp"
-            android:background="@drawable/background_cuadro_texto"
             android:padding="8dp"
+            android:paddingStart="15dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/background_cuadro_texto"
             app:layout_constraintTop_toBottomOf="@id/tv_label_tratamiento"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -156,8 +168,10 @@
             android:layout_width="0dp"
             android:layout_height="46dp"
             android:layout_marginTop="4dp"
-            android:background="@drawable/background_cuadro_texto"
             android:padding="8dp"
+            android:paddingStart="15dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/background_cuadro_texto"
             app:layout_constraintTop_toBottomOf="@id/tv_label_importe"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

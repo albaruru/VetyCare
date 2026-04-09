@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
@@ -58,16 +59,18 @@
 
     <TextView
         android:id="@+id/tv_frecuencia"
+        style="@style/TextBase"
         android:layout_width="0dp"
         android:layout_height="46dp"
         android:layout_marginTop="4dp"
-        android:padding="8dp"
-        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/background_cuadro_texto"
-        app:layout_constraintTop_toBottomOf="@id/tv_label_frecuencia"
-        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        style="@style/TextBase" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_frecuencia" />
 
     <!-- BOTÓN -->
     <com.google.android.material.button.MaterialButton
