@@ -77,20 +77,126 @@
     <!-- fragment_usuario_calendario.xml  -->
     <string name="usuario_calendario_titulo">CALENDARIO</string>
     <string name="usuario_calendario_mes">MES</string>
-    <string name="usuario_calendario_btnCita">Pedir cita</string>
-    <string name="usuario_calendario_btnSemanal">Semanal</string>
     <string name="usuario_calendario_Vacunación">Vacunación</string>
     <string name="usuario_calendario_Revisión">Revisión</string>
     <string name="usuario_calendario_Consulta">Consulta general</string>
     <string name="usuario_calendario_Pruebas">Pruebas</string>
     <string name="usuario_calendario_medicamentos">Comprar más medicamentos</string>
     <string name="usuario_calendario_leyenda">LEYENDA</string>
+    <string name="usuario_calendario_dtllCita">DETALLE DE LA CITA</string>
 
     <!-- fragment_usuario_calendario_cita.xml -->
-    <string name="usuario_cldr_cita_mascota">Mascota:</string>
+    <string name="usuario_cldr_cita_mascota">Mascota</string>
+    <string name="usuario_cldr_cita_comunidad">Comunidad Autonoma:</string>
     <string name="usuario_cldr_cita_clinica">Clínica:</string>
+    <string-array name="opciones_clinicas">
+        <item>Seleccione una clínica:</item>
+        <!-- Andalucía -->
+        <item>Clínica Veterinaria Santa Justa</item>
+        <item>Clínica Veterinaria Canymar</item>
+        <item>Clínica Veterinaria Viana | MiVet</item>
+        <item>Clínica Veterinaria Uno Más</item>
+        <item>Clínica Veterinaria Los Lobos</item>
+        <!-- Aragón -->
+        <item>Clínica Veterinaria Zoo</item>
+        <item>Clínica Veterinaria Delicias</item>
+        <item>Clínica Veterinaria Zaracán</item>
+        <item>Clinica Veterinaria MyVet</item>
+        <item>Centro Clínico Veterinario Teruel</item>
+        <!-- Asturias -->
+        <item>Clínica Veterinaria Covadonga</item>
+        <item>Clínica Veterinaria Corvera</item>
+        <item>Clínica Veterinaria Asturcón</item>
+        <item>Clínica Veterinaria Llanesvet</item>
+        <item>Clínica Veterinaria Principado</item>
+        <!-- Islas Baleares -->
+        <item>Clínica Veterinària La Savina</item>
+        <item>Clínica Veterinaria Eivivet</item>
+        <item>Clínica Veterinaria El Parc</item>
+        <item>Clínica Veterinaria Son Moix</item>
+        <item>Clínica Veterinaria Pérez Sintes</item>
+        <!-- Islas Canarias -->
+        <item>Clínica Veterinaria Arrecife</item>
+        <item>Clínica Veterinaria Kalua</item>
+        <item>Clínica Veterinaria Monzón</item>
+        <item>Clínica Veterinaria Guaza</item>
+        <item>Clínica Veterinaria La Gallega</item>
+        <!-- Cantabria -->
+        <item>Clínica Veterinaria Liébana</item>
+        <item>Clínica Veterinaria Canvet</item>
+        <item>Clínica Veterinaria Ursaria</item>
+        <item>Clínica Veterinaria Anjana</item>
+        <item>Clínica Veterinaria Besaya</item>
+        <!-- Castilla-La Mancha -->
+        <item>Clínica veterinaria KINKAJÚ</item>
+        <item>Clínica Veterinaria Zarpa</item>
+        <item>Clínica Veterinaria Anibal</item>
+        <item>Clínica Veterinaria Rogocan</item>
+        <item>Clínica Veterinaria Ventura</item>
+        <!-- Castilla y León -->
+        <item>Clínica Veterinaria Minuvet</item>
+        <item>Clínica Veterinaria Gamonal</item>
+        <item>Centro Veterinario Neptuno</item>
+        <item>Clínica Veterinaria Salinero</item>
+        <item>Clínica veterinaria Nimae</item>
+        <!-- Cataluña -->
+        <item>Hospital Veterinari Canis</item>
+        <item>Clínica Veterinaria V3 Lleida</item>
+        <item>Centro Veterinario Patino</item>
+        <item>Clínica Veterinària Poble Nou</item>
+        <item>Clínica Veterinaria Vidavet Londres</item>
+        <!-- Comunidad Valenciana -->
+        <item>Clínica Veterinaria Sant Antoni</item>
+        <item>Clínica Veterinaria Ruzafa</item>
+        <item>Clinica Veterinaria Año</item>
+        <item>Clínica Veterinaria San Blas</item>
+        <item>Clínica Veterinaria Albufereta</item>
+        <!-- Extremadura -->
+        <item>Clínica Veterinaria Montesol</item>
+        <item>Clínica Veterinaria San Jorge</item>
+        <item>Clínica Veterinaria Selva</item>
+        <item>Clínica Veterinaria Faunia</item>
+        <item>Clínica Veterinaria Marabé</item>
+        <!-- Galicia -->
+        <item>Clínica Veterinaria Tecsagés</item>
+        <item>Clínica Veterinaria Loureiro Crespo</item>
+        <item>Clínica Veterinaria San Froilan</item>
+        <item>Clínica veterinaria Eras</item>
+        <item>Clínica veterinaria Gaia</item>
+        <!-- La Rioja -->
+        <item>Clinica Veterinaria Duques de Nájera</item>
+        <item>Clínica Veterinaria Cameros</item>
+        <item>Clínica Veterinaria HARO</item>
+        <item>Clínica veterinaria Aguirre</item>
+        <item>Clínica Veterinaria Alegría</item>
+        <!-- Comunidad de Madrid -->
+        <item>Clínica Veterinaria Del Val</item>
+        <item>Clinica Veterinaria Norivet</item>
+        <item>Clínica Veterinaria Europa</item>
+        <item>Clínica Veterinaria Conde Duque</item>
+        <item>Centro Clínico Veterinario Ciudad de Los Ángeles</item>
+        <!-- Región de Murcia -->
+        <item>Clínica Veterinaria El Jardín</item>
+        <item>Clínica Veterinaria Murcia Norte</item>
+        <item>Clínica Veterinaria Amigos</item>
+        <item>Clínica Veterinaria Santiago el Mayor</item>
+        <item>Clínica Veterinaria Salitre</item>
+        <!-- Comunidad Foral de Navarra -->
+        <item>Clínica Veterinaria de San Adrián</item>
+        <item>Clínica veterinaria Burlada</item>
+        <item>Clínica veterinaria Bettervet del Sadar</item>
+        <item>Clínica Veterinaria Aoiz</item>
+        <item>Centro Clínico Veterinario Ansoáin</item>
+        <!-- País Vasco -->
+        <item>Clínica Veterinaria Zumaquera</item>
+        <item>HOSPITAL VETERINARIO DONOSTIA</item>
+        <item>Clínica Veterinaria Otxoki</item>
+        <item>Clínica Veterinaria Nuevo Ensanche</item>
+        <item>Clínica Veterinaria MIRIBILLA</item>
+    </string-array>
     <string name="usuario_cldr_cita_tipo">Tipo:</string>
     <string-array name="usuario_cldr_cita_tipo_4">
+        <item>Seleccione un tipo de cita:</item>
         <item>Vacunación</item>
         <item>Revisión</item>
         <item>Consulta general</item>
@@ -99,7 +205,59 @@
     <string name="usuario_cldr_cita_motivo">Motivo:</string>
     <string name="usuario_cldr_cita_veterinario">Veterinario:</string>
     <string name="usuario_cldr_cita_fecha">Fecha de la cita:</string>
+    <string name="usuario_cldr_cita_hora">Hora de la cita:</string>
     <string name="usuario_cldr_cita_recordatorio">Recordatorio:</string>
+    <string-array name="horas_opciones">
+        <item>08:00</item>
+        <item>08:15</item>
+        <item>08:30</item>
+        <item>08:45</item>
+        <item>09:00</item>
+        <item>09:15</item>
+        <item>09:30</item>
+        <item>09:45</item>
+        <item>10:00</item>
+        <item>10:15</item>
+        <item>10:30</item>
+        <item>10:45</item>
+        <item>11:00</item>
+        <item>11:15</item>
+        <item>11:30</item>
+        <item>11:45</item>
+        <item>12:00</item>
+        <item>12:15</item>
+        <item>12:30</item>
+        <item>12:45</item>
+        <item>13:00</item>
+        <item>13:15</item>
+        <item>13:30</item>
+        <item>13:45</item>
+        <item>14:00</item>
+        <item>14:15</item>
+        <item>14:30</item>
+        <item>14:45</item>
+        <item>15:00</item>
+        <item>15:15</item>
+        <item>15:30</item>
+        <item>15:45</item>
+        <item>16:00</item>
+        <item>16:15</item>
+        <item>16:30</item>
+        <item>16:45</item>
+        <item>17:00</item>
+        <item>17:15</item>
+        <item>17:30</item>
+        <item>17:45</item>
+        <item>18:00</item>
+        <item>18:15</item>
+        <item>18:30</item>
+        <item>18:45</item>
+        <item>19:00</item>
+        <item>19:15</item>
+        <item>19:30</item>
+        <item>19:45</item>
+        <item>20:00</item>
+    </string-array>
     <string-array name="recordatorio_opciones">
         <item>Sin recordatorio</item>
         <item>1 día antes</item>
@@ -174,7 +332,7 @@
     <string name="informe_label_concepto">Concepto:</string>
     <string name="informe_label_fecha">Fecha:</string>
     <string name="informe_label_valoracion">Valoración:</string>
-    <string name="informe_label_medicamento">Medicamento </string>
+    <string name="informe_label_medicamento">Medicamento:</string>
     <string name="informe_label_tratamiento">Tratamiento:</string>
     <string name="informe_label_importe">Importe total:</string>
     <string name="informe_btn_ver_mas">Detalles</string>
