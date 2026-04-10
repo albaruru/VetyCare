@@ -1,5 +1,6 @@
 package com.example.vetycare.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,31 +11,33 @@ import com.example.vetycare.databinding.RecyclerMascotaBinding
 import com.example.vetycare.model.entities.Mascota
 
 class MascotaAdapter(
-    var lista: ArrayList<Mascota>,
+    var lista: ArrayList<Pair<String, Mascota>>,
     var contexto: Context,
     private val listener: OnMascotaListener
-) : RecyclerView.Adapter<MascotaAdapter.MascotaHolder>() {
+    ) : RecyclerView.Adapter<MascotaAdapter.MascotaHolder>() {
 
     interface OnMascotaListener {
-        fun onMascotaClick(mascota: Mascota)
+        fun onMascotaClick(idMascota: String, mascota: Mascota)
     }
 
-    inner class MascotaHolder(val binding: RecyclerMascotaBinding):
+    inner class MascotaHolder(val binding: RecyclerMascotaBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder (parent: ViewGroup, viewType: Int) : MascotaHolder {
-
-        val binding:  RecyclerMascotaBinding = RecyclerMascotaBinding.inflate(
-            LayoutInflater.from(contexto), parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MascotaHolder {
+        val binding = RecyclerMascotaBinding.inflate(
+            LayoutInflater.from(contexto), parent, false
+        )
         return MascotaHolder(binding)
     }
 
-    override fun onBindViewHolder (holder: MascotaHolder, position: Int) {
-        val item: Mascota = lista[position]
-        holder.binding.btnMascota.text = item.nombre
+    override fun onBindViewHolder(holder: MascotaHolder, position: Int) {
+        val item = lista[position]
+        val idMascota = item.first
+        val mascota = item.second
 
-        // Cargar imagen de mascota con Glide
-        val urlImagen = item.urlFotoMasc
+        holder.binding.btnMascota.text = mascota.nombre
+
+        val urlImagen = mascota.urlFotoMasc
 
         if (!urlImagen.isNullOrEmpty()) {
             Glide.with(contexto)
@@ -42,21 +45,19 @@ class MascotaAdapter(
                 .placeholder(R.drawable.img_mascotas)
                 .error(R.drawable.img_mascotas)
                 .into(holder.binding.ivFotoMascota)
-        } else {
+        }
+        else {
             holder.binding.ivFotoMascota.setImageResource(R.drawable.img_mascotas)
         }
 
-        // Programamos el evento de clic del botón
         holder.binding.btnMascota.setOnClickListener {
-            listener.onMascotaClick(item)
+            listener.onMascotaClick(idMascota, mascota)
         }
     }
 
-    override fun getItemCount(): Int{
-        return lista.size
-    }
+    override fun getItemCount(): Int = lista.size
 
-    fun actualizarLista(nuevaLista: List<Mascota>) {
+    fun actualizarLista(nuevaLista: List<Pair<String, Mascota>>) {
         lista.clear()
         lista.addAll(nuevaLista)
         notifyDataSetChanged()

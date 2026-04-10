@@ -33,6 +33,7 @@ class TratamientoRepository (private val remoteTratamiento: TratamientoRemote) {
             { listaIds ->
                 if (listaIds.isEmpty()) {
                     success(emptyList())
+
                     return@obtenerIdsTratamientosPorMascota
                 }
 

@@ -11,11 +11,8 @@ class TratamientoAdapter(
     var lista: ArrayList<Tratamiento>,
     var contexto: Context,
     private val listener: OnTratamientoListener
-) : RecyclerView.Adapter<TratamientoAdapter.TratamientoHolder>() {
+    ) : RecyclerView.Adapter<TratamientoAdapter.TratamientoHolder>() {
 
-    interface OnTratamientoListener {
-        fun onTratamientoClick(tratamiento: Tratamiento)
-    }
 
     inner class TratamientoHolder(val binding: RecyclerTratamientoBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -31,7 +28,7 @@ class TratamientoAdapter(
         val item = lista[position]
 
         // Mapeo de datos al diseño del item
-        holder.binding.tvTitulo.text = "Tratamiento #${item.id}"
+        holder.binding.tvTitulo.text = "Tratamiento #${item.id?.uppercase()}"
         holder.binding.tvMedicacion.text = item.tipoTratamiento ?: "No especificado"
         holder.binding.tvFrecuencia.text = item.detallesMedicacion?.frecuencia ?: "Frecuencia no definida"
 
@@ -42,5 +39,9 @@ class TratamientoAdapter(
 
     override fun getItemCount(): Int{
         return lista.size
+    }
+
+    interface OnTratamientoListener {
+        fun onTratamientoClick(tratamiento: Tratamiento)
     }
 }

@@ -25,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase
 class UsuarioMascotaFragment: Fragment(), MascotaAdapter.OnMascotaListener {
     private lateinit var binding : FragmentUsuarioMascotaBinding
     private lateinit var adapterMascota: MascotaAdapter
-    private lateinit var listaMascotas: ArrayList<Mascota>
+    private lateinit var listaMascotas: ArrayList<Pair<String, Mascota>>
     private lateinit var auth: FirebaseAuth
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var databaseReference: DatabaseReference
@@ -87,11 +87,11 @@ class UsuarioMascotaFragment: Fragment(), MascotaAdapter.OnMascotaListener {
         */
         propietarioRepository.obtenerPropietario(
             auth,
-            { id, _ ->
+            { id, prop ->
                 mascotaRepository.obtenerMascotasPorPropietario(
                     id,
                     { listaResultado ->
-                        adapterMascota.actualizarLista(listaResultado.map{it.second})
+                        adapterMascota.actualizarLista(listaResultado)
                     },
                     { mensajeDeError ->
                         mostrarSnackbar(mensajeDeError ?: "ERROR al cargar mascotas")
@@ -104,9 +104,9 @@ class UsuarioMascotaFragment: Fragment(), MascotaAdapter.OnMascotaListener {
         )
     }
 
-    override fun onMascotaClick(mascota: Mascota){
+    override fun onMascotaClick(idMascota: String, mascota: Mascota){
         // Pasamos la mascota seleccionada a la navegación para ver su perfil
-        navegacionFragment(3, mascota)
+        navegacionFragment(3, idMascota, mascota)
     }
 
     override fun onResume() {
@@ -126,13 +126,13 @@ class UsuarioMascotaFragment: Fragment(), MascotaAdapter.OnMascotaListener {
     /* NAVEGACION ENTRE FRAGMENTS
 
     */
-    fun navegacionFragment(num : Int, mascota: Mascota? = null) {
+    fun navegacionFragment(num : Int, idMascota: String? = null, mascota: Mascota? = null) {
         when (num) {
             1 -> NavigatorUsuario.UsuarioMascota_to_UsuarioRegMascota(this)
             2 -> NavigatorRoot.Usuario_to_Mascota(this)
             3 -> {
                 if(mascota != null){
-                    NavigatorRoot.UsuarioMascota_to_MascotaPerfil(this, mascota)
+                    NavigatorRoot.UsuarioMascota_to_MascotaPerfil(this, idMascota, mascota)
                 }
             }
         }

@@ -11,14 +11,14 @@ import com.example.vetycare.model.entities.Tratamiento
 import com.example.vetycare.navigation.NavigatorMascota
 
 class MascotaTratamientoInfoFragment : Fragment() {
-    private lateinit var binding : FragmentMascotaTratamientoInfoBinding
-
+    private lateinit var _binding : FragmentMascotaTratamientoInfoBinding
+    private val binding get() = _binding
     override fun onAttach(context: Context) {
         super.onAttach(context)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentMascotaTratamientoInfoBinding.inflate(layoutInflater,container,false)
+        _binding = FragmentMascotaTratamientoInfoBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
 
@@ -55,7 +55,7 @@ class MascotaTratamientoInfoFragment : Fragment() {
     }
 
     private fun pintarDatosTratamiento(t: Tratamiento) {
-        binding.tvTitulo.text = "Tratamiento #${t.id}"
+        binding.tvTitulo.text = "Tratamiento #${t.id?.uppercase()}"
         binding.tvProcedimiento.text = t.tipoTratamiento
         binding.tvFechaInicio.text = t.fechaInicio
         binding.tvFechaFin.text = t.fechaFin

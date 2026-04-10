@@ -26,6 +26,7 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
     private lateinit var databaseReference: DatabaseReference
     private lateinit var mascotaRepository: MascotaRepository
     private var mascotaSeleccionada: Mascota? = null
+    private var idMascotaSeleccionada: String? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -40,13 +41,20 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mascotaSeleccionada = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
-            arguments?.getSerializable(ARG_MASCOTA, Mascota::class.java)
-        }
-        else {
-            @Suppress("DEPRECATION")
-            arguments?.getSerializable(ARG_MASCOTA) as? Mascota
-        }
+        idMascotaSeleccionada = arguments?.getString(ARG_ID_MASCOTA)
+
+        mascotaSeleccionada =
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+                arguments?.getSerializable(ARG_MASCOTA, Mascota::class.java)
+            } else {
+                @Suppress("DEPRECATION")
+                arguments?.getSerializable(ARG_MASCOTA) as? Mascota
+            }
+    }
+
+    companion object {
+        const val ARG_MASCOTA = "arg_mascota"
+        const val ARG_ID_MASCOTA = "arg_id_mascota"
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -132,7 +140,6 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
         }
     }
 
-    companion object {
-        const val ARG_MASCOTA = "arg_mascota"
-    }
+    fun obtenerMascotaSeleccionada(): Mascota? = mascotaSeleccionada
+    fun obtenerIdMascotaSeleccionada(): String? = idMascotaSeleccionada
 }
