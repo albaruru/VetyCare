@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,101 +7,113 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="6dp"
-    android:background="@drawable/background_cuadro_formulario"
-    android:padding="12dp">
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/formulario"
+    app:strokeColor="@color/formulario_borde"
+    app:strokeWidth="2dp">
 
-    <!-- FOTO DE LA CLINICA -->
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/iv_logo_clinica"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:padding="2dp"
-        android:scaleType="centerCrop"
-        android:background="@drawable/background_cuadro_texto"
-        android:src="@android:drawable/ic_menu_camera"
-        app:shapeAppearanceOverlay="@style/ShapeCircle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- TEXTO - Nombre -->
-    <TextView
-        android:id="@+id/tv_nombre_clinica"
-        style="@style/TextBaseNegrita"
-        android:layout_width="288dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="12dp"
-        android:gravity="center_vertical"
-        android:hint="Nombre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/iv_logo_clinica"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- TEXTO - Provincia -->
-    <TextView
-        android:id="@+id/tv_provincia"
-        style="@style/TextBase"
-        android:layout_width="288dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="2dp"
-        android:gravity="center_vertical"
-        android:hint="Provincia"
-        app:layout_constraintBottom_toBottomOf="@id/iv_logo_clinica"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/iv_logo_clinica"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nombre_clinica" />
-
-    <!-- DIVIDER -->
-    <View
-        android:id="@+id/divider"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/menu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_logo_clinica" />
+        android:layout_height="wrap_content"
+        android:padding="12dp">
 
-    <!-- TEXTO - Dirección -->
-    <TextView
-        android:id="@+id/tv_label_direccion"
-        android:layout_width="70dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/clinica_item_direccion"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider"
-        style="@style/TextBaseNegrita" />
-    <TextView
-        android:id="@+id/tv_direccion"
-        android:layout_width="0dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="10dp"
-        android:maxLines="2"
-        android:ellipsize="end"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_label_direccion"
-        app:layout_constraintTop_toBottomOf="@id/divider"
-        style="@style/TextBase" />
-    <!-- TEXTO - Teléfono -->
-    <TextView
-        android:id="@+id/tv_label_telefono"
-        android:layout_width="70dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="6dp"
-        android:text="@string/clinica_item_telefono"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_label_direccion"
-        style="@style/TextBaseNegrita"/>
-    <TextView
-        android:id="@+id/tv_telefono"
-        android:layout_width="0dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="6dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_label_telefono"
-        app:layout_constraintTop_toBottomOf="@id/tv_direccion"
-        style="@style/TextBase"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- FOTO DE LA CLINICA -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_logo_clinica"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:padding="2dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/background_cuadro_texto"
+            android:src="@android:drawable/ic_menu_camera"
+            app:shapeAppearanceOverlay="@style/ShapeCircle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- TEXTO - Nombre -->
+        <TextView
+            android:id="@+id/tv_nombre_clinica"
+            style="@style/TextBaseNegrita"
+            android:layout_width="0dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="12dp"
+            android:gravity="center_vertical"
+            android:hint="Nombre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_logo_clinica"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- TEXTO - Provincia -->
+        <TextView
+            android:id="@+id/tv_provincia"
+            style="@style/TextBase"
+            android:layout_width="0dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center_vertical"
+            android:hint="Provincia"
+            app:layout_constraintBottom_toBottomOf="@id/iv_logo_clinica"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_logo_clinica"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nombre_clinica" />
+
+        <!-- DIVIDER -->
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/menu"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_logo_clinica" />
+
+        <!-- TEXTO - Dirección -->
+        <TextView
+            android:id="@+id/tv_label_direccion"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/clinica_item_direccion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            style="@style/TextBaseNegrita" />
+        <TextView
+            android:id="@+id/tv_direccion"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="10dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_label_direccion"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            style="@style/TextBase" />
+
+        <!-- TEXTO - Teléfono -->
+        <TextView
+            android:id="@+id/tv_label_telefono"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="6dp"
+            android:text="@string/clinica_item_telefono"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_direccion"
+            style="@style/TextBaseNegrita"/>
+        <TextView
+            android:id="@+id/tv_telefono"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_label_telefono"
+            app:layout_constraintTop_toBottomOf="@id/tv_direccion"
+            style="@style/TextBase"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
