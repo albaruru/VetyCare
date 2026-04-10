@@ -207,6 +207,9 @@
     <string name="usuario_cldr_cita_fecha">Fecha de la cita:</string>
     <string name="usuario_cldr_cita_hora">Hora de la cita:</string>
     <string name="usuario_cldr_cita_recordatorio">Recordatorio:</string>
+    <string-array name="veterinarios_opciones">
+        <item>Carlos Ruiz</item>
+    </string-array>
     <string-array name="horas_opciones">
         <item>08:00</item>
         <item>08:15</item>

@@ -149,6 +149,31 @@
                     app:layout_constraintStart_toStartOf="parent"
                     style="@style/TextBase" />
 
+                <!-- LABEL - Veterinario -->
+                <TextView
+                    android:id="@+id/tv_label_veterinario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="15dp"
+                    android:text="@string/usuario_cldr_cita_veterinario"
+                    app:layout_constraintTop_toBottomOf="@id/et_motivo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    style="@style/TextBaseNegrita" />
+
+                <!-- SPINNER - Veterinario -->
+                <Spinner
+                    android:id="@+id/tv_veterinario"
+                    style="@style/TextBase"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="4dp"
+                    android:padding="8dp"
+                    android:background="@drawable/background_cuadro_texto"
+                    android:entries="@array/horas_opciones"
+                    app:layout_constraintTop_toBottomOf="@id/tv_label_veterinario"
+                    app:layout_constraintStart_toStartOf="parent" />
+
                 <!-- LABEL - Fecha -->
                 <TextView
                     android:id="@+id/tv_label_fecha"
@@ -157,7 +182,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginStart="15dp"
                     android:text="@string/usuario_cldr_cita_fecha"
-                    app:layout_constraintTop_toBottomOf="@id/et_motivo"
+                    app:layout_constraintTop_toBottomOf="@id/tv_veterinario"
                     app:layout_constraintStart_toStartOf="parent"
                     style="@style/TextBaseNegrita"/>
 
