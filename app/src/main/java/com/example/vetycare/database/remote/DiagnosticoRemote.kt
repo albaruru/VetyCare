@@ -13,6 +13,11 @@ class DiagnosticoRemote (private val databaseReference: DatabaseReference){
         databaseReference.child("diagnosticos").child(idDiagnostico).get()
             .addOnSuccessListener { snapshot ->
                 val diagnostico = snapshot.getValue(Diagnostico::class.java)
+
+                if (diagnostico != null) {
+                    diagnostico.id = snapshot.key
+                }
+
                 onSuccess(diagnostico)
             }
             .addOnFailureListener {
@@ -72,7 +77,7 @@ class DiagnosticoRemote (private val databaseReference: DatabaseReference){
         updates: Map<String, Any?>,
         onSuccess: () -> Unit,
         onError: (String?) -> Unit
-    ) {
+        ) {
         databaseReference.child("diagnosticos").child(idDiagnostico).updateChildren(updates)
             .addOnSuccessListener { onSuccess() }
             .addOnFailureListener { onError("ERROR al actualizar el diagnóstico") }

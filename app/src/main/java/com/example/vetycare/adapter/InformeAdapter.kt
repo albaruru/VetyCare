@@ -1,5 +1,6 @@
 package com.example.vetycare.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -27,10 +28,11 @@ class InformeAdapter(
         return InformeHolder(binding)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: InformeHolder, position: Int) {
         val item = lista[position]
 
-        holder.binding.tvTitulo.text = "Informe #${item.id}"
+        holder.binding.tvTitulo.text = "Informe #${item.id?.uppercase()}"
         holder.binding.tvConcepto.text = item.patologia?.nombre ?: "Sin concepto"
         holder.binding.tvFrecuencia.text = item.fechaDiagnostico // Se usa el campo de fecha
 

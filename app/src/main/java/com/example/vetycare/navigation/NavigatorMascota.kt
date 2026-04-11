@@ -53,4 +53,18 @@ object NavigatorMascota {
             R.id.action_MascotaTratamientoFragment_to_MascotaTratamientoInfoFragment, bundle
         )
     }
+
+    fun MascotaInformeInfo_to_MascotaTratamientoInfo(
+        fragment: Fragment,
+        tratamiento: Tratamiento
+    ) {
+        val bundle = Bundle().apply {
+            putSerializable("tratamiento_key", tratamiento)
+        }
+
+        fragment.findNavController().navigate(
+            R.id.action_MascotaInformeInfoFragment_to_MascotaTratamientoInfoFragment,
+            bundle
+        )
+    }
 }

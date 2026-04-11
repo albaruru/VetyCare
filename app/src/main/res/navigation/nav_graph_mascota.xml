@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_MascotaInformeInfoFragment_to_MascotaInformeFragment"
             app:destination="@id/MascotaInformeFragment" />
+        <action
+            android:id="@+id/action_MascotaInformeInfoFragment_to_MascotaTratamientoInfoFragment"
+            app:destination="@id/MascotaTratamientoInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/MascotaPerfilFragment"

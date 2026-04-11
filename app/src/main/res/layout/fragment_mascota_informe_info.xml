@@ -178,19 +178,34 @@
             style="@style/TextBase" />
 
         <!-- BOTÓN -->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_ver_tratamiento"
+            style="@style/TextBotones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/botones"
+            android:text="Ver tratamiento"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_importe" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_volver"
+            style="@style/TextBotones"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="20dp"
-            android:text="@string/volver"
+            android:layout_marginTop="28dp"
             android:background="@drawable/boton_volver_cancelar"
+            android:text="@string/volver"
             app:backgroundTint="@null"
-            app:layout_constraintTop_toBottomOf="@id/tv_importe"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            style="@style/TextBotones" />
+            app:layout_constraintHorizontal_bias="0.03"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_importe" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
