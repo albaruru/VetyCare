@@ -98,7 +98,7 @@ class UsuarioContainerFragment : Fragment (R.layout.fragment_container_usuario) 
     private fun cargarDatosPropietario(
         tvNombreUsuario: TextView?,
         ivFotoUsuario: ImageView?
-        ) {
+    ) {
         val auth = auth.currentUser?.uid
         if (auth.isNullOrEmpty()) { return }
         propietarioRepository.obtenerPropietario(
@@ -109,7 +109,8 @@ class UsuarioContainerFragment : Fragment (R.layout.fragment_container_usuario) 
                 ivFotoUsuario?.let {
                     Glide.with(requireContext())
                         .load(url)
-                        .placeholder(R.mipmap.logo_vetycare)
+                        .placeholder(R.drawable.img_usser)
+                        .error(R.drawable.img_usser)
                         .into(it)
                 }
             },

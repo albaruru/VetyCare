@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
@@ -122,24 +123,22 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
     }
 
     private fun cargarDatosMascota(
-        ivFotoMascota: ShapeableImageView,
-        tvNombreMascota: TextView
+        ivFotoMascota: ImageView?,
+        tvNombreMascota: TextView?
     ) {
         val mascota = mascotaSeleccionada ?: return
 
-        tvNombreMascota.text = mascota.nombre ?: "Mascota"
+        tvNombreMascota?.text = mascota.nombre ?: "Mascota"
+        val url = mascota.urlFotoMasc
+        ivFotoMascota?.let {
+            Glide.with(requireContext())
+                .load(url)
+                .placeholder(R.drawable.img_mascotas)
+                .error(R.drawable.img_mascotas)
+                .into(it)
 
-        if (!mascota.urlFotoMasc.isNullOrEmpty()) {
-            Glide.with(this)
-                .load(mascota.urlFotoMasc)
-                .placeholder(R.drawable.ic_launcher_background)
-                .error(R.drawable.ic_launcher_background)
-                .into(ivFotoMascota)
-        } else {
-            ivFotoMascota.setImageResource(android.R.drawable.ic_menu_camera)
         }
     }
-
     fun obtenerMascotaSeleccionada(): Mascota? = mascotaSeleccionada
     fun obtenerIdMascotaSeleccionada(): String? = idMascotaSeleccionada
 }
