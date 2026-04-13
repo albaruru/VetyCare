@@ -1,10 +1,12 @@
 package com.example.vetycare.ui.fragment.usuario
 
 import android.content.Context
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.example.vetycare.database.remote.MascotaRemote
 import com.example.vetycare.database.remote.PropietarioRemote
@@ -21,6 +23,8 @@ import com.example.vetycare.utils.mostrarSnackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import kotlin.toString
 
 class UsuarioRegMascotaFragment : Fragment() {
@@ -33,11 +37,24 @@ class UsuarioRegMascotaFragment : Fragment() {
     private val keyConfirmacion = "confirmacion_registro" // Clave propia de la clase para ConfirmacionDialog
     private val keyCancelacion = "cancelacion_registro" // Clave propia de la clase para CancelacionDialog
 
+    // Variables para Storage y selección de imagen
+    private lateinit var storageReference: StorageReference
+    private var uriImagenSeleccionada: Uri? = null
+
+    // Launcher para abrir la galeria y setear la imagen en el binding
+    private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        if (uri != null) {
+            uriImagenSeleccionada = uri
+            binding.ivFotoAnimal.setImageURI(uri) // Muestra la previsualización en el ImageView
+        }
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         auth = FirebaseAuth.getInstance()
         firebaseDatabase = FirebaseDatabase.getInstance(FirebaseUtils.URL_RTDB)
         databaseReference = firebaseDatabase.reference
+        storageReference = FirebaseStorage.getInstance().reference
 
         val remotePropietario = PropietarioRemote(databaseReference)
         propietarioRepository = PropietarioRepository(remotePropietario)
@@ -83,6 +100,11 @@ class UsuarioRegMascotaFragment : Fragment() {
 
         binding.btnVolver.setOnClickListener {
             mensaje("cancelacion")
+        }
+
+        // Listener para la foto de la mascota
+        binding.ivFotoAnimal.setOnClickListener {
+            pickImageLauncher.launch("image/*")
         }
     }
 
@@ -158,11 +180,8 @@ class UsuarioRegMascotaFragment : Fragment() {
                 val pesoTexto = binding.etPeso.text.toString().trim()
                 val sexo = binding.spSexo.selectedItem.toString()
 
-                val castracionTexto = binding.spCastracion.toString()
-                val castracion = false
-                if (castracionTexto.equals("Si")) {
-                    val castracion = true
-                }
+                // FIXME: La logica que habia antes de castracion, aunque marcaras Si en el Spinner, en la bbdd se marcaba como False
+                val castracion = binding.spCastracion.selectedItem.toString().equals("Si", ignoreCase = true)
 
                 val pesoActual = pesoTexto.toDoubleOrNull()
                 if (pesoActual == null) {
@@ -172,32 +191,74 @@ class UsuarioRegMascotaFragment : Fragment() {
 
                 mascotaRepository.generarIdMascota(
                     { idMasc ->
-                        val mascota = Mascota (
-                            idMasc,
-                            true,
-                            castracion,
-                            especie,
-                            obtenerFechaActual(),
-                            fechaNacimiento,
-                            idProp,
-                            microchip,
-                            nombre,
-                            pesoActual,
-                            raza,
-                            sexo,
-                            ""
-                        )
-                        mascotaRepository.registrarMascota(
-                            idMasc,
-                            mascota,
-                            {
-                                mostrarSnackbar("Mascota registrada correctamente.")
-                                navegacionFragment(1)
-                            },
-                            { mensajeDeError ->
-                                mostrarSnackbar(mensajeDeError ?: "ERROR al registrar la mascota")
-                            }
-                        )
+                        // Logica de imagen
+                        if (uriImagenSeleccionada != null) {
+                            val folderRef = storageReference.child("fotos_mascotas/$idMasc.jpg")
+                            folderRef.putFile(uriImagenSeleccionada!!)
+                                .addOnSuccessListener {
+                                    folderRef.downloadUrl.addOnSuccessListener { uri ->
+                                        val urlDescarga = uri.toString()
+
+                                        val mascota = Mascota (
+                                            idMasc,
+                                            true,
+                                            castracion,
+                                            especie,
+                                            obtenerFechaActual(),
+                                            fechaNacimiento,
+                                            idProp,
+                                            microchip,
+                                            nombre,
+                                            pesoActual,
+                                            raza,
+                                            sexo,
+                                            urlDescarga
+                                        )
+                                        mascotaRepository.registrarMascota(
+                                            idMasc,
+                                            mascota,
+                                            {
+                                                mostrarSnackbar("Mascota registrada correctamente.")
+                                                navegacionFragment(1)
+                                            },
+                                            { mensajeDeError ->
+                                                mostrarSnackbar(mensajeDeError ?: "ERROR al registrar la mascota")
+                                            }
+                                        )
+                                    }
+                                }
+                                .addOnFailureListener {
+                                    mostrarSnackbar("Error al subir la imagen")
+                                }
+                        } else {
+                            // Flujo si no hay imagen (url vacia)
+                            val mascota = Mascota (
+                                idMasc,
+                                true,
+                                castracion,
+                                especie,
+                                obtenerFechaActual(),
+                                fechaNacimiento,
+                                idProp,
+                                microchip,
+                                nombre,
+                                pesoActual,
+                                raza,
+                                sexo,
+                                ""
+                            )
+                            mascotaRepository.registrarMascota(
+                                idMasc,
+                                mascota,
+                                {
+                                    mostrarSnackbar("Mascota registrada correctamente.")
+                                    navegacionFragment(1)
+                                },
+                                { mensajeDeError ->
+                                    mostrarSnackbar(mensajeDeError ?: "ERROR al registrar la mascota")
+                                }
+                            )
+                        }
                     },
                     { mensajeDeError ->
                         mostrarSnackbar(mensajeDeError ?: "ERROR al obtener id de la mascota")

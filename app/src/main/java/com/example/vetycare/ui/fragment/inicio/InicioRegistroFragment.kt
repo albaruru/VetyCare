@@ -1,6 +1,7 @@
 package com.example.vetycare.ui.fragment.inicio
 
 import android.content.Context
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +24,9 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import androidx.activity.result.contract.ActivityResultContracts
 
 class InicioRegistroFragment : Fragment() {
     private lateinit var binding : FragmentInicioRegistroBinding
@@ -34,11 +38,24 @@ class InicioRegistroFragment : Fragment() {
     private val keyConfirmacion = "confirmacion_registro" // Clave propia de la clase para ConfirmacionDialog
     private val keyCancelacion = "cancelacion_registro" // Clave propia de la clase para CancelacionDialog
 
+    // Variables para Storage y selección de imagen
+    private lateinit var storageReference: StorageReference
+    private var uriImagenSeleccionada: Uri? = null
+
+    // Launcher para abrir la galeria y setear la imagen en el binding
+    private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        if (uri != null) {
+            uriImagenSeleccionada = uri
+            binding.ivFoto.setImageURI(uri) // Muestra la previsualización en el ImageView
+        }
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         auth = FirebaseAuth.getInstance()
         firebaseDatabase = FirebaseDatabase.getInstance(FirebaseUtils.URL_RTDB)
         databaseReference = firebaseDatabase.reference
+        storageReference = FirebaseStorage.getInstance().reference
 
         val remotePropietario = PropietarioRemote(databaseReference)
         propietarioRepository = PropietarioRepository(remotePropietario)
@@ -94,6 +111,10 @@ class InicioRegistroFragment : Fragment() {
         binding.btnVolver.setOnClickListener {
 
             mensaje("cancelacion")
+        }
+        // Listener para la foto de perfil
+        binding.ivFoto.setOnClickListener {
+            pickImageLauncher.launch("image/*")
         }
     }
 
@@ -205,6 +226,13 @@ class InicioRegistroFragment : Fragment() {
                     mostrarSnackbar("No se ha podido obtener el UID del usuario")
                     return@addOnSuccessListener
                 }
+                // Logica de imagen
+                if (uriImagenSeleccionada != null) {
+                    val folderRef = storageReference.child("fotos_propietarios/$auth.jpg")
+                    folderRef.putFile(uriImagenSeleccionada!!)
+                        .addOnSuccessListener {
+                            folderRef.downloadUrl.addOnSuccessListener { uri ->
+                                val urlDescarga = uri.toString()
                 propietarioRepository.generarIdPropietario(
                     { idProp ->
                         val propietarioNuevo = Propietario(
@@ -219,7 +247,7 @@ class InicioRegistroFragment : Fragment() {
                             nombre = nombre,
                             telefono = telefono,
                             sexo = sexo,
-                            urlFotoProp = ""
+                            urlFotoProp = urlDescarga
                         )
                         propietarioRepository.crearPropietario(
                             idProp,
@@ -237,6 +265,46 @@ class InicioRegistroFragment : Fragment() {
                         mostrarSnackbar(mensajeDeError ?: "ERROR")
                     }
                 )
+                            }
+                        }
+                        .addOnFailureListener {
+                            mostrarSnackbar("Error al subir la imagen")
+                        }
+                } else {
+                    // Flujo original si no hay imagen (url vacía)
+                    propietarioRepository.generarIdPropietario(
+                        { idProp ->
+                            val propietarioNuevo = Propietario(
+                                id = idProp,
+                                activa = true,
+                                apellido = apellido,
+                                authUid = auth,
+                                dni = dni,
+                                email = correo,
+                                fechaRegistro = obtenerFechaActual(),
+                                fechaNacimiento = fechaNacimiento,
+                                nombre = nombre,
+                                telefono = telefono,
+                                sexo = sexo,
+                                urlFotoProp = ""
+                            )
+                            propietarioRepository.crearPropietario(
+                                idProp,
+                                propietarioNuevo,
+                                {
+                                    mostrarSnackbar("Usuario registrado correctamente")
+                                    navegacionFragment(1)
+                                },
+                                { mensajeDeError ->
+                                    mostrarSnackbar(mensajeDeError ?: "ERROR al guardar el propietario en la base de datos")
+                                }
+                            )
+                        },
+                        { mensajeDeError ->
+                            mostrarSnackbar(mensajeDeError ?: "ERROR")
+                        }
+                    )
+                }
             }
             .addOnFailureListener { exception ->
                 mostrarSnackbar(exception.message ?: "ERROR al crear el usuaruo en Firebase Auth")
@@ -247,5 +315,4 @@ class InicioRegistroFragment : Fragment() {
         val formato = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault())
         return formato.format(java.util.Date())
     }
-
 }
