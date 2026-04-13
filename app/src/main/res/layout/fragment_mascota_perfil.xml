@@ -185,8 +185,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_fecha_animal"
             style="@style/TextBaseNegrita"/>
-        <Spinner
-            android:id="@+id/sp_sexo"
+        <EditText
+            android:id="@+id/et_sexo"
             android:layout_width="0dp"
             android:layout_height="46dp"
             android:layout_marginTop="8dp"
@@ -207,7 +207,7 @@
             android:layout_marginStart="15dp"
             android:text="@string/reg_peso"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sp_sexo"
+            app:layout_constraintTop_toBottomOf="@+id/et_sexo"
             style="@style/TextBaseNegrita"/>
         <EditText
             android:id="@+id/et_peso"
@@ -236,7 +236,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_peso"
             style="@style/TextBaseNegrita"/>
-        <Spinner
+        <EditText
             android:id="@+id/et_castracion"
             android:layout_width="0dp"
             android:layout_height="46dp"
