@@ -34,7 +34,6 @@ class CitaAdapter(
             holder.binding.etMotivo.setText(item.motivoConsulta) // Usamos et_motivo del XML
             holder.binding.tvVeterinario.text = item.veterinario?.nombre ?: "Asignando..."
             holder.binding.tvFecha.text = "${item.fechaHoraInicio}"
-            holder.binding.tvRecordatorio.text = "1 día antes"
 
             // Configurar el color de la franja según el tipo de cita
             val color = when (item.tipoCita?.uppercase()) {

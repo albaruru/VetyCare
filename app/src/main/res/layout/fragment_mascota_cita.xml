@@ -24,202 +24,237 @@
             style="@style/TextTitulo" />
 
         <!-- TARJETA -->
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/layoutDetalle"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/background_cuadro_formulario"
-            android:padding="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/formulario"
+            app:strokeColor="@color/formulario_borde"
+            app:strokeWidth="2dp"
             app:layout_constraintTop_toBottomOf="@id/tv_titulo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- LABEL - Comunidad Autónoma -->
-            <TextView
-                android:id="@+id/tv_label_comunidad"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:text="@string/usuario_cldr_cita_comunidad"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                style="@style/TextBaseNegrita" />
-
-            <!-- SPINNER - Comunidad Autónoma -->
-            <Spinner
-                android:id="@+id/sp_comunidad"
-                style="@style/TextBase"
-                android:layout_width="match_parent"
-                android:layout_height="46dp"
-                android:layout_marginTop="4dp"
-                android:padding="8dp"
-                android:background="@drawable/background_cuadro_texto"
-                android:entries="@array/opciones_comunidades"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_label_comunidad" />
-
-            <!-- LABEL - Clínica -->
-            <TextView
-                android:id="@+id/tv_label_clinica"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="15dp"
-                android:text="@string/usuario_cldr_cita_clinica"
-                app:layout_constraintTop_toBottomOf="@id/sp_comunidad"
-                app:layout_constraintStart_toStartOf="parent"
-                style="@style/TextBaseNegrita" />
-
-            <!-- SPINNER - Clínica -->
-            <Spinner
-                android:id="@+id/sp_clinica"
-                style="@style/TextBase"
-                android:layout_width="match_parent"
-                android:layout_height="46dp"
-                android:layout_marginTop="4dp"
-                android:padding="8dp"
-                android:background="@drawable/background_cuadro_texto"
-                android:entries="@array/opciones_clinicas"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_label_clinica" />
-
-            <!-- LABEL - Tipo -->
-            <TextView
-                android:id="@+id/tv_label_tipo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="15dp"
-                android:text="@string/usuario_cldr_cita_tipo"
-                app:layout_constraintTop_toBottomOf="@id/sp_clinica"
-                app:layout_constraintStart_toStartOf="parent"
-                style="@style/TextBaseNegrita" />
-
-            <!-- SPINNER - Tipo -->
-            <Spinner
-                android:id="@+id/sp_tipo"
-                style="@style/TextBase"
-                android:layout_width="match_parent"
-                android:layout_height="46dp"
-                android:layout_marginTop="4dp"
-                android:padding="8dp"
-                android:background="@drawable/background_cuadro_texto"
-                android:entries="@array/usuario_cldr_cita_tipo_4"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_label_tipo" />
-
-            <!-- LABEL - Motivo -->
-            <TextView
-                android:id="@+id/tv_label_motivo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="15dp"
-                android:text="@string/usuario_cldr_cita_motivo"
-                app:layout_constraintTop_toBottomOf="@id/sp_tipo"
-                app:layout_constraintStart_toStartOf="parent"
-                style="@style/TextBaseNegrita" />
-
-            <!-- CAMPO - Motivo -->
-            <EditText
-                android:id="@+id/et_motivo"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="4dp"
-                android:paddingStart="15dp"
-                android:padding="8dp"
-                android:gravity="top|start"
-                android:inputType="textMultiLine"
-                android:maxLines="5"
-                android:overScrollMode="always"
-                android:scrollbars="vertical"
-                android:background="@drawable/background_cuadro_texto"
-                android:hint="@string/usuario_cldr_cita_motivo_hint"
-                app:layout_constraintTop_toBottomOf="@id/tv_label_motivo"
-                app:layout_constraintStart_toStartOf="parent"
-                style="@style/TextBase" />
-
-            <!-- LABEL - Fecha -->
-            <TextView
-                android:id="@+id/tv_label_fecha"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="15dp"
-                android:text="@string/usuario_cldr_cita_fecha"
-                app:layout_constraintTop_toBottomOf="@id/et_motivo"
-                app:layout_constraintStart_toStartOf="parent"
-                style="@style/TextBaseNegrita"/>
-
-            <!-- CAMPO - Fecha -->
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_fecha"
                 android:layout_width="match_parent"
-                android:layout_height="46dp"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/background_cuadro_texto"
-                app:layout_constraintTop_toBottomOf="@id/tv_label_fecha"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                android:layout_height="wrap_content"
+                android:padding="16dp">
 
+                <!-- LABEL - Comunidad Autónoma -->
                 <TextView
-                    android:id="@+id/tv_fecha"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
+                    android:id="@+id/tv_label_comunidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:text="@string/usuario_cldr_cita_comunidad"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    style="@style/TextBaseNegrita" />
+
+                <!-- SPINNER - Comunidad Autónoma -->
+                <Spinner
+                    android:id="@+id/sp_comunidad"
+                    style="@style/TextBase"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="4dp"
+                    android:padding="8dp"
+                    android:background="@drawable/background_cuadro_texto"
+                    android:entries="@array/opciones_comunidades"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_label_comunidad" />
+
+                <!-- LABEL - Clínica -->
+                <TextView
+                    android:id="@+id/tv_label_clinica"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="15dp"
+                    android:text="@string/usuario_cldr_cita_clinica"
+                    app:layout_constraintTop_toBottomOf="@id/sp_comunidad"
+                    app:layout_constraintStart_toStartOf="parent"
+                    style="@style/TextBaseNegrita" />
+
+                <!-- SPINNER - Clínica -->
+                <Spinner
+                    android:id="@+id/sp_clinica"
+                    style="@style/TextBase"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="4dp"
+                    android:padding="8dp"
+                    android:background="@drawable/background_cuadro_texto"
+                    android:entries="@array/opciones_clinicas"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_label_clinica" />
+
+                <!-- LABEL - Tipo -->
+                <TextView
+                    android:id="@+id/tv_label_tipo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="15dp"
+                    android:text="@string/usuario_cldr_cita_tipo"
+                    app:layout_constraintTop_toBottomOf="@id/sp_clinica"
+                    app:layout_constraintStart_toStartOf="parent"
+                    style="@style/TextBaseNegrita" />
+
+                <!-- SPINNER - Tipo -->
+                <Spinner
+                    android:id="@+id/sp_tipo"
+                    style="@style/TextBase"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="4dp"
+                    android:padding="8dp"
+                    android:background="@drawable/background_cuadro_texto"
+                    android:entries="@array/usuario_cldr_cita_tipo_4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_label_tipo" />
+
+                <!-- LABEL - Motivo -->
+                <TextView
+                    android:id="@+id/tv_label_motivo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="15dp"
+                    android:text="@string/usuario_cldr_cita_motivo"
+                    app:layout_constraintTop_toBottomOf="@id/sp_tipo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    style="@style/TextBaseNegrita" />
+
+                <!-- CAMPO - Motivo -->
+                <EditText
+                    android:id="@+id/et_motivo"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="4dp"
                     android:paddingStart="15dp"
                     android:padding="8dp"
-                    android:hint="@string/usuario_cldr_cita_fecha_hint"
+                    android:gravity="top|start"
+                    android:inputType="textMultiLine"
+                    android:maxLines="5"
+                    android:overScrollMode="always"
+                    android:scrollbars="vertical"
+                    android:background="@drawable/background_cuadro_texto"
+                    android:hint="@string/usuario_cldr_cita_motivo_hint"
+                    app:layout_constraintTop_toBottomOf="@id/tv_label_motivo"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/ib_calendar"
-                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/TextBase" />
+
+                <!-- LABEL - Veterinario -->
+                <TextView
+                    android:id="@+id/tv_label_veterinario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="15dp"
+                    android:text="@string/usuario_cldr_cita_veterinario"
+                    app:layout_constraintTop_toBottomOf="@id/et_motivo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    style="@style/TextBaseNegrita" />
+
+                <!-- SPINNER - Veterinario -->
+                <Spinner
+                    android:id="@+id/tv_veterinario"
+                    style="@style/TextBase"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="4dp"
+                    android:padding="8dp"
+                    android:background="@drawable/background_cuadro_texto"
+                    android:entries="@array/horas_opciones"
+                    app:layout_constraintTop_toBottomOf="@id/tv_label_veterinario"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <!-- LABEL - Fecha -->
+                <TextView
+                    android:id="@+id/tv_label_fecha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="15dp"
+                    android:text="@string/usuario_cldr_cita_fecha"
+                    app:layout_constraintTop_toBottomOf="@id/tv_veterinario"
+                    app:layout_constraintStart_toStartOf="parent"
+                    style="@style/TextBaseNegrita"/>
+
+                <!-- CAMPO - Fecha -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_fecha"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/background_cuadro_texto"
+                    app:layout_constraintTop_toBottomOf="@id/tv_label_fecha"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <TextView
+                        android:id="@+id/tv_fecha"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingStart="15dp"
+                        android:padding="8dp"
+                        android:hint="@string/usuario_cldr_cita_fecha_hint"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/ib_calendar"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        style="@style/TextBase" />
+
+                    <ImageButton
+                        android:id="@+id/ib_calendar"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="15dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/btn_calendar"
+                        android:background="@null"
+                        android:contentDescription="Seleccionar fecha"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- LABEL - Hora -->
+                <TextView
+                    android:id="@+id/tv_label_hora"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="15dp"
+                    android:text="@string/usuario_cldr_cita_hora"
+                    app:layout_constraintTop_toBottomOf="@id/cl_fecha"
+                    app:layout_constraintStart_toStartOf="parent"
+                    style="@style/TextBaseNegrita" />
+
+                <!-- SPINNER - Hora -->
+                <Spinner
+                    android:id="@+id/sp_hora"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/background_cuadro_texto"
+                    android:entries="@array/horas_opciones"
+                    android:padding="8dp"
+                    app:layout_constraintTop_toBottomOf="@id/tv_label_hora"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     style="@style/TextBase" />
 
-                <ImageButton
-                    android:id="@+id/ib_calendar"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="15dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/btn_calendar"
-                    android:background="@null"
-                    android:contentDescription="Seleccionar fecha"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!-- LABEL - Hora -->
-            <TextView
-                android:id="@+id/tv_label_hora"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="15dp"
-                android:text="@string/usuario_cldr_cita_hora"
-                app:layout_constraintTop_toBottomOf="@id/cl_fecha"
-                app:layout_constraintStart_toStartOf="parent"
-                style="@style/TextBaseNegrita" />
-
-            <!-- SPINNER - Hora -->
-            <Spinner
-                android:id="@+id/sp_hora"
-                android:layout_width="match_parent"
-                android:layout_height="46dp"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/background_cuadro_texto"
-                android:entries="@array/horas_opciones"
-                android:padding="8dp"
-                app:layout_constraintTop_toBottomOf="@id/tv_label_hora"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                style="@style/TextBase" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <!-- BOTÓN - Guardar -->
         <com.google.android.material.button.MaterialButton
