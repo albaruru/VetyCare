@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import com.example.vetycare.database.remote.MedicamentoRemote
 import com.example.vetycare.database.remote.TratamientoRemote
@@ -127,17 +128,33 @@ class MascotaInformeInfoFragment : Fragment() {
         }
 
         informeActual?.let { pintarDatosInforme(it) }
+
+        // Para cuando le des al boton de volver del móvil vuelva a MascotaInforme
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                navegacionFragment(2)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     override fun onResume() {
         super.onResume()
 
         binding.btnVolver.setOnClickListener {
-            NavigatorMascota.MascotaInformeInfo_to_MascotaInforme(this)
+            navegacionFragment(1)
         }
 
         binding.btnVerTratamiento.setOnClickListener {
             abrirTratamientoDelInforme()
+        }
+    }
+
+    // NAVEGACION ENTRE FRAGMENTS
+    fun navegacionFragment(num: Int) {
+        when (num) {
+            1 -> NavigatorMascota.MascotaInformeInfo_to_MascotaInforme(this)
+            2 -> NavigatorMascota.MascotaInformeInfo_to_MascotaInforme(this@MascotaInformeInfoFragment)
         }
     }
 

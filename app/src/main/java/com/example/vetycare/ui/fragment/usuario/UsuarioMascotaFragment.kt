@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vetycare.adapter.MascotaAdapter
@@ -61,6 +62,14 @@ class UsuarioMascotaFragment: Fragment(), MascotaAdapter.OnMascotaListener {
         configurarRecycler()
         // Llenamos la lista con las mascotas del propietario
         cargarMascotasUsuario()
+
+        // Para cuando le des al boton de volver del móvil vuelva a UsuarioInicio
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                navegacionFragment(4)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     private fun instancias() {
@@ -135,6 +144,7 @@ class UsuarioMascotaFragment: Fragment(), MascotaAdapter.OnMascotaListener {
                     NavigatorRoot.UsuarioMascota_to_MascotaPerfil(this, idMascota, mascota)
                 }
             }
+            4 -> NavigatorUsuario.UsuarioMascota_to_UsuarioInicio(this@UsuarioMascotaFragment)
         }
     }
 }

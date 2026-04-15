@@ -5,12 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.vetycare.database.remote.PropietarioRemote
 import com.example.vetycare.database.repository.PropietarioRepository
 import com.example.vetycare.databinding.FragmentUsuarioInicioBinding
 import com.example.vetycare.model.entities.Propietario
+import com.example.vetycare.navigation.NavigatorRoot
+import com.example.vetycare.navigation.NavigatorUsuario
 import com.example.vetycare.utils.FirebaseUtils
 import com.example.vetycare.utils.mostrarSnackbar
 import com.google.firebase.auth.FirebaseAuth
@@ -41,6 +44,14 @@ class UsuarioInicioFragment : Fragment() {
         val remotePropietario = PropietarioRemote(databaseReference)
         propietarioRepository = PropietarioRepository(remotePropietario)
         cargarDatosUsuario()
+
+        // Para cuando le des al boton de volver del móvil vuelva a InicioPrincipal
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                navegacionFragment(1)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     /* Este fragment no tiene acciones, únicamente es la pantalla de bienvenida.
@@ -48,6 +59,12 @@ class UsuarioInicioFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         cargarDatosUsuario()
+    }
+
+    fun navegacionFragment(num : Int) {
+        when (num) {
+            1 -> NavigatorRoot.Usuario_to_Inicio(this@UsuarioInicioFragment)
+        }
     }
 
     private fun cargarDatosUsuario() {

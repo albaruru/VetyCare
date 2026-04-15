@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vetycare.adapter.TratamientoAdapter
@@ -70,6 +71,14 @@ class MascotaTratamientoFragment : Fragment(), TratamientoAdapter.OnTratamientoL
 
         cargarTratamientosMascota()
         //FIXME: BORRAR => crearTratamientosDePrueba()
+
+        // Para cuando le des al boton de volver del móvil vuelva a MascotaPerfil
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                navegacionFragment(3)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     /* FIXME: BORRAR
@@ -129,6 +138,7 @@ class MascotaTratamientoFragment : Fragment(), TratamientoAdapter.OnTratamientoL
             2 -> if (tratamiento != null) {
                 NavigatorMascota.MascotaTratamiento_to_MascotaTratamientoInfo(this, tratamiento)
             }
+            3 -> NavigatorMascota.MascotaTratamiento_to_MascotaPerfil(this@MascotaTratamientoFragment)
         }
     }
 

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import com.example.vetycare.R
 import com.example.vetycare.database.remote.ClinicaRemote
@@ -53,6 +54,14 @@ class UsuarioClinicaMapaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         iniciarMapa()
+
+        // Para cuando le des al boton de volver del móvil vuelva a UsuarioClinica
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                navegacionFragment(2)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     override fun onResume() {
@@ -161,6 +170,7 @@ class UsuarioClinicaMapaFragment : Fragment() {
     fun navegacionFragment(num: Int) {
         when (num) {
             1 -> NavigatorUsuario.UsuarioClinicaMapa_to_UsuarioClinica(this)
+            2 -> NavigatorUsuario.UsuarioClinicaMapa_to_UsuarioClinica(this@UsuarioClinicaMapaFragment)
         }
     }
 

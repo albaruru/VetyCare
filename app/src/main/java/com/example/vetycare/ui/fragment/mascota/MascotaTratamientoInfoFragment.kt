@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import com.example.vetycare.databinding.FragmentMascotaTratamientoInfoBinding
 import com.example.vetycare.model.entities.Tratamiento
@@ -36,6 +37,7 @@ class MascotaTratamientoInfoFragment : Fragment() {
     fun navegacionFragment(num: Int) {
         when (num) {
             1 -> NavigatorMascota.MascotaTratamientoInfo_to_MascotaTratamiento(this)
+            2 -> NavigatorMascota.MascotaTratamientoInfo_to_MascotaTratamiento(this@MascotaTratamientoInfoFragment)
         }
     }
 
@@ -52,6 +54,14 @@ class MascotaTratamientoInfoFragment : Fragment() {
         if (tratamiento != null) {
             pintarDatosTratamiento(tratamiento)
         }
+
+        // Para cuando le des al boton de volver del móvil vuelva a MascotaInforme
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                navegacionFragment(2)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     private fun pintarDatosTratamiento(t: Tratamiento) {

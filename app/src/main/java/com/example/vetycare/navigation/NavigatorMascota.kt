@@ -12,13 +12,23 @@ object NavigatorMascota {
 
     /* NAVEGACIÓN CONTAINER MASCOTA: desglose por métodos
 
+    - MascotaCita_to_MascotaPerfil                   => Navegamos del Fragment Cita              => Fragment Mascota Perfil
+
     - MascotaInformeInfo_to_MascotaInforme           => Navegamos del Fragment Informe Info      => Fragment Informe
     - MascotaInforme_to_MascotaInformeInfo           => Navegamos del Fragment Informe           => Fragment Informe Info
+    - MascotaInforme_to_MascotaPerfil                => Navegamos del Fragment Informe           => Fragment Mascota Perfil
 
     - MascotaTratamientoInfo_to_MascotaTratamiento   => Navegamos del Fragment Tratamiento Info  => Fragment Tratamiento
     - MascotaTratamiento_to_MascotaTratamientoInfo   => Navegamos del Fragment Tratamiento       => Fragment Tratamiento Info
+    - MascotaTratamiento_to_MascotaPerfil            => Navegamos del Fragment Tratamiento       => Fragment Mascota Perfil
 
     */
+
+    /* --- NAVEGACIÓN DE CITAS --- */
+    fun MascotaCita_to_MascotaPerfil(fragment: Fragment) {
+        fragment.findNavController()
+            .navigate(R.id.action_MascotaCitaFragment_to_MascotaPerfilFragment)
+    }
 
     /* --- NAVEGACIÓN DE INFORMES --- */
     fun MascotaInformeInfo_to_MascotaInforme(fragment: Fragment) {
@@ -35,6 +45,10 @@ object NavigatorMascota {
         fragment.findNavController().navigate(
             R.id.action_MascotaInformeFragment_to_MascotaInformeInfoFragment, bundle
         )
+    }
+    fun MascotaInforme_to_MascotaPerfil(fragment: Fragment) {
+        fragment.findNavController()
+            .navigate(R.id.action_MascotaInformeFragment_to_MascotaPerfilFragment)
     }
 
     /* --- NAVEGACIÓN DE TRATAMIENTOS --- */
@@ -66,5 +80,10 @@ object NavigatorMascota {
             R.id.action_MascotaInformeInfoFragment_to_MascotaTratamientoInfoFragment,
             bundle
         )
+    }
+
+    fun MascotaTratamiento_to_MascotaPerfil(fragment: Fragment) {
+        fragment.findNavController()
+            .navigate(R.id.action_MascotaTratamientoFragment_to_MascotaPerfilFragment)
     }
 }

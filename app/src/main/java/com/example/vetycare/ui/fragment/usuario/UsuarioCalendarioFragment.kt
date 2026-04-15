@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,6 +28,7 @@ import com.example.vetycare.database.remote.CitaRemote
 import com.example.vetycare.database.remote.PropietarioRemote
 import com.example.vetycare.database.repository.CitaRepository
 import com.example.vetycare.database.repository.PropietarioRepository
+import com.example.vetycare.navigation.NavigatorUsuario
 import com.example.vetycare.utils.FirebaseUtils
 import com.example.vetycare.utils.mostrarSnackbar
 import com.google.firebase.auth.FirebaseAuth
@@ -331,7 +333,6 @@ class UsuarioCalendarioFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val remotePropietario = PropietarioRemote(databaseReference)
         propietarioRepository = PropietarioRepository(remotePropietario)
 
@@ -346,6 +347,20 @@ class UsuarioCalendarioFragment : Fragment() {
         binding.rvCitasDia.visibility = View.GONE
 
         cargarCitasDelPropietario()
+
+        // Para cuando le des al boton de volver del móvil vuelva a UsuarioInicio
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                navegacionFragment(1)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+    }
+
+    fun navegacionFragment(num : Int) {
+        when (num) {
+            1 -> NavigatorUsuario.UsuarioCalendario_to_UsuarioInicio(this@UsuarioCalendarioFragment)
+        }
     }
 
     private fun instancias() {

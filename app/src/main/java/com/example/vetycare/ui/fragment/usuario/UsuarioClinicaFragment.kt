@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vetycare.R
@@ -51,7 +52,15 @@ class UsuarioClinicaFragment : Fragment(), ClinicaAdapter.OnClinicaListener{
         instancias()
         // FIXME: BORRAR => crearClinicasDePrueba() // Llenamos la lista con datos de prueba
         configurarRecycler() // Configuramos el RecyclerView
-        configurarSpinner() //
+        configurarSpinner()
+
+        // Para cuando le des al boton de volver del móvil vuelva a UsuarioInicio
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                navegacionFragment(2)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     /* FIXME: BORRAR ESTE APARTADO
@@ -119,6 +128,7 @@ class UsuarioClinicaFragment : Fragment(), ClinicaAdapter.OnClinicaListener{
     fun navegacionFragment(num : Int) {
         when (num) {
             1 -> NavigatorUsuario.UsuarioClinica_to_UsuarioClinicaMapa(this)
+            2 -> NavigatorUsuario.UsuarioClinica_to_UsuarioInicio(this@UsuarioClinicaFragment)
         }
     }
 

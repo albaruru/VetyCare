@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vetycare.adapter.InformeAdapter
@@ -63,6 +64,14 @@ class MascotaInformeFragment : Fragment(), InformeAdapter.OnInformeListener {
         binding.rvInformes.adapter = adapterInforme
 
         cargarInformesMascota()
+
+        // Para cuando le des al boton de volver del móvil vuelva a MascotaPerfil
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                navegacionFragment(3)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
     /* FIXME: BORRAR
     private fun crearInformesDePrueba() {
@@ -118,6 +127,7 @@ class MascotaInformeFragment : Fragment(), InformeAdapter.OnInformeListener {
                     NavigatorMascota.MascotaInforme_to_MascotaInformeInfo(this, informe)
                 }
             }
+            3 -> NavigatorMascota.MascotaInforme_to_MascotaPerfil(this@MascotaInformeFragment)
         }
     }
 

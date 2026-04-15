@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.vetycare.R
@@ -27,6 +28,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import androidx.activity.result.contract.ActivityResultContracts
+import com.example.vetycare.navigation.NavigatorUsuario
 
 class InicioRegistroFragment : Fragment() {
     private lateinit var binding : FragmentInicioRegistroBinding
@@ -95,6 +97,17 @@ class InicioRegistroFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // Para cuando le des al boton de volver del móvil vuelva a InicioPrincipal
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                navegacionFragment(2)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+    }
+
     override fun onResume() {
         super.onResume()
 
@@ -125,6 +138,7 @@ class InicioRegistroFragment : Fragment() {
     fun navegacionFragment(num : Int) {
         when (num) {
             1 -> NavigatorInicio.InicioRegistro_to_InicioPrincipal(this)
+            2 -> NavigatorInicio.InicioRegistro_to_InicioPrincipal(this@InicioRegistroFragment)
         }
     }
 

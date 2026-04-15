@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import com.example.vetycare.R
 import com.example.vetycare.database.remote.CitaRemote
@@ -22,6 +23,8 @@ import com.example.vetycare.model.entities.Veterinario
 import com.example.vetycare.model.relational.CitaClinica
 import com.example.vetycare.model.relational.CitaMascota
 import com.example.vetycare.model.relational.CitaVeterinario
+import com.example.vetycare.navigation.NavigatorInicio
+import com.example.vetycare.navigation.NavigatorMascota
 import com.example.vetycare.ui.container.MascotaContainerFragment
 import com.example.vetycare.ui.dialog.ConfirmacionDialog
 import com.example.vetycare.utils.mostrarSnackbar
@@ -80,6 +83,20 @@ class MascotaCitaFragment : Fragment() {
         configurarSpinners()
         configurarListeners()
         cargarComunidades()
+
+        // Para cuando le des al boton de volver del móvil vuelva a MascotaPerfil
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                navegacionFragment(1)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+    }
+
+    fun navegacionFragment(num : Int) {
+        when (num) {
+            1 -> NavigatorMascota.MascotaCita_to_MascotaPerfil(this@MascotaCitaFragment)
+        }
     }
 
     private fun configurarSpinners() {
