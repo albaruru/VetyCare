@@ -64,7 +64,6 @@
                     android:layout_marginTop="4dp"
                     android:padding="8dp"
                     android:background="@drawable/background_cuadro_texto"
-                    android:entries="@array/opciones_comunidades"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_label_comunidad" />
 
@@ -89,7 +88,6 @@
                     android:layout_marginTop="4dp"
                     android:padding="8dp"
                     android:background="@drawable/background_cuadro_texto"
-                    android:entries="@array/opciones_clinicas"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_label_clinica" />
 
@@ -163,14 +161,13 @@
 
                 <!-- SPINNER - Veterinario -->
                 <Spinner
-                    android:id="@+id/tv_veterinario"
+                    android:id="@+id/sp_veterinario"
                     style="@style/TextBase"
                     android:layout_width="match_parent"
                     android:layout_height="46dp"
                     android:layout_marginTop="4dp"
                     android:padding="8dp"
                     android:background="@drawable/background_cuadro_texto"
-                    android:entries="@array/horas_opciones"
                     app:layout_constraintTop_toBottomOf="@id/tv_label_veterinario"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -182,7 +179,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginStart="15dp"
                     android:text="@string/usuario_cldr_cita_fecha"
-                    app:layout_constraintTop_toBottomOf="@id/tv_veterinario"
+                    app:layout_constraintTop_toBottomOf="@id/sp_veterinario"
                     app:layout_constraintStart_toStartOf="parent"
                     style="@style/TextBaseNegrita"/>
 

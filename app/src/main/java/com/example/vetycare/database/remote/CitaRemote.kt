@@ -2,9 +2,40 @@ package com.example.vetycare.database.remote
 
 import com.example.vetycare.model.entities.Cita
 import com.example.vetycare.model.entities.Clinica
+import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseReference
 
 class CitaRemote (private val databaseReference: DatabaseReference) {
+
+    private fun extraerIdsBoolean(snapshot: DataSnapshot): List<String> {
+        val ids = mutableListOf<String>()
+        for (child in snapshot.children) {
+            val esValido = child.getValue(Boolean::class.java) ?: false
+            if (esValido) {
+                child.key?.let { ids.add(it) }
+            }
+        }
+        return ids
+    }
+
+    fun generarIdCita(
+        onSuccess: (String) -> Unit,
+        onError: (String?) -> Unit
+    ) {
+        databaseReference.child("citas").get()
+            .addOnSuccessListener { snapshot ->
+                val ultimoNumero = snapshot.children
+                    .mapNotNull { it.key?.removePrefix("cita_")?.toIntOrNull() }
+                    .maxOrNull() ?: 0
+
+                val nuevoId = "cita_%03d".format(ultimoNumero + 1)
+                onSuccess(nuevoId)
+            }
+            .addOnFailureListener {
+                onError("ERROR al generar el id de la cita")
+            }
+    }
+
     fun obtenerCitaPorId(
         idCita: String,
         onSuccess: (Cita?) -> Unit,
@@ -95,12 +126,8 @@ class CitaRemote (private val databaseReference: DatabaseReference) {
         )
 
         databaseReference.updateChildren(updates)
-            .addOnSuccessListener {
-                onSuccess()
-            }
-            .addOnFailureListener {
-                onError("ERROR al registrar la cita")
-            }
+            .addOnSuccessListener { onSuccess() }
+            .addOnFailureListener { onError("ERROR al registrar la cita") }
     }
 
     fun actualizarCita(
@@ -110,12 +137,8 @@ class CitaRemote (private val databaseReference: DatabaseReference) {
         onError: (String?) -> Unit
     ) {
         databaseReference.child("citas").child(idCita).updateChildren(updates)
-            .addOnSuccessListener {
-                onSuccess()
-            }
-            .addOnFailureListener {
-                onError("ERROR al actualizar la cita")
-            }
+            .addOnSuccessListener { onSuccess() }
+            .addOnFailureListener { onError("ERROR al actualizar la cita") }
     }
 
     fun cambiarEstadoCita(
@@ -125,12 +148,8 @@ class CitaRemote (private val databaseReference: DatabaseReference) {
         onError: (String?) -> Unit
     ) {
         databaseReference.child("citas").child(idCita).child("estadoCita").setValue(nuevoEstado)
-            .addOnSuccessListener {
-                onSuccess()
-            }
-            .addOnFailureListener {
-                onError("ERROR al cambiar el estado de la cita")
-            }
+            .addOnSuccessListener { onSuccess() }
+            .addOnFailureListener { onError("ERROR al cambiar el estado de la cita") }
     }
 
     fun cancelarCita(
@@ -180,11 +199,36 @@ class CitaRemote (private val databaseReference: DatabaseReference) {
         )
 
         databaseReference.updateChildren(updates)
-            .addOnSuccessListener {
-                onSuccess()
+            .addOnSuccessListener { onSuccess() }
+            .addOnFailureListener { onError("ERROR al eliminar la cita de los índices") }
+    }
+
+    fun obtenerCitasPorPropietario(
+        idPropietario: String,
+        onSuccess: (List<Pair<String, Cita>>) -> Unit,
+        onError: (String?) -> Unit
+    ) {
+        databaseReference.child("citas")
+            .orderByChild("idPropietario")
+            .equalTo(idPropietario)
+            .get()
+            .addOnSuccessListener { snapshot ->
+                val listaCitas = mutableListOf<Pair<String, Cita>>()
+
+                for (child in snapshot.children) {
+                    val cita = child.getValue(Cita::class.java)
+                    val idCita = child.key ?: continue
+
+                    if (cita != null) {
+                        cita.id = idCita
+                        listaCitas.add(idCita to cita)
+                    }
+                }
+
+                onSuccess(listaCitas.sortedBy { it.second.fechaHoraInicio ?: "" })
             }
             .addOnFailureListener {
-                onError("ERROR al eliminar la cita de los índices")
+                onError("ERROR al buscar citas por propietario")
             }
     }
 }

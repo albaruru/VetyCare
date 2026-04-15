@@ -5,6 +5,16 @@ import com.example.vetycare.model.entities.Cita
 
 class CitaRepository (private val remoteCita: CitaRemote) {
 
+    fun generarIdCita(
+        onSuccess: (String) -> Unit,
+        onError: (String?) -> Unit
+    ) {
+        remoteCita.generarIdCita(
+            onSuccess = onSuccess,
+            onError = onError
+        )
+    }
+
     fun obtenerCitaPorId(
         idCita: String,
         onSuccess: (Cita) -> Unit,
@@ -209,6 +219,18 @@ class CitaRepository (private val remoteCita: CitaRemote) {
                 }
                 onSuccess(filtradas)
             },
+            onError = onError
+        )
+    }
+
+    fun obtenerCitasPorPropietario(
+        idPropietario: String,
+        onSuccess: (List<Pair<String, Cita>>) -> Unit,
+        onError: (String?) -> Unit
+    ) {
+        remoteCita.obtenerCitasPorPropietario(
+            idPropietario = idPropietario,
+            onSuccess = onSuccess,
             onError = onError
         )
     }
