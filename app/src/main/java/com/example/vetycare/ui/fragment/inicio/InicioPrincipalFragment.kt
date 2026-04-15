@@ -63,6 +63,16 @@ class InicioPrincipalFragment : Fragment() {
     * En este metodo realizamos la comprobación de la existencia de una cuenta en nuestra base de datos
     * */
     fun comprobarInicioSesion() {
+        val correo = binding.etCorreo.text.toString().trim()
+        val pass = binding.etContrasenha.text.toString().trim()
+
+        // Primero se comprueba si los campos están vacíos
+        if (correo.isEmpty() || pass.isEmpty()) {
+            mostrarSnackbar("Por favor, rellena todos los campos")
+            return // Se detiene la ejecución para no llamar a Firebase
+        }
+
+        // En el caso de que no esten vacios, procedemos con el inicio de sesion
         auth
             .signInWithEmailAndPassword(
                 binding.etCorreo.text.toString(),
