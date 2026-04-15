@@ -201,6 +201,7 @@
         <item>Revisión</item>
         <item>Consulta general</item>
         <item>Pruebas</item>
+        <item>Comprar más medicamentos</item>
     </string-array>
     <string name="usuario_cldr_cita_motivo">Motivo:</string>
     <string name="usuario_cldr_cita_veterinario">Veterinario:</string>

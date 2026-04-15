@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.vetycare.databinding.RecyclerCalendarioCitaBinding
 import com.example.vetycare.model.entities.Cita
 import com.example.vetycare.model.enums.TipoCita
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class CitaAdapter(
     var lista: ArrayList<Cita>,
@@ -32,16 +34,26 @@ class CitaAdapter(
             holder.binding.tvClinica.text = item.clinica?.nombre ?: "VetyCare Central"
             holder.binding.tvTipo.text = item.tipoCita
             holder.binding.etMotivo.setText(item.motivoConsulta) // Usamos et_motivo del XML
-            holder.binding.tvVeterinario.text = item.veterinario?.nombre ?: "Asignando..."
-            holder.binding.tvFecha.text = "${item.fechaHoraInicio}"
+
+            // Para que en el campo de veterinario aparezca su nombre y apellidos
+            val nombreVet = item.veterinario?.nombre ?: ""
+            val apellidoVet = item.veterinario?.apellido ?: ""
+            val nombreCompleto = "$nombreVet $apellidoVet".trim()
+            holder.binding.tvVeterinario.text = if (nombreCompleto.isNotEmpty()) nombreCompleto else "Asignando..."
+
+            // Para que en el campo de Hora de la cita, solo aparezca la hora en este formato (HH:mm)
+            val horaFormateada =
+                LocalDateTime.parse(item.fechaHoraInicio)
+                    .format(DateTimeFormatter.ofPattern("HH:mm"))
+            holder.binding.tvFecha.text = horaFormateada
 
             // Configurar el color de la franja según el tipo de cita
             val color = when (item.tipoCita?.uppercase()) {
-                "VACUNACION" -> TipoCita.VACUNACION.colorRes
-                "REVISION" -> TipoCita.REVISION.colorRes
-                "CONSULTA" -> TipoCita.CONSULTA.colorRes
+                "REVISIÓN", "REVISION" -> TipoCita.REVISION.colorRes
+                "VACUNACIÓN", "VACUNACION" -> TipoCita.VACUNACION.colorRes
+                "CONSULTA GENERAL", "CONSULTA" -> TipoCita.CONSULTA.colorRes
                 "PRUEBAS" -> TipoCita.PRUEBAS.colorRes
-                "MEDICAMENTOS" -> TipoCita.MEDICAMENTOS.colorRes
+                "COMPRAR MÁS MEDICAMENTOS", "MEDICAMENTOS" -> TipoCita.MEDICAMENTOS.colorRes
                 else -> com.example.vetycare.R.color.botones // Color por defecto
             }
             holder.binding.vTipoCita.setBackgroundColor(ContextCompat.getColor(contexto, color))

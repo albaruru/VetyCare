@@ -299,7 +299,6 @@ class UsuarioCalendarioFragment : Fragment() {
 class UsuarioCalendarioFragment : Fragment() {
 
     private lateinit var binding: FragmentUsuarioCalendarioBinding
-
     private lateinit var auth: FirebaseAuth
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var databaseReference: DatabaseReference
@@ -469,21 +468,22 @@ class UsuarioCalendarioFragment : Fragment() {
         citasDelDia.forEach { cita ->
             val punto = View(requireContext())
             val dimension = (8 * resources.displayMetrics.density).toInt()
-
             val params = LinearLayout.LayoutParams(dimension, dimension).apply {
                 setMargins(2, 0, 2, 0)
             }
-
             punto.layoutParams = params
             punto.background = ContextCompat.getDrawable(
                 requireContext(),
                 R.drawable.background_indicador_cita
             )
 
-            val color = try {
-                TipoCita.valueOf(cita.tipoCita?.uppercase() ?: "REVISION").colorRes
-            } catch (e: Exception) {
-                R.color.botones
+            val color = when (cita.tipoCita?.uppercase()) {
+                "REVISIÓN", "REVISION" -> TipoCita.REVISION.colorRes
+                "VACUNACIÓN", "VACUNACION" -> TipoCita.VACUNACION.colorRes
+                "CONSULTA GENERAL", "CONSULTA" -> TipoCita.CONSULTA.colorRes
+                "PRUEBAS" -> TipoCita.PRUEBAS.colorRes
+                "COMPRAR MÁS MEDICAMENTOS", "MEDICAMENTOS" -> TipoCita.MEDICAMENTOS.colorRes
+                else -> R.color.botones
             }
 
             punto.backgroundTintList =

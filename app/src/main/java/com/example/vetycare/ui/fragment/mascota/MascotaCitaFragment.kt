@@ -147,7 +147,7 @@ class MascotaCitaFragment : Fragment() {
     }
 
     private fun cargarDatosMascotaDesdeContainer() {
-        val container = parentFragment as? MascotaContainerFragment
+        val container = parentFragment?.parentFragment as? MascotaContainerFragment
 
         val mascota = container?.obtenerMascotaSeleccionada()
         val idMascotaContainer = container?.obtenerIdMascotaSeleccionada()
