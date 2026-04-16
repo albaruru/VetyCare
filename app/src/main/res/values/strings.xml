@@ -330,6 +330,7 @@
     <string name="tratamiento_label_fecha_fin">Fecha fin:</string>
     <string name="tratamiento_label_observaciones">Observaciones:</string>
     <string name="tratamiento_btn_detalles">Detalles</string>
+    <string name="btn_tratamiento">Ver tratamiento</string>
 
     <!-- fragment_mascota_informe.xml / item_informe.xml / fragment_mascota_informe_info.xml -->
     <string name="informe_titulo">INFORMES</string>
