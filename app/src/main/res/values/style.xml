@@ -17,7 +17,7 @@
     <!-- Botones -->
     <style name="TextBotones">
         <item name="android:fontFamily">@font/tommy_soft_regular</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">17sp</item>
         <item name="android:textColor">@color/Titulo</item>
     </style>
 
