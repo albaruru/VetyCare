@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_mascotas">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="24dp"
+        android:paddingHorizontal="24dp">
+
+        <!-- TÍTULO -->
+        <TextView
+            android:id="@+id/tv_titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/tratamiento_id"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/TextTitulo"/>
+
+        <!-- PROCEDIMIENTO -->
+        <TextView
+            android:id="@+id/tv_label_procedimiento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="15dp"
+            android:text="@string/tratamiento_label_procedimiento"
+            app:layout_constraintTop_toBottomOf="@id/tv_titulo"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/TextBaseNegrita" />
+        <TextView
+            android:id="@+id/tv_procedimiento"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="4dp"
+            android:padding="8dp"
+            android:paddingStart="15dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/background_cuadro_texto"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_procedimiento"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/TextBase" />
+
+        <!-- VÍA ADMINISTRACIÓN -->
+        <TextView
+            android:id="@+id/tv_label_via_administracion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
+            android:text="@string/tratamiento_label_administracion"
+            app:layout_constraintTop_toBottomOf="@id/tv_procedimiento"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/TextBaseNegrita" />
+        <TextView
+            android:id="@+id/tv_via_administracion"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="4dp"
+            android:padding="8dp"
+            android:paddingStart="15dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/background_cuadro_texto"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_via_administracion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/TextBase" />
+
+        <!-- MEDICACIÓN -->
+        <TextView
+            android:id="@+id/tv_label_medicacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
+            android:text="@string/tratamiento_label_medicacion"
+            app:layout_constraintTop_toBottomOf="@id/tv_via_administracion"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/TextBaseNegrita" />
+        <TextView
+            android:id="@+id/tv_medicacion"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="4dp"
+            android:padding="8dp"
+            android:paddingStart="15dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/background_cuadro_texto"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_medicacion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/TextBase" />
+
+        <!-- DOSIS -->
+        <TextView
+            android:id="@+id/tv_label_dosis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
+            android:text="@string/tratamiento_label_dosis"
+            app:layout_constraintTop_toBottomOf="@id/tv_medicacion"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/TextBaseNegrita" />
+        <TextView
+            android:id="@+id/tv_dosis"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="4dp"
+            android:padding="8dp"
+            android:paddingStart="15dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/background_cuadro_texto"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_dosis"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/TextBase" />
+
+        <!-- FRECUENCIA -->
+        <TextView
+            android:id="@+id/tv_label_frecuencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
+            android:text="@string/tratamiento_label_frecuencia"
+            app:layout_constraintTop_toBottomOf="@id/tv_dosis"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/TextBaseNegrita" />
+        <TextView
+            android:id="@+id/tv_frecuencia"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="4dp"
+            android:padding="8dp"
+            android:paddingStart="15dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/background_cuadro_texto"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_frecuencia"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/TextBase" />
+
+        <!-- FECHA INICIO -->
+        <TextView
+            android:id="@+id/tv_label_fecha_inicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
+            android:text="@string/tratamiento_label_fecha_inicio"
+            app:layout_constraintTop_toBottomOf="@id/tv_frecuencia"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/TextBaseNegrita" />
+        <TextView
+            android:id="@+id/tv_fecha_inicio"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="4dp"
+            android:padding="8dp"
+            android:paddingStart="15dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/background_cuadro_texto"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_fecha_inicio"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/TextBase" />
+
+        <!-- FECHA FIN -->
+        <TextView
+            android:id="@+id/tv_label_fecha_fin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
+            android:text="@string/tratamiento_label_fecha_fin"
+            app:layout_constraintTop_toBottomOf="@id/tv_fecha_inicio"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/TextBaseNegrita" />
+        <TextView
+            android:id="@+id/tv_fecha_fin"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="4dp"
+            android:padding="8dp"
+            android:paddingStart="15dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/background_cuadro_texto"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_fecha_fin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/TextBase" />
+
+        <!-- OBSERVACIONES -->
+        <TextView
+            android:id="@+id/tv_label_observaciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
+            android:text="@string/tratamiento_label_observaciones"
+            app:layout_constraintTop_toBottomOf="@id/tv_fecha_fin"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/TextBaseNegrita" />
+        <TextView
+            android:id="@+id/tv_observaciones"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:minLines="3"
+            android:padding="8dp"
+            android:paddingStart="15dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/background_cuadro_texto"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_observaciones"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/TextBase" />
+
+        <!-- BOTÓN -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_volver"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/volver"
+            android:background="@drawable/boton_volver_cancelar"
+            app:backgroundTint="@null"
+            app:layout_constraintTop_toBottomOf="@id/tv_observaciones"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/TextBotones" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

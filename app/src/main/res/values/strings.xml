@@ -1,46 +1,353 @@
 <resources>
     <string name="app_name">VetyCare</string>
+
+    <!-- GLOBALES (usados en varios layouts) -->
+    <string name="guardar">Guardar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="entrar">Entrar</string>
+    <string name="volver">Volver</string>
+    <string name="enviar">Enviar</string>
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="lorem_ipsum">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
-        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
-        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
-        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
-        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
-        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
-        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
-        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
-        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
-        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
-        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
-        bibendum, vel congue leo egestas.\n\n
-        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
-        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
-        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
-        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
-        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
-        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
-        est.\n\n
-        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
-        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
-        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
-        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
-        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
-        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
-        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
-        convallis.\n\n
-        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
-        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
-        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
-        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
-        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
-        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
-        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
-    </string>
+    <!-- activity_main.xml / content_main.xml  -->
+    <string name="cont_main_nombre_mascota">Nombre_mascota</string>
+    <string name="cont_main_Nombre_usuario">Nombre_usuario</string>
+
+    <!-- fragment_inicio.xml  -->
+    <string name="inicio_titulo">INICIO</string>
+    <string name="inicio_correo">Correo</string>
+    <string name="inicio_contraseña">Contraseña</string>
+    <string name="inicio_recordar">Recordar usuario</string>
+    <string name="inicio_cuenta">"¿Aún no tienes cuenta con nosotros?"</string>
+    <string name="inicio_registrate">"Regístrate"</string>
+    <string name="inicio_olvido">"He olvidado mi contraseña"</string>
+
+    <!--  fragment_usuario_inicio.xml -->
+    <string name="usuario_inicio">"BIENVENIDO"</string>
+    <string name="usuario_inicio_eslogan">"Donde cada latido cuenta"</string>
+
+    <!--  fragment_rec_pass.xml  -->
+    <string name="rc_pass_titulo">RECUPERAR CONTRASEÑA</string>
+    <string name="rc_pass_correo">Introduzca el correo:</string>
+    <string name="rc_pass_correoEjem">ejemplo@correo.com</string>
+    <string name="rc_pass_info">Te enviaremos un correo con las instrucciones para restablecer tu contraseña.</string>
+
+    <!-- fragment_reg_usuario.xml -->
+    <string name="reg_usuario_titulo">"REGISTRO DE USUARIO"</string>
+    <string name="reg_nombre">"Nombre:"</string>
+    <string name="reg_apellido">"Apellidos:"</string>
+    <string name="reg_dni">"NIE/NIF:"</string>
+    <string name="reg_fecha">"Fecha de nacimiento:"</string>
+    <string name="reg_correo">"Correo:"</string>
+    <string name="reg_telefono">"Teléfono:"</string>
+    <string name="reg_contraseña">"Contraseña:"</string>
+    <string-array name="opciones_sexo_usuario">
+        <item>Sin definir</item>
+        <item>Masculino</item>
+        <item>Femenino</item>
+        <item>Otro</item>
+    </string-array>
+
+    <!-- fragment_reg_animal.xml -->
+    <string name="reg_animal_titulo">"REGISTRO DE MASCOTA"</string>
+    <string name="reg_sexo">"Sexo:"</string>
+    <string name="reg_castracion">"Castración/Esterilización:"</string>
+    <string name="reg_microchip">"Microchip:"</string>
+    <string name="reg_especie">"Especie:"</string>
+    <string name="reg_raza">"Raza:"</string>
+    <string name="reg_peso">"Peso:"</string>
+    <string-array name="opciones_sexo_animal">
+        <item>Sin definir</item>
+        <item>Macho</item>
+        <item>Hembra</item>
+    </string-array>
+    <string-array name="opciones_castracion">
+        <item>Sin definir</item>
+        <item>Si</item>
+        <item>No</item>
+    </string-array>
+
+    <!-- fragmen_usuario_mascota.xml / recycler_mascota.xml -->
+    <string name="usuario_mascota">TUS MASCOTAS</string>
+    <string name="item_mascota">"Añadir nueva mascota"</string>
+
+
+    <!-- fragment_usuario_calendario.xml  -->
+    <string name="usuario_calendario_titulo">CALENDARIO</string>
+    <string name="usuario_calendario_mes">MES</string>
+    <string name="usuario_calendario_Vacunación">Vacunación</string>
+    <string name="usuario_calendario_Revisión">Revisión</string>
+    <string name="usuario_calendario_Consulta">Consulta general</string>
+    <string name="usuario_calendario_Pruebas">Pruebas</string>
+    <string name="usuario_calendario_medicamentos">Comprar más medicamentos</string>
+    <string name="usuario_calendario_leyenda">LEYENDA</string>
+    <string name="usuario_calendario_dtllCita">DETALLE DE LA CITA</string>
+
+    <!-- fragment_usuario_calendario_cita.xml -->
+    <string name="usuario_cldr_cita_mascota">Mascota</string>
+    <string name="usuario_cldr_cita_comunidad">Comunidad Autonoma:</string>
+    <string name="usuario_cldr_cita_clinica">Clínica:</string>
+    <string-array name="opciones_clinicas">
+        <item>Seleccione una clínica:</item>
+        <!-- Andalucía -->
+        <item>Clínica Veterinaria Santa Justa</item>
+        <item>Clínica Veterinaria Canymar</item>
+        <item>Clínica Veterinaria Viana | MiVet</item>
+        <item>Clínica Veterinaria Uno Más</item>
+        <item>Clínica Veterinaria Los Lobos</item>
+        <!-- Aragón -->
+        <item>Clínica Veterinaria Zoo</item>
+        <item>Clínica Veterinaria Delicias</item>
+        <item>Clínica Veterinaria Zaracán</item>
+        <item>Clinica Veterinaria MyVet</item>
+        <item>Centro Clínico Veterinario Teruel</item>
+        <!-- Asturias -->
+        <item>Clínica Veterinaria Covadonga</item>
+        <item>Clínica Veterinaria Corvera</item>
+        <item>Clínica Veterinaria Asturcón</item>
+        <item>Clínica Veterinaria Llanesvet</item>
+        <item>Clínica Veterinaria Principado</item>
+        <!-- Islas Baleares -->
+        <item>Clínica Veterinària La Savina</item>
+        <item>Clínica Veterinaria Eivivet</item>
+        <item>Clínica Veterinaria El Parc</item>
+        <item>Clínica Veterinaria Son Moix</item>
+        <item>Clínica Veterinaria Pérez Sintes</item>
+        <!-- Islas Canarias -->
+        <item>Clínica Veterinaria Arrecife</item>
+        <item>Clínica Veterinaria Kalua</item>
+        <item>Clínica Veterinaria Monzón</item>
+        <item>Clínica Veterinaria Guaza</item>
+        <item>Clínica Veterinaria La Gallega</item>
+        <!-- Cantabria -->
+        <item>Clínica Veterinaria Liébana</item>
+        <item>Clínica Veterinaria Canvet</item>
+        <item>Clínica Veterinaria Ursaria</item>
+        <item>Clínica Veterinaria Anjana</item>
+        <item>Clínica Veterinaria Besaya</item>
+        <!-- Castilla-La Mancha -->
+        <item>Clínica veterinaria KINKAJÚ</item>
+        <item>Clínica Veterinaria Zarpa</item>
+        <item>Clínica Veterinaria Anibal</item>
+        <item>Clínica Veterinaria Rogocan</item>
+        <item>Clínica Veterinaria Ventura</item>
+        <!-- Castilla y León -->
+        <item>Clínica Veterinaria Minuvet</item>
+        <item>Clínica Veterinaria Gamonal</item>
+        <item>Centro Veterinario Neptuno</item>
+        <item>Clínica Veterinaria Salinero</item>
+        <item>Clínica veterinaria Nimae</item>
+        <!-- Cataluña -->
+        <item>Hospital Veterinari Canis</item>
+        <item>Clínica Veterinaria V3 Lleida</item>
+        <item>Centro Veterinario Patino</item>
+        <item>Clínica Veterinària Poble Nou</item>
+        <item>Clínica Veterinaria Vidavet Londres</item>
+        <!-- Comunidad Valenciana -->
+        <item>Clínica Veterinaria Sant Antoni</item>
+        <item>Clínica Veterinaria Ruzafa</item>
+        <item>Clinica Veterinaria Año</item>
+        <item>Clínica Veterinaria San Blas</item>
+        <item>Clínica Veterinaria Albufereta</item>
+        <!-- Extremadura -->
+        <item>Clínica Veterinaria Montesol</item>
+        <item>Clínica Veterinaria San Jorge</item>
+        <item>Clínica Veterinaria Selva</item>
+        <item>Clínica Veterinaria Faunia</item>
+        <item>Clínica Veterinaria Marabé</item>
+        <!-- Galicia -->
+        <item>Clínica Veterinaria Tecsagés</item>
+        <item>Clínica Veterinaria Loureiro Crespo</item>
+        <item>Clínica Veterinaria San Froilan</item>
+        <item>Clínica veterinaria Eras</item>
+        <item>Clínica veterinaria Gaia</item>
+        <!-- La Rioja -->
+        <item>Clinica Veterinaria Duques de Nájera</item>
+        <item>Clínica Veterinaria Cameros</item>
+        <item>Clínica Veterinaria HARO</item>
+        <item>Clínica veterinaria Aguirre</item>
+        <item>Clínica Veterinaria Alegría</item>
+        <!-- Comunidad de Madrid -->
+        <item>Clínica Veterinaria Del Val</item>
+        <item>Clinica Veterinaria Norivet</item>
+        <item>Clínica Veterinaria Europa</item>
+        <item>Clínica Veterinaria Conde Duque</item>
+        <item>Centro Clínico Veterinario Ciudad de Los Ángeles</item>
+        <!-- Región de Murcia -->
+        <item>Clínica Veterinaria El Jardín</item>
+        <item>Clínica Veterinaria Murcia Norte</item>
+        <item>Clínica Veterinaria Amigos</item>
+        <item>Clínica Veterinaria Santiago el Mayor</item>
+        <item>Clínica Veterinaria Salitre</item>
+        <!-- Comunidad Foral de Navarra -->
+        <item>Clínica Veterinaria de San Adrián</item>
+        <item>Clínica veterinaria Burlada</item>
+        <item>Clínica veterinaria Bettervet del Sadar</item>
+        <item>Clínica Veterinaria Aoiz</item>
+        <item>Centro Clínico Veterinario Ansoáin</item>
+        <!-- País Vasco -->
+        <item>Clínica Veterinaria Zumaquera</item>
+        <item>HOSPITAL VETERINARIO DONOSTIA</item>
+        <item>Clínica Veterinaria Otxoki</item>
+        <item>Clínica Veterinaria Nuevo Ensanche</item>
+        <item>Clínica Veterinaria MIRIBILLA</item>
+    </string-array>
+    <string name="usuario_cldr_cita_tipo">Tipo:</string>
+    <string-array name="usuario_cldr_cita_tipo_4">
+        <item>Seleccione un tipo de cita:</item>
+        <item>Vacunación</item>
+        <item>Revisión</item>
+        <item>Consulta general</item>
+        <item>Pruebas</item>
+        <item>Comprar más medicamentos</item>
+    </string-array>
+    <string name="usuario_cldr_cita_motivo">Motivo:</string>
+    <string name="usuario_cldr_cita_veterinario">Veterinario:</string>
+    <string name="usuario_cldr_cita_fecha">Fecha de la cita:</string>
+    <string name="usuario_cldr_cita_hora">Hora de la cita:</string>
+    <string name="usuario_cldr_cita_recordatorio">Recordatorio:</string>
+    <string-array name="veterinarios_opciones">
+        <item>Carlos Ruiz</item>
+    </string-array>
+    <string-array name="horas_opciones">
+        <item>Seleccione una hora:</item>
+        <item>08:00</item>
+        <item>08:15</item>
+        <item>08:30</item>
+        <item>08:45</item>
+        <item>09:00</item>
+        <item>09:15</item>
+        <item>09:30</item>
+        <item>09:45</item>
+        <item>10:00</item>
+        <item>10:15</item>
+        <item>10:30</item>
+        <item>10:45</item>
+        <item>11:00</item>
+        <item>11:15</item>
+        <item>11:30</item>
+        <item>11:45</item>
+        <item>12:00</item>
+        <item>12:15</item>
+        <item>12:30</item>
+        <item>12:45</item>
+        <item>13:00</item>
+        <item>13:15</item>
+        <item>13:30</item>
+        <item>13:45</item>
+        <item>14:00</item>
+        <item>14:15</item>
+        <item>14:30</item>
+        <item>14:45</item>
+        <item>15:00</item>
+        <item>15:15</item>
+        <item>15:30</item>
+        <item>15:45</item>
+        <item>16:00</item>
+        <item>16:15</item>
+        <item>16:30</item>
+        <item>16:45</item>
+        <item>17:00</item>
+        <item>17:15</item>
+        <item>17:30</item>
+        <item>17:45</item>
+        <item>18:00</item>
+        <item>18:15</item>
+        <item>18:30</item>
+        <item>18:45</item>
+        <item>19:00</item>
+        <item>19:15</item>
+        <item>19:30</item>
+        <item>19:45</item>
+        <item>20:00</item>
+    </string-array>
+    <string-array name="recordatorio_opciones">
+        <item>Sin recordatorio</item>
+        <item>1 día antes</item>
+        <item>2 días antes</item>
+        <item>1 semana antes</item>
+        <item>1 mes antes</item>
+    </string-array>
+    <!-- fragment_usuario_perfil.xml -->
+    <string name="usuario_perfil_perfil">PERFIL USUARIO</string>
+    <string name="usuario_perfil_cerrar">Cerrar sesion</string>
+
+    <!-- fragment_usuario_clinica.xml / item_clinica.xml -->
+    <string name="clinica_titulo">CLÍNICAS</string>
+    <string name="clinica_ver_listado">Ver listado</string>
+    <string name="clinica_ver_mapa">Ver mapa</string>
+    <string name="clinica_descripcion">Encuentra nuestras clínicas veterinarias cerca de ti</string>
+    <string name="clinica_zona">Comunidad autónoma:</string>
+    <string name="clinica_item_direccion">Dirección:</string>
+    <string name="clinica_item_telefono">Teléfono:</string>
+    <string name="clinica_item_horario">Horario:</string>
+    <string-array name="opciones_comunidades">
+        <item>Seleccione una comunidad autónoma:</item>
+        <item>Andalucía</item>
+        <item>Aragón</item>
+        <item>Asturias</item>
+        <item>Baleares</item>
+        <item>Canarias</item>
+        <item>Cantabria</item>
+        <item>Castilla-La Mancha</item>
+        <item>Castilla y León</item>
+        <item>Cataluña</item>
+        <item>Ceuta</item>
+        <item>Comunidad de Madrid</item>
+        <item>Comunidad Valenciana</item>
+        <item>Extremadura</item>
+        <item>Galicia</item>
+        <item>La Rioja</item>
+        <item>Melilla</item>
+        <item>Murcia</item>
+        <item>Navarra</item>
+        <item>País Vasco</item>
+    </string-array>
+    <!-- fragment_mascota_perfil.xml -->
+    <string name="mascota_perfil">PERFIL MASCOTA</string>
+
+    <!-- fragment_mascota_cita.xml -->
+    <string name="mascota_cita_titulo">PEDIR CITA</string>
+    <string name="mascota_cita_btn_pedir">Pedir cita</string>
+    <string name="usuario_cldr_cita_fecha_hint">Selecciona una fecha</string>
+    <string name="usuario_cldr_cita_mascota_hint">Nombre de la mascota</string>
+    <string name="usuario_cldr_cita_clinica_hint">Nombre de la clínica</string>
+    <string name="usuario_cldr_cita_motivo_hint">Describe brevemente el motivo</string>
+>>>>>>> feature/visual
+
+    <!-- fragment_mascota_tratamiento.xml / item_tratamiento.xml / fragment_mascota_tratamiento_info.xml -->
+    <string name="tratamiento_titulo">TRATAMIENTOS</string>
+    <string name="tratamiento_id">ID_TRATAMIENTO</string>
+    <string name="tratamiento_label_procedimiento">Procedimiento:</string>
+    <string name="tratamiento_label_administracion">Via de administración:</string>
+    <string name="tratamiento_label_medicacion">Medicación:</string>
+    <string name="tratamiento_nombre">Tratamiento</string>
+    <string name="tratamiento_label_dosis">Dosis:</string>
+    <string name="tratamiento_label_frecuencia">Frecuencia:</string>
+    <string name="tratamiento_label_fecha_inicio">Fecha inicio:</string>
+    <string name="tratamiento_label_fecha_fin">Fecha fin:</string>
+    <string name="tratamiento_label_observaciones">Observaciones:</string>
+    <string name="tratamiento_btn_detalles">Detalles</string>
+    <string name="btn_tratamiento">Ver tratamiento</string>
+
+    <!-- fragment_mascota_informe.xml / item_informe.xml / fragment_mascota_informe_info.xml -->
+    <string name="informe_titulo">INFORMES</string>
+    <string name="informe_id">ID_INFORME</string>
+    <string name="informe_label_concepto">Concepto:</string>
+    <string name="informe_label_fecha">Fecha:</string>
+    <string name="informe_label_valoracion">Valoración:</string>
+    <string name="informe_label_medicamento">Medicamento:</string>
+    <string name="informe_label_tratamiento">Tratamiento:</string>
+    <string name="informe_label_importe">Importe total:</string>
+    <string name="informe_btn_ver_mas">Detalles</string>
+
+    <!-- ================================== BACK ================================== -->
+    <!-- NAVEGACIÓN (nav_graph) -->
+    <string name="fragment_inicio_label">Inicio Fragment</string>
+    <string name="fragment_rec_pass_label">Rec Pass Fragment</string>
+    <string name="fragment_reg_animal_label">Reg Animal Fragment</string>
+    <string name="fragment_reg_usuario_label">Reg Usuario Fragment</string>
+
 </resources>
