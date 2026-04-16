@@ -91,6 +91,9 @@ class UsuarioContainerFragment : Fragment (R.layout.fragment_container_usuario) 
                 R.id.UsuarioClinicaFragment -> {
                     botonClinicas?.setImageResource(R.drawable.btn_clinicas_black)
                 }
+                R.id.usuarioClinicaMapaFragment -> {
+                    botonClinicas?.setImageResource(R.drawable.btn_clinicas_black)
+                }
             }
         }
     }
