@@ -76,7 +76,7 @@ class UsuarioClinicaMapaFragment : Fragment() {
             binding.mapView.mapboxMap.setCamera(
                 CameraOptions.Builder()
                     .center(Point.fromLngLat(-4.0, 40.0))
-                    .zoom(5.5)
+                    .zoom(4.5)
                     .build()
             )
             pointAnnotationManager = binding.mapView.annotations.createPointAnnotationManager()
