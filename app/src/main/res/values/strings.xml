@@ -53,7 +53,7 @@
     <!-- fragment_reg_animal.xml -->
     <string name="reg_animal_titulo">"REGISTRO DE MASCOTA"</string>
     <string name="reg_sexo">"Sexo:"</string>
-    <string name="reg_castracion">"Castracion/Esterilización:"</string>
+    <string name="reg_castracion">"Castración/Esterilización:"</string>
     <string name="reg_microchip">"Microchip:"</string>
     <string name="reg_especie">"Especie:"</string>
     <string name="reg_raza">"Raza:"</string>
