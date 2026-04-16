@@ -13,8 +13,6 @@ object NavigatorUsuario {
     - UsuarioRegMascota_to_UsuarioMascota         => Navegamos del Fragment Registro Mascota  => Fragment Mascota
 
     - UsuarioCalendario_to_UsuarioInicio          => Navegamos del Fragment Calendario        => Fragment Inicio
-    - UsuarioCalendario_to_UsuarioCalendarioCita  => Navegamos del Fragment Calendario        => Fragment Calendario Cita
-    - UsuarioCalendarioCita_to_UsuarioCalendario  => Navegamos del Fragment Calendario Cita   => Fragment Calendario
 
     - UsuarioPerfil_to_UsuarioInicio              => Navegamos del Fragment Perfil            => Fragment Inicio
 
@@ -36,12 +34,6 @@ object NavigatorUsuario {
     /* --- NAVEGACIÓN DE CALENDARIO DE CITAS --- */
     fun UsuarioCalendario_to_UsuarioInicio (fragment: Fragment) {
         fragment.findNavController().navigate(R.id.action_UsuarioCalendario_to_UsuarioInicioFragment)
-    }
-    fun UsuarioCalendario_to_UsuarioCalendarioCita (fragment: Fragment) {
-        fragment.findNavController().navigate(R.id.action_UsuarioCalendario_to_UsuarioCalendarioCita)
-    }
-    fun UsuarioCalendarioCita_to_UsuarioCalendario (fragment: Fragment) {
-        fragment.findNavController().navigate(R.id.action_UsuarioCalendarioCita_to_UsuarioCalendario)
     }
 
     /* --- NAVEGACIÓN DE USUARIO PERFIL --- */
