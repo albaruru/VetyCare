@@ -212,6 +212,7 @@
         <item>Carlos Ruiz</item>
     </string-array>
     <string-array name="horas_opciones">
+        <item>Seleccione una hora:</item>
         <item>08:00</item>
         <item>08:15</item>
         <item>08:30</item>
@@ -283,7 +284,6 @@
     <string name="clinica_item_telefono">Teléfono:</string>
     <string name="clinica_item_horario">Horario:</string>
     <string-array name="opciones_comunidades">
-        <item>Seleccione una comunidad: </item>
         <item>Andalucía</item>
         <item>Aragón</item>
         <item>Asturias</item>

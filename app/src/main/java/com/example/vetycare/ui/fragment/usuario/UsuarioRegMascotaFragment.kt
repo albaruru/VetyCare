@@ -152,23 +152,16 @@ class UsuarioRegMascotaFragment : Fragment() {
     // FUNCIÓN PARA COMPROBAR REGISTRO DE MASCOTA
     fun comprobarCamposMascota(): Boolean {
         val nombre = binding.etNombreAnimal.text.toString().trim()
-        val chip = binding.etMicrochip.text.toString().trim()
+        val chip = binding.etMicrochip.text.toString().trim() // Opcional
         val especie = binding.etEspecie.text.toString().trim()
         val raza = binding.etRaza.text.toString().trim()
         val fecha = binding.etFechaAnimal.text.toString().trim()
-        val peso = binding.etPeso.text.toString().trim()
+        val peso = binding.etPeso.text.toString().trim() ?: 0.0
 
         //Verificar que no haya campos vacíos
-        if (nombre.isEmpty() || especie.isEmpty() ||
-            raza.isEmpty() || fecha.isEmpty() || peso.isEmpty()) {
+        if (nombre.isEmpty()) {
 
-            mostrarSnackbar( "Por favor, completa todos los datos de la mascota")
-            return false
-        }
-
-        // Validación específica del microchip
-        if (chip.length != 15) {
-            mostrarSnackbar("El microchip debe tener exactamente 15 dígitos")
+            mostrarSnackbar( "Por favor, introduzca como mínimo el nombre de su mascota para el registro")
             return false
         }
         return true
@@ -196,11 +189,11 @@ class UsuarioRegMascotaFragment : Fragment() {
                 // FIXME: La logica que habia antes de castracion, aunque marcaras Si en el Spinner, en la bbdd se marcaba como False
                 val castracion = binding.spCastracion.selectedItem.toString().equals("Si", ignoreCase = true)
 
-                val pesoActual = pesoTexto.toDoubleOrNull()
-                if (pesoActual == null) {
+                val pesoActual = pesoTexto.toDoubleOrNull() ?: 0.0
+                /*if (pesoActual == null) {
                     mostrarSnackbar("El peso debe ser un número válido.")
                     return@obtenerPropietario
-                }
+                }*/
 
                 mascotaRepository.generarIdMascota(
                     { idMasc ->

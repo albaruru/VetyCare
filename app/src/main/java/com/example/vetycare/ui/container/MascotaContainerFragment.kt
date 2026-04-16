@@ -114,7 +114,13 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
                 R.id.MascotaTratamientoFragment -> {
                     botonTratamiento?.setImageResource(R.drawable.btn_tratamiento_black)
                 }
+                R.id.MascotaTratamientoInfoFragment -> {
+                    botonTratamiento?.setImageResource(R.drawable.btn_tratamiento_black)
+                }
                 R.id.MascotaInformeFragment -> {
+                    botonInforme?.setImageResource(R.drawable.btn_informes_black)
+                }
+                R.id.MascotaInformeInfoFragment -> {
                     botonInforme?.setImageResource(R.drawable.btn_informes_black)
                 }
             }
