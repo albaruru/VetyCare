@@ -178,11 +178,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             style="@style/TextBase" />
 
-            <!-- VOLVER -->
+        <!-- VOLVER -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_volver"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
+            style="@style/TextBotones"
+            android:layout_width="145dp"
+            android:layout_height="45dp"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="20dp"
             android:layout_marginEnd="8dp"
@@ -192,14 +193,15 @@
             app:layout_constraintTop_toBottomOf="@id/tv_importe"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/guia_central"
-            style="@style/TextBotones"/>
+            app:layout_constraintEnd_toStartOf="@id/guia_central"/>
+
 
         <!-- VER TRATAMIENTO -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_ver_tratamiento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/TextBotones"
+            android:layout_width="145dp"
+            android:layout_height="45dp"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="20dp"
             android:layout_marginStart="8dp"
@@ -209,8 +211,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_importe"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/guia_central"
-            app:layout_constraintEnd_toEndOf="parent"
-            style="@style/TextBotones"/>
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guia_central"
