@@ -100,4 +100,16 @@ class MascotaRepository (private val remoteMascota: MascotaRemote) {
         ) {
         remoteMascota.generarIdMascota(onSuccess, onError)
     }
+
+    fun eliminarMascota(
+        idMasc: String,
+        onSuccess: () -> Unit,
+        onError: (String?) -> Unit
+    ) {
+        remoteMascota.eliminarMascota(
+            idMasc,
+            onSuccess,
+            onError
+        )
+    }
 }

@@ -104,4 +104,15 @@ class MascotaRemote (private val databaseReference: DatabaseReference) {
                 onError("ERROR al generar ID de mascota")
             }
     }
+
+    fun eliminarMascota(
+        idMascota: String,
+        onSuccess: () -> Unit,
+        onError: (String?) -> Unit
+    ) {
+        // Referenciamos el nodo exacto de la mascota y lo eliminamos
+        databaseReference.child("mascotas").child(idMascota).removeValue()
+            .addOnSuccessListener { onSuccess() }
+            .addOnFailureListener { onError("Error al eliminar la mascota en el servidor") }
+    }
 }

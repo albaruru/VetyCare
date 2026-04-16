@@ -284,6 +284,7 @@
     <string name="clinica_item_telefono">Teléfono:</string>
     <string name="clinica_item_horario">Horario:</string>
     <string-array name="opciones_comunidades">
+        <item>Seleccione una comunidad autónoma:</item>
         <item>Andalucía</item>
         <item>Aragón</item>
         <item>Asturias</item>

@@ -175,8 +175,7 @@ class MascotaCitaFragment : Fragment() {
         especieMascota = mascota?.especie.orEmpty()
     }
     private fun cargarComunidades() {
-        val lista = mutableListOf("Selecciona una comunidad autónoma")
-        lista.addAll(resources.getStringArray(R.array.opciones_comunidades).toList())
+        val lista = resources.getStringArray(R.array.opciones_comunidades).toList()
         setAdapter(binding.spComunidad, lista)
     }
 

@@ -21,6 +21,9 @@ class InicioPrincipalFragment : Fragment() {
     private lateinit var binding : FragmentInicioPrincipalBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var firebaseDatabase: FirebaseDatabase
+    private val PREFS_NAME = "VetyCarePrefs"
+    private val KEY_CORREO = "correo_recordado"
+    private val KEY_RECORDAR = "recordar_check"
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -46,6 +49,16 @@ class InicioPrincipalFragment : Fragment() {
         }
         binding.tvLinkRegistrate.setOnClickListener{ navegacionFragment(2) }
         binding.tvOlvideContrasenha.setOnClickListener { navegacionFragment(3) }
+
+        // Lógica para cargar el usuario recordado al abrir la pantalla
+        val sharedPref = requireContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        val correoGuardado = sharedPref.getString(KEY_CORREO, "")
+        val estaRecordado = sharedPref.getBoolean(KEY_RECORDAR, false)
+
+        if (estaRecordado) {
+            binding.etCorreo.setText(correoGuardado)
+            binding.cbRecordar.isChecked = true
+        }
     }
 
     /* NAVEGACION ENTRE FRAGMENTS
@@ -65,6 +78,7 @@ class InicioPrincipalFragment : Fragment() {
     fun comprobarInicioSesion() {
         val correo = binding.etCorreo.text.toString().trim()
         val pass = binding.etContrasenha.text.toString().trim()
+        val recordar = binding.cbRecordar.isChecked
 
         // Primero se comprueba si los campos están vacíos
         if (correo.isEmpty() || pass.isEmpty()) {
@@ -79,6 +93,19 @@ class InicioPrincipalFragment : Fragment() {
                 binding.etContrasenha.text.toString()
             ).addOnCompleteListener {
                 if (it.isSuccessful) {
+                    val sharedPref = requireContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+                    val editor = sharedPref.edit()
+
+                    if (recordar) {
+                        // Guardamos el correo y marcamos el estado
+                        editor.putString(KEY_CORREO, correo)
+                        editor.putBoolean(KEY_RECORDAR, true)
+                    } else {
+                        // Si no quiere ser recordado, limpiamos los campos
+                        editor.clear()
+                    }
+                    editor.apply()
+
                     mostrarSnackbar("Bienvenido a VetyCare!")
                     navegacionFragment(1)
                 }
