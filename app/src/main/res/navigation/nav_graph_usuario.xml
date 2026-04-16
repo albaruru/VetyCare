@@ -48,23 +48,8 @@
         tools:layout="@layout/fragment_usuario_calendario"
         >
         <action
-            android:id="@+id/action_UsuarioCalendario_to_UsuarioCalendarioCita"
-            app:destination="@id/UsuarioCalendarioCita" />
-        <action
             android:id="@+id/action_UsuarioCalendario_to_UsuarioInicioFragment"
             app:destination="@id/UsuarioInicioFragment" />
-    </fragment>
-
-    <!-- FRAGMENT USUARIO CALENDARIO CITA (SECUNDARIO) -->
-    <fragment
-        android:id="@+id/UsuarioCalendarioCita"
-        android:name="com.example.vetycare.ui.fragment.usuario.UsuarioCalendarioCitaFragment"
-        android:label="Usuario Calendario Cita"
-        tools:layout="@layout/fragment_usuario_calendario_cita"
-        >
-        <action
-            android:id="@+id/action_UsuarioCalendarioCita_to_UsuarioCalendario"
-            app:destination="@id/UsuarioCalendario" />
     </fragment>
 
     <!-- FRAGMENT USUARIO PERFIL USUARIO (PRINCIPAL) -->
