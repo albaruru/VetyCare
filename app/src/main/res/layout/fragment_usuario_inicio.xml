@@ -8,8 +8,21 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="24dp">
+        android:layout_height="match_parent">
+        <!-- IMAGEN HUELLAS -->
+        <ImageView
+            android:id="@+id/imgFondoHuellas"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/img_huellas"
+            android:alpha="0.13"
+            android:rotation="-19"
+            android:scaleX="1.7"
+            android:scaleY="1.7"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <!-- TÍTULO -->
         <TextView
