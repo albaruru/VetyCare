@@ -1,6 +1,8 @@
 package com.example.vetycare.ui.fragment.usuario
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -153,7 +155,21 @@ class UsuarioClinicaMapaFragment : Fragment() {
         sheetView.findViewById<TextView>(R.id.tv_nombre_clinica).text = nombre
         sheetView.findViewById<TextView>(R.id.tv_provincia).text = provincia
         sheetView.findViewById<TextView>(R.id.tv_direccion).text = direccion
-        sheetView.findViewById<TextView>(R.id.tv_telefono).text = telefono
+        val tvTelefono = sheetView.findViewById<TextView>(R.id.tv_telefono)
+
+        tvTelefono.text = telefono
+
+        // Logica para la llamada
+        tvTelefono.setOnClickListener {
+            val numeroLimpio = telefono.replace(" ", "")
+
+            if (numeroLimpio.isNotEmpty()) {
+                val intent = Intent(Intent.ACTION_DIAL).apply {
+                    data = Uri.parse("tel:$numeroLimpio")
+                }
+                startActivity(intent)
+            }
+        }
 
         bottomSheet.setContentView(sheetView)
         bottomSheet.show()

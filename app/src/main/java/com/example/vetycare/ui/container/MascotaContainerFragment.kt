@@ -28,6 +28,7 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
     private lateinit var mascotaRepository: MascotaRepository
     private var mascotaSeleccionada: Mascota? = null
     private var idMascotaSeleccionada: String? = null
+    private var ivFotoMascotaHeader: ShapeableImageView? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -69,6 +70,7 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
         val ivFotoMascota = view.findViewById<ShapeableImageView>(R.id.iv_foto_mascota)
         val tvNombreMascota = view.findViewById<TextView>(R.id.tv_nombre_mascota)
 
+        this.ivFotoMascotaHeader = ivFotoMascota
         cargarDatosMascota(ivFotoMascota, tvNombreMascota)
 
         val botonCita = view?.findViewById<ImageButton>(R.id.btnCita)
@@ -126,6 +128,15 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
             }
         }
 
+    }
+
+    fun actualizarFotoMascotaDesdePerfil(urlNueva: String) {
+        ivFotoMascotaHeader?.let {
+            Glide.with(this)
+                .load(urlNueva)
+                .placeholder(R.drawable.img_mascotas)
+                .into(it)
+        }
     }
 
     private fun cargarDatosMascota(

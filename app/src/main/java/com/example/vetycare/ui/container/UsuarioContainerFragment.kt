@@ -23,6 +23,7 @@ class UsuarioContainerFragment : Fragment (R.layout.fragment_container_usuario) 
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var databaseReference: DatabaseReference
     private lateinit var propietarioRepository: PropietarioRepository
+    private var ivFotoUsuarioHeader: ImageView? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -50,6 +51,7 @@ class UsuarioContainerFragment : Fragment (R.layout.fragment_container_usuario) 
         val tvNombreUsuario = view?.findViewById<TextView>(R.id.tv_nombre_dueno)
         val ivFotoUsuario = view?.findViewById<ImageView>(R.id.iv_foto_dueno)
 
+        this.ivFotoUsuarioHeader = ivFotoUsuario
         cargarDatosPropietario(tvNombreUsuario,ivFotoUsuario)
 
         /* Asignamos la navegación en las variables de los botones creados:
@@ -95,6 +97,15 @@ class UsuarioContainerFragment : Fragment (R.layout.fragment_container_usuario) 
                     botonClinicas?.setImageResource(R.drawable.btn_clinicas_black)
                 }
             }
+        }
+    }
+
+    fun actualizarFotoDesdePerfil(urlNueva: String) {
+        ivFotoUsuarioHeader?.let {
+            Glide.with(this)
+                .load(urlNueva)
+                .placeholder(R.drawable.img_usser)
+                .into(it)
         }
     }
 
