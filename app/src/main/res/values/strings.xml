@@ -36,13 +36,13 @@
 
     <!-- fragment_reg_usuario.xml -->
     <string name="reg_usuario_titulo">"REGISTRO DE USUARIO"</string>
-    <string name="reg_nombre">"Nombre:"</string>
-    <string name="reg_apellido">"Apellidos:"</string>
-    <string name="reg_dni">"NIE/NIF:"</string>
-    <string name="reg_fecha">"Fecha de nacimiento:"</string>
-    <string name="reg_correo">"Correo:"</string>
+    <string name="reg_nombre">"Nombre*:"</string>
+    <string name="reg_apellido">"Apellidos*:"</string>
+    <string name="reg_dni">"NIE/NIF*:"</string>
+    <string name="reg_fecha">"Fecha de nacimiento*:"</string>
+    <string name="reg_correo">"Correo*:"</string>
     <string name="reg_telefono">"Teléfono:"</string>
-    <string name="reg_contraseña">"Contraseña:"</string>
+    <string name="reg_contraseña">"Contraseña*:"</string>
     <string-array name="opciones_sexo_usuario">
         <item>Sin definir</item>
         <item>Masculino</item>
@@ -315,7 +315,7 @@
     <string name="usuario_cldr_cita_mascota_hint">Nombre de la mascota</string>
     <string name="usuario_cldr_cita_clinica_hint">Nombre de la clínica</string>
     <string name="usuario_cldr_cita_motivo_hint">Describe brevemente el motivo</string>
->>>>>>> feature/visual
+
 
     <!-- fragment_mascota_tratamiento.xml / item_tratamiento.xml / fragment_mascota_tratamiento_info.xml -->
     <string name="tratamiento_titulo">TRATAMIENTOS</string>
