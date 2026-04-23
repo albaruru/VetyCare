@@ -2,6 +2,7 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layoutDetalle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -187,6 +188,22 @@
             app:layout_constraintTop_toBottomOf="@id/tv_label_fecha"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- BOTÓN - Cancelar cita -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cerrarsesion"
+            style="@style/TextBotones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/botones"
+            android:text="@string/usuario_cldr_cita_cancelar_cita"
+            app:backgroundTint="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_fecha" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
