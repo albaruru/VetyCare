@@ -136,7 +136,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:layout_marginStart="15dp"
-            android:text="@string/reg_fecha"
+            android:text="@string/reg_fecha_animal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_raza"
             style="@style/TextBaseNegrita"/>

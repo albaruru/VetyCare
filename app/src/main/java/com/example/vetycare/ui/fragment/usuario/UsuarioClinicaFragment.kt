@@ -9,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vetycare.R
 import com.example.vetycare.adapter.ClinicaAdapter
@@ -50,7 +51,6 @@ class UsuarioClinicaFragment : Fragment(), ClinicaAdapter.OnClinicaListener{
         super.onViewCreated(view, savedInstanceState)
 
         instancias()
-        // FIXME: BORRAR => crearClinicasDePrueba() // Llenamos la lista con datos de prueba
         configurarRecycler() // Configuramos el RecyclerView
         configurarSpinner()
 
@@ -62,57 +62,6 @@ class UsuarioClinicaFragment : Fragment(), ClinicaAdapter.OnClinicaListener{
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
-
-    /* FIXME: BORRAR ESTE APARTADO
-    private fun crearClinicasDePrueba() {
-        listaTodasClinicas.clear()
-
-        listaTodasClinicas.add(Clinica(
-            nombre = "Clínica VetyCare Madrid",
-            comunidadAutonoma = "Comunidad de Madrid",
-            provincia = "Madrid",
-            direccion = "Calle Mayor 5",
-            telefono = 912345678L
-        ))
-        listaTodasClinicas.add(Clinica(
-            nombre = "VetyCare Sevilla",
-            comunidadAutonoma = "Andalucía",
-            provincia = "Sevilla",
-            direccion = "Av. de la Palmera 10",
-            telefono = 954123456L
-        ))
-        listaTodasClinicas.add(Clinica(
-            nombre = "VetyCare Barcelona",
-            comunidadAutonoma = "Cataluña",
-            provincia = "Barcelona",
-            direccion = "Carrer de Balmes 20",
-            telefono = 934567890L
-        ))
-        listaTodasClinicas.add(Clinica(nombre = "VetyCare Málaga",
-            comunidadAutonoma = "Andalucía",
-            provincia = "Málaga",
-            direccion = "Calle Larios 2",
-            telefono = 952000111L
-        ))
-
-        // Notificamos al adaptador para que pinte los datos de prueba
-        adapterClinica.notifyDataSetChanged()
-    }
-
-
-    private fun mostrarTodas() {
-        listaFiltrada.clear()
-        listaFiltrada.addAll(listaTodasClinicas)
-        adapterClinica.notifyDataSetChanged()
-    }
-
-    private fun filtrarPorComunidad(comunidad: String) {
-        listaFiltrada.clear()
-        // Filtramos de la lista maestra aquellas que coincidan con la comunidad
-        val filtradas = listaTodasClinicas.filter { it.comunidadAutonoma == comunidad }
-        listaFiltrada.addAll(filtradas)
-        adapterClinica.notifyDataSetChanged()
-    }*/
 
     override fun onResume() {
         super.onResume()
@@ -214,6 +163,13 @@ class UsuarioClinicaFragment : Fragment(), ClinicaAdapter.OnClinicaListener{
     }
 
     override fun onClinicaClick(clinica: Clinica) {
+        val bundle = Bundle().apply {
+            putSerializable("clinica_foco", clinica)
+        }
 
+        findNavController().navigate(
+            R.id.usuarioClinicaMapaFragment,
+            bundle
+        )
     }
 }

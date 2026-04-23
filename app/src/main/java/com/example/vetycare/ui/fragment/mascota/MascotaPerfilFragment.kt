@@ -1,12 +1,15 @@
 package com.example.vetycare.ui.fragment.mascota
 
 import android.content.Context
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.vetycare.R
 import com.example.vetycare.database.remote.MascotaRemote
 import com.example.vetycare.database.repository.MascotaRepository
 import com.example.vetycare.databinding.FragmentMascotaPerfilBinding
@@ -20,6 +23,7 @@ import com.example.vetycare.utils.mostrarSnackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 
 class MascotaPerfilFragment : Fragment() {
     private lateinit var binding : FragmentMascotaPerfilBinding
@@ -29,6 +33,11 @@ class MascotaPerfilFragment : Fragment() {
     private lateinit var mascotaRepository: MascotaRepository
     private val keyConfirmacion = "confirmacion_eliminar_mascota"
     private var idMascotaSeleccionada: String? = null // Variable para guardar el ID recibido
+    private val galleryLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        uri?.let {
+            subirFotoMascota(it)
+        }
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -82,6 +91,10 @@ class MascotaPerfilFragment : Fragment() {
         binding.etSexo.isEnabled = false
         binding.etCastracion.isEnabled = false
 
+        binding.ivFotoAnimal.setOnClickListener {
+            galleryLauncher.launch("image/*")
+        }
+
         binding.btnVolver.setOnClickListener {
             navegacionFragment(1)
         }
@@ -133,6 +146,7 @@ class MascotaPerfilFragment : Fragment() {
                 // Carga de imagen con Glide
                 Glide.with(this)
                     .load(mascota.urlFotoMasc)
+                    .placeholder(R.drawable.img_mascotas)
                     .into(binding.ivFotoAnimal)
             },
             { mensajeDeError ->
@@ -165,5 +179,42 @@ class MascotaPerfilFragment : Fragment() {
                  }
             }
         )
+    }
+
+    private fun subirFotoMascota(imageUri: Uri) {
+        val idMascota = idMascotaSeleccionada ?: return
+        val storageRef = FirebaseStorage.getInstance().reference
+
+        val fotoRef = storageRef.child("fotos_mascotas/$idMascota.jpg")
+        mostrarSnackbar("Actualizando imagen...")
+
+        fotoRef.putFile(imageUri)
+            .addOnSuccessListener {
+                fotoRef.downloadUrl.addOnSuccessListener { uri ->
+                    actualizarUrlMascotaBBDD(uri.toString(), idMascota)
+                }
+            }
+    }
+
+    private fun actualizarUrlMascotaBBDD(urlNueva: String, idMascota: String) {
+        val rootRef = FirebaseDatabase.getInstance(FirebaseUtils.URL_RTDB).reference
+
+        rootRef.child("mascotas").child(idMascota).child("urlFotoMasc").setValue(urlNueva)
+            .addOnSuccessListener {
+                if (isAdded) {
+                    Glide.with(this)
+                        .load(urlNueva)
+                        .placeholder(R.drawable.img_mascotas)
+                        .into(binding.ivFotoAnimal)
+
+                    val contenedor = parentFragment?.parentFragment as? MascotaContainerFragment
+                    contenedor?.actualizarFotoMascotaDesdePerfil(urlNueva)
+
+                    mostrarSnackbar("¡Foto de mascota actualizada!")
+                }
+            }
+            .addOnFailureListener {
+                mostrarSnackbar("Error al actualizar la base de datos de la mascota")
+            }
     }
 }

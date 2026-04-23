@@ -1,6 +1,8 @@
 package com.example.vetycare.ui.fragment.usuario
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,6 +33,7 @@ class UsuarioClinicaMapaFragment : Fragment() {
     private lateinit var clinicaRepository: ClinicaRepository
     private lateinit var pointAnnotationManager: com.mapbox.maps.plugin.annotation.generated.PointAnnotationManager
     private val marcadoresClinica = mutableMapOf<String, Clinica>()
+    private var clinicaFoco: Clinica? = null // Variable para la clínica seleccionada
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -41,6 +44,16 @@ class UsuarioClinicaMapaFragment : Fragment() {
 
         val remoteClinica = ClinicaRemote(databaseReference)
         clinicaRepository = ClinicaRepository(remoteClinica)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        clinicaFoco = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            arguments?.getSerializable("clinica_foco", Clinica::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            arguments?.getSerializable("clinica_foco") as? Clinica
+        }
     }
 
     override fun onCreateView(
@@ -73,25 +86,34 @@ class UsuarioClinicaMapaFragment : Fragment() {
 
     private fun iniciarMapa() {
         binding.mapView.mapboxMap.loadStyle(Style.MAPBOX_STREETS) {
+            // Lógica de cámara dinámica
+            val (puntoInicial, zoomInicial) = if (clinicaFoco != null) {
+                // Centrar en la clínica seleccionada
+                val lat = clinicaFoco?.coordenadas?.latitud ?: 40.0
+                val lng = clinicaFoco?.coordenadas?.longitud ?: -4.0
+                Point.fromLngLat(lng, lat) to 15.0 // Zoom cercano
+            } else {
+                // Vista general de España
+                Point.fromLngLat(-4.0, 40.0) to 4.5
+            }
+
             binding.mapView.mapboxMap.setCamera(
                 CameraOptions.Builder()
-                    .center(Point.fromLngLat(-4.0, 40.0))
-                    .zoom(4.5)
+                    .center(puntoInicial)
+                    .zoom(zoomInicial)
                     .build()
             )
+
             pointAnnotationManager = binding.mapView.annotations.createPointAnnotationManager()
-            pointAnnotationManager.addClickListener(OnPointAnnotationClickListener { annotation ->
-                val clinica = marcadoresClinica[annotation.id.toString()]
-                clinica?.let {
-                    mostrarBottomSheet(
-                        nombre = it.nombre ?: "",
-                        provincia = it.provincia ?: "",
-                        direccion = it.direccion ?: "",
-                        telefono = it.telefono?.toString() ?: ""
-                    )
-                }
-                true
-            })
+
+            // Si hay una clínica enfocada, mostramos su BottomSheet automáticamente
+            clinicaFoco?.let {
+                mostrarBottomSheet(
+                    it.nombre ?: "", it.provincia ?: "",
+                    it.direccion ?: "", it.telefono?.toString() ?: ""
+                )
+            }
+
             cargarClinicasEnMapa()
         }
     }
@@ -153,7 +175,21 @@ class UsuarioClinicaMapaFragment : Fragment() {
         sheetView.findViewById<TextView>(R.id.tv_nombre_clinica).text = nombre
         sheetView.findViewById<TextView>(R.id.tv_provincia).text = provincia
         sheetView.findViewById<TextView>(R.id.tv_direccion).text = direccion
-        sheetView.findViewById<TextView>(R.id.tv_telefono).text = telefono
+        val tvTelefono = sheetView.findViewById<TextView>(R.id.tv_telefono)
+
+        tvTelefono.text = telefono
+
+        // Logica para la llamada
+        tvTelefono.setOnClickListener {
+            val numeroLimpio = telefono.replace(" ", "")
+
+            if (numeroLimpio.isNotEmpty()) {
+                val intent = Intent(Intent.ACTION_DIAL).apply {
+                    data = Uri.parse("tel:$numeroLimpio")
+                }
+                startActivity(intent)
+            }
+        }
 
         bottomSheet.setContentView(sheetView)
         bottomSheet.show()

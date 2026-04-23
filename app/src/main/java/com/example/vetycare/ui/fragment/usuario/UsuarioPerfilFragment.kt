@@ -1,24 +1,29 @@
 package com.example.vetycare.ui.fragment.usuario
 
 import android.content.Context
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.vetycare.R
 import com.example.vetycare.database.remote.PropietarioRemote
 import com.example.vetycare.database.repository.PropietarioRepository
 import com.example.vetycare.databinding.FragmentUsuarioPerfilBinding
 import com.example.vetycare.navigation.NavigatorRoot
 import com.example.vetycare.navigation.NavigatorUsuario
+import com.example.vetycare.ui.container.UsuarioContainerFragment
 import com.example.vetycare.ui.dialog.CancelacionDialog
 import com.example.vetycare.utils.FirebaseUtils
 import com.example.vetycare.utils.mostrarSnackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 
 class UsuarioPerfilFragment : Fragment () {
     private lateinit var binding : FragmentUsuarioPerfilBinding
@@ -27,6 +32,12 @@ class UsuarioPerfilFragment : Fragment () {
     private lateinit var databaseReference: DatabaseReference
     private lateinit var propietarioRepository: PropietarioRepository
     private val keyCancelacion = "cancelacion_registro" // Clave propia de la clase para CancelacionDialog
+    private val galleryLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        uri?.let {
+            subirFotoAFirebase(it)
+        }
+    }
+    private var idPropietarioFicha: String? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -85,6 +96,9 @@ class UsuarioPerfilFragment : Fragment () {
         binding.btnCerrarsesion.setOnClickListener {
             mensaje("cerrar_sesion")
         }
+        binding.ivFoto.setOnClickListener {
+            galleryLauncher.launch("image/*")
+        }
     }
 
     fun navegacionFragment(num: Int) {
@@ -116,7 +130,8 @@ class UsuarioPerfilFragment : Fragment () {
 
         propietarioRepository.obtenerPropietario(
             auth,
-            { id, propietario ->
+            { idRecuperado, propietario ->
+                idPropietarioFicha = idRecuperado
                 binding.etNombre.setText(propietario.nombre)
                 binding.etApellido.setText(propietario.apellido)
                 binding.etSexo.setText(propietario.sexo)
@@ -127,11 +142,57 @@ class UsuarioPerfilFragment : Fragment () {
 
                 Glide.with(this)
                     .load(propietario.urlFotoProp)
+                    .placeholder(R.drawable.img_usser)
                     .into(binding.ivFoto)
             },
             { mensajeDeError ->
                 mostrarSnackbar(mensajeDeError?:"ERROR")
             }
         )
+    }
+
+    private fun subirFotoAFirebase(imageUri: Uri) {
+        val idReal = idPropietarioFicha ?: return
+
+        val storageRef = FirebaseStorage.getInstance().reference
+        val fotoRef = storageRef.child("fotos_propietarios/${auth.currentUser?.uid}.jpg")
+
+        mostrarSnackbar("Actualizando imagen...")
+
+        fotoRef.putFile(imageUri)
+            .addOnSuccessListener {
+                fotoRef.downloadUrl.addOnSuccessListener { uri ->
+                    val downloadUrl = uri.toString()
+                    actualizarUrlEnBaseDeDatos(downloadUrl, idReal)
+                }
+            }
+            .addOnFailureListener {
+                mostrarSnackbar("Error al subir la imagen")
+            }
+    }
+
+    private fun actualizarUrlEnBaseDeDatos(urlNueva: String, idPropietario: String) {
+
+        val rootRef = FirebaseDatabase.getInstance(FirebaseUtils.URL_RTDB).reference
+
+        rootRef.child("propietarios").child(idPropietario).child("urlFotoProp").setValue(urlNueva)
+            .addOnSuccessListener {
+
+                if (isAdded) {
+                    // Se actualiza la imagen en la pantalla
+                    Glide.with(this)
+                        .load(urlNueva)
+                        .placeholder(R.drawable.img_usser)
+                        .into(binding.ivFoto)
+
+                    val contenedor = parentFragment?.parentFragment as? UsuarioContainerFragment
+                    contenedor?.actualizarFotoDesdePerfil(urlNueva)
+
+                    mostrarSnackbar("Foto de perfil actualizada")
+                }
+            }
+            .addOnFailureListener {
+                mostrarSnackbar("Error al conectar con la base de datos")
+            }
     }
 }
