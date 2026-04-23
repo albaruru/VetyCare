@@ -1,8 +1,6 @@
 package com.example.vetycare.ui.fragment.usuario
 
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vetycare.R
 import com.example.vetycare.adapter.ClinicaAdapter
@@ -164,16 +163,13 @@ class UsuarioClinicaFragment : Fragment(), ClinicaAdapter.OnClinicaListener{
     }
 
     override fun onClinicaClick(clinica: Clinica) {
-        val numTelefono = clinica.telefono?.toString() ?: ""
-
-        if (numTelefono.isNotEmpty()) {
-            val intent = Intent(Intent.ACTION_DIAL).apply {
-                data = Uri.parse("tel:${numTelefono.replace(" ", "")}")
-            }
-
-            startActivity(intent)
-        } else {
-            mostrarSnackbar("Esta clínica no tiene un teléfono registrado")
+        val bundle = Bundle().apply {
+            putSerializable("clinica_foco", clinica)
         }
+
+        findNavController().navigate(
+            R.id.usuarioClinicaMapaFragment,
+            bundle
+        )
     }
 }

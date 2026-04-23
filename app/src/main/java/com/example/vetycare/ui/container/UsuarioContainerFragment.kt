@@ -66,6 +66,12 @@ class UsuarioContainerFragment : Fragment (R.layout.fragment_container_usuario) 
         botonPerfilUsuario?.setOnClickListener {
             navController.navigate(R.id.UsuarioPerfilFragment)
         }
+        tvNombreUsuario?.setOnClickListener {
+            navController.navigate(R.id.UsuarioPerfilFragment)
+        }
+        ivFotoUsuario?.setOnClickListener {
+            navController.navigate(R.id.UsuarioPerfilFragment)
+        }
         botonClinicas?.setOnClickListener {
             navController.navigate(R.id.UsuarioClinicaFragment)
         }
@@ -82,6 +88,9 @@ class UsuarioContainerFragment : Fragment (R.layout.fragment_container_usuario) 
             // Cambiamos el icono de color según el fragment que se encuentra visible
             when (destination.id) {
                 R.id.UsuarioMascotaFragment -> {
+                    botonPerfilMascotas?.setImageResource(R.drawable.btn_huella_black)
+                }
+                R.id.UsuarioRegMascota -> {
                     botonPerfilMascotas?.setImageResource(R.drawable.btn_huella_black)
                 }
                 R.id.UsuarioCalendario -> {

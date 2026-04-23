@@ -92,6 +92,12 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
         botonMascota?.setOnClickListener {
             navController.navigate(R.id.MascotaPerfilFragment)
         }
+        tvNombreMascota?.setOnClickListener {
+            navController.navigate(R.id.MascotaPerfilFragment)
+        }
+        ivFotoMascota?.setOnClickListener {
+            navController.navigate(R.id.MascotaPerfilFragment)
+        }
         botonRegresar?.setOnClickListener {
             NavigatorRoot.Mascota_to_Usuario(this)
         }
