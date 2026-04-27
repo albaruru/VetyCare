@@ -1,7 +1,9 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/albaruru/VetyCare/main/app/src/main/res/drawable/icn_negro.png" alt="VetyCare logo" width="120" #gh-light-mode-only/>
-<img src="https://raw.githubusercontent.com/albaruru/VetyCare/main/app/src/main/res/drawable/icn_blanco.png" alt="VetyCare logo" width="120" #gh-dark-mode-only/>
+<picture>
+     <source media="(prefers-color-scheme: dark)" srcset="URL_LOGO_BLANCO">
+     <img src="URL_LOGO_NEGRO" width="120" alt="VetyCare logo">
+</picture>
 
 # VetyCare
 
