@@ -157,24 +157,18 @@ class MascotaPerfilFragment : Fragment() {
 
     // FUNCIÓN PARA ELIMINAR MASCOTA DEL CLIENTE
     fun eliminarMascota(){
-        // Verificamos que tengamos el ID de la mascota antes de intentar borrar
         val idParaEliminar = idMascotaSeleccionada ?: return
 
         mascotaRepository.eliminarMascota(
             idParaEliminar,
             {
-                // COMPROBACIÓN VITAL: Solo ejecutamos si el fragmento sigue vinculado
                 if (isAdded) {
-                    // Si se borra con éxito, avisamos al usuario y cerramos la pantalla
                     mostrarSnackbar("La mascota ha sido eliminada correctamente")
-                    // Navegamos de vuelta a la lista de mascotas
                     navegacionFragment(1)
                 }
             },
              { error ->
-                 // También comprobamos aquí para evitar cierres inesperados al mostrar el error
                  if (isAdded) {
-                     // Si hay un fallo, mostramos el error
                      mostrarSnackbar(error ?: "No se pudo eliminar la mascota")
                  }
             }
