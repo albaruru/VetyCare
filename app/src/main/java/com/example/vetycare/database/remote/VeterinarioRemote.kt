@@ -6,6 +6,12 @@ import com.google.firebase.database.DatabaseReference
 
 class VeterinarioRemote(private val databaseReference: DatabaseReference) {
 
+    /* EXPLICACIÓN DEL METODO <extraerIdsBoolean()> : despliega para leer...
+        El metodo extraerIdsBoolean recibe un DataSnapshot y extrae los ids de los registros que estén marcados como válidos.
+        Recorre cada hijo del snapshot y obtiene su valor como Boolean.
+        Si el valor es true, añade la clave de ese hijo a la lista de ids.
+        Finalmente devuelve la lista con todos los ids válidos encontrados.
+    */
     private fun extraerIdsBoolean(snapshot: DataSnapshot): List<String> {
         val listaIds = mutableListOf<String>()
 
@@ -19,6 +25,12 @@ class VeterinarioRemote(private val databaseReference: DatabaseReference) {
         return listaIds
     }
 
+    /* EXPLICACIÓN DEL METODO <obtenerTodosLosVeterinarios()> : despliega para leer...
+        El metodo obtenerTodosLosVeterinarios obtiene todos los veterinarios guardados dentro del nodo "veterinarios" de la base de datos.
+        Si la lectura se realiza correctamente, recorre cada registro y lo convierte en un objeto de tipo Veterinario.
+        Después asigna a cada veterinario su id usando la clave del nodo correspondiente.
+        Finalmente añade todos los veterinarios a una lista y la devuelve mediante onSuccess, o muestra un mensaje de error con onError si falla la lectura.
+    */
     fun obtenerTodosLosVeterinarios(
         onSuccess: (List<Veterinario>) -> Unit,
         onError: (String?) -> Unit
@@ -42,6 +54,12 @@ class VeterinarioRemote(private val databaseReference: DatabaseReference) {
             }
     }
 
+    /* EXPLICACIÓN DEL METODO <obtenerVeterinarioPorId()> : despliega para leer...
+        El metodo obtenerVeterinarioPorId busca un veterinario concreto en la base de datos usando el idVeterinario recibido.
+        Accede al nodo "veterinarios" y selecciona el registro que coincide con ese id.
+        Si la lectura se realiza correctamente, convierte los datos obtenidos en un objeto de tipo Veterinario.
+        Después asigna manualmente el id al objeto y lo devuelve mediante onSuccess; si falla la lectura, devuelve un mensaje con onError.
+    */
     fun obtenerVeterinarioPorId(
         idVeterinario: String,
         onSuccess: (Veterinario?) -> Unit,
@@ -60,6 +78,12 @@ class VeterinarioRemote(private val databaseReference: DatabaseReference) {
             }
     }
 
+    /* EXPLICACIÓN DEL METODO <obtenerIdsVeterinariosPorClinica()> : despliega para leer...
+        El metodo obtenerIdsVeterinariosPorClinica busca los veterinarios asociados a una clínica concreta usando su idClinica.
+        Accede al nodo "veterinariosPorClinica" y obtiene los registros vinculados a esa clínica.
+        Si la lectura se realiza correctamente, llama a extraerIdsBoolean(snapshot) para extraer solo los ids marcados como válidos.
+        Finalmente devuelve la lista de ids mediante onSuccess, o un mensaje de error con onError si falla la búsqueda.
+    */
     fun obtenerIdsVeterinariosPorClinica(
         idClinica: String,
         onSuccess: (List<String>) -> Unit,
@@ -74,6 +98,12 @@ class VeterinarioRemote(private val databaseReference: DatabaseReference) {
             }
     }
 
+    /* EXPLICACIÓN DEL METODO <obtenerIdsVeterinariosPorColegio()> : despliega para leer...
+        El metodo obtenerIdsVeterinariosPorColegio busca los veterinarios asociados a un colegio concreto usando su idColegio.
+        Accede al nodo "veterinariosPorColegio" y obtiene los registros vinculados a ese colegio.
+        Si la lectura se realiza correctamente, llama a extraerIdsBoolean(snapshot) para extraer solo los ids marcados como válidos.
+        Finalmente devuelve la lista de ids mediante onSuccess, o un mensaje de error con onError si falla la búsqueda.
+    */
     fun obtenerIdsVeterinariosPorColegio(
         idColegio: String,
         onSuccess: (List<String>) -> Unit,
@@ -88,6 +118,13 @@ class VeterinarioRemote(private val databaseReference: DatabaseReference) {
             }
     }
 
+    /* EXPLICACIÓN DEL METODO <registrarVeterinario()> : despliega para leer...
+        El metodo registrarVeterinario guarda un nuevo veterinario en la base de datos usando el idVeterinario recibido.
+        Primero comprueba que el veterinario tenga idClinica e idColegio, ya que son necesarios para crear sus relaciones.
+        Si falta alguno de esos datos, detiene el proceso y devuelve un mensaje mediante onError.
+        Después crea un mapa updates para registrar el veterinario y vincularlo tanto con su clínica como con su colegio.
+        Finalmente aplica todos los cambios a la vez con updateChildren, ejecutando onSuccess si todo va bien o onError si falla el registro.
+    */
     fun registrarVeterinario(
         idVeterinario: String,
         veterinario: Veterinario,
@@ -122,6 +159,12 @@ class VeterinarioRemote(private val databaseReference: DatabaseReference) {
             }
     }
 
+    /* EXPLICACIÓN DEL METODO <actualizarVeterinario()> : despliega para leer...
+        El metodo actualizarVeterinario modifica los datos de un veterinario concreto usando su idVeterinario.
+        Accede al nodo "veterinarios" y selecciona el registro correspondiente dentro de la base de datos.
+        Después aplica los cambios recibidos en el mapa cambios, actualizando únicamente los campos indicados.
+        Si la actualización se realiza correctamente ejecuta onSuccess, y si ocurre algún error devuelve un mensaje mediante onError.
+    */
     fun actualizarVeterinario(
         idVeterinario: String,
         cambios: Map<String, Any?>,
@@ -137,6 +180,12 @@ class VeterinarioRemote(private val databaseReference: DatabaseReference) {
             }
     }
 
+    /* EXPLICACIÓN DEL METODO <activarVeterinario()> : despliega para leer...
+        El metodo activarVeterinario cambia el estado de un veterinario concreto para marcarlo como activo.
+        Accede al nodo "veterinarios", selecciona el registro mediante su idVeterinario y entra en el campo "activa".
+        Después asigna el valor true, indicando que el veterinario queda activado.
+        Si el cambio se realiza correctamente ejecuta onSuccess, y si ocurre un error devuelve un mensaje mediante onError.
+    */
     fun activarVeterinario(
         idVeterinario: String,
         onSuccess: () -> Unit,
@@ -151,6 +200,12 @@ class VeterinarioRemote(private val databaseReference: DatabaseReference) {
             }
     }
 
+    /* EXPLICACIÓN DEL METODO <desactivarVeterinario()> : despliega para leer...
+        El metodo desactivarVeterinario cambia el estado de un veterinario concreto para marcarlo como inactivo.
+        Accede al nodo "veterinarios", selecciona el registro mediante su idVeterinario y entra en el campo "activa".
+        Después asigna el valor false, indicando que el veterinario queda desactivado.
+        Si el cambio se realiza correctamente ejecuta onSuccess, y si ocurre un error devuelve un mensaje mediante onError.
+    */
     fun desactivarVeterinario(
         idVeterinario: String,
         onSuccess: () -> Unit,
@@ -165,6 +220,13 @@ class VeterinarioRemote(private val databaseReference: DatabaseReference) {
             }
     }
 
+    /* EXPLICACIÓN DEL METODO <actualizarClinicaVeterinario()> : despliega para leer...
+        El metodo actualizarClinicaVeterinario cambia la clínica asociada a un veterinario concreto usando su idVeterinario.
+        Primero actualiza el campo "idClinica" del veterinario con la nueva clínica recibida.
+        Después elimina la relación anterior dentro de "veterinariosPorClinica" asignándole null.
+        A continuación crea la nueva relación entre la clínica nueva y el veterinario, guardándola con valor true.
+        Finalmente aplica todos los cambios a la vez con updateChildren, ejecutando onSuccess si va bien o onError si ocurre un fallo.
+    */
     fun actualizarClinicaVeterinario(
         idVeterinario: String,
         idClinicaAnterior: String,
@@ -187,6 +249,13 @@ class VeterinarioRemote(private val databaseReference: DatabaseReference) {
             }
     }
 
+    /* EXPLICACIÓN DEL METODO <actualizarColegioVeterinario()> : despliega para leer...
+        El metodo actualizarColegioVeterinario cambia el colegio asociado a un veterinario concreto usando su idVeterinario.
+        Primero actualiza el campo "idColegio" del veterinario con el nuevo colegio recibido.
+        Después elimina la relación anterior dentro de "veterinariosPorColegio" asignándole null.
+        A continuación crea la nueva relación entre el colegio nuevo y el veterinario, guardándola con valor true.
+        Finalmente aplica todos los cambios a la vez con updateChildren, ejecutando onSuccess si va bien o onError si ocurre un fallo.
+    */
     fun actualizarColegioVeterinario(
         idVeterinario: String,
         idColegioAnterior: String,

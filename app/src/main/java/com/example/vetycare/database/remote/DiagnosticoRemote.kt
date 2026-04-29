@@ -5,6 +5,13 @@ import com.google.firebase.database.DatabaseReference
 
 class DiagnosticoRemote (private val databaseReference: DatabaseReference){
 
+    /* EXPLICACIÓN DEL METODO <obtenerDiagnosticoPorId()> : despliega para leer...
+        El metodo obtenerDiagnosticoPorId busca un diagnóstico concreto en la base de datos usando el idDiagnostico recibido.
+        Accede al nodo "diagnosticos" y selecciona el registro que coincide con ese id.
+        Si la lectura es correcta, convierte los datos obtenidos en un objeto de tipo Diagnostico.
+        Después asigna al objeto su id usando la clave del nodo y lo devuelve mediante onSuccess.
+        Si ocurre algún error durante la lectura, devuelve un mensaje mediante onError.
+    */
     fun obtenerDiagnosticoPorId(
         idDiagnostico: String,
         onSuccess: (Diagnostico?) -> Unit,
@@ -25,6 +32,13 @@ class DiagnosticoRemote (private val databaseReference: DatabaseReference){
             }
     }
 
+    /* EXPLICACIÓN DEL METODO <obtenerIdsDiagnosticosPorMascota()> : despliega para leer...
+        El metodo obtenerIdsDiagnosticosPorMascota busca los diagnósticos asociados a una mascota concreta usando su idMascota.
+        Accede al nodo "diagnosticosPorMascota" y obtiene los registros vinculados a esa mascota.
+        Después recorre cada hijo y comprueba si su valor es true, indicando que la relación es válida.
+        Si es válido, añade el id del diagnóstico a una lista.
+        Finalmente devuelve la lista de ids mediante onSuccess, o un mensaje de error con onError si falla la lectura.
+    */
     fun obtenerIdsDiagnosticosPorMascota(
         idMascota: String,
         onSuccess: (List<String>) -> Unit,
@@ -48,6 +62,13 @@ class DiagnosticoRemote (private val databaseReference: DatabaseReference){
             }
     }
 
+    /* EXPLICACIÓN DEL METODO <registrarDiagnostico()> : despliega para leer...
+        El metodo registrarDiagnostico guarda un nuevo diagnóstico en la base de datos usando el idDiagnostico recibido.
+        Primero registra el objeto diagnostico dentro del nodo "diagnosticos".
+        Si esa escritura se realiza correctamente, crea también una referencia en "diagnosticosPorMascota" usando el id de la mascota.
+        Esa referencia permite localizar después los diagnósticos asociados a una mascota concreta.
+        Finalmente ejecuta onSuccess si se guarda bien, o devuelve un mensaje mediante onError si falla alguno de los pasos.
+    */
     fun registrarDiagnostico(
         idDiagnostico: String,
         diagnostico: Diagnostico,
@@ -72,6 +93,12 @@ class DiagnosticoRemote (private val databaseReference: DatabaseReference){
             }
     }
 
+    /* EXPLICACIÓN DEL METODO <actualizarDiagnostico()> : despliega para leer...
+        El metodo actualizarDiagnostico modifica los datos de un diagnóstico concreto usando su idDiagnostico.
+        Accede al nodo "diagnosticos" y selecciona el diagnóstico correspondiente dentro de la base de datos.
+        Después aplica los cambios recibidos en el mapa updates, actualizando únicamente los campos indicados.
+        Si la actualización se realiza correctamente ejecuta onSuccess, y si ocurre algún error devuelve un mensaje mediante onError.
+    */
     fun actualizarDiagnostico(
         idDiagnostico: String,
         updates: Map<String, Any?>,
@@ -83,6 +110,12 @@ class DiagnosticoRemote (private val databaseReference: DatabaseReference){
             .addOnFailureListener { onError("ERROR al actualizar el diagnóstico") }
     }
 
+    /* EXPLICACIÓN DEL METODO <generarIdDiagnostico()> : despliega para leer...
+        El metodo generarIdDiagnostico obtiene todos los diagnósticos existentes en la base de datos para calcular el siguiente id disponible.
+        Recorre cada clave, la separa por "_" y extrae la parte numérica si tiene el formato esperado, por ejemplo "diag_001".
+        Durante el recorrido guarda el número más alto encontrado y después le suma 1 para crear el nuevo id.
+        Finalmente genera el id con formato de tres cifras, como "diag_002", y lo devuelve con onSuccess; si falla la lectura, devuelve un error con onError.
+    */
     fun generarIdDiagnostico(
         onSuccess: (String) -> Unit,
         onError: (String) -> Unit

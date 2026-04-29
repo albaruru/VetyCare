@@ -5,6 +5,12 @@ import com.google.firebase.database.DatabaseReference
 
 class MascotaRemote (private val databaseReference: DatabaseReference) {
 
+    /* EXPLICACIÓN DEL METODO <obtenerMascotaPorId()> : despliega para leer...
+        El metodo obtenerMascotaPorId busca una mascota concreta en la base de datos usando el idMascota recibido.
+        Accede al nodo "mascotas" y selecciona el registro que coincide con ese id.
+        Si la lectura se realiza correctamente, convierte los datos obtenidos en un objeto de tipo Mascota.
+        Finalmente devuelve la mascota mediante onSuccess, o un mensaje de error mediante onError si falla la lectura.
+    */
     fun obtenerMascotaPorId (
         idMascota: String,
         onSuccess: (Mascota?) -> Unit,
@@ -20,6 +26,13 @@ class MascotaRemote (private val databaseReference: DatabaseReference) {
             }
     }
 
+    /* EXPLICACIÓN DEL METODO <obtenerIdsMascotasPorPropietario()> : despliega para leer...
+        El metodo obtenerIdsMascotasPorPropietario busca las mascotas asociadas a un propietario concreto usando su idPropietario.
+        Accede al nodo "mascotasPorPropietario" y obtiene los registros vinculados a ese propietario.
+        Después recorre cada hijo y comprueba si su valor es true, indicando que la relación es válida.
+        Si es válido, añade el id de la mascota a una lista.
+        Finalmente devuelve la lista de ids mediante onSuccess, o un mensaje de error con onError si falla la lectura.
+    */
     fun obtenerIdsMascotasPorPropietario (
         idPropietario: String,
         onSuccess: (List<String>) -> Unit,
@@ -43,6 +56,13 @@ class MascotaRemote (private val databaseReference: DatabaseReference) {
             }
     }
 
+    /* EXPLICACIÓN DEL METODO <registrarMascota()> : despliega para leer...
+        El metodo registrarMascota guarda una nueva mascota en la base de datos usando el idMascota recibido.
+        Primero registra el objeto mascota dentro del nodo "mascotas".
+        Si esa escritura se realiza correctamente, crea también una referencia en "mascotasPorPropietario" usando el id del propietario.
+        Esta referencia permite localizar después las mascotas asociadas a un propietario concreto.
+        Finalmente ejecuta onSuccess si se guarda bien, o devuelve un mensaje mediante onError si falla alguno de los pasos.
+    */
     fun registrarMascota (
         idMascota: String,
         mascota: Mascota,
@@ -63,6 +83,12 @@ class MascotaRemote (private val databaseReference: DatabaseReference) {
             }
     }
 
+    /* EXPLICACIÓN DEL METODO <actualizarMascota()> : despliega para leer...
+        El metodo actualizarMascota modifica los datos de una mascota concreta usando su idMascota.
+        Accede al nodo "mascotas" y selecciona el registro correspondiente dentro de la base de datos.
+        Después aplica los cambios recibidos en el mapa updates, actualizando solo los campos indicados.
+        Si la actualización se realiza correctamente ejecuta onSuccess, y si ocurre algún error devuelve un mensaje mediante onError.
+    */
     fun actualizarMascota (
         idMascota: String,
         updates: Map<String,Any?>,
@@ -74,6 +100,13 @@ class MascotaRemote (private val databaseReference: DatabaseReference) {
             .addOnFailureListener { onError("EEROR al actualizar la mascota") }
     }
 
+    /* EXPLICACIÓN DEL METODO <generarIdMascota()> : despliega para leer...
+        El metodo generarIdMascota obtiene todas las mascotas existentes en la base de datos para calcular el siguiente id disponible.
+        Recorre cada clave, la separa por "_" y extrae la parte numérica si tiene el formato esperado, por ejemplo "masc_001".
+        Durante el recorrido guarda el número más alto encontrado y después le suma 1 para generar el nuevo identificador.
+        Finalmente crea el id con formato de tres cifras, como "masc_002",
+        y lo devuelve mediante onSuccess; si falla la lectura, devuelve un error con onError.
+    */
     fun generarIdMascota(
         onSuccess: (String) -> Unit,
         onError: (String) -> Unit
@@ -105,6 +138,12 @@ class MascotaRemote (private val databaseReference: DatabaseReference) {
             }
     }
 
+    /* EXPLICACIÓN DEL METODO <eliminarMascota()> : despliega para leer...
+        El metodo eliminarMascota elimina una mascota concreta de la base de datos usando su idMascota.
+        Accede al nodo "mascotas" y selecciona el registro correspondiente a esa mascota.
+        Después utiliza removeValue() para borrar completamente ese nodo del servidor.
+        Si la eliminación se realiza correctamente ejecuta onSuccess, y si ocurre algún error devuelve un mensaje mediante onError.
+    */
     fun eliminarMascota(
         idMascota: String,
         onSuccess: () -> Unit,
