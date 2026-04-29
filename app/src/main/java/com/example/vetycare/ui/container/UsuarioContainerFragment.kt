@@ -25,6 +25,13 @@ class UsuarioContainerFragment : Fragment (R.layout.fragment_container_usuario) 
     private lateinit var propietarioRepository: PropietarioRepository
     private var ivFotoUsuarioHeader: ImageView? = null
 
+    /* EXPLICACIÓN: despliega para leer...
+        El metodo onAttach se ejecuta cuando el fragment se asocia a un Context.
+        Primero llama a super.onAttach(context) para mantener el comportamiento original del fragment.
+        Después inicializa Firebase Auth para gestionar la autenticación del usuario.
+        También obtiene la instancia de Firebase Realtime Database usando la URL definida en FirebaseUtils.URL_RTDB.
+        Finalmente guarda la referencia principal de la base de datos en databaseReference para poder usarla después en otras operaciones.
+    */
     override fun onAttach(context: Context) {
         super.onAttach(context)
         auth = FirebaseAuth.getInstance()
@@ -32,6 +39,13 @@ class UsuarioContainerFragment : Fragment (R.layout.fragment_container_usuario) 
         databaseReference = firebaseDatabase.reference
     }
 
+    /* EXPLICACIÓN: despliega para leer...
+        El metodo onViewStateRestored se ejecuta cuando la vista del fragment ya ha sido restaurada y está lista para usarse.
+        Primero inicializa el repositorio de propietarios y obtiene el NavController del NavHostFragment hijo para gestionar la navegación interna.
+        Después enlaza los botones, el nombre y la imagen del usuario con sus elementos visuales del layout, y carga los datos del propietario en el header.
+        A continuación asigna a cada botón su navegación correspondiente, permitiendo moverse entre mascotas, calendario, perfil, clínicas e inicio.
+        Finalmente añade un listener al NavController para cambiar los iconos del menú según el fragment visible, marcando en negro la sección activa.
+    */
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
         val remotePropietario = PropietarioRemote(databaseReference)
@@ -42,7 +56,7 @@ class UsuarioContainerFragment : Fragment (R.layout.fragment_container_usuario) 
 
         val navController = navHostFragment.navController
 
-        /* Bindemos nuestras variables con los botones existentes */
+        // Bindemos nuestras variables con los botones existentes
         val botonPerfilMascotas = view?.findViewById<ImageButton> (R.id.btnIniMasc)
         val botonCalendario = view?.findViewById<ImageButton> (R.id.btnCalendarUsu)
         val botonPerfilUsuario = view?.findViewById<ImageButton> (R.id.btnUsuario)
@@ -54,9 +68,7 @@ class UsuarioContainerFragment : Fragment (R.layout.fragment_container_usuario) 
         this.ivFotoUsuarioHeader = ivFotoUsuario
         cargarDatosPropietario(tvNombreUsuario,ivFotoUsuario)
 
-        /* Asignamos la navegación en las variables de los botones creados:
-        *
-        * */
+        // Asignamos la navegación en las variables de los botones creados
         botonPerfilMascotas?.setOnClickListener {
             navController.navigate(R.id.UsuarioMascotaFragment)
         }
@@ -109,6 +121,13 @@ class UsuarioContainerFragment : Fragment (R.layout.fragment_container_usuario) 
         }
     }
 
+    /* EXPLICACIÓN: despliega para leer ...
+        El metodo actualizarFotoDesdePerfil actualiza la imagen del usuario que aparece en el header.
+        Primero comprueba que ivFotoUsuarioHeader no sea nulo usando let.
+        Después utiliza Glide para cargar la nueva imagen desde la URL recibida en urlNueva.
+        Mientras se carga la imagen, muestra como placeholder R.drawable.img_usser.
+        Finalmente coloca la imagen cargada dentro del ImageView correspondiente.
+    */
     fun actualizarFotoDesdePerfil(urlNueva: String) {
         ivFotoUsuarioHeader?.let {
             Glide.with(this)
@@ -118,6 +137,13 @@ class UsuarioContainerFragment : Fragment (R.layout.fragment_container_usuario) 
         }
     }
 
+    /* EXPLICACIÓN: despliega para leer...
+        El metodo cargarDatosPropietario obtiene el uid del usuario autenticado actualmente.
+        Si no hay ningún usuario autenticado, finaliza el metodo sin realizar más acciones.
+        Después llama a propietarioRepository.obtenerPropietario para recuperar los datos del propietario asociado a ese uid.
+        Si la carga es correcta, muestra el nombre y apellido en el TextView y carga la foto con Glide.
+        Si ocurre algún error, muestra un Snackbar con el mensaje recibido o uno por defecto.
+    */
     private fun cargarDatosPropietario(
         tvNombreUsuario: TextView?,
         ivFotoUsuario: ImageView?

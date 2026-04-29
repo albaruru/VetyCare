@@ -22,7 +22,6 @@ import com.google.firebase.database.FirebaseDatabase
 import androidx.navigation.fragment.findNavController
 
 class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) {
-
     private lateinit var auth: FirebaseAuth
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var databaseReference: DatabaseReference
@@ -31,6 +30,12 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
     private var idMascotaSeleccionada: String? = null
     private var ivFotoMascotaHeader: ShapeableImageView? = null
 
+    /* EXPLICACIÓN: despliega para leer ...
+        El metodo onAttach se ejecuta cuando el fragment se conecta a un Context.
+        Primero llama a super.onAttach(context) para mantener el comportamiento original del ciclo de vida del fragment.
+        Después inicializa Firebase Auth, la base de datos en tiempo real y la referencia principal de la base de datos.
+        Finalmente crea MascotaRemote con esa referencia e inicializa mascotaRepository para gestionar las operaciones relacionadas con mascotas.
+    */
     override fun onAttach(context: Context) {
         super.onAttach(context)
         auth = FirebaseAuth.getInstance()
@@ -41,6 +46,12 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
         mascotaRepository = MascotaRepository(remoteMascota)
     }
 
+    /* EXPLICACIÓN: despliega para leer...
+        El metodo onCreate se ejecuta al crear el fragment y se encarga de recuperar los datos recibidos por argumentos.
+        Primero obtiene el idMascotaSeleccionada usando la clave ARG_ID_MASCOTA.
+        Después recupera el objeto Mascota enviado en los argumentos mediante getSerializable.
+        Además, comprueba la versión de Android para usar la forma recomendada en TIRAMISU o mantener la compatibilidad con versiones anteriores.
+    */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -55,11 +66,24 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
             }
     }
 
+    /* EXPLICACIÓN: despliega para leer...
+        El companion object define constantes que pertenecen a la clase y pueden usarse sin crear una instancia del fragment.
+        En este caso, ARG_MASCOTA se utiliza como clave para enviar o recuperar el objeto Mascota desde los argumentos.
+        La constante ARG_ID_MASCOTA se usa como clave para enviar o recuperar el id de la mascota seleccionada.
+        De esta forma se evita escribir textos repetidos directamente en el código y se reducen posibles errores.
+    */
     companion object {
         const val ARG_MASCOTA = "arg_mascota"
         const val ARG_ID_MASCOTA = "arg_id_mascota"
     }
 
+    /* EXPLICACIÓN: despliega para leer...
+        El metodo onViewCreated se ejecuta cuando la vista del fragment ya ha sido creada y permite configurar sus elementos visuales.
+        Primero obtiene el NavController del NavHostFragment interno y carga los datos de la mascota en el header, como su foto y nombre.
+        Después enlaza los botones del menú y les asigna la navegación hacia citas, tratamientos, informes, perfil de mascota, regreso o pantalla principal.
+        También permite acceder al perfil pulsando sobre el nombre o la foto de la mascota.
+        Finalmente añade un listener para cambiar los iconos del menú según el fragment visible, marcando en negro la sección activa.
+    */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -134,9 +158,15 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
                 }
             }
         }
-
     }
 
+    /* EXPLICACIÓN: despliega para leer...
+        El metodo actualizarFotoMascotaDesdePerfil actualiza la imagen de la mascota que aparece en el header.
+        Primero comprueba que ivFotoMascotaHeader no sea nulo usando let.
+        Después utiliza Glide para cargar la nueva imagen desde la URL recibida en urlNueva.
+        Mientras se carga la imagen, muestra como placeholder R.drawable.img_mascotas.
+        Finalmente coloca la imagen cargada dentro del ImageView correspondiente.
+    */
     fun actualizarFotoMascotaDesdePerfil(urlNueva: String) {
         ivFotoMascotaHeader?.let {
             Glide.with(this)
@@ -146,6 +176,12 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
         }
     }
 
+    /* EXPLICACIÓN: despliega para leer...
+        El metodo cargarDatosMascota carga la información de la mascota seleccionada en el header del fragment.
+        Primero comprueba si existe una mascotaSeleccionada; si no existe, finaliza el metodo.
+        Después muestra el nombre de la mascota en el TextView, usando "Mascota" como valor por defecto si el nombre está vacío.
+        Finalmente carga la foto de la mascota con Glide, mostrando una imagen por defecto si no hay foto o si ocurre un error al cargarla.
+    */
     private fun cargarDatosMascota(
         ivFotoMascota: ImageView?,
         tvNombreMascota: TextView?
@@ -163,6 +199,13 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
 
         }
     }
+
+    /* EXPLICACIÓN: despliega para leer...
+        El metodo obtenerMascotaSeleccionada devuelve el objeto Mascota que está guardado como mascota seleccionada en el fragment.
+        Si no hay ninguna mascota seleccionada, devuelve null.
+        El metodo obtenerIdMascotaSeleccionada devuelve el id asociado a esa mascota seleccionada.
+        Si no se ha recibido o guardado ningún id de mascota, también devuelve null.
+    */
     fun obtenerMascotaSeleccionada(): Mascota? = mascotaSeleccionada
     fun obtenerIdMascotaSeleccionada(): String? = idMascotaSeleccionada
 }
