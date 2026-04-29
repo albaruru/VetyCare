@@ -88,6 +88,7 @@ class ClinicaRemote(private val databaseReference: DatabaseReference) {
             }
     }
 
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <registrarClinica()> : despliega para leer...
         El metodo registrarClinica guarda una nueva clínica en la base de datos usando el idClinica recibido.
         Primero crea un mapa updates con dos registros: la clínica completa dentro de "clinicas" y su relación con la comunidad autónoma correspondiente.
@@ -115,7 +116,8 @@ class ClinicaRemote(private val databaseReference: DatabaseReference) {
                 onError("ERROR al registrar la clínica")
             }
     }
-
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <actualizarClinica()> : despliega para leer...
         El metodo actualizarClinica modifica los datos de una clínica concreta usando su idClinica.
         Accede al nodo "clinicas" y selecciona la clínica correspondiente dentro de la base de datos.
@@ -136,7 +138,8 @@ class ClinicaRemote(private val databaseReference: DatabaseReference) {
                 onError("ERROR al actualizar la clínica")
             }
     }
-
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <activarClinica()> : despliega para leer...
         El metodo activarClinica cambia el estado de una clínica concreta para marcarla como activa.
         Accede al nodo "clinicas", selecciona la clínica mediante su idClinica y entra en el campo "activa".
@@ -156,7 +159,8 @@ class ClinicaRemote(private val databaseReference: DatabaseReference) {
                 onError("ERROR al activar la clínica")
             }
     }
-
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <desactivarClinica()> : despliega para leer...
         El metodo desactivarClinica cambia el estado de una clínica concreta para marcarla como inactiva.
         Accede al nodo "clinicas", selecciona la clínica mediante su idClinica y entra en el campo "activa".
@@ -176,7 +180,8 @@ class ClinicaRemote(private val databaseReference: DatabaseReference) {
                 onError("ERROR al desactivar la clínica")
             }
     }
-
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <actualizarCoordenadasClinica()> : despliega para leer...
         El metodo actualizarCoordenadasClinica actualiza la latitud y longitud de una clínica concreta usando su idClinica.
         Primero crea un mapa updates con los nuevos valores dentro del nodo "coordenadas".
@@ -203,7 +208,7 @@ class ClinicaRemote(private val databaseReference: DatabaseReference) {
                 onError("ERROR al actualizar las coordenadas de la clínica")
             }
     }
-
+    */
     /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     fun eliminarIndiceComunidad(
         idClinica: String,
@@ -223,7 +228,7 @@ class ClinicaRemote(private val databaseReference: DatabaseReference) {
             }
     }
     */
-
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <actualizarCoordenadasClinica()> : despliega para leer...
         El metodo actualizarComunidadClinica cambia la comunidad autónoma asociada a una clínica concreta usando su idClinica.
         Primero actualiza el campo "comunidadAutonoma" de la clínica con el nuevo valor visible.
@@ -253,4 +258,5 @@ class ClinicaRemote(private val databaseReference: DatabaseReference) {
                 onError("ERROR al actualizar la comunidad autónoma de la clínica")
             }
     }
+    */
 }

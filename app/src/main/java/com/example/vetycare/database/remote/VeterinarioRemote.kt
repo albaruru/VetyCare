@@ -25,35 +25,6 @@ class VeterinarioRemote(private val databaseReference: DatabaseReference) {
         return listaIds
     }
 
-    /* EXPLICACIÓN DEL METODO <obtenerTodosLosVeterinarios()> : despliega para leer...
-        El metodo obtenerTodosLosVeterinarios obtiene todos los veterinarios guardados dentro del nodo "veterinarios" de la base de datos.
-        Si la lectura se realiza correctamente, recorre cada registro y lo convierte en un objeto de tipo Veterinario.
-        Después asigna a cada veterinario su id usando la clave del nodo correspondiente.
-        Finalmente añade todos los veterinarios a una lista y la devuelve mediante onSuccess, o muestra un mensaje de error con onError si falla la lectura.
-    */
-    fun obtenerTodosLosVeterinarios(
-        onSuccess: (List<Veterinario>) -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        databaseReference.child("veterinarios").get()
-            .addOnSuccessListener { snapshot ->
-                val lista = mutableListOf<Veterinario>()
-
-                for (child in snapshot.children) {
-                    val veterinario = child.getValue(Veterinario::class.java)
-                    if (veterinario != null) {
-                        veterinario.id = child.key ?: ""
-                        lista.add(veterinario)
-                    }
-                }
-
-                onSuccess(lista)
-            }
-            .addOnFailureListener {
-                onError("ERROR al leer todos los veterinarios")
-            }
-    }
-
     /* EXPLICACIÓN DEL METODO <obtenerVeterinarioPorId()> : despliega para leer...
         El metodo obtenerVeterinarioPorId busca un veterinario concreto en la base de datos usando el idVeterinario recibido.
         Accede al nodo "veterinarios" y selecciona el registro que coincide con ese id.
@@ -118,6 +89,37 @@ class VeterinarioRemote(private val databaseReference: DatabaseReference) {
             }
     }
 
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
+/* EXPLICACIÓN DEL METODO <obtenerTodosLosVeterinarios()> : despliega para leer...
+    El metodo obtenerTodosLosVeterinarios obtiene todos los veterinarios guardados dentro del nodo "veterinarios" de la base de datos.
+    Si la lectura se realiza correctamente, recorre cada registro y lo convierte en un objeto de tipo Veterinario.
+    Después asigna a cada veterinario su id usando la clave del nodo correspondiente.
+    Finalmente añade todos los veterinarios a una lista y la devuelve mediante onSuccess, o muestra un mensaje de error con onError si falla la lectura.
+*/
+fun obtenerTodosLosVeterinarios(
+    onSuccess: (List<Veterinario>) -> Unit,
+    onError: (String?) -> Unit
+) {
+    databaseReference.child("veterinarios").get()
+        .addOnSuccessListener { snapshot ->
+            val lista = mutableListOf<Veterinario>()
+
+            for (child in snapshot.children) {
+                val veterinario = child.getValue(Veterinario::class.java)
+                if (veterinario != null) {
+                    veterinario.id = child.key ?: ""
+                    lista.add(veterinario)
+                }
+            }
+
+            onSuccess(lista)
+        }
+        .addOnFailureListener {
+            onError("ERROR al leer todos los veterinarios")
+        }
+}
+*/
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <registrarVeterinario()> : despliega para leer...
         El metodo registrarVeterinario guarda un nuevo veterinario en la base de datos usando el idVeterinario recibido.
         Primero comprueba que el veterinario tenga idClinica e idColegio, ya que son necesarios para crear sus relaciones.
@@ -158,7 +160,8 @@ class VeterinarioRemote(private val databaseReference: DatabaseReference) {
                 onError("ERROR al registrar el veterinario")
             }
     }
-
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <actualizarVeterinario()> : despliega para leer...
         El metodo actualizarVeterinario modifica los datos de un veterinario concreto usando su idVeterinario.
         Accede al nodo "veterinarios" y selecciona el registro correspondiente dentro de la base de datos.
@@ -179,7 +182,8 @@ class VeterinarioRemote(private val databaseReference: DatabaseReference) {
                 onError("ERROR al actualizar el veterinario")
             }
     }
-
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <activarVeterinario()> : despliega para leer...
         El metodo activarVeterinario cambia el estado de un veterinario concreto para marcarlo como activo.
         Accede al nodo "veterinarios", selecciona el registro mediante su idVeterinario y entra en el campo "activa".
@@ -199,7 +203,8 @@ class VeterinarioRemote(private val databaseReference: DatabaseReference) {
                 onError("ERROR al activar el veterinario")
             }
     }
-
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <desactivarVeterinario()> : despliega para leer...
         El metodo desactivarVeterinario cambia el estado de un veterinario concreto para marcarlo como inactivo.
         Accede al nodo "veterinarios", selecciona el registro mediante su idVeterinario y entra en el campo "activa".
@@ -219,7 +224,8 @@ class VeterinarioRemote(private val databaseReference: DatabaseReference) {
                 onError("ERROR al desactivar el veterinario")
             }
     }
-
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <actualizarClinicaVeterinario()> : despliega para leer...
         El metodo actualizarClinicaVeterinario cambia la clínica asociada a un veterinario concreto usando su idVeterinario.
         Primero actualiza el campo "idClinica" del veterinario con la nueva clínica recibida.
@@ -248,7 +254,8 @@ class VeterinarioRemote(private val databaseReference: DatabaseReference) {
                 onError("ERROR al actualizar la clínica del veterinario")
             }
     }
-
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <actualizarColegioVeterinario()> : despliega para leer...
         El metodo actualizarColegioVeterinario cambia el colegio asociado a un veterinario concreto usando su idVeterinario.
         Primero actualiza el campo "idColegio" del veterinario con el nuevo colegio recibido.
@@ -277,4 +284,6 @@ class VeterinarioRemote(private val databaseReference: DatabaseReference) {
                 onError("ERROR al actualizar el colegio del veterinario")
             }
     }
+     */
+
 }

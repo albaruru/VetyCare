@@ -83,23 +83,6 @@ class MascotaRemote (private val databaseReference: DatabaseReference) {
             }
     }
 
-    /* EXPLICACIÓN DEL METODO <actualizarMascota()> : despliega para leer...
-        El metodo actualizarMascota modifica los datos de una mascota concreta usando su idMascota.
-        Accede al nodo "mascotas" y selecciona el registro correspondiente dentro de la base de datos.
-        Después aplica los cambios recibidos en el mapa updates, actualizando solo los campos indicados.
-        Si la actualización se realiza correctamente ejecuta onSuccess, y si ocurre algún error devuelve un mensaje mediante onError.
-    */
-    fun actualizarMascota (
-        idMascota: String,
-        updates: Map<String,Any?>,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-        ){
-        databaseReference.child("mascotas").child(idMascota).updateChildren(updates)
-            .addOnSuccessListener { onSuccess() }
-            .addOnFailureListener { onError("EEROR al actualizar la mascota") }
-    }
-
     /* EXPLICACIÓN DEL METODO <generarIdMascota()> : despliega para leer...
         El metodo generarIdMascota obtiene todas las mascotas existentes en la base de datos para calcular el siguiente id disponible.
         Recorre cada clave, la separa por "_" y extrae la parte numérica si tiene el formato esperado, por ejemplo "masc_001".
@@ -154,4 +137,23 @@ class MascotaRemote (private val databaseReference: DatabaseReference) {
             .addOnSuccessListener { onSuccess() }
             .addOnFailureListener { onError("Error al eliminar la mascota en el servidor") }
     }
+
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
+    /* EXPLICACIÓN DEL METODO <actualizarMascota()> : despliega para leer...
+        El metodo actualizarMascota modifica los datos de una mascota concreta usando su idMascota.
+        Accede al nodo "mascotas" y selecciona el registro correspondiente dentro de la base de datos.
+        Después aplica los cambios recibidos en el mapa updates, actualizando solo los campos indicados.
+        Si la actualización se realiza correctamente ejecuta onSuccess, y si ocurre algún error devuelve un mensaje mediante onError.
+    */
+    fun actualizarMascota (
+        idMascota: String,
+        updates: Map<String,Any?>,
+        onSuccess: () -> Unit,
+        onError: (String?) -> Unit
+        ){
+        databaseReference.child("mascotas").child(idMascota).updateChildren(updates)
+            .addOnSuccessListener { onSuccess() }
+            .addOnFailureListener { onError("EEROR al actualizar la mascota") }
+    }
+    */
 }

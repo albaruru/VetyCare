@@ -62,6 +62,7 @@ class DiagnosticoRemote (private val databaseReference: DatabaseReference){
             }
     }
 
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <registrarDiagnostico()> : despliega para leer...
         El metodo registrarDiagnostico guarda un nuevo diagnóstico en la base de datos usando el idDiagnostico recibido.
         Primero registra el objeto diagnostico dentro del nodo "diagnosticos".
@@ -92,7 +93,8 @@ class DiagnosticoRemote (private val databaseReference: DatabaseReference){
                 onError("ERROR al crear el diagnóstico")
             }
     }
-
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <actualizarDiagnostico()> : despliega para leer...
         El metodo actualizarDiagnostico modifica los datos de un diagnóstico concreto usando su idDiagnostico.
         Accede al nodo "diagnosticos" y selecciona el diagnóstico correspondiente dentro de la base de datos.
@@ -109,7 +111,8 @@ class DiagnosticoRemote (private val databaseReference: DatabaseReference){
             .addOnSuccessListener { onSuccess() }
             .addOnFailureListener { onError("ERROR al actualizar el diagnóstico") }
     }
-
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <generarIdDiagnostico()> : despliega para leer...
         El metodo generarIdDiagnostico obtiene todos los diagnósticos existentes en la base de datos para calcular el siguiente id disponible.
         Recorre cada clave, la separa por "_" y extrae la parte numérica si tiene el formato esperado, por ejemplo "diag_001".
@@ -145,4 +148,5 @@ class DiagnosticoRemote (private val databaseReference: DatabaseReference){
                 onError("ERROR al generar ID del diagnóstico")
             }
     }
+    */
 }

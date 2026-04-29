@@ -57,54 +57,6 @@ class TratamientoRemote (private val databaseReference: DatabaseReference) {
             }
     }
 
-    /* EXPLICACIÓN DEL METODO <registrarTratamiento()> : despliega para leer...
-        El metodo registrarTratamiento guarda un nuevo tratamiento en la base de datos usando el idTratamiento recibido.
-        Primero registra el objeto tratamiento dentro del nodo "tratamientos".
-        Si esa escritura se realiza correctamente, crea también una referencia en "tratamientosPorMascota" usando el id de la mascota.
-        Esta referencia permite localizar después los tratamientos asociados a una mascota concreta.
-        Finalmente ejecuta onSuccess si se guarda bien, o devuelve un mensaje mediante onError si falla alguno de los pasos.
-    */
-    fun registrarTratamiento(
-        idTratamiento: String,
-        tratamiento: Tratamiento,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-        ) {
-        databaseReference.child("tratamientos").child(idTratamiento).setValue(tratamiento)
-            .addOnSuccessListener {
-                databaseReference.child("tratamientosPorMascota")
-                    .child(tratamiento.idMascota.toString())
-                    .child(idTratamiento)
-                    .setValue(true)
-                    .addOnSuccessListener {
-                        onSuccess()
-                    }
-                    .addOnFailureListener {
-                        onError("Tratamiento creado, pero error al guardar índice por mascota")
-                    }
-            }
-            .addOnFailureListener {
-                onError("ERROR al crear el tratamiento")
-            }
-    }
-
-    /* EXPLICACIÓN DEL METODO <actualizarTratamiento()> : despliega para leer...
-        El metodo actualizarTratamiento modifica los datos de un tratamiento concreto usando su idTratamiento.
-        Accede al nodo "tratamientos" y selecciona el registro correspondiente dentro de la base de datos.
-        Después aplica los cambios recibidos en el mapa updates, actualizando únicamente los campos indicados.
-        Si la actualización se realiza correctamente ejecuta onSuccess, y si ocurre algún error devuelve un mensaje mediante onError.
-    */
-    fun actualizarTratamiento(
-        idTratamiento: String,
-        updates: Map<String, Any?>,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-        ) {
-        databaseReference.child("tratamientos").child(idTratamiento).updateChildren(updates)
-            .addOnSuccessListener { onSuccess() }
-            .addOnFailureListener { onError("ERROR al actualizar el tratamiento") }
-    }
-
     /* EXPLICACIÓN DEL METODO <obtenerMedicamentosPorTratamiento()> : despliega para leer...
         El metodo obtenerMedicamentosPorTratamiento busca los medicamentos asociados a un tratamiento concreto usando su idTratamiento.
         Accede al nodo "medicamentosPorTratamiento" y selecciona el registro correspondiente a ese tratamiento.
@@ -125,6 +77,57 @@ class TratamientoRemote (private val databaseReference: DatabaseReference) {
             }
     }
 
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
+/* EXPLICACIÓN DEL METODO <registrarTratamiento()> : despliega para leer...
+    El metodo registrarTratamiento guarda un nuevo tratamiento en la base de datos usando el idTratamiento recibido.
+    Primero registra el objeto tratamiento dentro del nodo "tratamientos".
+    Si esa escritura se realiza correctamente, crea también una referencia en "tratamientosPorMascota" usando el id de la mascota.
+    Esta referencia permite localizar después los tratamientos asociados a una mascota concreta.
+    Finalmente ejecuta onSuccess si se guarda bien, o devuelve un mensaje mediante onError si falla alguno de los pasos.
+*/
+fun registrarTratamiento(
+    idTratamiento: String,
+    tratamiento: Tratamiento,
+    onSuccess: () -> Unit,
+    onError: (String?) -> Unit
+    ) {
+    databaseReference.child("tratamientos").child(idTratamiento).setValue(tratamiento)
+        .addOnSuccessListener {
+            databaseReference.child("tratamientosPorMascota")
+                .child(tratamiento.idMascota.toString())
+                .child(idTratamiento)
+                .setValue(true)
+                .addOnSuccessListener {
+                    onSuccess()
+                }
+                .addOnFailureListener {
+                    onError("Tratamiento creado, pero error al guardar índice por mascota")
+                }
+        }
+        .addOnFailureListener {
+            onError("ERROR al crear el tratamiento")
+        }
+}
+*/
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
+    /* EXPLICACIÓN DEL METODO <actualizarTratamiento()> : despliega para leer...
+        El metodo actualizarTratamiento modifica los datos de un tratamiento concreto usando su idTratamiento.
+        Accede al nodo "tratamientos" y selecciona el registro correspondiente dentro de la base de datos.
+        Después aplica los cambios recibidos en el mapa updates, actualizando únicamente los campos indicados.
+        Si la actualización se realiza correctamente ejecuta onSuccess, y si ocurre algún error devuelve un mensaje mediante onError.
+    */
+    fun actualizarTratamiento(
+        idTratamiento: String,
+        updates: Map<String, Any?>,
+        onSuccess: () -> Unit,
+        onError: (String?) -> Unit
+        ) {
+        databaseReference.child("tratamientos").child(idTratamiento).updateChildren(updates)
+            .addOnSuccessListener { onSuccess() }
+            .addOnFailureListener { onError("ERROR al actualizar el tratamiento") }
+    }
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <guardarMedicamentoEnTratamiento()> : despliega para leer...
         El metodo guardarMedicamentoEnTratamiento guarda la información de un medicamento asociado a un tratamiento concreto.
         Accede al nodo "medicamentosPorTratamiento" y entra en el tratamiento indicado mediante idTratamiento.
@@ -147,7 +150,8 @@ class TratamientoRemote (private val databaseReference: DatabaseReference) {
                 onError("ERROR al guardar medicamento en el tratamiento")
             }
     }
-
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <generarIdTratamiento()> : despliega para leer...
         El metodo generarIdTratamiento obtiene todos los tratamientos existentes en la base de datos para calcular el siguiente id disponible.
         Recorre cada clave, la separa por "_" y extrae la parte numérica si tiene el formato esperado, por ejemplo "trat_001".
@@ -183,4 +187,5 @@ class TratamientoRemote (private val databaseReference: DatabaseReference) {
                 onError("ERROR al generar ID del tratamiento")
             }
     }
+    */
 }

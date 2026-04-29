@@ -5,6 +5,13 @@ import com.example.vetycare.model.entities.Tratamiento
 import com.google.firebase.database.DataSnapshot
 
 class TratamientoRepository (private val remoteTratamiento: TratamientoRemote) {
+
+    /* EXPLICACIÓN DEL METODO <obtenerTratamientoPorId()> : despliega para leer...
+        El metodo obtenerTratamientoPorId busca un tratamiento concreto usando el idTratamiento recibido.
+        Para ello llama al metodo obtenerTratamientoPorId de remoteTratamiento, delegando en él la lectura real de la base de datos.
+        Si el tratamiento existe, lo devuelve mediante success.
+        Si no se encuentra ningún tratamiento, devuelve un mensaje de error; si falla la lectura, comunica el error mediante error.
+    */
     fun obtenerTratamientoPorId(
         idTratamiento: String,
         success: (Tratamiento) -> Unit,
@@ -23,6 +30,13 @@ class TratamientoRepository (private val remoteTratamiento: TratamientoRemote) {
         )
     }
 
+    /* EXPLICACIÓN DEL METODO <obtenerTratamientosPorMascota()> : despliega para leer...
+        El metodo obtenerTratamientosPorMascota obtiene primero los ids de los tratamientos asociados a una mascota usando su idMascota.
+        Si no encuentra ningún tratamiento, devuelve una lista vacía mediante success.
+        Si hay ids, recorre cada uno y obtiene el tratamiento completo llamando a obtenerTratamientoPorId.
+        Cada tratamiento encontrado se guarda junto a su id en una lista de pares Pair<String, Tratamiento>.
+        Cuando termina de cargar todos los tratamientos, devuelve la lista mediante success; si ocurre un error, lo comunica mediante error.
+    */
     fun obtenerTratamientosPorMascota(
         idMascota: String,
         success: (List<Pair<String, Tratamiento>>) -> Unit,
@@ -67,6 +81,25 @@ class TratamientoRepository (private val remoteTratamiento: TratamientoRemote) {
         )
     }
 
+    /* EXPLICACIÓN DEL METODO <obtenerMedicamentosPorTratamiento()> : despliega para leer...
+        El metodo obtenerMedicamentosPorTratamiento actúa como intermediario para obtener los medicamentos asociados a un tratamiento.
+        Recibe el idTratamiento y los callbacks success y error para gestionar el resultado.
+        Después llama directamente al metodo obtenerMedicamentosPorTratamiento de remoteTratamiento, delegando en él la lectura real de la base de datos.
+        Finalmente devuelve el DataSnapshot mediante success, o comunica el error mediante error si ocurre algún fallo.
+    */
+    fun obtenerMedicamentosPorTratamiento(
+        idTratamiento: String,
+        success: (DataSnapshot) -> Unit,
+        error: (String?) -> Unit
+        ) {
+        remoteTratamiento.obtenerMedicamentosPorTratamiento(
+            idTratamiento,
+            success,
+            error
+        )
+    }
+
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     fun registrarTratamiento(
         idTratamiento: String,
         tratamiento: Tratamiento,
@@ -80,7 +113,8 @@ class TratamientoRepository (private val remoteTratamiento: TratamientoRemote) {
             error
         )
     }
-
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     fun actualizarTratamiento(
         idTratamiento: String,
         cambios: Map<String, Any?>,
@@ -94,19 +128,8 @@ class TratamientoRepository (private val remoteTratamiento: TratamientoRemote) {
             error
         )
     }
-
-    fun obtenerMedicamentosPorTratamiento(
-        idTratamiento: String,
-        success: (DataSnapshot) -> Unit,
-        error: (String?) -> Unit
-        ) {
-        remoteTratamiento.obtenerMedicamentosPorTratamiento(
-            idTratamiento,
-            success,
-            error
-        )
-    }
-
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     fun guardarMedicamentoEnTratamiento(
         idTratamiento: String,
         idMedicamento: String,
@@ -122,11 +145,13 @@ class TratamientoRepository (private val remoteTratamiento: TratamientoRemote) {
             error
         )
     }
-
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     fun generarIdTratamiento(
         success: (String) -> Unit,
         error: (String) -> Unit
         ) {
         remoteTratamiento.generarIdTratamiento(success, error)
     }
+    */
 }

@@ -7,19 +7,6 @@ import com.google.firebase.database.DatabaseReference
 
 class CitaRemote (private val databaseReference: DatabaseReference) {
 
-    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
-    private fun extraerIdsBoolean(snapshot: DataSnapshot): List<String> {
-        val ids = mutableListOf<String>()
-        for (child in snapshot.children) {
-            val esValido = child.getValue(Boolean::class.java) ?: false
-            if (esValido) {
-                child.key?.let { ids.add(it) }
-            }
-        }
-        return ids
-    }
-    */
-
     /* EXPLICACIÓN DEL METODO <generarIdCita()> : despliega para leer...
     El metodo generarIdCita accede al nodo "citas" de la base de datos y obtiene todos los registros existentes.
     Después revisa las claves de las citas, extrae el número de cada una y busca el mayor.
@@ -41,89 +28,6 @@ class CitaRemote (private val databaseReference: DatabaseReference) {
             }
             .addOnFailureListener {
                 onError("ERROR al generar el id de la cita")
-            }
-    }
-
-    /* EXPLICACIÓN DEL METODO <obtenerCitaPorId()> : despliega para leer...
-        El metodo obtenerCitaPorId busca en la base de datos una cita concreta usando el idCita recibido.
-        Si la lectura se realiza correctamente, convierte los datos obtenidos en un objeto de tipo Cita.
-        Después asigna manualmente el id de la cita al objeto, ya que normalmente Firebase no lo guarda dentro del propio objeto.
-        Finalmente devuelve la cita mediante onSuccess, o un mensaje de error mediante onError si falla la lectura.
-    */
-    fun obtenerCitaPorId(
-        idCita: String,
-        onSuccess: (Cita?) -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        databaseReference.child("citas").child(idCita).get()
-            .addOnSuccessListener { snapshot ->
-                val cita = snapshot.getValue(Cita::class.java)
-                if (cita != null) {
-                    cita.id = idCita
-                }
-                onSuccess(cita)
-            }
-            .addOnFailureListener {
-                onError("ERROR al leer la cita")
-            }
-    }
-
-    /* EXPLICACIÓN DEL METODO <obtenerIdsCitasPorMascota()> : despliega para leer...
-        El metodo obtenerIdsCitasPorMascota busca en la base de datos las citas asociadas a una mascota concreta usando su idMascota.
-        Recorre los registros encontrados y comprueba si cada cita está marcada como válida con valor true.
-        Si es válida, añade el id de esa cita a una lista de resultados.
-        Finalmente devuelve la lista de ids con onSuccess, o un mensaje de error con onError si la lectura falla.
-    */
-    fun obtenerIdsCitasPorMascota(
-        idMascota: String,
-        onSuccess: (List<String>) -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        databaseReference.child("citasPorMascota").child(idMascota).get()
-            .addOnSuccessListener { snapshot ->
-                val listaIds = mutableListOf<String>()
-
-                for (child in snapshot.children) {
-                    val esValido = child.getValue(Boolean::class.java) ?: false
-                    if (esValido) {
-                        child.key?.let { listaIds.add(it) }
-                    }
-                }
-
-                onSuccess(listaIds)
-            }
-            .addOnFailureListener {
-                onError("ERROR al buscar citas por mascota")
-            }
-    }
-
-    /* EXPLICACIÓN DEL METODO <obtenerIdsCitasPorVeterinario()> : despliega para leer...
-        El metodo obtenerIdsCitasPorVeterinario busca en la base de datos las citas asociadas a un veterinario concreto usando su idVeterinario.
-        Accede al nodo "citasPorVeterinario" y obtiene los registros relacionados con ese veterinario.
-        Después recorre cada hijo y comprueba si su valor es true, indicando que la cita está vinculada correctamente.
-        Si el registro es válido, añade el id de la cita a una lista.
-        Finalmente devuelve la lista de ids mediante onSuccess, o un mensaje de error con onError si falla la lectura.
-    */
-    fun obtenerIdsCitasPorVeterinario(
-        idVeterinario: String,
-        onSuccess: (List<String>) -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        databaseReference.child("citasPorVeterinario").child(idVeterinario).get()
-            .addOnSuccessListener { snapshot ->
-                val listaIds = mutableListOf<String>()
-
-                for (child in snapshot.children) {
-                    val esValido = child.getValue(Boolean::class.java) ?: false
-                    if (esValido) {
-                        child.key?.let { listaIds.add(it) }
-                    }
-                }
-
-                onSuccess(listaIds)
-            }
-            .addOnFailureListener {
-                onError("ERROR al buscar citas por veterinario")
             }
     }
 
@@ -164,23 +68,6 @@ class CitaRemote (private val databaseReference: DatabaseReference) {
             .addOnFailureListener { onError("ERROR al registrar la cita") }
     }
 
-    /* EXPLICACIÓN DEL METODO <actualizarCita()> : despliega para leer...
-        El metodo actualizarCita modifica los datos de una cita concreta usando su idCita.
-        Accede al nodo "citas" de la base de datos y selecciona la cita correspondiente.
-        Después aplica los cambios recibidos en el mapa updates, actualizando solo los campos indicados.
-        Si la actualización se realiza correctamente ejecuta onSuccess, y si ocurre algún error devuelve un mensaje mediante onError.
-    */
-    fun actualizarCita(
-        idCita: String,
-        updates: Map<String, Any?>,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        databaseReference.child("citas").child(idCita).updateChildren(updates)
-            .addOnSuccessListener { onSuccess() }
-            .addOnFailureListener { onError("ERROR al actualizar la cita") }
-    }
-
     /* EXPLICACIÓN DEL METODO <cambiarEstadoCita()> : despliega para leer...
         El metodo cambiarEstadoCita actualiza únicamente el estado de una cita concreta usando su idCita.
         Accede al nodo "citas", selecciona la cita correspondiente y entra en el campo "estadoCita".
@@ -217,52 +104,6 @@ class CitaRemote (private val databaseReference: DatabaseReference) {
         )
     }
 
-    /* EXPLICACIÓN DEL METODO <reprogramarCita()> : despliega para leer...
-        El metodo reprogramarCita se encarga de cambiar la fecha y hora de una cita existente usando su idCita.
-        Primero crea un mapa updates con la nueva hora de inicio, la nueva hora de fin y el estado "programada".
-        Después llama al metodo actualizarCita, reutilizando su lógica para modificar solo esos campos en la base de datos.
-        Si la actualización se realiza correctamente ejecuta onSuccess, y si ocurre un error lo devuelve mediante onError.
-    */
-    fun reprogramarCita(
-        idCita: String,
-        nuevaFechaHoraInicio: String,
-        nuevaFechaHoraFin: String,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        val updates = mapOf(
-            "fechaHoraInicio" to nuevaFechaHoraInicio,
-            "fechaHoraFin" to nuevaFechaHoraFin,
-            "estadoCita" to "programada"
-        )
-
-        actualizarCita(
-            idCita = idCita,
-            updates = updates,
-            onSuccess = onSuccess,
-            onError = onError
-        )
-    }
-
-    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
-    fun eliminarCitaDeIndices(
-        idCita: String,
-        idMascota: String,
-        idVeterinario: String,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        val updates = hashMapOf<String, Any?>(
-            "/citasPorMascota/$idMascota/$idCita" to null,
-            "/citasPorVeterinario/$idVeterinario/$idCita" to null
-        )
-
-        databaseReference.updateChildren(updates)
-            .addOnSuccessListener { onSuccess() }
-            .addOnFailureListener { onError("ERROR al eliminar la cita de los índices") }
-    }
-    */
-
     /* EXPLICACIÓN DEL METODO <obtenerCitasPorPropietario()> : despliega para leer...
         El metodo obtenerCitasPorPropietario busca todas las citas cuyo campo idPropietario coincida con el propietario recibido.
         Para ello consulta el nodo "citas" usando orderByChild("idPropietario") y equalTo(idPropietario).
@@ -298,4 +139,167 @@ class CitaRemote (private val databaseReference: DatabaseReference) {
                 onError("ERROR al buscar citas por propietario")
             }
     }
+
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
+    private fun extraerIdsBoolean(snapshot: DataSnapshot): List<String> {
+        val ids = mutableListOf<String>()
+        for (child in snapshot.children) {
+            val esValido = child.getValue(Boolean::class.java) ?: false
+            if (esValido) {
+                child.key?.let { ids.add(it) }
+            }
+        }
+        return ids
+    }
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
+    /* EXPLICACIÓN DEL METODO <obtenerCitaPorId()> : despliega para leer...
+        El metodo obtenerCitaPorId busca en la base de datos una cita concreta usando el idCita recibido.
+        Si la lectura se realiza correctamente, convierte los datos obtenidos en un objeto de tipo Cita.
+        Después asigna manualmente el id de la cita al objeto, ya que normalmente Firebase no lo guarda dentro del propio objeto.
+        Finalmente devuelve la cita mediante onSuccess, o un mensaje de error mediante onError si falla la lectura.
+    */
+    fun obtenerCitaPorId(
+        idCita: String,
+        onSuccess: (Cita?) -> Unit,
+        onError: (String?) -> Unit
+    ) {
+        databaseReference.child("citas").child(idCita).get()
+            .addOnSuccessListener { snapshot ->
+                val cita = snapshot.getValue(Cita::class.java)
+                if (cita != null) {
+                    cita.id = idCita
+                }
+                onSuccess(cita)
+            }
+            .addOnFailureListener {
+                onError("ERROR al leer la cita")
+            }
+    }
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
+    /* EXPLICACIÓN DEL METODO <obtenerIdsCitasPorMascota()> : despliega para leer...
+        El metodo obtenerIdsCitasPorMascota busca en la base de datos las citas asociadas a una mascota concreta usando su idMascota.
+        Recorre los registros encontrados y comprueba si cada cita está marcada como válida con valor true.
+        Si es válida, añade el id de esa cita a una lista de resultados.
+        Finalmente devuelve la lista de ids con onSuccess, o un mensaje de error con onError si la lectura falla.
+    */
+    fun obtenerIdsCitasPorMascota(
+        idMascota: String,
+        onSuccess: (List<String>) -> Unit,
+        onError: (String?) -> Unit
+    ) {
+        databaseReference.child("citasPorMascota").child(idMascota).get()
+            .addOnSuccessListener { snapshot ->
+                val listaIds = mutableListOf<String>()
+
+                for (child in snapshot.children) {
+                    val esValido = child.getValue(Boolean::class.java) ?: false
+                    if (esValido) {
+                        child.key?.let { listaIds.add(it) }
+                    }
+                }
+
+                onSuccess(listaIds)
+            }
+            .addOnFailureListener {
+                onError("ERROR al buscar citas por mascota")
+            }
+    }
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
+    /* EXPLICACIÓN DEL METODO <obtenerIdsCitasPorVeterinario()> : despliega para leer...
+        El metodo obtenerIdsCitasPorVeterinario busca en la base de datos las citas asociadas a un veterinario concreto usando su idVeterinario.
+        Accede al nodo "citasPorVeterinario" y obtiene los registros relacionados con ese veterinario.
+        Después recorre cada hijo y comprueba si su valor es true, indicando que la cita está vinculada correctamente.
+        Si el registro es válido, añade el id de la cita a una lista.
+        Finalmente devuelve la lista de ids mediante onSuccess, o un mensaje de error con onError si falla la lectura.
+    */
+    fun obtenerIdsCitasPorVeterinario(
+        idVeterinario: String,
+        onSuccess: (List<String>) -> Unit,
+        onError: (String?) -> Unit
+    ) {
+        databaseReference.child("citasPorVeterinario").child(idVeterinario).get()
+            .addOnSuccessListener { snapshot ->
+                val listaIds = mutableListOf<String>()
+
+                for (child in snapshot.children) {
+                    val esValido = child.getValue(Boolean::class.java) ?: false
+                    if (esValido) {
+                        child.key?.let { listaIds.add(it) }
+                    }
+                }
+
+                onSuccess(listaIds)
+            }
+            .addOnFailureListener {
+                onError("ERROR al buscar citas por veterinario")
+            }
+    }
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
+    /* EXPLICACIÓN DEL METODO <actualizarCita()> : despliega para leer...
+        El metodo actualizarCita modifica los datos de una cita concreta usando su idCita.
+        Accede al nodo "citas" de la base de datos y selecciona la cita correspondiente.
+        Después aplica los cambios recibidos en el mapa updates, actualizando solo los campos indicados.
+        Si la actualización se realiza correctamente ejecuta onSuccess, y si ocurre algún error devuelve un mensaje mediante onError.
+    */
+    fun actualizarCita(
+        idCita: String,
+        updates: Map<String, Any?>,
+        onSuccess: () -> Unit,
+        onError: (String?) -> Unit
+    ) {
+        databaseReference.child("citas").child(idCita).updateChildren(updates)
+            .addOnSuccessListener { onSuccess() }
+            .addOnFailureListener { onError("ERROR al actualizar la cita") }
+    }
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
+    /* EXPLICACIÓN DEL METODO <reprogramarCita()> : despliega para leer...
+        El metodo reprogramarCita se encarga de cambiar la fecha y hora de una cita existente usando su idCita.
+        Primero crea un mapa updates con la nueva hora de inicio, la nueva hora de fin y el estado "programada".
+        Después llama al metodo actualizarCita, reutilizando su lógica para modificar solo esos campos en la base de datos.
+        Si la actualización se realiza correctamente ejecuta onSuccess, y si ocurre un error lo devuelve mediante onError.
+    */
+    fun reprogramarCita(
+        idCita: String,
+        nuevaFechaHoraInicio: String,
+        nuevaFechaHoraFin: String,
+        onSuccess: () -> Unit,
+        onError: (String?) -> Unit
+    ) {
+        val updates = mapOf(
+            "fechaHoraInicio" to nuevaFechaHoraInicio,
+            "fechaHoraFin" to nuevaFechaHoraFin,
+            "estadoCita" to "programada"
+        )
+
+        actualizarCita(
+            idCita = idCita,
+            updates = updates,
+            onSuccess = onSuccess,
+            onError = onError
+        )
+    }
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
+    fun eliminarCitaDeIndices(
+        idCita: String,
+        idMascota: String,
+        idVeterinario: String,
+        onSuccess: () -> Unit,
+        onError: (String?) -> Unit
+    ) {
+        val updates = hashMapOf<String, Any?>(
+            "/citasPorMascota/$idMascota/$idCita" to null,
+            "/citasPorVeterinario/$idVeterinario/$idCita" to null
+        )
+
+        databaseReference.updateChildren(updates)
+            .addOnSuccessListener { onSuccess() }
+            .addOnFailureListener { onError("ERROR al eliminar la cita de los índices") }
+    }
+    */
 }

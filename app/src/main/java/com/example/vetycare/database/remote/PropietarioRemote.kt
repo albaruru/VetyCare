@@ -73,23 +73,6 @@ class PropietarioRemote (private val databaseReference : DatabaseReference) {
             }
     }
 
-    /* EXPLICACIÓN DEL METODO <actualizarPropietario()> : despliega para leer...
-        El metodo actualizarPropietario modifica los datos de un propietario concreto usando su idPropietario.
-        Accede al nodo "propietarios" y selecciona el registro correspondiente dentro de la base de datos.
-        Después aplica los cambios recibidos en el mapa updates, actualizando únicamente los campos indicados.
-        Si la actualización se realiza correctamente ejecuta onSuccess, y si ocurre algún error devuelve un mensaje mediante onError.
-    */
-    fun actualizarPropietario (
-        idPropietario: String,
-        updates: Map <String, Any?>,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-        ) {
-        databaseReference.child("propietarios").child(idPropietario).updateChildren(updates)
-            .addOnSuccessListener { onSuccess() }
-            .addOnFailureListener { onError("ERROR al utilizar el propietario") }
-    }
-
     /* EXPLICACIÓN DEL METODO <generarIdPropietario()> : despliega para leer...
         El metodo generarIdPropietario obtiene todos los propietarios existentes en la base de datos para calcular el siguiente id disponible.
         Recorre cada clave, la separa por "_" y extrae la parte numérica si tiene el formato esperado, por ejemplo "prop_001".
@@ -127,4 +110,23 @@ class PropietarioRemote (private val databaseReference : DatabaseReference) {
                 onError("ERROR al generar ID del propietario")
             }
     }
+
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
+/* EXPLICACIÓN DEL METODO <actualizarPropietario()> : despliega para leer...
+    El metodo actualizarPropietario modifica los datos de un propietario concreto usando su idPropietario.
+    Accede al nodo "propietarios" y selecciona el registro correspondiente dentro de la base de datos.
+    Después aplica los cambios recibidos en el mapa updates, actualizando únicamente los campos indicados.
+    Si la actualización se realiza correctamente ejecuta onSuccess, y si ocurre algún error devuelve un mensaje mediante onError.
+*/
+fun actualizarPropietario (
+    idPropietario: String,
+    updates: Map <String, Any?>,
+    onSuccess: () -> Unit,
+    onError: (String?) -> Unit
+    ) {
+    databaseReference.child("propietarios").child(idPropietario).updateChildren(updates)
+        .addOnSuccessListener { onSuccess() }
+        .addOnFailureListener { onError("ERROR al utilizar el propietario") }
+}
+*/
 }

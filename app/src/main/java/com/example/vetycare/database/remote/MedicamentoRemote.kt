@@ -32,6 +32,7 @@ class MedicamentoRemote (private val databaseReference: DatabaseReference) {
             }
     }
 
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <obtenerTodosLosMedicamentos()> : despliega para leer...
         El metodo obtenerTodosLosMedicamentos obtiene todos los medicamentos guardados dentro del nodo "medicamentos" de la base de datos.
         Si la lectura se realiza correctamente, recorre cada registro y lo convierte en un objeto de tipo Medicamento.
@@ -60,7 +61,8 @@ class MedicamentoRemote (private val databaseReference: DatabaseReference) {
                 onError("ERROR al obtener los medicamentos")
             }
     }
-
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <generarIdMedicamento()> : despliega para leer...
         El metodo generarIdMedicamento obtiene todos los medicamentos existentes en la base de datos para calcular el siguiente id disponible.
         Recorre cada clave, la separa por "_" y extrae la parte numérica si tiene el formato esperado, por ejemplo "med_001".
@@ -97,7 +99,8 @@ class MedicamentoRemote (private val databaseReference: DatabaseReference) {
                 onError("ERROR al generar ID del medicamento")
             }
     }
-
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <registrarMedicamento()> : despliega para leer...
         El metodo registrarMedicamento guarda un nuevo medicamento en la base de datos usando el idMedicamento recibido.
         Accede al nodo "medicamentos" y crea un registro hijo con ese identificador.
@@ -118,7 +121,8 @@ class MedicamentoRemote (private val databaseReference: DatabaseReference) {
                 onError("ERROR al registrar el medicamento")
             }
     }
-
+    */
+    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
     /* EXPLICACIÓN DEL METODO <actualizarMedicamento()> : despliega para leer...
         El metodo actualizarMedicamento modifica los datos de un medicamento concreto usando su idMedicamento.
         Accede al nodo "medicamentos" y selecciona el registro correspondiente dentro de la base de datos.
@@ -139,4 +143,5 @@ class MedicamentoRemote (private val databaseReference: DatabaseReference) {
                 onError("ERROR al actualizar el medicamento")
             }
     }
+    */
 }
