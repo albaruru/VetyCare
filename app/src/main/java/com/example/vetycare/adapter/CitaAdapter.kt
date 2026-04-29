@@ -13,8 +13,13 @@ import java.time.format.DateTimeFormatter
 
 class CitaAdapter(
     var lista: ArrayList<Cita>,
-    var contexto: Context
+    var contexto: Context,
+    private val listener: OnCitaListener
     ) : RecyclerView.Adapter<CitaAdapter.CitaHolder>() {
+
+    interface OnCitaListener {
+        fun onCancelarClick(idCita: String)
+    }
 
         inner class CitaHolder(val binding: RecyclerCalendarioCitaBinding) :
             RecyclerView.ViewHolder(binding.root)
@@ -46,6 +51,13 @@ class CitaAdapter(
                 LocalDateTime.parse(item.fechaHoraInicio)
                     .format(DateTimeFormatter.ofPattern("HH:mm"))
             holder.binding.tvFecha.text = horaFormateada
+
+            // Lógica para el botón de cancelar cita
+            holder.binding.btnCancelar.setOnClickListener {
+                item.id?.let { id ->
+                    listener.onCancelarClick(id)
+                }
+            }
 
             // Configurar el color de la franja según el tipo de cita
             val color = when (item.tipoCita?.uppercase()) {

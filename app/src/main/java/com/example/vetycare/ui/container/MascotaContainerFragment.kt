@@ -19,6 +19,7 @@ import com.google.android.material.imageview.ShapeableImageView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import androidx.navigation.fragment.findNavController
 
 class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) {
 
@@ -99,7 +100,7 @@ class MascotaContainerFragment : Fragment (R.layout.fragment_container_mascota) 
             navController.navigate(R.id.MascotaPerfilFragment)
         }
         botonRegresar?.setOnClickListener {
-            NavigatorRoot.Mascota_to_Usuario(this)
+            findNavController().popBackStack()
         }
         botonVetyCare?.setOnClickListener {
             NavigatorRoot.Mascota_to_Usuario(this)
