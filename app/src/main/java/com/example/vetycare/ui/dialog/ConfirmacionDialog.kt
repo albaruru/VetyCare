@@ -12,29 +12,6 @@ import com.example.vetycare.navigation.NavigatorInicio
 class ConfirmacionDialog : DialogFragment () {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        /* ANTIGUO METODO DIALOG DE CONFIRMACION
-        val builder : AlertDialog.Builder = AlertDialog.Builder(requireContext())
-
-        builder.setTitle("CONFIRMACIÓN")
-        builder.setMessage("¿Estás seguro que deseas continuar?")
-        builder.setPositiveButton("Aceptar") {_,_ ->
-            NavigatorInicio.DialogConfirmacionToInicioPrincipal(this)
-        }
-        builder.setNegativeButton("Cancelar",null)
-
-        return builder.create()*/
-
-        /* Explicación de las variables: despliega para leer...
-        *
-        * <arguments> es un Bundle que sirve para pasar información al fragment.
-        * titulo => texto que aparecerá arriba del diálogo
-        * mensaje => texto central del diálogo
-        * requestKey => identificador para saber a qué fragment devolver el resultado
-        * Se ha utilizado el operador Elvis de Kotlin para que:
-        *       - si existe un valor en arguments, se usa
-        *       - si no existe valor, se usar el predeterminado
-        *
-        *  */
         val titulo = arguments?.getString(ARG_TITULO) ?: "CONFIRMACIÓN"
         val mensaje = arguments?.getString(ARG_MENSAJE) ?: "¿Estás seguro que deseas continuar?"
         val requestKey = arguments?.getString(ARG_REQUEST_KEY) ?: REQUEST_KEY_DEFAULT
