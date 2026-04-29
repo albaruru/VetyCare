@@ -10,7 +10,11 @@ import com.example.vetycare.model.entities.Tratamiento
 
 object NavigatorMascota {
 
-    /* NAVEGACIÓN CONTAINER MASCOTA: desglose por métodos
+    /* NAVEGACIÓN CONTAINER MASCOTA:
+    Gestiona la navegación del módulo de Mascota, centralizando los flujos entre fragments
+    y el paso de datos necesarios mediante Bundle.
+
+    Desglose por métodos:
 
     - MascotaCita_to_MascotaPerfil                   => Navegamos del Fragment Cita              => Fragment Mascota Perfil
 

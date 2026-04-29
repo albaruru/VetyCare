@@ -9,9 +9,13 @@ import com.example.vetycare.ui.container.MascotaContainerFragment
 
 object NavigatorRoot {
 
-    /* NAVEGACION CONTAINER INICIO: desgloce por métodos
-    * - InicioToUsuario => Navegamos del Container Inicio    => Container Usuario
-    * */
+    /* NAVEGACION CONTAINER INICIO:
+    Controla la navegación entre los containers principales de la app,
+    gestionando el flujo global entre secciones y el paso de datos entre módulos.
+
+    Desgloce por métodos:
+     - InicioToUsuario => Navegamos del Container Inicio => Container Usuario
+    */
     fun Inicio_to_Usuario (fragment: Fragment) {
         fragment.requireActivity()
             .findNavController(R.id.nav_host_root)
