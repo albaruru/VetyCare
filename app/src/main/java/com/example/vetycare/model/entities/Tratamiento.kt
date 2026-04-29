@@ -3,6 +3,12 @@ package com.example.vetycare.model.entities
 import com.example.vetycare.model.relational.MedicamentoPorTratamiento
 import java.io.Serializable
 
+/*
+    EXPLICACION:
+        Modelo de datos que representa un tratamiento clínico, incluyendo su estado, fechas,
+        objetivo terapéutico y relaciones con diagnóstico, mascota y medicación.
+ */
+
 data class Tratamiento(
     var id: String? = null, // Se usa con 'var' para poder asignarlo al leer
     val estado: String? = null,

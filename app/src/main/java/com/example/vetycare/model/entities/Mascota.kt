@@ -2,6 +2,11 @@ package com.example.vetycare.model.entities
 
 import java.io.Serializable
 
+/*
+    EXPLICACION
+        Modelo de datos que representa una mascota, incluyendo sus datos básicos,
+        características y relación con su propietario.
+ */
 
 data class Mascota(
     var id: String? = null, // Se usa con 'var' para poder asignarlo al leer

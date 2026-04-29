@@ -1,7 +1,11 @@
 package com.example.vetycare.model.entities
 
 import java.io.Serializable
-
+/*
+    EXPLICACION:
+        Modelo de datos que representa un veterinario, incluyendo información personal,
+        profesional y su relación con clínica y colegio.
+ */
 data class Veterinario(
     var id: String? = null, // Se usa con 'var' para poder asignarlo al leer
     val activa: Boolean? = null,
