@@ -17,7 +17,6 @@ import com.example.vetycare.database.repository.MedicamentoRepository
 import com.example.vetycare.database.repository.TratamientoRepository
 import com.example.vetycare.databinding.FragmentMascotaTratamientoBinding
 import com.example.vetycare.model.entities.Mascota
-import com.example.vetycare.model.entities.Medicamento
 import com.example.vetycare.model.entities.Tratamiento
 import com.example.vetycare.model.relational.MedicamentoPorTratamiento
 import com.example.vetycare.navigation.NavigatorMascota
@@ -26,6 +25,11 @@ import com.example.vetycare.utils.FirebaseUtils
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
+/* EXPLICACIÓN DE LA CLASE <MascotaTratamientoFragment()> : despliega para leer...
+    Fragmento encargado de gestionar y mostrar el listado de tratamientos de una mascota.
+    Coordina la carga de datos relacionales entre tratamientos y medicamentos de Firebase,
+    permitiendo al usuario visualizar las pautas médicas activas de sus animales.
+ */
 class MascotaTratamientoFragment : Fragment(), TratamientoAdapter.OnTratamientoListener {
     private var _binding : FragmentMascotaTratamientoBinding ?= null
     private val binding get() = _binding!!
@@ -38,7 +42,11 @@ class MascotaTratamientoFragment : Fragment(), TratamientoAdapter.OnTratamientoL
     private var mascotaSeleccionada: Mascota? = null
     private var idMascotaSeleccionada: String? = null
 
-
+    /* EXPLICACIÓN DEL METODO <onAttach()> : despliega para leer...
+        Inicializa las instancias de Firebase y los repositorios necesarios para la consulta.
+        Prepara las capas de acceso a datos para tratamientos y medicamentos, garantizando
+        que el fragmento pueda realizar peticiones al backend desde su vinculación.
+    */
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
@@ -52,11 +60,21 @@ class MascotaTratamientoFragment : Fragment(), TratamientoAdapter.OnTratamientoL
         medicamentoRepository = MedicamentoRepository(remoteMedicamento)
     }
 
+    /* EXPLICACIÓN DEL METODO <onCreateView()> : despliega para leer...
+        Infla la jerarquía de vistas utilizando ViewBinding para establecer la interfaz del usuario.
+        Genera el objeto binding que permite el acceso directo a los componentes visuales del
+        listado de tratamientos médicos del animal.
+    */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentMascotaTratamientoBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
 
+    /* EXPLICACIÓN DEL METODO <onViewCreated()> : despliega para leer...
+        Configura el RecyclerView, obtiene los datos del contenedor y gestiona el botón de retroceso.
+        Asegura que el listado se cargue con la información de la mascota seleccionada y que el
+        retorno al perfil sea fluido mediante el dispatcher de la actividad.
+    */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -70,9 +88,7 @@ class MascotaTratamientoFragment : Fragment(), TratamientoAdapter.OnTratamientoL
         binding.rvTratamientos.adapter = adapterTratamiento
 
         cargarTratamientosMascota()
-        //FIXME: BORRAR => crearTratamientosDePrueba()
 
-        // Para cuando le des al boton de volver del móvil vuelva a MascotaPerfil
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 navegacionFragment(3)
@@ -81,57 +97,15 @@ class MascotaTratamientoFragment : Fragment(), TratamientoAdapter.OnTratamientoL
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
-    /* FIXME: BORRAR
-    private fun crearTratamientosDePrueba() {
-        listaTratamientos.clear()
-        listaTratamientos.add(Tratamiento(
-            id = "TR-001",
-            tipoTratamiento = "Antibiótico",
-            medicamento = Medicamento(nombreComercial = "Amoxicilina 250mg"),
-            detallesMedicacion = MedicamentoPorTratamiento(
-                dosis = "1 pastilla",
-                frecuencia = "Cada 12 horas",
-                viaAdministracion = "Oral"
-            ),
-            fechaInicio = "01/04/2026",
-            fechaFin = "10/04/2026",
-            observaciones = "Dar con comida."
-        ))
-        listaTratamientos.add(Tratamiento(
-            id = "TR-002",
-            tipoTratamiento = "Desparasitación",
-            medicamento = Medicamento(nombreComercial = "Milbemax 200mg"),
-            detallesMedicacion = MedicamentoPorTratamiento(
-                dosis = "5ml",
-                frecuencia = "Cada 24 horas",
-                viaAdministracion = "Oral"
-            ),
-            fechaInicio = "05/04/2026",
-            fechaFin = "05/04/2026",
-            observaciones = "Repetir en 3 meses."
-        ))
-        listaTratamientos.add(Tratamiento(
-            id = "TR-003",
-            tipoTratamiento = "Oftálmico",
-            medicamento = Medicamento(nombreComercial = "Amoxicilina 250mg"),
-            detallesMedicacion = MedicamentoPorTratamiento(
-                dosis = "15ml",
-                frecuencia = "Cada 8 horas",
-                viaAdministracion = "Oral"
-            ),
-            fechaInicio = "07/04/2026",
-            fechaFin = "14/04/2026",
-            observaciones = "Limpiar ojo antes."
-        ))
-        adapterTratamiento.notifyDataSetChanged()
-    }
+       override fun onResume() {
+           super.onResume()
+       }
+
+    /* EXPLICACIÓN DEL METODO <navegacionFragment()> : despliega para leer...
+        Centraliza la lógica de navegación hacia el detalle del tratamiento o hacia el perfil.
+        Utiliza el NavigatorMascota para redirigir al usuario según la acción realizada,
+        asegurando una transición correcta entre las diferentes pantallas del módulo.
     */
-
-    override fun onResume() {
-        super.onResume()
-    }
-
-    // NAVEGACION ENTRE FRAGMENTS
     fun navegacionFragment(num: Int, tratamiento: Tratamiento? = null) {
         when (num) {
             1 -> NavigatorMascota.MascotaTratamiento_to_MascotaTratamientoInfo(this)
@@ -142,6 +116,11 @@ class MascotaTratamientoFragment : Fragment(), TratamientoAdapter.OnTratamientoL
         }
     }
 
+    /* EXPLICACIÓN DEL METODO <cargarTratamientosMascota()> : despliega para leer...
+        Solicita al repositorio la lista base de tratamientos asociados a la mascota activa.
+        Tras recibir la respuesta de Firebase, inicia el proceso de enriquecimiento de datos
+        para incluir la información detallada de medicación y frecuencia en el listado.
+    */
     @SuppressLint("NotifyDataSetChanged")
     private fun cargarTratamientosMascota() {
         val idMascota = idMascotaSeleccionada
@@ -169,6 +148,11 @@ class MascotaTratamientoFragment : Fragment(), TratamientoAdapter.OnTratamientoL
         )
     }
 
+    /* EXPLICACIÓN DEL METODO <completarTratamientosConFrecuencia()> : despliega para leer...
+        Realiza consultas adicionales para obtener los detalles técnicos de cada tratamiento.
+        Sincroniza múltiples peticiones asíncronas para construir objetos completos antes de
+        ordenar la lista cronológicamente y notificar los cambios al adaptador del listado.
+    */
     @SuppressLint("NotifyDataSetChanged")
     private fun completarTratamientosConFrecuencia(listaBase: List<Pair<String, Tratamiento>>) {
         val listaFinal = mutableListOf<Tratamiento>()
@@ -255,14 +239,29 @@ class MascotaTratamientoFragment : Fragment(), TratamientoAdapter.OnTratamientoL
         }
     }
 
+    /* EXPLICACIÓN DEL METODO <mostrarToast()> : despliega para leer...
+        Muestra mensajes informativos breves en la interfaz para notificar estados al usuario.
+        Se utiliza para confirmar la ausencia de datos o alertar sobre errores de conexión
+        durante la descarga de información desde los repositorios de Firebase.
+    */
     private fun mostrarToast(mensaje: String) {
         Toast.makeText(requireContext(), mensaje, Toast.LENGTH_SHORT).show()
     }
 
+    /* EXPLICACIÓN DEL METODO <onTratamientoClick()> : despliega para leer...
+        Captura el evento de selección de un tratamiento individual dentro del RecyclerView.
+        Delega la acción al metodo de navegación para cargar el fragmento de información detallada
+        pasando el objeto técnico completo como parámetro.
+    */
     override fun onTratamientoClick(tratamiento: Tratamiento) {
         navegacionFragment(2, tratamiento)
     }
 
+    /* EXPLICACIÓN DEL METODO <onDestroyView()> : despliega para leer...
+        Anula la referencia al objeto binding cuando la vista del fragmento se destruye por el sistema.
+        Esta operación es vital para prevenir fugas de memoria, asegurando que los recursos de la
+        interfaz de usuario se liberen correctamente al finalizar el ciclo de vida.
+    */
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

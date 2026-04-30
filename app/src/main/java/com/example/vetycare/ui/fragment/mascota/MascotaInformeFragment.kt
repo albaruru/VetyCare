@@ -16,15 +16,17 @@ import com.example.vetycare.database.repository.DiagnosticoRepository
 import com.example.vetycare.databinding.FragmentMascotaInformeBinding
 import com.example.vetycare.model.entities.Diagnostico
 import com.example.vetycare.model.entities.Mascota
-import com.example.vetycare.model.entities.Medicamento
-import com.example.vetycare.model.entities.Patologia
-import com.example.vetycare.model.entities.Tratamiento
 import com.example.vetycare.navigation.NavigatorMascota
 import com.example.vetycare.ui.container.MascotaContainerFragment
 import com.example.vetycare.utils.FirebaseUtils
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
+/* EXPLICACIÓN DE LA CLASE <MascotaInformeFragment()> : despliega para leer...
+    Fragmento encargado de listar los informes médicos y diagnósticos de una mascota.
+    Gestiona la recuperación de datos desde Firebase, su ordenación cronológica y la
+    visualización en un listado interactivo mediante un adaptador personalizado.
+ */
 class MascotaInformeFragment : Fragment(), InformeAdapter.OnInformeListener {
     private var _binding: FragmentMascotaInformeBinding? = null
     private val binding get() = _binding!!
@@ -36,7 +38,11 @@ class MascotaInformeFragment : Fragment(), InformeAdapter.OnInformeListener {
     private var mascotaSeleccionada: Mascota? = null
     private var idMascotaSeleccionada: String? = null
 
-
+    /* EXPLICACIÓN DEL METODO <onAttach()> : despliega para leer...
+        Inicializa las referencias de Firebase y el repositorio de diagnósticos al vincular el fragmento.
+        Establece la conexión con la base de datos en tiempo real para asegurar que el sistema
+        pueda consultar los informes médicos en cuanto la vista esté lista.
+    */
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
@@ -47,11 +53,21 @@ class MascotaInformeFragment : Fragment(), InformeAdapter.OnInformeListener {
         diagnosticoRepository = DiagnosticoRepository(remoteDiagnostico)
     }
 
+    /* EXPLICACIÓN DEL METODO <onCreateView()> : despliega para leer...
+        Infla la jerarquía de vistas del fragmento utilizando la clase de vinculación generada.
+        Prepara el contenedor visual para el listado de informes y devuelve la vista raíz
+        necesaria para el ciclo de vida del componente.
+    */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentMascotaInformeBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
 
+    /* EXPLICACIÓN DEL METODO <onViewCreated()> : despliega para leer...
+        Configura el RecyclerView, el adaptador y recupera los datos de la mascota del contenedor padre.
+        Implementa también el control del botón físico de retroceso para asegurar que el usuario
+        regrese correctamente al perfil de la mascota al intentar salir.
+    */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -65,7 +81,6 @@ class MascotaInformeFragment : Fragment(), InformeAdapter.OnInformeListener {
 
         cargarInformesMascota()
 
-        // Para cuando le des al boton de volver del móvil vuelva a MascotaPerfil
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 navegacionFragment(3)
@@ -73,52 +88,16 @@ class MascotaInformeFragment : Fragment(), InformeAdapter.OnInformeListener {
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
-    /* FIXME: BORRAR
-    private fun crearInformesDePrueba() {
-        listaInformes.clear()
-
-        // Informe 1: Revisión Rutinaria
-        listaInformes.add(Diagnostico(
-            id = "2024/001",
-            fechaDiagnostico = "15/03/2024",
-            valoracion = "Paciente en buen estado general. Se realiza desparasitación interna y revisión de constantes. Corazón y pulmones normales.",
-            importeTotal = 45.00,
-            patologia = Patologia(nombre = "Chequeo Preventivo"),
-            medicamento = Medicamento(nombreComercial = "Milbemax Comprimidos"),
-            tratamiento = Tratamiento(tipoTratamiento = "Protocolo Desparasitación")
-        ))
-
-        // Informe 2: Infección de Oído
-        listaInformes.add(Diagnostico(
-            id = "2024/002",
-            fechaDiagnostico = "22/03/2024",
-            valoracion = "Se observa inflamación y secreción en el conducto auditivo derecho. El paciente muestra dolor a la palpación.",
-            importeTotal = 62.50,
-            patologia = Patologia(nombre = "Otitis Externa"),
-            medicamento = Medicamento(nombreComercial = "Posatex Gotas"),
-            tratamiento = Tratamiento(tipoTratamiento = "Limpieza y gotas diarias")
-        ))
-
-        // Informe 3: Alergia Alimentaria
-        listaInformes.add(Diagnostico(
-            id = "2024/003",
-            fechaDiagnostico = "05/04/2024",
-            valoracion = "Dermatitis por rascado en zona abdominal. Se sospecha de intolerancia a la proteína de pollo en el pienso actual.",
-            importeTotal = 30.00,
-            patologia = Patologia(nombre = "Alergia Cutánea"),
-            medicamento = Medicamento(nombreComercial = "Apoquel 5.4mg"),
-            tratamiento = Tratamiento(tipoTratamiento = "Cambio a dieta hidrolizada")
-        ))
-
-        // Notificamos al adaptador para refrescar el RecyclerView
-        adapterInforme.notifyDataSetChanged()
-    }*/
 
     override fun onResume() {
         super.onResume()
     }
 
-    // NAVEGACION ENTRE FRAGMENTS
+    /* EXPLICACIÓN DEL METODO <navegacionFragment()> : despliega para leer...
+        Centraliza el flujo de navegación hacia el detalle del informe o de vuelta al perfil.
+        Permite transferir el objeto diagnóstico seleccionado hacia la pantalla de información
+        detallada o invocar al NavigatorMascota para retroceder en la aplicación.
+    */
     fun navegacionFragment(num: Int, informe: Diagnostico? = null) {
         when (num) {
             1 -> NavigatorMascota.MascotaInforme_to_MascotaInformeInfo(this)
@@ -131,6 +110,11 @@ class MascotaInformeFragment : Fragment(), InformeAdapter.OnInformeListener {
         }
     }
 
+    /* EXPLICACIÓN DEL METODO <cargarInformesMascota()> : despliega para leer...
+        Consulta al repositorio los diagnósticos asociados al identificador de la mascota activa.
+        Procesa la lista recibida para ordenarla por fecha descendente y notifica al adaptador
+        para que refresque la interfaz visual con los nuevos datos cargados.
+    */
     @SuppressLint("NotifyDataSetChanged")
     private fun cargarInformesMascota() {
         val idMascota = idMascotaSeleccionada
@@ -164,14 +148,29 @@ class MascotaInformeFragment : Fragment(), InformeAdapter.OnInformeListener {
         )
     }
 
+    /* EXPLICACIÓN DEL METODO <onInformeClick()> : despliega para leer...
+        Captura el evento de selección de un informe individual dentro del listado del RecyclerView.
+        Delega la acción al metodo de navegación para abrir la pantalla con los detalles
+        técnicos del diagnóstico médico seleccionado por el usuario.
+    */
     override fun onInformeClick(informe: Diagnostico) {
         navegacionFragment(2, informe)
     }
 
+    /* EXPLICACIÓN DEL METODO <mostrarToast()> : despliega para leer...
+        Muestra un mensaje emergente breve en la parte inferior de la pantalla para informar al usuario.
+        Se utiliza principalmente para notificar errores de carga o confirmar la ausencia de
+        registros médicos para la mascota actual.
+    */
     private fun mostrarToast(mensaje: String) {
         Toast.makeText(requireContext(), mensaje, Toast.LENGTH_SHORT).show()
     }
 
+    /* EXPLICACIÓN DEL METODO <onDestroyView()> : despliega para leer...
+        Anula la referencia al objeto binding cuando la vista del fragmento se destruye.
+        Esta operación es fundamental para prevenir fugas de memoria, asegurando que
+        los recursos de la interfaz se liberen correctamente al finalizar el ciclo de vida.
+    */
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

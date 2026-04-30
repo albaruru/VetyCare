@@ -27,14 +27,24 @@ import com.mapbox.maps.plugin.annotation.generated.PointAnnotationOptions
 import com.mapbox.maps.plugin.annotation.generated.createPointAnnotationManager
 import androidx.core.graphics.createBitmap
 
+/* EXPLICACIÓN DE LA CLASE <UsuarioClinicaMapaFragment()> : despliega para leer...
+    Fragmento encargado de la visualización geográfica de las clínicas veterinarias mediante Mapbox.
+    Gestiona la representación de marcadores en el mapa, el enfoque dinámico de la cámara hacia
+    puntos específicos y la interacción mediante hojas informativas inferiores (BottomSheets).
+ */
 class UsuarioClinicaMapaFragment : Fragment() {
 
     private lateinit var binding: FragmentUsuarioClinicaMapaBinding
     private lateinit var clinicaRepository: ClinicaRepository
     private lateinit var pointAnnotationManager: com.mapbox.maps.plugin.annotation.generated.PointAnnotationManager
     private val marcadoresClinica = mutableMapOf<String, Clinica>()
-    private var clinicaFoco: Clinica? = null // Variable para la clínica seleccionada
+    private var clinicaFoco: Clinica? = null
 
+    /* EXPLICACIÓN DEL METODO <onAttach()> : despliega para leer...
+        Inicializa el repositorio de clínicas al vincular el fragmento con la actividad.
+        Establece la conexión con la base de datos de Firebase para permitir la descarga
+        de las coordenadas y datos de contacto de todos los centros veterinarios activos.
+    */
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
@@ -46,6 +56,11 @@ class UsuarioClinicaMapaFragment : Fragment() {
         clinicaRepository = ClinicaRepository(remoteClinica)
     }
 
+    /* EXPLICACIÓN DEL METODO <onCreate()> : despliega para leer...
+        Recupera el objeto clínica desde los argumentos para determinar si existe un punto de enfoque inicial.
+        Este proceso permite que el mapa se centre automáticamente en una clínica específica
+        cuando el usuario navega desde el listado de búsqueda hacia la cartografía.
+    */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         clinicaFoco = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
@@ -56,6 +71,11 @@ class UsuarioClinicaMapaFragment : Fragment() {
         }
     }
 
+    /* EXPLICACIÓN DEL METODO <onCreateView()> : despliega para leer...
+        Infla la jerarquía de vistas utilizando ViewBinding para establecer la interfaz de usuario.
+        Retorna la vista raíz que contiene el componente de Mapbox y los elementos de control
+        necesarios para la navegación y visualización de la información geográfica.
+    */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -64,11 +84,15 @@ class UsuarioClinicaMapaFragment : Fragment() {
         return binding.root
     }
 
+    /* EXPLICACIÓN DEL METODO <onViewCreated()> : despliega para leer...
+        Configura el estado inicial del mapa y define el comportamiento del botón físico de retroceso.
+        Asegura que el dispatcher de la actividad redirija al usuario al listado de clínicas
+        de forma controlada cuando intente salir de la vista de mapa.
+    */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         iniciarMapa()
 
-        // Para cuando le des al boton de volver del móvil vuelva a UsuarioClinica
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 navegacionFragment(2)
@@ -77,16 +101,41 @@ class UsuarioClinicaMapaFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
+    /* EXPLICACIÓN DEL METODO <onResume()> : despliega para leer...
+        Establece los escuchadores de eventos para los botones de control cuando el fragmento está activo.
+        Configura el acceso directo al listado para permitir una transición fluida entre la
+        vista de mapa y la representación tabular de los centros veterinarios.
+    */
     override fun onResume() {
         super.onResume()
+
+        /* Acciones de los botones del fragment:
+            Botón Ver Listado => Navega a UsuarioClinicaFragment
+        */
         binding.btnVerListado.setOnClickListener {
             navegacionFragment(1)
         }
     }
 
+    /* EXPLICACIÓN DEL METODO <navegacionFragment()> : despliega para leer...
+    Centraliza la lógica de navegación para retornar a la pantalla del listado de clínicas.
+    Utiliza el NavigatorUsuario para ejecutar la transición de salida, asegurando
+    que el flujo de pantallas se mantenga coherente dentro del módulo de usuario.
+*/
+    fun navegacionFragment(num: Int) {
+        when (num) {
+            1 -> NavigatorUsuario.UsuarioClinicaMapa_to_UsuarioClinica(this)
+            2 -> NavigatorUsuario.UsuarioClinicaMapa_to_UsuarioClinica(this@UsuarioClinicaMapaFragment)
+        }
+    }
+
+    /* EXPLICACIÓN DEL METODO <iniciarMapa()> : despliega para leer...
+        Carga el estilo visual de Mapbox y establece la posición de la cámara según la entrada.
+        Si existe una clínica en foco, centra la vista en ella con un zoom cercano; de lo contrario,
+        muestra una vista general del territorio y prepara el gestor de anotaciones.
+    */
     private fun iniciarMapa() {
         binding.mapView.mapboxMap.loadStyle(Style.MAPBOX_STREETS) {
-            // Lógica de cámara dinámica
             val (puntoInicial, zoomInicial) = if (clinicaFoco != null) {
                 // Centrar en la clínica seleccionada
                 val lat = clinicaFoco?.coordenadas?.latitud ?: 40.0
@@ -118,6 +167,11 @@ class UsuarioClinicaMapaFragment : Fragment() {
         }
     }
 
+    /* EXPLICACIÓN DEL METODO <cargarClinicasEnMapa()> : despliega para leer...
+        Descarga todas las clínicas del repositorio y genera sus marcadores correspondientes sobre el mapa.
+        Asocia cada marcador con los datos técnicos del centro y configura el listener de clics
+        para disparar la visualización del detalle mediante una hoja de información inferior.
+    */
     private fun cargarClinicasEnMapa() {
         clinicaRepository.obtenerTodasLasClinicasActivas(
             onSuccess = { lista ->
@@ -165,6 +219,11 @@ class UsuarioClinicaMapaFragment : Fragment() {
         )
     }
 
+    /* EXPLICACIÓN DEL METODO <mostrarBottomSheet()> : despliega para leer...
+        Despliega un diálogo emergente inferior con los datos de contacto de la clínica seleccionada.
+        Permite al usuario realizar llamadas telefónicas directamente al pulsar sobre el número,
+        utilizando un Intent específico para el marcador de llamadas del sistema.
+    */
     private fun mostrarBottomSheet(
         nombre: String, provincia: String,
         direccion: String, telefono: String
@@ -195,6 +254,11 @@ class UsuarioClinicaMapaFragment : Fragment() {
         bottomSheet.show()
     }
 
+    /* EXPLICACIÓN DEL METODO <drawableToBitmap()> : despliega para leer...
+        Realiza la conversión técnica de un recurso Drawable a un objeto Bitmap para Mapbox.
+        Permite utilizar iconos personalizados como marcadores geográficos, dibujando el recurso
+        sobre un lienzo (Canvas) para su correcta integración en el motor del mapa.
+    */
     private fun drawableToBitmap(drawable: android.graphics.drawable.Drawable): android.graphics.Bitmap {
         val bitmap = createBitmap(drawable.intrinsicWidth, drawable.intrinsicHeight)
         val canvas = android.graphics.Canvas(bitmap)
@@ -203,13 +267,11 @@ class UsuarioClinicaMapaFragment : Fragment() {
         return bitmap
     }
 
-    fun navegacionFragment(num: Int) {
-        when (num) {
-            1 -> NavigatorUsuario.UsuarioClinicaMapa_to_UsuarioClinica(this)
-            2 -> NavigatorUsuario.UsuarioClinicaMapa_to_UsuarioClinica(this@UsuarioClinicaMapaFragment)
-        }
-    }
-
+    /* EXPLICACIÓN DE LOS CICLOS DE VIDA <onStart/onStop/onLowMemory/onDestroyView> : despliega para leer...
+        Vincula los eventos del ciclo de vida del fragmento con el componente de MapView.
+        Garantiza una gestión eficiente de los recursos del mapa, pausando o liberando la
+        memoria necesaria según el estado actual de la vista para evitar fugas y bloqueos.
+    */
     override fun onStart() { super.onStart(); binding.mapView.onStart() }
     override fun onStop() { super.onStop(); binding.mapView.onStop() }
     override fun onLowMemory() { super.onLowMemory(); binding.mapView.onLowMemory() }
