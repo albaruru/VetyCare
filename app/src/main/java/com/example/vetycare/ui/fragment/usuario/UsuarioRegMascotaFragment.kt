@@ -320,5 +320,4 @@ class UsuarioRegMascotaFragment : Fragment() {
         val formato = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault())
         return formato.format(java.util.Date())
     }
-
 }

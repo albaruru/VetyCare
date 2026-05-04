@@ -14,7 +14,7 @@ object NavigatorRoot {
     gestionando el flujo global entre secciones y el paso de datos entre módulos.
 
     Desgloce por métodos:
-     - InicioToUsuario => Navegamos del Container Inicio => Container Usuario
+    - InicioToUsuario => Navegamos del Container Inicio => Container Usuario
     */
     fun Inicio_to_Usuario (fragment: Fragment) {
         fragment.requireActivity()

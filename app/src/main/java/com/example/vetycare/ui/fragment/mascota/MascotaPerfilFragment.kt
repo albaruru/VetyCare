@@ -219,10 +219,10 @@ class MascotaPerfilFragment : Fragment() {
                     navegacionFragment(1)
                 }
             },
-             { error ->
-                 if (isAdded) {
-                     mostrarSnackbar(error ?: "No se pudo eliminar la mascota")
-                 }
+            { error ->
+                if (isAdded) {
+                    mostrarSnackbar(error ?: "No se pudo eliminar la mascota")
+                }
             }
         )
     }

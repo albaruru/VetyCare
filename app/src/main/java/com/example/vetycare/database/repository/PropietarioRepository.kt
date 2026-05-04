@@ -74,19 +74,4 @@ class PropietarioRepository (private val remotePropietario: PropietarioRemote) {
         remotePropietario.generarIdPropietario(success, error)
     }
 
-    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
-fun actualizarPropietario (
-    idProp: String,
-    cambios: Map<String, Any?>,
-    success: () -> Unit,
-    error: (String?) -> Unit
-    ) {
-    remotePropietario.actualizarPropietario(
-        idProp,
-        cambios,
-        success,
-        error
-    )
-}
-*/
 }

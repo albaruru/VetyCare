@@ -131,19 +131,4 @@ class MascotaRepository (private val remoteMascota: MascotaRemote) {
         )
     }
 
-    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
-fun actualizarMascota (
-    idMasc: String,
-    cambios: Map <String,Any?>,
-    Success: () -> Unit,
-    Error: (String?) -> Unit
-    ) {
-    remoteMascota.actualizarMascota(
-        idMasc,
-        cambios,
-        Success,
-        Error
-    )
-}
-*/
 }

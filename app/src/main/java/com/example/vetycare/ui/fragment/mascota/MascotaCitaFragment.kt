@@ -417,9 +417,9 @@ class MascotaCitaFragment : Fragment() {
         return true
     }
 
-    /* EXPLICACIÓN DEL METODO <limpiarClinicas() / limpiarVeterinarios()> : despliega para leer...
-        Reinicia los selectores de centros y profesionales a su estado por defecto.
-        Vacía las listas de datos cargados y bloquea la interacción con los spinners
+    /* EXPLICACIÓN DE LOS METODOS <limpiarClinicas()> y <limpiarVeterinarios()> : despliega para leer...
+        Reinician los selectores de centros y profesionales a su estado por defecto.
+        Vacían las listas de datos cargados y bloquea la interacción con los spinners
         para mantener la integridad del flujo de selección en cascada.
     */
     private fun limpiarClinicas() {

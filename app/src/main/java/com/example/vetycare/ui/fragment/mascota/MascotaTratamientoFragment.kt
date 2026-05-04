@@ -97,10 +97,6 @@ class MascotaTratamientoFragment : Fragment(), TratamientoAdapter.OnTratamientoL
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
-       override fun onResume() {
-           super.onResume()
-       }
-
     /* EXPLICACIÓN DEL METODO <navegacionFragment()> : despliega para leer...
         Centraliza la lógica de navegación hacia el detalle del tratamiento o hacia el perfil.
         Utiliza el NavigatorMascota para redirigir al usuario según la acción realizada,

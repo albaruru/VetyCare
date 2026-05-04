@@ -111,22 +111,4 @@ class PropietarioRemote (private val databaseReference : DatabaseReference) {
             }
     }
 
-    /* FIXME: BORRAR => MÉTODO NO UTILIZADO
-/* EXPLICACIÓN DEL METODO <actualizarPropietario()> : despliega para leer...
-    El metodo actualizarPropietario modifica los datos de un propietario concreto usando su idPropietario.
-    Accede al nodo "propietarios" y selecciona el registro correspondiente dentro de la base de datos.
-    Después aplica los cambios recibidos en el mapa updates, actualizando únicamente los campos indicados.
-    Si la actualización se realiza correctamente ejecuta onSuccess, y si ocurre algún error devuelve un mensaje mediante onError.
-*/
-fun actualizarPropietario (
-    idPropietario: String,
-    updates: Map <String, Any?>,
-    onSuccess: () -> Unit,
-    onError: (String?) -> Unit
-    ) {
-    databaseReference.child("propietarios").child(idPropietario).updateChildren(updates)
-        .addOnSuccessListener { onSuccess() }
-        .addOnFailureListener { onError("ERROR al utilizar el propietario") }
-}
-*/
 }

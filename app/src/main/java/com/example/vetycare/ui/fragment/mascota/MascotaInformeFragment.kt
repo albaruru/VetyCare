@@ -89,10 +89,6 @@ class MascotaInformeFragment : Fragment(), InformeAdapter.OnInformeListener {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
     /* EXPLICACIÓN DEL METODO <navegacionFragment()> : despliega para leer...
         Centraliza el flujo de navegación hacia el detalle del informe o de vuelta al perfil.
         Permite transferir el objeto diagnóstico seleccionado hacia la pantalla de información
