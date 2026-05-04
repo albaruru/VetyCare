@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_usuario"
+    app:startDestination="@+id/UsuarioInicioFragment">
+
+    <!-- FRAGMENT USUARIO INICIO (PRINCIPAL) -->
+    <fragment
+        android:id="@+id/UsuarioInicioFragment"
+        android:name="com.example.vetycare.ui.fragment.usuario.UsuarioInicioFragment"
+        android:label="Inicio Usuario"
+        tools:layout="@layout/fragment_usuario_inicio"
+        />
+
+    <!-- FRAGMENT USUARIO PERFIL MASCOTAS (PRINCIPAL) -->
+    <fragment
+        android:id="@+id/UsuarioMascotaFragment"
+        android:name="com.example.vetycare.ui.fragment.usuario.UsuarioMascotaFragment"
+        android:label="Usuario Mascota "
+        tools:layout="@layout/fragment_usuario_mascota"
+        >
+        <action
+            android:id="@+id/action_UsuarioMascotaFragment_to_UsuarioRegMascota"
+            app:destination="@id/UsuarioRegMascota" />
+        <action
+            android:id="@+id/action_UsuarioMascotaFragment_to_UsuarioInicioFragment"
+            app:destination="@id/UsuarioInicioFragment" />
+    </fragment>
+
+    <!-- FRAGMENT USUARIO REGISTRO MASCOTA (SECUNDARIO) -->
+    <fragment
+        android:id="@+id/UsuarioRegMascota"
+        android:name="com.example.vetycare.ui.fragment.usuario.UsuarioRegMascotaFragment"
+        android:label="Usuario Registro Mascota"
+        tools:layout="@layout/fragment_usuario_reg_mascota"
+        >
+        <action
+            android:id="@+id/action_UsuarioRegMascota_to_UsuarioMascotaFragment"
+            app:destination="@id/UsuarioMascotaFragment" />
+    </fragment>
+
+    <!-- FRAGMENT USUARIO CALENDARIO (PRINCIPAL) -->
+    <fragment
+        android:id="@+id/UsuarioCalendario"
+        android:name="com.example.vetycare.ui.fragment.usuario.UsuarioCalendarioFragment"
+        android:label="Usuario Calendario"
+        tools:layout="@layout/fragment_usuario_calendario"
+        >
+        <action
+            android:id="@+id/action_UsuarioCalendario_to_UsuarioInicioFragment"
+            app:destination="@id/UsuarioInicioFragment" />
+    </fragment>
+
+    <!-- FRAGMENT USUARIO PERFIL USUARIO (PRINCIPAL) -->
+    <fragment
+        android:id="@+id/UsuarioPerfilFragment"
+        android:name="com.example.vetycare.ui.fragment.usuario.UsuarioPerfilFragment"
+        android:label="Usuario Perfil Fragment"
+        tools:layout="@layout/fragment_usuario_perfil"
+        >
+
+        <action
+            android:id="@+id/action_UsuarioPerfilFragment_to_UsuarioInicioFragment"
+            app:destination="@id/UsuarioInicioFragment" />
+    </fragment>
+
+    <!-- FRAGMENT USUARIO CLINICAS (PRINCIPAL) -->
+    <fragment
+        android:id="@+id/UsuarioClinicaFragment"
+        android:name="com.example.vetycare.ui.fragment.usuario.UsuarioClinicaFragment"
+        android:label="Usuario Clinica Fragment"
+        tools:layout="@layout/fragment_usuario_clinica"
+        >
+        <action
+            android:id="@+id/action_UsuarioClinicaFragment_to_UsuarioInicioFragment"
+            app:destination="@id/UsuarioInicioFragment" />
+        <action
+            android:id="@+id/action_UsuarioClinicaFragment_to_usuarioClinicaMapaFragment"
+            app:destination="@id/usuarioClinicaMapaFragment" />
+    </fragment>
+    <!-- FRAGMENT USUARIO CLINICAS MAPA (SECUNDARIA) -->
+    <fragment
+        android:id="@+id/usuarioClinicaMapaFragment"
+        android:name="com.example.vetycare.ui.fragment.usuario.UsuarioClinicaMapaFragment"
+        android:label="Usuario Clinica Mapa Fragment"
+        tools:layout="@layout/fragment_usuario_clinica_mapa"
+        >
+        <action
+            android:id="@+id/action_usuarioClinicaMapaFragment_to_UsuarioClinicaFragment"
+            app:destination="@id/UsuarioClinicaFragment" />
+    </fragment>
+
+</navigation>

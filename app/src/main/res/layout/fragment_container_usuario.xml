@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- HEADER -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:paddingStart="24dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="4dp"
+        android:background="@color/menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <!-- FOTO DEL DUEÑO -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_foto_dueno"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:padding="2dp"
+            android:scaleType="centerCrop"
+            android:src="@android:drawable/ic_menu_camera"
+            app:shapeAppearanceOverlay="@style/ShapeCircle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!-- NOMBRE DEL DUEÑO -->
+        <TextView
+            android:id="@+id/tv_nombre_dueno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/cont_main_Nombre_usuario"
+            app:layout_constraintBottom_toBottomOf="@id/iv_foto_dueno"
+            app:layout_constraintEnd_toStartOf="@id/iv_logo"
+            app:layout_constraintStart_toEndOf="@id/iv_foto_dueno"
+            app:layout_constraintTop_toTopOf="@id/iv_foto_dueno"
+            style="@style/Nombres" />
+        <!-- LOGO EMPRESA -->
+        <ImageButton
+            android:id="@+id/iv_logo"
+            android:layout_width="45dp"
+            android:layout_height="50dp"
+            android:background="@drawable/botones_menu"
+            android:src="@drawable/icn_negro"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- DIVIDER superior -->
+    <View
+        android:id="@+id/divider_header"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/menu_bordes"
+        app:layout_constraintTop_toBottomOf="@id/layoutHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- CONTAINER NAVEGACION USUARIO => DONDE SE CARGARÁN LOS DIFERENTES FRAGMENTS DEL USUARIO -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/container_host_usuario"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:defaultNavHost="false"
+        app:navGraph="@navigation/nav_graph_usuario"
+        app:layout_constraintTop_toBottomOf="@id/divider_header"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- FILA BOTONES -->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/menu"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="-16dp">
+        <ImageButton
+            android:id="@+id/btnIniMasc"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="0.25"
+            android:layout_margin="5dp"
+            android:padding="2dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_huella"
+            android:background="@drawable/botones_menu"
+            android:textSize="20sp" />
+        <ImageButton
+            android:id="@+id/btnCalendarUsu"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="0.25"
+            android:layout_margin="5dp"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_calendar"
+            android:background="@drawable/botones_menu"
+            android:textSize="20sp" />
+        <ImageButton
+            android:id="@+id/btnUsuario"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="0.25"
+            android:layout_margin="5dp"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_user"
+            android:background="@drawable/botones_menu"
+            android:textSize="20sp" />
+        <ImageButton
+            android:id="@+id/btnClinicas"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="0.25"
+            android:layout_margin="5dp"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_clinicas"
+            android:background="@drawable/botones_menu"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <!-- DIVIDER inferior -->
+    <View
+        android:id="@+id/divider_feature"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/menu_bordes"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

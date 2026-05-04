@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_login"
+    app:startDestination="@+id/InicioPrincipalFragment">
+
+    <!-- FRAGMENTS -->
+    <fragment
+        android:id="@+id/InicioPrincipalFragment"
+        android:name="com.example.vetycare.ui.fragment.inicio.InicioPrincipalFragment"
+        android:label="Inicio Principal Fragment"
+        tools:layout="@layout/fragment_inicio_principal"
+        >
+        <action
+            android:id="@+id/action_InicioPrincipalFragment_to_InicioRegistroFragment"
+            app:destination="@id/InicioRegistroFragment" />
+        <action
+            android:id="@+id/action_InicioPrincipalFragment_to_InicioRecPassFragment"
+            app:destination="@id/InicioRecPassFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/InicioRecPassFragment"
+        android:name="com.example.vetycare.ui.fragment.inicio.InicioRecPassFragment"
+        android:label="Inicio Recuperacion Contraseña Fragment"
+        tools:layout="@layout/fragment_inicio_rec_pass"
+        >
+        <action
+            android:id="@+id/action_InicioRecPassFragment_to_InicioPrincipalFragment"
+            app:destination="@id/InicioPrincipalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/InicioRegistroFragment"
+        android:name="com.example.vetycare.ui.fragment.inicio.InicioRegistroFragment"
+        android:label="Inicio Registro Fragment"
+        tools:layout="@layout/fragment_inicio_registro"
+        >
+        <action
+            android:id="@+id/action_InicioRegistroFragment_to_InicioPrincipalFragment"
+            app:destination="@id/InicioPrincipalFragment" />
+    </fragment>
+
+    <!-- DIALOGS -->
+</navigation>
