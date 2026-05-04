@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- HEADER -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:paddingStart="24dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="4dp"
+        android:background="@color/menu"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <!-- FOTO DE LA MASCOTA -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_foto_mascota"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:padding="2dp"
+            android:scaleType="centerCrop"
+            android:src="@android:drawable/ic_menu_camera"
+            app:shapeAppearanceOverlay="@style/ShapeCircle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <!-- NOMBRE DE LA MASCOTA -->
+        <TextView
+            android:id="@+id/tv_nombre_mascota"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/cont_main_nombre_mascota"
+            app:layout_constraintBottom_toBottomOf="@id/iv_foto_mascota"
+            app:layout_constraintEnd_toStartOf="@+id/iv_logo"
+            app:layout_constraintStart_toEndOf="@id/iv_foto_mascota"
+            app:layout_constraintTop_toTopOf="@id/iv_foto_mascota"
+            style="@style/Nombres"/>
+        <!-- LOGO EMPRESA -->
+        <ImageButton
+            android:id="@+id/iv_logo"
+            android:layout_width="45dp"
+            android:layout_height="50dp"
+            android:background="@drawable/botones_menu"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icn_negro"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- DIVIDER superior -->
+    <View
+        android:id="@+id/divider_header"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/menu_bordes"
+        app:layout_constraintTop_toBottomOf="@id/layoutHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- FILA BOTONES -->
+    <LinearLayout
+        android:id="@+id/dropdown_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@color/menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <ImageButton
+            android:id="@+id/btnMascotas"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="0.20"
+            android:layout_margin="6dp"
+            android:padding="2dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_huella"
+            android:background="@drawable/botones_menu"/>
+        <ImageButton
+            android:id="@+id/btnCita"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="0.20"
+            android:layout_margin="5dp"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_calendar"
+            android:background="@drawable/botones_menu" />
+        <ImageButton
+            android:id="@+id/btnTratamiento"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="0.20"
+            android:layout_margin="5dp"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_tratamiento"
+            android:background="@drawable/botones_menu" />
+        <ImageButton
+            android:id="@+id/btnInforme"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="0.20"
+            android:layout_margin="5dp"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_informes"
+            android:background="@drawable/botones_menu" />
+        <ImageButton
+            android:id="@+id/btnRegresar"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="0.20"
+            android:layout_margin="5dp"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_regresa"
+            android:background="@drawable/botones_menu"/>
+    </LinearLayout>
+
+    <!-- DIVIDER inferior -->
+    <View
+        android:id="@+id/divider_feature"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/menu_bordes"
+        app:layout_constraintBottom_toTopOf="@id/dropdown_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ZONA CENTRAL NAVEGABLE -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/container_host_mascota"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:defaultNavHost="false"
+        app:navGraph="@navigation/nav_graph_mascota"
+        app:layout_constraintTop_toBottomOf="@id/divider_header"
+        app:layout_constraintBottom_toTopOf="@+id/divider_feature"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

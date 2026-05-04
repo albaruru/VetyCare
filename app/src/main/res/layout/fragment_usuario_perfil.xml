@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_usuario">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="24dp"
+        android:paddingHorizontal="24dp">
+
+        <!-- TÍTULO -->
+        <TextView
+            android:id="@+id/tv_titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/usuario_perfil_perfil"
+            style="@style/TextTitulo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- FOTO DEL USUARIO -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_foto"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:padding="2dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/background_cuadro_texto"
+            android:src="@android:drawable/ic_menu_camera"
+            app:shapeAppearanceOverlay="@style/ShapeCircle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_titulo" />
+
+        <!-- TEXTO - Nombre -->
+        <TextView
+            android:id="@+id/tv_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="15dp"
+            android:text="@string/reg_nombre"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_foto"
+            style="@style/TextBaseNegrita"/>
+        <EditText
+            android:id="@+id/et_nombre"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_nombre"
+            style="@style/TextBase"/>
+
+        <!-- TEXTO - Apellido -->
+        <TextView
+            android:id="@+id/tv_apellido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
+            android:text="@string/reg_apellido"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_nombre"
+            style="@style/TextBaseNegrita"/>
+        <EditText
+            android:id="@+id/et_apellido"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_apellido"
+            style="@style/TextBase"/>
+
+        <!-- TEXTO - Sexo -->
+        <TextView
+            android:id="@+id/tv_sexo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
+            android:text="@string/reg_sexo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_apellido"
+            style="@style/TextBaseNegrita"/>
+        <EditText
+            android:id="@+id/et_sexo"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_sexo"
+            style="@style/TextBase"/>
+
+        <!-- TEXTO - DNI -->
+        <TextView
+            android:id="@+id/tv_dni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
+            android:text="@string/reg_dni"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_sexo"
+            style="@style/TextBaseNegrita"/>
+        <EditText
+            android:id="@+id/et_dni"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_dni"
+            style="@style/TextBase"/>
+
+        <!-- TEXTO - Fecha -->
+        <TextView
+            android:id="@+id/tv_fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
+            android:text="@string/reg_fecha"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_dni"
+            style="@style/TextBaseNegrita"/>
+        <EditText
+            android:id="@+id/et_fecha"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:inputType="date"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_fecha"
+            style="@style/TextBase"/>
+
+        <!-- TEXTO - Correo -->
+        <TextView
+            android:id="@+id/tv_correo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
+            android:text="@string/reg_correo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_fecha"
+            style="@style/TextBaseNegrita"/>
+        <EditText
+            android:id="@+id/et_correo"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_correo"
+            style="@style/TextBase"/>
+
+        <!-- TEXTO - Teléfono -->
+        <TextView
+            android:id="@+id/tv_telefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"
+            android:text="@string/reg_telefono"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_correo"
+            style="@style/TextBaseNegrita"/>
+        <EditText
+            android:id="@+id/et_telefono"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:inputType="phone"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_telefono"
+            style="@style/TextBase"/>
+
+        <!-- BOTÓN - Cerrar sesión -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cerrarsesion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/usuario_perfil_cerrar"
+            android:background="@drawable/botones"
+            app:backgroundTint="@null"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_telefono"
+            style="@style/TextBotones"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

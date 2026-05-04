@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_main"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp">
+
+        <!-- TÍTULO -->
+        <TextView
+            android:id="@+id/tv_titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/rc_pass_titulo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/TextTitulo"/>
+
+        <!-- TEXTO CORREO -->
+        <TextView
+            android:id="@+id/tv_correo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/rc_pass_correo"
+            android:layout_marginTop="140dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_titulo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/TextBaseNegrita"/>
+
+        <!-- INPUT CORREO -->
+        <EditText
+            android:id="@+id/et_correo"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_cuadro_texto"
+            android:gravity="center"
+            android:hint="@string/rc_pass_correoEjem"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_correo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/TextBase"/>
+
+        <!-- TEXTO INFORMATIVO -->
+        <TextView
+            android:id="@+id/tv_info"
+            android:layout_width="281dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="50dp"
+            android:lineSpacingExtra="4dp"
+            android:text="@string/rc_pass_info"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_correo"
+            style="@style/TextInformativo"/>
+
+        <!-- BOTÓN VOLVER -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_volver"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:text="@string/volver"
+            android:background="@drawable/boton_volver_cancelar"
+            app:backgroundTint="@null"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_enviar"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            style="@style/TextBotones"/>
+
+        <!-- BOTÓN ENVIAR -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_enviar"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:text="@string/enviar"
+            android:background="@drawable/botones"
+            app:backgroundTint="@null"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn_volver"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            style="@style/TextBotones"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
