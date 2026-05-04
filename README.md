@@ -7,7 +7,7 @@
 ![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=flat-square&logo=kotlin&logoColor=white)
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=flat-square&logo=android&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)
-![Estado](https://img.shields.io/badge/estado-en%20desarrollo-orange?style=flat-square)
+![Estado](https://img.shields.io/badge/estado-terminado-brightgreen?style=flat-square)
 
 </div>
 
