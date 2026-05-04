@@ -1,10 +1,5 @@
 <div align="center">
 
-<picture>
-     <source media="(prefers-color-scheme: dark)" srcset="URL_LOGO_BLANCO">
-     <img src="URL_LOGO_NEGRO" width="120" alt="VetyCare logo">
-</picture>
-
 # VetyCare
 
 **Aplicación Android para la gestión integral del cuidado veterinario de mascotas**
