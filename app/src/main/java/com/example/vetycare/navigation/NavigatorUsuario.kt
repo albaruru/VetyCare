@@ -7,6 +7,8 @@ import com.example.vetycare.R
 object NavigatorUsuario {
 
     /* NAVEGACIÓN CONTAINER USUARIO: desglose por métodos
+    Gestiona la navegación interna del container de Usuario, organizando el flujo entre sus distintas secciones
+    y centralizando las transiciones entre fragments.
 
     - UsuarioMascota_to_UsuarioInicio             => Navegamos del Fragment Mascota           => Fragment Inicio
     - UsuarioMascota_to_UsuarioRegMascota         => Navegamos del Fragment Mascota           => Fragment Registro Mascota

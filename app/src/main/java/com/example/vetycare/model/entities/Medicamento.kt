@@ -2,6 +2,12 @@ package com.example.vetycare.model.entities
 
 import java.io.Serializable
 
+/*
+    EXPLICACION
+        Modelo de datos que representa un medicamento, incluyendo su composición,
+        presentación, disponibilidad y requisitos de prescripción.
+ */
+
 data class Medicamento(
     var id: String? = null, // Se usa con 'var' para poder asignarlo al leer
     val concentracion: String? = null,

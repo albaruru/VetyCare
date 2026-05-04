@@ -5,6 +5,11 @@ import com.example.vetycare.model.relational.CitaMascota
 import com.example.vetycare.model.relational.CitaVeterinario
 import java.io.Serializable
 
+/*
+    EXPLICACION
+        Modelo de datos que representa una cita en el sistema, incluyendo su información básica
+        y las relaciones con mascota, clínica y veterinario.
+ */
 data class Cita(
     var id: String? = null,
     val estadoCita: String? = null,

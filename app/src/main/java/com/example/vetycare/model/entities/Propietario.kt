@@ -2,6 +2,13 @@ package com.example.vetycare.model.entities
 
 import java.io.Serializable
 
+/*
+    EXPLICACION:
+        Entidad que representa un propietario dentro del sistema.
+        Contiene información personal y de contacto como nombre, apellidos, email,
+        teléfono, DNI y datos de registro.
+        Se utiliza como modelo de datos para la gestión de usuarios propietarios en la aplicación.
+ */
 data class Propietario(
     var id: String? = null, // Se usa con 'var' para poder asignarlo al leer
     val activa: Boolean? = null,

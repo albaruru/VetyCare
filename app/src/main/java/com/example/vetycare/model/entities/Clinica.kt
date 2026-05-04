@@ -2,6 +2,11 @@ package com.example.vetycare.model.entities
 
 import com.example.vetycare.model.relational.Coordenadas
 import java.io.Serializable
+/*
+    EXPLICACION
+        Modelo de datos que representa una clínica veterinaria, incluyendo información de contacto,
+        ubicación y estado de actividad dentro del sistema.
+ */
 
 data class Clinica(
     var id: String? = null, // Se usa con 'var' para poder asignarlo al leer

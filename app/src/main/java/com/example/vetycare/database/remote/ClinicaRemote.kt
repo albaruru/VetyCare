@@ -5,6 +5,12 @@ import com.google.firebase.database.DatabaseReference
 
 class ClinicaRemote(private val databaseReference: DatabaseReference) {
 
+    /* EXPLICACIÓN DEL METODO <obtenerTodasLasClinicas()> : despliega para leer...
+        El metodo obtenerTodasLasClinicas obtiene todos los registros guardados dentro del nodo "clinicas" de la base de datos.
+        Si la lectura se realiza correctamente, recorre cada clínica encontrada y la convierte en un objeto de tipo Clinica.
+        Después asigna a cada clínica su id usando la clave del nodo correspondiente.
+        Finalmente añade todas las clínicas a una lista y la devuelve mediante onSuccess, o muestra un mensaje de error con onError si falla la lectura.
+    */
     fun obtenerTodasLasClinicas(
         onSuccess: (List<Clinica>) -> Unit,
         onError: (String?) -> Unit
@@ -27,6 +33,14 @@ class ClinicaRemote(private val databaseReference: DatabaseReference) {
                 onError("ERROR al leer todas las clínicas")
             }
     }
+
+    /* EXPLICACIÓN DEL METODO <obtenerClinicaPorId()> : despliega para leer...
+        El metodo obtenerClinicaPorId busca una clínica concreta en la base de datos usando el idClinica recibido.
+        Accede al nodo "clinicas" y selecciona el registro que coincide con ese id.
+        Si la lectura es correcta, convierte los datos obtenidos en un objeto de tipo Clinica.
+        Después asigna manualmente el id al objeto y lo devuelve mediante onSuccess.
+        Si ocurre algún error durante la lectura, devuelve un mensaje mediante onError.
+    */
     fun obtenerClinicaPorId(
         idClinica: String,
         onSuccess: (Clinica?) -> Unit,
@@ -45,6 +59,13 @@ class ClinicaRemote(private val databaseReference: DatabaseReference) {
             }
     }
 
+    /* EXPLICACIÓN DEL METODO <obtenerIdsClinicasPorComunidad()> : despliega para leer...
+        El metodo obtenerIdsClinicasPorComunidad busca las clínicas asociadas a una comunidad autónoma usando su claveComunidad.
+        Accede al nodo "clinicasPorComunidadAutonoma" y obtiene los registros vinculados a esa comunidad.
+        Después recorre cada hijo y comprueba si su valor es true, indicando que la relación es válida.
+        Si es válido, añade el id de la clínica a una lista.
+        Finalmente devuelve la lista de ids mediante onSuccess, o un mensaje de error con onError si falla la lectura.
+    */
     fun obtenerIdsClinicasPorComunidad(
         claveComunidad: String,
         onSuccess: (List<String>) -> Unit,
@@ -67,129 +88,4 @@ class ClinicaRemote(private val databaseReference: DatabaseReference) {
             }
     }
 
-    fun registrarClinica(
-        idClinica: String,
-        clinica: Clinica,
-        claveComunidad: String,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        val updates = hashMapOf<String, Any?>(
-            "/clinicas/$idClinica" to clinica,
-            "/clinicasPorComunidadAutonoma/$claveComunidad/$idClinica" to true
-        )
-
-        databaseReference.updateChildren(updates)
-            .addOnSuccessListener {
-                onSuccess()
-            }
-            .addOnFailureListener {
-                onError("ERROR al registrar la clínica")
-            }
-    }
-
-    fun actualizarClinica(
-        idClinica: String,
-        cambios: Map<String, Any?>,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        databaseReference.child("clinicas").child(idClinica).updateChildren(cambios)
-            .addOnSuccessListener {
-                onSuccess()
-            }
-            .addOnFailureListener {
-                onError("ERROR al actualizar la clínica")
-            }
-    }
-
-    fun activarClinica(
-        idClinica: String,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        databaseReference.child("clinicas").child(idClinica).child("activa").setValue(true)
-            .addOnSuccessListener {
-                onSuccess()
-            }
-            .addOnFailureListener {
-                onError("ERROR al activar la clínica")
-            }
-    }
-
-    fun desactivarClinica(
-        idClinica: String,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        databaseReference.child("clinicas").child(idClinica).child("activa").setValue(false)
-            .addOnSuccessListener {
-                onSuccess()
-            }
-            .addOnFailureListener {
-                onError("ERROR al desactivar la clínica")
-            }
-    }
-
-    fun actualizarCoordenadasClinica(
-        idClinica: String,
-        latitud: Double,
-        longitud: Double,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        val updates = mapOf(
-            "coordenadas/latitud" to latitud,
-            "coordenadas/longitud" to longitud
-        )
-
-        databaseReference.child("clinicas").child(idClinica).updateChildren(updates)
-            .addOnSuccessListener {
-                onSuccess()
-            }
-            .addOnFailureListener {
-                onError("ERROR al actualizar las coordenadas de la clínica")
-            }
-    }
-
-    fun eliminarIndiceComunidad(
-        idClinica: String,
-        claveComunidad: String,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        databaseReference.child("clinicasPorComunidadAutonoma")
-            .child(claveComunidad)
-            .child(idClinica)
-            .removeValue()
-            .addOnSuccessListener {
-                onSuccess()
-            }
-            .addOnFailureListener {
-                onError("ERROR al eliminar el índice de comunidad")
-            }
-    }
-
-    fun actualizarComunidadClinica(
-        idClinica: String,
-        claveComunidadAnterior: String,
-        claveComunidadNueva: String,
-        comunidadAutonomaVisible: String,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        val updates = hashMapOf<String, Any?>(
-            "/clinicas/$idClinica/comunidadAutonoma" to comunidadAutonomaVisible,
-            "/clinicasPorComunidadAutonoma/$claveComunidadAnterior/$idClinica" to null,
-            "/clinicasPorComunidadAutonoma/$claveComunidadNueva/$idClinica" to true
-        )
-
-        databaseReference.updateChildren(updates)
-            .addOnSuccessListener {
-                onSuccess()
-            }
-            .addOnFailureListener {
-                onError("ERROR al actualizar la comunidad autónoma de la clínica")
-            }
-    }
 }

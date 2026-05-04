@@ -5,36 +5,13 @@ import com.example.vetycare.model.entities.Veterinario
 
 class VeterinarioRepository(private val remoteVeterinario: VeterinarioRemote) {
 
-    fun obtenerTodosLosVeterinariosActivos(
-        onSuccess: (List<Veterinario>) -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        remoteVeterinario.obtenerTodosLosVeterinarios(
-            onSuccess = { lista ->
-                onSuccess(lista.filter { it.activa == true })
-            },
-            onError = onError
-        )
-    }
-
-    fun obtenerVeterinarioPorId(
-        idVeterinario: String,
-        onSuccess: (Veterinario) -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        remoteVeterinario.obtenerVeterinarioPorId(
-            idVeterinario = idVeterinario,
-            onSuccess = { veterinario ->
-                if (veterinario != null) {
-                    onSuccess(veterinario)
-                } else {
-                    onError("No se encontró el veterinario")
-                }
-            },
-            onError = onError
-        )
-    }
-
+    /* EXPLICACIÓN DEL METODO <obtenerVeterinariosPorClinica()> : despliega para leer...
+        El metodo obtenerVeterinariosPorClinica obtiene primero los ids de los veterinarios asociados a una clínica usando su idClinica.
+        Si no encuentra ningún veterinario, devuelve una lista vacía mediante onSuccess.
+        Si hay ids, recorre cada uno y obtiene los datos completos del veterinario llamando a obtenerVeterinarioPorId.
+        Cada veterinario encontrado se guarda junto a su id en una lista de pares Pair<String, Veterinario>.
+        Cuando termina de cargar todos los veterinarios, los ordena por nombre y apellido, y devuelve la lista; si ocurre un error, lo comunica mediante onError.
+    */
     fun obtenerVeterinariosPorClinica(
         idClinica: String,
         onSuccess: (List<Pair<String, Veterinario>>) -> Unit,
@@ -82,6 +59,12 @@ class VeterinarioRepository(private val remoteVeterinario: VeterinarioRemote) {
         )
     }
 
+    /* EXPLICACIÓN DEL METODO <obtenerVeterinariosActivosPorClinica()> : despliega para leer...
+        El metodo obtenerVeterinariosActivosPorClinica obtiene primero todos los veterinarios asociados a una clínica usando su idClinica.
+        Para ello reutiliza el metodo obtenerVeterinariosPorClinica, que devuelve la lista completa de veterinarios de esa clínica.
+        Después filtra la lista para quedarse únicamente con los veterinarios cuyo campo activa sea true.
+        Finalmente devuelve los veterinarios activos mediante onSuccess, o comunica el error mediante onError si falla la búsqueda inicial.
+    */
     fun obtenerVeterinariosActivosPorClinica(
         idClinica: String,
         onSuccess: (List<Pair<String, Veterinario>>) -> Unit,
@@ -96,6 +79,13 @@ class VeterinarioRepository(private val remoteVeterinario: VeterinarioRemote) {
         )
     }
 
+    /* EXPLICACIÓN DEL METODO <obtenerVeterinariosPorColegio()> : despliega para leer...
+        El metodo obtenerVeterinariosPorColegio obtiene primero los ids de los veterinarios asociados a un colegio usando su idColegio.
+        Si no encuentra ningún veterinario, devuelve una lista vacía mediante onSuccess.
+        Si hay ids, recorre cada uno y obtiene los datos completos del veterinario llamando a obtenerVeterinarioPorId.
+        Cada veterinario encontrado se guarda junto a su id en una lista de pares Pair<String, Veterinario>.
+        Cuando termina de cargar todos los veterinarios, los ordena por nombre y apellido, y devuelve la lista; si ocurre un error, lo comunica mediante onError.
+    */
     fun obtenerVeterinariosPorColegio(
         idColegio: String,
         onSuccess: (List<Pair<String, Veterinario>>) -> Unit,
@@ -139,104 +129,6 @@ class VeterinarioRepository(private val remoteVeterinario: VeterinarioRemote) {
                     )
                 }
             },
-            onError = onError
-        )
-    }
-
-    fun obtenerVeterinariosActivosPorColegio(
-        idColegio: String,
-        onSuccess: (List<Pair<String, Veterinario>>) -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        obtenerVeterinariosPorColegio(
-            idColegio = idColegio,
-            onSuccess = { lista ->
-                onSuccess(lista.filter { it.second.activa == true })
-            },
-            onError = onError
-        )
-    }
-
-    fun registrarVeterinario(
-        idVeterinario: String,
-        veterinario: Veterinario,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        remoteVeterinario.registrarVeterinario(
-            idVeterinario = idVeterinario,
-            veterinario = veterinario,
-            onSuccess = onSuccess,
-            onError = onError
-        )
-    }
-
-    fun actualizarVeterinario(
-        idVeterinario: String,
-        cambios: Map<String, Any?>,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        remoteVeterinario.actualizarVeterinario(
-            idVeterinario = idVeterinario,
-            cambios = cambios,
-            onSuccess = onSuccess,
-            onError = onError
-        )
-    }
-
-    fun activarVeterinario(
-        idVeterinario: String,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        remoteVeterinario.activarVeterinario(
-            idVeterinario = idVeterinario,
-            onSuccess = onSuccess,
-            onError = onError
-        )
-    }
-
-    fun desactivarVeterinario(
-        idVeterinario: String,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        remoteVeterinario.desactivarVeterinario(
-            idVeterinario = idVeterinario,
-            onSuccess = onSuccess,
-            onError = onError
-        )
-    }
-
-    fun actualizarClinicaVeterinario(
-        idVeterinario: String,
-        idClinicaAnterior: String,
-        idClinicaNueva: String,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        remoteVeterinario.actualizarClinicaVeterinario(
-            idVeterinario = idVeterinario,
-            idClinicaAnterior = idClinicaAnterior,
-            idClinicaNueva = idClinicaNueva,
-            onSuccess = onSuccess,
-            onError = onError
-        )
-    }
-
-    fun actualizarColegioVeterinario(
-        idVeterinario: String,
-        idColegioAnterior: String,
-        idColegioNuevo: String,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        remoteVeterinario.actualizarColegioVeterinario(
-            idVeterinario = idVeterinario,
-            idColegioAnterior = idColegioAnterior,
-            idColegioNuevo = idColegioNuevo,
-            onSuccess = onSuccess,
             onError = onError
         )
     }

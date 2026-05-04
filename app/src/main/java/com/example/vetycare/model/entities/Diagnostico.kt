@@ -2,6 +2,12 @@ package com.example.vetycare.model.entities
 
 import java.io.Serializable
 
+/*
+    EXPLICACION
+        Modelo de datos que representa un diagnóstico clínico, incluyendo su información básica
+        y sus relaciones con cita, mascota, patología y tratamiento.
+ */
+
 data class Diagnostico(
     var id: String? = null,
     val estado: String? = null,

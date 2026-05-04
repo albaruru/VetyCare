@@ -6,6 +6,12 @@ import com.google.firebase.database.DatabaseReference
 
 class TratamientoRemote (private val databaseReference: DatabaseReference) {
 
+    /* EXPLICACIÓN DEL METODO <obtenerTratamientoPorId()> : despliega para leer...
+        El metodo obtenerTratamientoPorId busca un tratamiento concreto en la base de datos usando el idTratamiento recibido.
+        Accede al nodo "tratamientos" y selecciona el registro que coincide con ese id.
+        Si la lectura se realiza correctamente, convierte los datos obtenidos en un objeto de tipo Tratamiento.
+        Finalmente devuelve el tratamiento mediante onSuccess, o un mensaje de error mediante onError si falla la lectura.
+    */
     fun obtenerTratamientoPorId(
         idTratamiento: String,
         onSuccess: (Tratamiento?) -> Unit,
@@ -21,6 +27,13 @@ class TratamientoRemote (private val databaseReference: DatabaseReference) {
             }
     }
 
+    /* EXPLICACIÓN DEL METODO <obtenerIdsTratamientosPorMascota()> : despliega para leer...
+        El metodo obtenerIdsTratamientosPorMascota busca los tratamientos asociados a una mascota concreta usando su idMascota.
+        Accede al nodo "tratamientosPorMascota" y obtiene los registros vinculados a esa mascota.
+        Después recorre cada hijo y comprueba si su valor es true, indicando que la relación es válida.
+        Si es válido, añade el id del tratamiento a una lista.
+        Finalmente devuelve la lista de ids mediante onSuccess, o un mensaje de error con onError si falla la lectura.
+    */
     fun obtenerIdsTratamientosPorMascota(
         idMascota: String,
         onSuccess: (List<String>) -> Unit,
@@ -44,41 +57,12 @@ class TratamientoRemote (private val databaseReference: DatabaseReference) {
             }
     }
 
-    fun registrarTratamiento(
-        idTratamiento: String,
-        tratamiento: Tratamiento,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-        ) {
-        databaseReference.child("tratamientos").child(idTratamiento).setValue(tratamiento)
-            .addOnSuccessListener {
-                databaseReference.child("tratamientosPorMascota")
-                    .child(tratamiento.idMascota.toString())
-                    .child(idTratamiento)
-                    .setValue(true)
-                    .addOnSuccessListener {
-                        onSuccess()
-                    }
-                    .addOnFailureListener {
-                        onError("Tratamiento creado, pero error al guardar índice por mascota")
-                    }
-            }
-            .addOnFailureListener {
-                onError("ERROR al crear el tratamiento")
-            }
-    }
-
-    fun actualizarTratamiento(
-        idTratamiento: String,
-        updates: Map<String, Any?>,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-        ) {
-        databaseReference.child("tratamientos").child(idTratamiento).updateChildren(updates)
-            .addOnSuccessListener { onSuccess() }
-            .addOnFailureListener { onError("ERROR al actualizar el tratamiento") }
-    }
-
+    /* EXPLICACIÓN DEL METODO <obtenerMedicamentosPorTratamiento()> : despliega para leer...
+        El metodo obtenerMedicamentosPorTratamiento busca los medicamentos asociados a un tratamiento concreto usando su idTratamiento.
+        Accede al nodo "medicamentosPorTratamiento" y selecciona el registro correspondiente a ese tratamiento.
+        Si la lectura se realiza correctamente, devuelve el DataSnapshot completo mediante onSuccess para poder recorrer sus medicamentos después.
+        Si ocurre algún error durante la lectura, devuelve un mensaje mediante onError.
+    */
     fun obtenerMedicamentosPorTratamiento(
         idTratamiento: String,
         onSuccess: (DataSnapshot) -> Unit,
@@ -93,50 +77,4 @@ class TratamientoRemote (private val databaseReference: DatabaseReference) {
             }
     }
 
-    fun guardarMedicamentoEnTratamiento(
-        idTratamiento: String,
-        idMedicamento: String,
-        datosMedicamento: Map<String, Any?>,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-        ) {
-        databaseReference.child("medicamentosPorTratamiento")
-            .child(idTratamiento)
-            .child(idMedicamento)
-            .setValue(datosMedicamento)
-            .addOnSuccessListener { onSuccess() }
-            .addOnFailureListener {
-                onError("ERROR al guardar medicamento en el tratamiento")
-            }
-    }
-
-    fun generarIdTratamiento(
-        onSuccess: (String) -> Unit,
-        onError: (String) -> Unit
-        ) {
-        databaseReference.child("tratamientos").get()
-            .addOnSuccessListener { snapshot ->
-                var maxNumero = 0
-
-                for (child in snapshot.children) {
-                    val id = child.key ?: continue
-                    val partes = id.split("_")
-
-                    if (partes.size == 2) {
-                        val numero = partes[1].toIntOrNull()
-                        if (numero != null && numero > maxNumero) {
-                            maxNumero = numero
-                        }
-                    }
-                }
-
-                val nuevoNumero = maxNumero + 1
-                val nuevoId = "trat_" + String.format("%03d", nuevoNumero)
-
-                onSuccess(nuevoId)
-            }
-            .addOnFailureListener {
-                onError("ERROR al generar ID del tratamiento")
-            }
-    }
 }

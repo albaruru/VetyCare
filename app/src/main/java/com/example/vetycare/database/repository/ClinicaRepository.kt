@@ -5,6 +5,12 @@ import com.example.vetycare.model.entities.Clinica
 
 class ClinicaRepository(private val remoteClinica: ClinicaRemote) {
 
+    /* EXPLICACIÓN DEL METODO <obtenerTodasLasClinicasActivas()> : despliega para leer...
+        El metodo obtenerTodasLasClinicasActivas obtiene primero todas las clínicas llamando a obtenerTodasLasClinicas de remoteClinica.
+        Cuando recibe la lista completa, filtra únicamente aquellas clínicas cuyo campo activa sea true.
+        De esta forma devuelve solo las clínicas que están disponibles o habilitadas en la aplicación.
+        Finalmente envía la lista filtrada mediante onSuccess, o comunica el error mediante onError si falla la lectura inicial.
+    */
     fun obtenerTodasLasClinicasActivas(
         onSuccess: (List<Clinica>) -> Unit,
         onError: (String?) -> Unit
@@ -17,24 +23,13 @@ class ClinicaRepository(private val remoteClinica: ClinicaRemote) {
         )
     }
 
-    fun obtenerClinicaPorId(
-        idClinica: String,
-        onSuccess: (Clinica) -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        remoteClinica.obtenerClinicaPorId(
-            idClinica = idClinica,
-            onSuccess = { clinica ->
-                if (clinica != null) {
-                    onSuccess(clinica)
-                } else {
-                    onError("No se encontró la clínica")
-                }
-            },
-            onError = onError
-        )
-    }
-
+    /* EXPLICACIÓN DEL METODO <obtenerClinicasPorComunidad()> : despliega para leer...
+        El metodo obtenerClinicasPorComunidad obtiene primero los ids de las clínicas asociadas a una comunidad autónoma usando claveComunidad.
+        Si no encuentra ninguna clínica, devuelve una lista vacía mediante onSuccess.
+        Si hay ids, recorre cada uno y obtiene la clínica completa llamando a obtenerClinicaPorId.
+        Cada clínica encontrada se guarda junto a su id en una lista de pares Pair<String, Clinica>.
+        Cuando termina de cargar todas las clínicas, las ordena por nombre y las devuelve; si ocurre un error, lo comunica mediante onError.
+    */
     fun obtenerClinicasPorComunidad(
         claveComunidad: String,
         onSuccess: (List<Pair<String, Clinica>>) -> Unit,
@@ -78,94 +73,12 @@ class ClinicaRepository(private val remoteClinica: ClinicaRemote) {
         )
     }
 
-    fun registrarClinica(
-        idClinica: String,
-        clinica: Clinica,
-        claveComunidad: String,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        remoteClinica.registrarClinica(
-            idClinica = idClinica,
-            clinica = clinica,
-            claveComunidad = claveComunidad,
-            onSuccess = onSuccess,
-            onError = onError
-        )
-    }
-
-    fun actualizarClinica(
-        idClinica: String,
-        cambios: Map<String, Any?>,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        remoteClinica.actualizarClinica(
-            idClinica = idClinica,
-            cambios = cambios,
-            onSuccess = onSuccess,
-            onError = onError
-        )
-    }
-
-    fun activarClinica(
-        idClinica: String,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        remoteClinica.activarClinica(
-            idClinica = idClinica,
-            onSuccess = onSuccess,
-            onError = onError
-        )
-    }
-
-    fun desactivarClinica(
-        idClinica: String,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        remoteClinica.desactivarClinica(
-            idClinica = idClinica,
-            onSuccess = onSuccess,
-            onError = onError
-        )
-    }
-
-    fun actualizarCoordenadasClinica(
-        idClinica: String,
-        latitud: Double,
-        longitud: Double,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        remoteClinica.actualizarCoordenadasClinica(
-            idClinica = idClinica,
-            latitud = latitud,
-            longitud = longitud,
-            onSuccess = onSuccess,
-            onError = onError
-        )
-    }
-
-    fun actualizarComunidadClinica(
-        idClinica: String,
-        claveComunidadAnterior: String,
-        claveComunidadNueva: String,
-        comunidadAutonomaVisible: String,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) {
-        remoteClinica.actualizarComunidadClinica(
-            idClinica = idClinica,
-            claveComunidadAnterior = claveComunidadAnterior,
-            claveComunidadNueva = claveComunidadNueva,
-            comunidadAutonomaVisible = comunidadAutonomaVisible,
-            onSuccess = onSuccess,
-            onError = onError
-        )
-    }
-
+    /* EXPLICACIÓN DEL METODO <obtenerClinicasActivasPorComunidad()> : despliega para leer...
+        El metodo obtenerClinicasActivasPorComunidad obtiene primero las clínicas asociadas a una comunidad usando claveComunidad.
+        Para ello reutiliza el metodo obtenerClinicasPorComunidad, que devuelve la lista completa de clínicas de esa comunidad.
+        Después filtra el resultado para quedarse solo con las clínicas cuyo campo activa sea true.
+        Finalmente devuelve la lista de clínicas activas mediante onSuccess, o comunica el error mediante onError si falla la búsqueda inicial.
+    */
     fun obtenerClinicasActivasPorComunidad(
         claveComunidad: String,
         onSuccess: (List<Pair<String, Clinica>>) -> Unit,
@@ -180,4 +93,5 @@ class ClinicaRepository(private val remoteClinica: ClinicaRemote) {
             onError = onError
         )
     }
+
 }

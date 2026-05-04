@@ -7,7 +7,12 @@ import com.example.vetycare.R
 
 object NavigatorInicio {
 
-    /* NAVEGACIÓN CONTAINER INICIO: desglose por métodos
+    /* NAVEGACIÓN CONTAINER INICIO:
+        Gestiona la navegación del módulo de Inicio.
+        Centraliza las transiciones entre fragments para evitar duplicación de código
+        y mantener un flujo de navegación más organizado y mantenible.
+
+    Desglose por métodos:
 
     - InicioPrincipal_to_InicioRegistro   => Navegamos del Fragment Principal                => Fragment Registro Usuario
     - InicioPrincipal_to_InicioRecPass    => Navegamos del Fragment Principal                => Fragment Recuperacion Contraseña

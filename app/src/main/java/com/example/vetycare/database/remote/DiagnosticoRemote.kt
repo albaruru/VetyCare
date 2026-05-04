@@ -5,6 +5,13 @@ import com.google.firebase.database.DatabaseReference
 
 class DiagnosticoRemote (private val databaseReference: DatabaseReference){
 
+    /* EXPLICACIÓN DEL METODO <obtenerDiagnosticoPorId()> : despliega para leer...
+        El metodo obtenerDiagnosticoPorId busca un diagnóstico concreto en la base de datos usando el idDiagnostico recibido.
+        Accede al nodo "diagnosticos" y selecciona el registro que coincide con ese id.
+        Si la lectura es correcta, convierte los datos obtenidos en un objeto de tipo Diagnostico.
+        Después asigna al objeto su id usando la clave del nodo y lo devuelve mediante onSuccess.
+        Si ocurre algún error durante la lectura, devuelve un mensaje mediante onError.
+    */
     fun obtenerDiagnosticoPorId(
         idDiagnostico: String,
         onSuccess: (Diagnostico?) -> Unit,
@@ -25,6 +32,13 @@ class DiagnosticoRemote (private val databaseReference: DatabaseReference){
             }
     }
 
+    /* EXPLICACIÓN DEL METODO <obtenerIdsDiagnosticosPorMascota()> : despliega para leer...
+        El metodo obtenerIdsDiagnosticosPorMascota busca los diagnósticos asociados a una mascota concreta usando su idMascota.
+        Accede al nodo "diagnosticosPorMascota" y obtiene los registros vinculados a esa mascota.
+        Después recorre cada hijo y comprueba si su valor es true, indicando que la relación es válida.
+        Si es válido, añade el id del diagnóstico a una lista.
+        Finalmente devuelve la lista de ids mediante onSuccess, o un mensaje de error con onError si falla la lectura.
+    */
     fun obtenerIdsDiagnosticosPorMascota(
         idMascota: String,
         onSuccess: (List<String>) -> Unit,
@@ -48,68 +62,4 @@ class DiagnosticoRemote (private val databaseReference: DatabaseReference){
             }
     }
 
-    fun registrarDiagnostico(
-        idDiagnostico: String,
-        diagnostico: Diagnostico,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-        ) {
-        databaseReference.child("diagnosticos").child(idDiagnostico).setValue(diagnostico)
-            .addOnSuccessListener {
-                databaseReference.child("diagnosticosPorMascota")
-                    .child(diagnostico.idMascota.toString())
-                    .child(idDiagnostico)
-                    .setValue(true)
-                    .addOnSuccessListener {
-                        onSuccess()
-                    }
-                    .addOnFailureListener {
-                        onError("Diagnóstico creado, pero error al guardar índice por mascota")
-                    }
-            }
-            .addOnFailureListener {
-                onError("ERROR al crear el diagnóstico")
-            }
-    }
-
-    fun actualizarDiagnostico(
-        idDiagnostico: String,
-        updates: Map<String, Any?>,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-        ) {
-        databaseReference.child("diagnosticos").child(idDiagnostico).updateChildren(updates)
-            .addOnSuccessListener { onSuccess() }
-            .addOnFailureListener { onError("ERROR al actualizar el diagnóstico") }
-    }
-
-    fun generarIdDiagnostico(
-        onSuccess: (String) -> Unit,
-        onError: (String) -> Unit
-        ) {
-        databaseReference.child("diagnosticos").get()
-            .addOnSuccessListener { snapshot ->
-                var maxNumero = 0
-
-                for (child in snapshot.children) {
-                    val id = child.key ?: continue
-                    val partes = id.split("_")
-
-                    if (partes.size == 2) {
-                        val numero = partes[1].toIntOrNull()
-                        if (numero != null && numero > maxNumero) {
-                            maxNumero = numero
-                        }
-                    }
-                }
-
-                val nuevoNumero = maxNumero + 1
-                val nuevoId = "diag_" + String.format("%03d", nuevoNumero)
-
-                onSuccess(nuevoId)
-            }
-            .addOnFailureListener {
-                onError("ERROR al generar ID del diagnóstico")
-            }
-    }
 }

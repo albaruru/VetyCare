@@ -5,8 +5,11 @@ import com.google.firebase.database.DatabaseReference
 
 class PropietarioRemote (private val databaseReference : DatabaseReference) {
 
-    /* METODO PARA ACCEDER A LA RAMA DE <propietariosPorAuthUid>:
-    RAMA => propietariosPorAuthUid
+    /* EXPLICACIÓN DEL METODO <obtenerIdPropietarioPorAuthUid()> : despliega para leer...
+        El metodo obtenerIdPropietarioPorAuthUid busca el id de un propietario usando el authUid del usuario autenticado.
+        Accede al nodo "propietariosPorAuthUid" y selecciona el registro asociado a ese authUid.
+        Si la lectura se realiza correctamente, obtiene el valor guardado como String, que corresponde al idPropietario.
+        Finalmente devuelve ese id mediante onSuccess, o un mensaje de error mediante onError si falla la búsqueda.
     */
     fun obtenerIdPropietarioPorAuthUid (
         authUid: String,
@@ -23,8 +26,11 @@ class PropietarioRemote (private val databaseReference : DatabaseReference) {
             }
     }
 
-    /* METODO PARA OBTENER DATOS AL PROPIETARIO SEGUN ID: ...
-    RAMA => propietarios
+    /* EXPLICACIÓN DEL METODO <obtenerPropietarioPorId()> : despliega para leer...
+        El metodo obtenerPropietarioPorId busca un propietario concreto en la base de datos usando el idPropietario recibido.
+        Accede al nodo "propietarios" y selecciona el registro que coincide con ese id.
+        Si la lectura se realiza correctamente, convierte los datos obtenidos en un objeto de tipo Propietario.
+        Finalmente devuelve el propietario mediante onSuccess, o un mensaje de error mediante onError si falla la lectura.
     */
     fun obtenerPropietarioPorId (
         idPropietario: String,
@@ -41,8 +47,12 @@ class PropietarioRemote (private val databaseReference : DatabaseReference) {
             }
     }
 
-    /* METODO CREAR NUEVO PROPIETARIO: ...
-    RAMA => propietarios
+    /* EXPLICACIÓN DEL METODO <crearPropietario()> : despliega para leer...
+        El metodo crearPropietario guarda un nuevo propietario en la base de datos usando el idPropietario recibido.
+        Primero registra el objeto propietario dentro del nodo "propietarios".
+        Si esa escritura se realiza correctamente, crea también una referencia en "propietariosPorAuthUid" usando el authUid del propietario.
+        Esta referencia permite localizar después al propietario asociado a un usuario autenticado.
+        Finalmente ejecuta onSuccess si se guarda bien, o devuelve un mensaje mediante onError si falla alguno de los pasos.
     */
     fun crearPropietario (
         idPropietario: String,
@@ -63,22 +73,12 @@ class PropietarioRemote (private val databaseReference : DatabaseReference) {
             }
     }
 
-    /* METODO ACTUALIZAR LOS DATOS DEL PROPIETARIO: ...
-    RAMA => propietarios
-    */
-    fun actualizarPropietario (
-        idPropietario: String,
-        updates: Map <String, Any?>,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-        ) {
-        databaseReference.child("propietarios").child(idPropietario).updateChildren(updates)
-            .addOnSuccessListener { onSuccess() }
-            .addOnFailureListener { onError("ERROR al utilizar el propietario") }
-    }
-
-    /* METODO PARA GENERAR EL SIGUIENTE ID DEL PROPIETARIO:
-    RAMA => propietarios
+    /* EXPLICACIÓN DEL METODO <generarIdPropietario()> : despliega para leer...
+        El metodo generarIdPropietario obtiene todos los propietarios existentes en la base de datos para calcular el siguiente id disponible.
+        Recorre cada clave, la separa por "_" y extrae la parte numérica si tiene el formato esperado, por ejemplo "prop_001".
+        Durante el recorrido guarda el número más alto encontrado y después le suma 1 para crear el nuevo identificador.
+        Finalmente genera el id con formato de tres cifras, como "prop_002", y lo devuelve mediante onSuccess;
+        si falla la lectura, devuelve un error con onError.
     */
     fun generarIdPropietario(
         onSuccess: (String) -> Unit,
@@ -110,4 +110,5 @@ class PropietarioRemote (private val databaseReference : DatabaseReference) {
                 onError("ERROR al generar ID del propietario")
             }
     }
+
 }

@@ -15,7 +15,6 @@ import com.example.vetycare.database.repository.MascotaRepository
 import com.example.vetycare.database.repository.PropietarioRepository
 import com.example.vetycare.databinding.FragmentUsuarioRegMascotaBinding
 import com.example.vetycare.model.entities.Mascota
-import com.example.vetycare.navigation.NavigatorInicio
 import com.example.vetycare.navigation.NavigatorUsuario
 import com.example.vetycare.ui.dialog.CancelacionDialog
 import com.example.vetycare.ui.dialog.ConfirmacionDialog
@@ -26,8 +25,12 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import kotlin.toString
 
+/* EXPLICACIÓN DE LA CLASE <UsuarioRegMascotaFragment()> : despliega para leer...
+    Fragmento encargado de gestionar el registro de nuevas mascotas por parte del usuario.
+    Controla la validación de los datos de entrada, la selección y subida de imágenes a Firebase
+    Storage y la persistencia del nuevo objeto Mascota en la base de datos sincronizada.
+ */
 class UsuarioRegMascotaFragment : Fragment() {
     private lateinit var binding : FragmentUsuarioRegMascotaBinding
     private lateinit var auth: FirebaseAuth
@@ -35,21 +38,30 @@ class UsuarioRegMascotaFragment : Fragment() {
     private lateinit var databaseReference: DatabaseReference
     private lateinit var propietarioRepository: PropietarioRepository
     private lateinit var mascotaRepository: MascotaRepository
-    private val keyConfirmacion = "confirmacion_registro" // Clave propia de la clase para ConfirmacionDialog
-    private val keyCancelacion = "cancelacion_registro" // Clave propia de la clase para CancelacionDialog
+    private val keyConfirmacion = "confirmacion_registro"
+    private val keyCancelacion = "cancelacion_registro"
 
     // Variables para Storage y selección de imagen
     private lateinit var storageReference: StorageReference
     private var uriImagenSeleccionada: Uri? = null
 
-    // Launcher para abrir la galeria y setear la imagen en el binding
+    /* EXPLICACIÓN DE LA VARIABLE <pickImageLauncher()> : despliega para leer...
+        Registra el contrato para obtener contenido de la galería de imágenes del dispositivo.
+        Permite al usuario elegir una fotografía para su mascota y actualiza la vista previa
+        en la interfaz antes de proceder con el guardado definitivo en el servidor.
+     */
     private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
         if (uri != null) {
             uriImagenSeleccionada = uri
-            binding.ivFotoAnimal.setImageURI(uri) // Muestra la previsualización en el ImageView
+            binding.ivFotoAnimal.setImageURI(uri)
         }
     }
 
+    /* EXPLICACIÓN DEL METODO <onAttach()> : despliega para leer...
+        Inicializa las instancias de Firebase y los repositorios de datos al vincular el fragmento.
+        Establece las referencias necesarias para la autenticación, base de datos y almacenamiento,
+        asegurando que la infraestructura de red esté lista para el proceso de registro.
+    */
     override fun onAttach(context: Context) {
         super.onAttach(context)
         auth = FirebaseAuth.getInstance()
@@ -64,6 +76,11 @@ class UsuarioRegMascotaFragment : Fragment() {
         mascotaRepository = MascotaRepository(remoteMascota)
     }
 
+    /* EXPLICACIÓN DEL METODO <onCreate()> : despliega para leer...
+        Configura los escuchadores de resultados para procesar las respuestas de los diálogos de alerta.
+        Activa la lógica de registro si el usuario confirma la acción o redirige al listado de
+        mascotas si el usuario decide cancelar la operación y descartar los datos.
+    */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -81,14 +98,24 @@ class UsuarioRegMascotaFragment : Fragment() {
         }
     }
 
+    /* EXPLICACIÓN DEL METODO <onCreateView()> : despliega para leer...
+        Infla la jerarquía de vistas utilizando la clase de vinculación generada para establecer la interfaz.
+        Retorna la vista raíz que contiene el formulario de registro de mascota, permitiendo al
+        sistema Android gestionar el ciclo de vida visual del componente.
+    */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View? {
         binding = FragmentUsuarioRegMascotaBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
 
+    /* EXPLICACIÓN DEL METODO <onViewCreated()> : despliega para leer...
+        Configura el callback para gestionar la pulsación del botón de retroceso nativo del dispositivo.
+        Garantiza que el usuario regrese a la pantalla del listado de mascotas de forma controlada
+        cuando intente salir del flujo de registro mediante el sistema de navegación de Android.
+    */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Para cuando le des al boton de volver del móvil vuelva a UsuarioMascota
+
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 navegacionFragment(2)
@@ -97,39 +124,50 @@ class UsuarioRegMascotaFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
+    /* EXPLICACIÓN DEL METODO <onResume()> : despliega para leer...
+        Define los eventos de interacción para los botones de guardado, retorno y selección de imagen.
+        Mantiene activa la escucha de eventos de la interfaz cada vez que el fragmento vuelve a
+        estar en primer plano para asegurar una respuesta inmediata a las acciones del usuario.
+    */
     override fun onResume() {
         super.onResume()
 
         /* Acciones de los botones del fragment:
-        -
+            Boton Guardar =>
+            Boton Volver => Navega a UsuarioMascotaFragment
+            Boton Foto => Navega a la galería de tu teléfono móvil
         */
         binding.btnGuardar.setOnClickListener {
-            //Solo si los campos son válidos, mostramos el diálogo
+
             if (comprobarCamposMascota()){
                 mensaje("confirmacion")
             }
         }
-
         binding.btnVolver.setOnClickListener {
             mensaje("cancelacion")
         }
-
-        // Listener para la foto de la mascota
         binding.ivFotoAnimal.setOnClickListener {
             pickImageLauncher.launch("image/*")
         }
     }
 
-    /* NAVEGACION ENTRE FRAGMENTS
-    1.- Mostramos el mensaje de confirmación y según la respuesta, entrará en el parentFragmentManager de nuestro metodo onCreate
-    2.- Mostramos el mensaje de cancelacion y según la respuesta, entrará en el parentFragmentManager de nuestro metodo onCreate
-    * */
+    /* EXPLICACIÓN DEL METODO <navegacionFragment()> : despliega para leer...
+        Centraliza la lógica de flujo para retornar a la pantalla del listado de mascotas del usuario.
+        Utiliza el NavigatorUsuario para ejecutar la transición de salida, asegurando que
+        la navegación sea coherente tanto desde los botones de la interfaz como desde el sistema.
+    */
     fun navegacionFragment (num: Int) {
         when (num) {
             1 -> NavigatorUsuario.UsuarioRegMascota_to_UsuarioMascota(this)
             2 -> NavigatorUsuario.UsuarioRegMascota_to_UsuarioMascota(this@UsuarioRegMascotaFragment)
         }
     }
+
+    /* EXPLICACIÓN DEL METODO <mensaje()> : despliega para leer...
+        Gestiona el despliegue de los diálogos personalizados de confirmación y cancelación.
+        Informa al usuario sobre la importancia de completar el registro o avisa sobre la
+        pérdida inminente de los datos introducidos si decide abandonar el proceso actual.
+    */
     fun mensaje (tipo: String) {
         when (tipo) {
             "confirmacion" -> {
@@ -149,24 +187,26 @@ class UsuarioRegMascotaFragment : Fragment() {
         }
     }
 
-    // FUNCIÓN PARA COMPROBAR REGISTRO DE MASCOTA
+    /* EXPLICACIÓN DEL METODO <comprobarCamposMascota()> : despliega para leer...
+        Realiza una validación técnica básica de los campos de entrada del formulario.
+        Verifica que el nombre de la mascota no esté vacío antes de permitir el avance
+        hacia el diálogo de confirmación, evitando registros incompletos en la base de datos.
+    */
     fun comprobarCamposMascota(): Boolean {
         val nombre = binding.etNombreAnimal.text.toString().trim()
-        val chip = binding.etMicrochip.text.toString().trim() // Opcional
-        val especie = binding.etEspecie.text.toString().trim()
-        val raza = binding.etRaza.text.toString().trim()
-        val fecha = binding.etFechaAnimal.text.toString().trim()
-        val peso = binding.etPeso.text.toString().trim() ?: 0.0
 
-        //Verificar que no haya campos vacíos
         if (nombre.isEmpty()) {
-
             mostrarSnackbar( "Por favor, introduzca como mínimo el nombre de su mascota para el registro")
             return false
         }
         return true
     }
 
+    /* EXPLICACIÓN DEL METODO <registrarMascota()> : despliega para leer...
+        Coordina el proceso de alta de la mascota obteniendo el perfil del propietario y subiendo la imagen.
+        Gestiona la lógica asíncrona para generar un ID único, cargar el archivo en Storage
+        y finalmente persistir la entidad Mascota completa en Realtime Database.
+    */
     private fun registrarMascota() {
         val auth = auth.currentUser?.uid
 
@@ -185,15 +225,8 @@ class UsuarioRegMascotaFragment : Fragment() {
                 val fechaNacimiento = binding.etFechaAnimal.text.toString().trim()
                 val pesoTexto = binding.etPeso.text.toString().trim()
                 val sexo = binding.spSexo.selectedItem.toString()
-
-                // FIXME: La logica que habia antes de castracion, aunque marcaras Si en el Spinner, en la bbdd se marcaba como False
                 val castracion = binding.spCastracion.selectedItem.toString().equals("Si", ignoreCase = true)
-
                 val pesoActual = pesoTexto.toDoubleOrNull() ?: 0.0
-                /*if (pesoActual == null) {
-                    mostrarSnackbar("El peso debe ser un número válido.")
-                    return@obtenerPropietario
-                }*/
 
                 mascotaRepository.generarIdMascota(
                     { idMasc ->
@@ -278,9 +311,13 @@ class UsuarioRegMascotaFragment : Fragment() {
         )
     }
 
+    /* EXPLICACIÓN DEL METODO <obtenerFechaActual()> : despliega para leer...
+        Genera una cadena de texto representativa del día actual en formato yyyy-MM-dd.
+        Utiliza el SimpleDateFormat para normalizar la fecha de registro de la mascota,
+        asegurando una ordenación cronológica coherente en la base de datos de Firebase.
+    */
     private fun obtenerFechaActual(): String {
         val formato = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault())
         return formato.format(java.util.Date())
     }
-
 }
